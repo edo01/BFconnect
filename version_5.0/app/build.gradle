@@ -3,8 +3,8 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "org.altervista.edoardo.belluzzday"
-        minSdkVersion 22
+        applicationId "org.altervista.edoardo.bfconnect"
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -16,7 +16,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    dataBinding.enabled = true
 }
 
 dependencies {
@@ -28,6 +27,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     api 'com.google.guava:guava:26.0-android'
     api 'com.mcxiaoke.volley:library:1.0.19'
-    implementation 'com.android.support:design:28.0.0'
-    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
 }

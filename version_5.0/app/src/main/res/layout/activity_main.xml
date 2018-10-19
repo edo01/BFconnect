@@ -14,15 +14,6 @@
         android:src="@drawable/logo"
         android:layout_centerHorizontal="true"/>
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="46dp">
-
-    </android.support.design.widget.TextInputLayout>
-
     <TextView
         android:id="@+id/txtNFC"
         android:layout_width="wrap_content"

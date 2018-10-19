@@ -1,4 +1,4 @@
-package org.altervista.edoardo.belluzzday;
+package org.altervista.edoardo.bfconnect;
 
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -13,29 +13,16 @@ import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.util.Log;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.altervista.edoardo.belluzzday.parser.NdefMessageParser;
-import org.altervista.edoardo.belluzzday.record.ParsedNdefRecord;
+import org.altervista.edoardo.bfconnect.parser.NdefMessageParser;
+import org.altervista.edoardo.bfconnect.record.ParsedNdefRecord;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import okhttp3.FormBody;
-import okhttp3.OkHttpClient;
-import okhttp3.RequestBody;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,14 +34,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //new CallAPI("b1").execute();
         text= (TextView) findViewById(R.id.txtNFC);
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
         if (nfcAdapter == null) {
             Toast.makeText(this, "No NFC", Toast.LENGTH_SHORT).show();
-            finish();
-            return;
+
         }
 
         pendingIntent = PendingIntent.getActivity(this, 0,
@@ -134,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void showWirelessSettings() {
         Toast.makeText(this, "You need to enable NFC", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(Settings.ACTION_WIRELESS_SETTINGS);
+        Intent intent = new Intent(Settings.ACTION_NFC_SETTINGS);
         startActivity(intent);
     }
 
