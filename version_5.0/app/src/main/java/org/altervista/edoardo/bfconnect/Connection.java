@@ -1,7 +1,11 @@
+/*
+* CLASS CONNECTION.
+* The class which implements the http POST with a volley request.
+*/
+
 package org.altervista.edoardo.bfconnect;
 
 import android.util.Log;
-import android.widget.Toast;
 
 
 import com.android.volley.RequestQueue;
@@ -23,7 +27,7 @@ public class Connection{
         this.queue=queue;
     }
 
-    public void Post(final String aula){
+    public void Post(final String aula){    //method POST(like argument the String to pass in the connection)
 
         StringRequest postRequest = new StringRequest(com.android.volley.Request.Method.POST, url,
                 new Response.Listener<String>()
@@ -48,7 +52,6 @@ public class Connection{
             {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("aula", aula);
-
                 return params;
             }
         };
