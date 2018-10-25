@@ -15,9 +15,17 @@ import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.os.Parcelable;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.design.internal.BottomNavigationMenuView;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     PendingIntent pendingIntent;
     NfcAction nfc;
     Connection http;
+    ActionBar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         http=new Connection("http://192.168.1.105:80", Volley.newRequestQueue(this));
-        nfc=new NfcAction((TextView)findViewById(R.id.txtNFC),http);
+        /*nfc=new NfcAction((TextView)findViewById(R.id.txtNFC),http);*/
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
         if (nfcAdapter == null) { //if your device hasn't the NFC the application will advise you with a toast
@@ -47,6 +56,24 @@ public class MainActivity extends AppCompatActivity {
                 new Intent(this, this.getClass())
                         .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
 
+
+       BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment fragment;
+                switch (item.getItemId()) {
+                    case R.id.navigation_songs:
+                        return true;
+                    case R.id.navigation_artists:
+                        return true;
+                    case R.id.navigation_albums:
+                        return true;
+                }
+                return false;
+            }
+        });
     }
 
     @Override
