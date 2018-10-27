@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BFconnect</string>
+    <string name="scuola">Scuola</string>
+    <string name="rileva">Rileva</string>
 </resources>

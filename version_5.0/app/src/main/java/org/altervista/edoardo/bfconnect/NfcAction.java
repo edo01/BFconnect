@@ -8,7 +8,6 @@ import android.nfc.NdefMessage;
 import android.nfc.Tag;
 import android.nfc.tech.MifareClassic;
 import android.nfc.tech.MifareUltralight;
-import android.widget.TextView;
 
 import org.altervista.edoardo.bfconnect.parser.NdefMessageParser;
 import org.altervista.edoardo.bfconnect.record.ParsedNdefRecord;
@@ -17,11 +16,9 @@ import java.util.List;
 
 class NfcAction extends MainActivity{
 
-    TextView text;
     Connection http;
 
-    NfcAction(TextView text,Connection http){
-        this.text=text;
+    NfcAction(Connection http){
         this.http=http;
     }
 
@@ -38,7 +35,6 @@ class NfcAction extends MainActivity{
             String str = record.str();
             builder.append(str).append("\n");
         }
-        text.setText(builder.toString());//BUILDER.TOSTRING() RESTITUISCE IN STRINGA TUTTO QUELLO LETTO
         http.Post(builder.toString());
     }
 

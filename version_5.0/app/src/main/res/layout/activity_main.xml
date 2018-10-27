@@ -15,16 +15,6 @@
         android:layout_marginTop="50dp"
         android:src="@drawable/logo" />
 
-    <TextView
-        android:id="@+id/txtNFC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="61dp"
-        android:layout_marginBottom="218dp"
-        android:text="Hold a tag against the back of your device" />
-
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"

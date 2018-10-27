@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navigation_songs"
-        android:title="Songs"/>
+        android:id="@+id/prenotation"
+        android:icon="@drawable/ic_prenotation_before"
+        android:title="Prenota"/>
     <item
-        android:id="@+id/navigation_albums"
-        android:title="Albums"/>
+        android:id="@+id/reading"
+	    android:icon="@drawable/logo_before"
+        android:title="@string/rileva"/>
     <item
-        android:id="@+id/navigation_artists"
-        android:title="Artists"/>
+        android:id="@+id/school"
+	    android:icon="@drawable/ic_school_before"
+        android:title="@string/scuola"/>
 
 </menu>
