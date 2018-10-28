@@ -18,19 +18,28 @@ class HandlerView extends MainActivity{
 
     HandlerView(BottomNavigationView bnv){
         final BottomNavigationView navigation = bnv;
+        navigation.getMenu().getItem(0).setIcon(R.drawable.ic_prenotation_before);
+        navigation.getMenu().getItem(2).setIcon(R.drawable.ic_school_before);
+        navigation.getMenu().getItem(1).setIcon(R.drawable.logo);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
         	@Override
         	public boolean onNavigationItemSelected(@NonNull MenuItem item) {
            		switch (item.getItemId()) {
                			case R.id.reading:
-                            item.setIcon(ContextCompat.getDrawable(HandlerView.super.getContext(), R.drawable.logo));
+               			    navigation.getMenu().getItem(0).setIcon(R.drawable.ic_prenotation_before);
+                            navigation.getMenu().getItem(2).setIcon(R.drawable.ic_school_before);
+                            item.setIcon(R.drawable.logo);
                             return true;
                			case R.id.school:
-                            item.setIcon(ContextCompat.getDrawable(HandlerView.super.getContext(), R.drawable.ic_school));
+                            navigation.getMenu().getItem(1).setIcon(R.drawable.logo_before);
+                            navigation.getMenu().getItem(0).setIcon(R.drawable.ic_prenotation_before);
+                            item.setIcon(R.drawable.ic_school);
                             return true;
                			case R.id.prenotation:
-                            item.setIcon(ContextCompat.getDrawable(HandlerView.super.getContext(), R.drawable.ic_prenotation));
-                            return true;
+                            navigation.getMenu().getItem(1).setIcon(R.drawable.logo_before);
+                            navigation.getMenu().getItem(2).setIcon(R.drawable.ic_school_before);
+                            item.setIcon(R.drawable.ic_prenotation);
+               			    return true;
            		}
            		return false;
         	}

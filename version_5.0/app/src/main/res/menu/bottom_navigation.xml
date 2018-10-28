@@ -6,11 +6,11 @@
         android:title="Prenota"/>
     <item
         android:id="@+id/reading"
-	    android:icon="@drawable/logo_before"
+	    android:icon="@drawable/logo"
+        android:checked="true"
         android:title="@string/rileva"/>
     <item
         android:id="@+id/school"
 	    android:icon="@drawable/ic_school_before"
         android:title="@string/scuola"/>
-
 </menu>

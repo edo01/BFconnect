@@ -23,6 +23,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
@@ -54,8 +55,6 @@ public class MainActivity extends AppCompatActivity {
         http = new Connection("http://192.168.1.105:80", Volley.newRequestQueue(this));
         nfc = new NfcAction(http);
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
-
-
         if (nfcAdapter == null) { //if your device hasn't the NFC the application will advise you with a toast
             Toast.makeText(this, "No NFC", Toast.LENGTH_SHORT).show();
         }
@@ -119,5 +118,11 @@ public class MainActivity extends AppCompatActivity {
 
     public Context getContext(){
         return  this.getApplicationContext();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.three_dots_menu, menu);
+        return true;
     }
 }

@@ -11,7 +11,7 @@
         android:id="@+id/logo"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
         android:layout_marginTop="50dp"
         android:src="@drawable/logo" />
 
@@ -24,8 +24,18 @@
         android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
         android:foreground="?attr/selectableItemBackground"
-        app:itemIconTint="@android:color/black"
         app:itemTextColor="@android:color/black"
-        app:menu="@menu/bottom_navigation_items" />
+        app:menu="@menu/bottom_navigation" />
+
+    <ImageView
+        android:id="@+id/bf_connect_"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="0dp"
+        app:srcCompat="@drawable/ic_bf_connect_horizontal" />
+
 
 </RelativeLayout>
