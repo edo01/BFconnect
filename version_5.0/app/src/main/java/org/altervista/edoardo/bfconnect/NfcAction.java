@@ -1,4 +1,4 @@
-/*
+/**
 * NfcAction extends MainActivity.
 * The class which implements the NFC methods.
 */

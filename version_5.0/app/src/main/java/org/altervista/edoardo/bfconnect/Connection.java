@@ -1,4 +1,4 @@
-/*
+/**
 * CLASS CONNECTION.
 * The class which implements the http POST with a volley request.
 */

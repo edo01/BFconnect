@@ -2,8 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/prenotation"
+        android:checked="false"
         android:icon="@drawable/ic_prenotation_before"
-        android:title="Prenota"/>
+        android:title="@string/prenota"/>
     <item
         android:id="@+id/reading"
 	    android:icon="@drawable/logo"

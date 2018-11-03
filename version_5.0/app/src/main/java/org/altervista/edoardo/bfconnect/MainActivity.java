@@ -1,4 +1,4 @@
-/*
+/**
 * BFCONNECT THE NEW APPLICATION POWERED BY EDOARDO CARRÀ, RICCARDO BOVINELLI and FRANCESCO TADDIA.
 *
 * BFconnect the new system aplication for the ISS BELLUZZI FIORAVANTI'S OPEN DAY.
@@ -24,6 +24,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //set content view AFTER ABOVE sequence (to avoid crash)
         setContentView(R.layout.activity_main);
-	    myhw = new HandlerView((BottomNavigationView) findViewById(R.id.navigation));
+	    myhw = new HandlerView((BottomNavigationView) findViewById(R.id.navigation), this);
         http = new Connection("http://192.168.1.105:80", Volley.newRequestQueue(this));
         nfc = new NfcAction(http);
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         pendingIntent = PendingIntent.getActivity(this, 0,// creating a new intent that will be used for reading NFC
                 new Intent(this, this.getClass())
                         .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+
 	       
     }
 
@@ -121,8 +123,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.three_dots_menu, menu);
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.three_dots,menu);
         return true;
     }
+
 }

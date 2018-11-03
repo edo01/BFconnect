@@ -2,18 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/logo" />
+    tools:context=".Prenotation">
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
@@ -24,18 +15,22 @@
         android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
         android:foreground="?attr/selectableItemBackground"
-        app:itemIconTint="@drawable/bottom_navigation_style"
-        app:itemTextColor="@drawable/bottom_navigation_style"
-        app:menu="@menu/bottom_navigation" />
+        app:itemIconTint="@android:color/black"
+        app:itemTextColor="@android:color/black"
+        app:menu="@menu/bottom_navigation"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="457dp" />
 
-    <ImageView
-        android:id="@+id/bf_connect_"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="0dp"
-        app:srcCompat="@drawable/ic_bf_connect_horizontal" />
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="false"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="15dp" />
 
 </RelativeLayout>
