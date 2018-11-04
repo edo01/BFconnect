@@ -3,15 +3,15 @@
     <item
         android:id="@+id/prenotation"
         android:checked="false"
-        android:icon="@drawable/ic_prenotation_before"
+        android:icon="@drawable/ic_prenotation"
         android:title="@string/prenota"/>
     <item
         android:id="@+id/reading"
-	    android:icon="@drawable/logo"
+	    android:icon="@drawable/ic_logo"
         android:checked="true"
         android:title="@string/rileva"/>
     <item
         android:id="@+id/school"
-	    android:icon="@drawable/ic_school_before"
+	    android:icon="@drawable/ic_school"
         android:title="@string/scuola"/>
 </menu>

@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/help"
-        android:title="help" />
+        android:title="@string/help" />
     <item
         android:id="@+id/about_us"
-        android:title="about us"/>
+        android:title="@string/about_us"/>
 </menu>

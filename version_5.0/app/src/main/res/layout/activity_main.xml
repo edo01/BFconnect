@@ -5,7 +5,7 @@
     android:id="@+id/page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Home">
 
     <ImageView
         android:id="@+id/logo"
@@ -13,7 +13,16 @@
         android:layout_height="200dp"
         android:layout_centerInParent="true"
         android:layout_marginTop="50dp"
-        android:src="@drawable/logo" />
+        android:src="@drawable/ic_logo" />
+    <ImageView
+        android:id="@+id/bf_connect_"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="0dp"
+        app:srcCompat="@drawable/ic_bf_connect_horizontal" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
@@ -26,16 +35,6 @@
         android:foreground="?attr/selectableItemBackground"
         app:itemIconTint="@drawable/bottom_navigation_style"
         app:itemTextColor="@drawable/bottom_navigation_style"
-        app:menu="@menu/bottom_navigation" />
-
-    <ImageView
-        android:id="@+id/bf_connect_"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="0dp"
-        app:srcCompat="@drawable/ic_bf_connect_horizontal" />
+        app:menu="@menu/bottom_navigation"/>
 
 </RelativeLayout>

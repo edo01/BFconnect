@@ -1,5 +1,5 @@
 /**
-* NfcAction extends MainActivity.
+* NfcAction extends Home.
 * The class which implements the NFC methods.
 */
 package org.altervista.edoardo.bfconnect;
@@ -14,7 +14,7 @@ import org.altervista.edoardo.bfconnect.record.ParsedNdefRecord;
 
 import java.util.List;
 
-class NfcAction extends MainActivity{
+class NfcAction extends Home {
 
     Connection http;
 
