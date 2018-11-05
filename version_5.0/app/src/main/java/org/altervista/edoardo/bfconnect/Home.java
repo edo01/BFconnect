@@ -23,13 +23,11 @@ import com.android.volley.toolbox.Volley;
 public class Home extends BaseActivity {
 
     NfcAction nfc;
-    //HandlerView myhw;//the class which manipulate the view
     Connection http;
     ActionBar toolbar;
 
     @Override
     void startThread() {
-        //myhw = new HandlerView((BottomNavigationView) findViewById(R.id.navigation), this);
         http = new Connection("http://192.168.1.71:80", Volley.newRequestQueue(this));
         nfc = new NfcAction(http);
 
