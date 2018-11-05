@@ -74,7 +74,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
                 startActivity(new Intent(this, Prenotation.class));
             }
             finish();
-        }, 300);
+        }, 150);
         return true;
     }
 
