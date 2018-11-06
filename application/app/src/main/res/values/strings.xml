@@ -3,6 +3,7 @@
     <string name="scuola">Scuola</string>
     <string name="rileva">Rileva</string>
     <string name="prenota">Prenota</string>
-    <string name="help">help</string>
-    <string name="about_us">about us</string>
+    <string name="help">Help</string>
+    <string name="about_us">About us</string>
+    <string name="title_activity_school">School</string>
 </resources>

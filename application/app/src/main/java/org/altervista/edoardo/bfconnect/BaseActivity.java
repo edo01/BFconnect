@@ -67,7 +67,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         navigationView.postDelayed(() -> {
             int itemId = item.getItemId();
             if (itemId == R.id.school) {
-                startActivity(new Intent(this, Home.class));
+                startActivity(new Intent(this, School.class));
             } else if (itemId == R.id.reading) {
                 startActivity(new Intent(this, Home.class));
             } else if (itemId == R.id.prenotation) {
