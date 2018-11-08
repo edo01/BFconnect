@@ -56,9 +56,10 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
     protected void onResume() {
         super.onResume();
         if (nfcAdapter != null) {
-            if (!nfcAdapter.isEnabled())
+            if (!nfcAdapter.isEnabled()){
                 showNFCSettings();
             nfcAdapter.enableForegroundDispatch(this, pendingIntent, null, null);
+            }
         }
     }
 
@@ -69,12 +70,14 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
             if (itemId == R.id.school && itemId != this.getContentViewId()) {
                 startActivity(new Intent(this, Home.class));
             } else if (itemId == R.id.reading && itemId != this.getContentViewId()) {
+                startActivity(new Intent(this, School.class));
+            } else if (itemId == R.id.reading) {
                 startActivity(new Intent(this, Home.class));
             } else if (itemId == R.id.prenotation && itemId != this.getContentViewId()) {
                 startActivity(new Intent(this, Prenotation.class));
             }
             finish();
-        }, 150);
+        }, 310);
         return true;
     }
 
