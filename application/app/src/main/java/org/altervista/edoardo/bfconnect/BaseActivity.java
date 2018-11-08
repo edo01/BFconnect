@@ -66,11 +66,11 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         navigationView.postDelayed(() -> {
             int itemId = item.getItemId();
-            if (itemId == R.id.school) {
+            if (itemId == R.id.school && itemId != this.getContentViewId()) {
                 startActivity(new Intent(this, Home.class));
-            } else if (itemId == R.id.reading) {
+            } else if (itemId == R.id.reading && itemId != this.getContentViewId()) {
                 startActivity(new Intent(this, Home.class));
-            } else if (itemId == R.id.prenotation) {
+            } else if (itemId == R.id.prenotation && itemId != this.getContentViewId()) {
                 startActivity(new Intent(this, Prenotation.class));
             }
             finish();
@@ -102,6 +102,9 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         return true;
     }
 
+    /**
+     * Put here the action of your activty.
+     */
     abstract void startThread();
 
     abstract int getContentViewId();
