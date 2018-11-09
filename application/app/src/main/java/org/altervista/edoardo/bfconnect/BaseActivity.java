@@ -64,17 +64,21 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        navigationView.postDelayed(() -> {
-            int itemId = item.getItemId();
-            if (itemId == R.id.reading) {
-                startActivity(new Intent(this, Home.class));
-            } else if (itemId == R.id.prenotation && itemId != this.getContentViewId()) {
-                startActivity(new Intent(this, Prenotation.class));
-            } else if (itemId == R.id.school && itemId != this.getContentViewId()) {
-                startActivity(new Intent(this, School.class));
-            }
-            finish();
-        }, 310);
+        int itemId = item.getItemId();
+        if(itemId != this.getNavigationMenuItemId()){
+            navigationView.postDelayed(() -> {
+
+                if (itemId == R.id.reading) {
+                    startActivity(new Intent(this, Home.class));
+                } else if (itemId == R.id.prenotation) {
+                    startActivity(new Intent(this, Prenotation.class));
+                } else if (itemId == R.id.school) {
+                    startActivity(new Intent(this, School.class));
+                }
+                finish();
+            }, 310);
+        }
+
         return true;
     }
 
