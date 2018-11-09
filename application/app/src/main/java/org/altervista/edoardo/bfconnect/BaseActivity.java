@@ -66,20 +66,20 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         navigationView.postDelayed(() -> {
             int itemId = item.getItemId();
-            if (itemId == R.id.school) {
-                startActivity(new Intent(this, School.class));
-            } else if (itemId == R.id.reading) {
+            if (itemId == R.id.reading) {
                 startActivity(new Intent(this, Home.class));
-            } else if (itemId == R.id.prenotation) {
+            } else if (itemId == R.id.prenotation && itemId != this.getContentViewId()) {
                 startActivity(new Intent(this, Prenotation.class));
+            } else if (itemId == R.id.school && itemId != this.getContentViewId()) {
+                startActivity(new Intent(this, School.class));
             }
             finish();
-        }, 150);
+        }, 310);
         return true;
     }
 
     private void showNFCSettings() {
-        Toast.makeText(this, "You need to enable NFC", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "È necessario abilitare NFC", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(Settings.ACTION_NFC_SETTINGS);
         startActivity(intent);
     }
