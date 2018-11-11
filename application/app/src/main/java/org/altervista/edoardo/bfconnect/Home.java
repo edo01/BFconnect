@@ -79,6 +79,4 @@ public class Home extends BaseActivity {
         return R.id.reading;
     }
 
-
-
 }

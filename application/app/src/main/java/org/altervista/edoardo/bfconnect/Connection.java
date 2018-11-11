@@ -13,6 +13,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,6 +38,7 @@ public class Connection{
                     public void onResponse(String response) {
                         // response
                         Log.d("Response", response);
+                        startActivity(response);
                     }
                 },
                 new Response.ErrorListener()
@@ -59,5 +62,35 @@ public class Connection{
 
     }
 
+    void startActivity(String respose){
+
+    }
+
+    public String getDate(){
+
+        StringRequest postRequest = new StringRequest(com.android.volley.Request.Method.GET, url,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        // response
+                        Log.d("Response", response);
+
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        Log.d("Error.Response", error.toString());
+                    }
+                }
+        ) ;
+        queue.add(postRequest);
+        return "16/11/2018";
+    }
 
 }
+
+

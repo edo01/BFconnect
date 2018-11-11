@@ -16,8 +16,6 @@ import http.server
 from handler import MyHandler
 import datetime
 
-def _quote_html(html):
-    return html.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 def run():
     myserver = None
     server_name = "BelluzzServer"

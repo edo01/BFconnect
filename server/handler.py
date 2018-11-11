@@ -6,23 +6,33 @@ import http
 
 # Default message template
 DEFAULT_MESSAGE_TEMPLATE = """\
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-        <title>Belluzz Server Response</title>
-    </head>
-    <body>
-        <h1>Server Response</h1>
-        <h1>BELLUZZ SERVER is working</h1>
-        <form>
-            please insert class:<br>
-            <input type="text" name="class"><br>
-            <input type="submit" value="Submit">
-        </form>
-    </body>
-</html>
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Prenotation">
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="false"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="15dp" />
+
+</RelativeLayout>
 """
+
+def _quote_html(html):
+    return html.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 class MyHandler(
     http.server.BaseHTTPRequestHandler):  # MyHandler extends http.server.BaseHTTPRequestHandler and implements the method do_Get and do_POST
@@ -44,7 +54,7 @@ class MyHandler(
 
     def _send_response(self, code, message, info=""):
         self.send_response(http.HTTPStatus.OK)  # it is a protocol
-        self.send_header('Content-type', 'text/html;charset=utf-8')
+        self.send_header('Content-type', 'text/xml;charset=utf-8')
         self.end_headers()
         print(self.path)
         try:
