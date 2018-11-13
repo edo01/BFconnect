@@ -36,7 +36,7 @@ public class Prenotation extends BaseActivity {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 if(month==11 && dayOfMonth==16){
-                    Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://goo.gl/forms/7NvZWXkBmSJQpb1E2"));
+                    Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://docs.google.com/forms/d/1zT7JFSXDH_xUphuTI-Bqi2XYvcwkO7NMAIyx6lRRjuw"));
                     startActivity(viewIntent);
                 }
             }

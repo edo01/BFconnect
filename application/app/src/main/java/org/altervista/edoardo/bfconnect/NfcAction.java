@@ -22,9 +22,9 @@ class NfcAction extends Home {
         this.http=http;
     }
 
-    void displayMsgs(NdefMessage[] msgs) {
+    String displayMsgs(NdefMessage[] msgs) {
         if (msgs == null || msgs.length == 0)
-            return;
+            return "";
 
         StringBuilder builder = new StringBuilder();
         List<ParsedNdefRecord> records = NdefMessageParser.parse(msgs[0]);
@@ -35,7 +35,9 @@ class NfcAction extends Home {
             String str = record.str();
             builder.append(str).append("\n");
         }
-        http.Post(builder.toString());
+        String txtNfc=builder.toString();
+        http.Post(txtNfc);
+        return txtNfc;
     }
 
 

@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Home">
+        <activity android:name=".Start">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Prenotation" />
-        <activity android:name=".School"></activity>
+        <activity android:name=".School" />
+        <activity android:name=".Rooms" />
+        <activity android:name=".Home"></activity>
     </application>
 
 </manifest>

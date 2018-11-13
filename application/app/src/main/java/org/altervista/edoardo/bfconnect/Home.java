@@ -65,9 +65,12 @@ public class Home extends BaseActivity {
                     msgs = new NdefMessage[] {msg};
                 }
 
-                nfc.displayMsgs(msgs);
+                Intent room= new Intent(this,Rooms.class);
+                String txtNfc=nfc.displayMsgs(msgs);
+                if (!txtNfc.equals(""))room.putExtra("nfc_read", txtNfc);
+                startActivity(room);
             }
-        }
+    }
 
     @Override
     int getContentViewId() {
