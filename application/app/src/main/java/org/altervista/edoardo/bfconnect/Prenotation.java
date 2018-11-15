@@ -22,14 +22,16 @@ public class Prenotation extends BaseActivity {
         f1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://goo.gl/forms/7NvZWXkBmSJQpb1E2"));
+                Intent viewIntent = new Intent("android.intent.action.VIEW",
+                        Uri.parse("https://docs.google.com/forms/d/e/1FAIpQLSc6oP6CHRBADXfERIzI8DDKjcV087KvWHsmSQdrJN3N2wj3GQ/viewform"));
                 startActivity(viewIntent);
             }
         });
         f2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://goo.gl/forms/7NvZWXkBmSJQpb1E2"));
+                Intent viewIntent = new Intent("android.intent.action.VIEW",
+                        Uri.parse("https://docs.google.com/forms/d/e/1FAIpQLSc6oP6CHRBADXfERIzI8DDKjcV087KvWHsmSQdrJN3N2wj3GQ/viewform"));
                 startActivity(viewIntent);
             }
         });

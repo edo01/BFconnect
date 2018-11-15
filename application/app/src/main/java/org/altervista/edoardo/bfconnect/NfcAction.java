@@ -16,11 +16,6 @@ import java.util.List;
 
 class NfcAction extends Home {
 
-    Connection http;
-
-    NfcAction(Connection http){
-        this.http=http;
-    }
 
     String displayMsgs(NdefMessage[] msgs) {
         if (msgs == null || msgs.length == 0)
@@ -36,7 +31,6 @@ class NfcAction extends Home {
             builder.append(str).append("\n");
         }
         String txtNfc=builder.toString();
-        http.Post(txtNfc);
         return txtNfc;
     }
 

@@ -18,7 +18,9 @@ import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+@deprecated Attention this class doesn't work in background it's better to use JSONparser.java
+ */
 public class Connection{
 
     String url;

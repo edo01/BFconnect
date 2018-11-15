@@ -23,14 +23,11 @@ import com.android.volley.toolbox.Volley;
 public class Home extends BaseActivity {
 
     NfcAction nfc;
-    Connection http;
     ActionBar toolbar;
 
     @Override
     void ActivityPage() {
-        http = new Connection("http://192.168.1.71:80", Volley.newRequestQueue(this));
-        nfc = new NfcAction(http);
-
+        nfc = new NfcAction();
     }
 
     @Override
