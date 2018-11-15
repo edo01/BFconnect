@@ -6,7 +6,7 @@ import android.os.Bundle;
 public class School extends BaseActivity {
 
     @Override
-    void startThread() {}
+    void ActivityPage() {}
 
     @Override
     int getContentViewId() { return R.layout.activity_school; }

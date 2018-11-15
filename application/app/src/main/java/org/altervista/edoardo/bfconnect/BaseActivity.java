@@ -36,7 +36,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         pendingIntent = PendingIntent.getActivity(this, 0,// creating a new intent that will be used for reading NFC
                 new Intent(this, this.getClass())
                         .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
-        startThread();
+        ActivityPage();
     }
 
     @Override
@@ -106,7 +106,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         return true;
     }
 
-    abstract void startThread();
+    abstract void ActivityPage();
 
     abstract int getContentViewId();
 

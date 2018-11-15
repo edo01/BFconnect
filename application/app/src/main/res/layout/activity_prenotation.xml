@@ -8,17 +8,60 @@
     android:orientation="vertical"
     tools:context=".Prenotation">
 
-    <CalendarView
-        android:id="@+id/calendarView"
+    <TextView
+        android:id="@+id/txt15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="false"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="15dp" />
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="9dp"
+        android:text="PRENOTATI PER SABATO 15 DICEMBRE"
+        android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
+
+    <TextView
+        android:id="@+id/txt27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="214dp"
+        android:layout_marginEnd="19dp"
+        android:text="PRENOTATI PER SABATO 27 GENNAIO"
+        android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fbtnSecond"
+        android:layout_width="94dp"
+        android:layout_height="86dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="266dp"
+        android:clickable="true"
+        app:backgroundTint="#6200EE"
+        app:srcCompat="@drawable/ic_prenotation" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fbtnFirst"
+        android:layout_width="94dp"
+        android:layout_height="86dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="107dp"
+        android:clickable="true"
+        app:backgroundTint="#6200EE"
+        app:srcCompat="@drawable/ic_prenotation" />
+
+    <TextView
+        android:id="@+id/txtHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="77dp"
+        android:text="clicca sulla data dell'open day!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.TextView.SpinnerItem"
+        android:visibility="visible" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
@@ -33,15 +76,5 @@
         app:itemTextColor="@drawable/bottom_navigation_style"
         app:menu="@menu/bottom_navigation"/>
 
-    <TextView
-        android:id="@+id/txtHelp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="77dp"
-        android:text="clicca sulla data dell'open day!"
-        android:textAppearance="@style/TextAppearance.AppCompat.Widget.TextView.SpinnerItem"
-        android:visibility="visible" />
 
 </RelativeLayout>

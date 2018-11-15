@@ -5,40 +5,32 @@ package org.altervista.edoardo.bfconnect;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.design.widget.FloatingActionButton;
+import android.view.View;
 import android.widget.CalendarView;
 
+import java.nio.channels.FileLock;
 import java.util.Calendar;
 
 public class Prenotation extends BaseActivity {
-    private CalendarView calendarView;
-
-    private long setOpenDay(String date){
-        String parts[] = date.split("/");
-
-        int day = Integer.parseInt(parts[0]);
-        int month = Integer.parseInt(parts[1]);
-        int year = Integer.parseInt(parts[2]);
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, year);
-        calendar.set(Calendar.MONTH, month);
-        calendar.set(Calendar.DAY_OF_MONTH, day);
-
-        return  calendar.getTimeInMillis();
-    }
+    private FloatingActionButton f1,f2;
 
     @Override
-    void startThread() {
-        calendarView = (CalendarView) findViewById(R.id.calendarView); // get the reference of CalendarView
-        String date = "16/11/2018";
-        calendarView.setDate (setOpenDay(date), true, true);
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+    void ActivityPage() {
+        f1 = (FloatingActionButton) findViewById(R.id.fbtnFirst); // get the reference of CalendarView
+        f2 = (FloatingActionButton) findViewById(R.id.fbtnSecond);
+        f1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                if(month==11 && dayOfMonth==16){
-                    Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://docs.google.com/forms/d/1zT7JFSXDH_xUphuTI-Bqi2XYvcwkO7NMAIyx6lRRjuw"));
-                    startActivity(viewIntent);
-                }
+            public void onClick(View v) {
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://goo.gl/forms/7NvZWXkBmSJQpb1E2"));
+                startActivity(viewIntent);
+            }
+        });
+        f2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://goo.gl/forms/7NvZWXkBmSJQpb1E2"));
+                startActivity(viewIntent);
             }
         });
     }

@@ -27,7 +27,7 @@ public class Home extends BaseActivity {
     ActionBar toolbar;
 
     @Override
-    void startThread() {
+    void ActivityPage() {
         http = new Connection("http://192.168.1.71:80", Volley.newRequestQueue(this));
         nfc = new NfcAction(http);
 
