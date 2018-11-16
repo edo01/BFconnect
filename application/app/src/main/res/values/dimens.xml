@@ -1,3 +1,5 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fontAll">30dp</dimen>
+    <dimen name="sizeOpenDay">40dp</dimen>
 </resources>

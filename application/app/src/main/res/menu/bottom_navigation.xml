@@ -4,7 +4,7 @@
         android:id="@+id/prenotation"
         android:checked="false"
         android:icon="@drawable/ic_prenotation"
-        android:title="@string/prenota"/>
+        android:title="@string/prenota" />
     <item
         android:id="@+id/reading"
 	    android:icon="@drawable/ic_logo"

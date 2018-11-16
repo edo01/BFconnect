@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <item
         android:id="@+id/help"
-        android:title="@string/help" />
+        android:title="@string/help"
+        tools:fontFamily="@font/proximanovasoftbold"/>
     <item
         android:id="@+id/about_us"
-        android:title="@string/about_us"/>
+        android:title="@string/about_us"
+        tools:fontFamily="@font/proximanovasoftbold"/>
 </menu>

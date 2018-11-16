@@ -21,13 +21,13 @@
         app:itemTextColor="@drawable/bottom_navigation_style"
         app:menu="@menu/bottom_navigation"/>
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="306dp"
-        android:layout_height="70dp"
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
-        app:srcCompat="@drawable/bf_logo" />
+        android:layout_marginTop="215dp"
+        android:text="WORKING PROGRESS" />
 
 </RelativeLayout>
