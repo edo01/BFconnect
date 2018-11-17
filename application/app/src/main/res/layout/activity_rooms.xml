@@ -18,18 +18,27 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <ImageView
-        android:id="@+id/imageContent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_width="298dp"
+        android:layout_height="166dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="132dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="43dp"
         app:srcCompat="@drawable/bf_logo" />
+
     <TextView
         android:id="@+id/txtResponse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="205dp"
         android:text="TextView"
         tools:layout_editor_absoluteX="163dp"
         tools:layout_editor_absoluteY="245dp" />

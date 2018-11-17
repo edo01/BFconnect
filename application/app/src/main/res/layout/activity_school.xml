@@ -9,6 +9,7 @@
     tools:context=".School">
 
     <android.support.design.widget.BottomNavigationView
+        android:theme="@style/BottomTheme"
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,13 +22,13 @@
         app:itemTextColor="@drawable/bottom_navigation_style"
         app:menu="@menu/bottom_navigation"/>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/bf_logo"
+        android:layout_width="316dp"
+        android:layout_height="104dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="215dp"
-        android:text="WORKING PROGRESS" />
+        android:layout_centerInParent="true"
+        android:layout_marginTop="42dp"
+        app:srcCompat="@drawable/bf_logo" />
 
 </RelativeLayout>

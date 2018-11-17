@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:id="@+id/prenotation"
         android:checked="false"
         android:icon="@drawable/ic_prenotation"
-        android:title="@string/prenota" />
+        android:fontFamily="@font/proximanovasoftbold"
+        android:title="@string/prenota"
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/reading"
 	    android:icon="@drawable/ic_logo"
         android:checked="true"
-        android:title="@string/rileva"/>
+        android:fontFamily="@font/proximanovasoftbold"
+        android:title="@string/rileva"
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/school"
 	    android:icon="@drawable/ic_school"
-        android:title="@string/scuola"/>
+        android:fontFamily="@font/proximanovasoftbold"
+        android:title="@string/scuola"
+        app:showAsAction="ifRoom"/>
 </menu>
