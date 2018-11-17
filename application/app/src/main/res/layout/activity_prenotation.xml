@@ -23,6 +23,7 @@
         android:visibility="visible" />
 
     <android.support.design.widget.BottomNavigationView
+        android:theme="@style/BottomTheme"
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,7 +44,7 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="74dp"
         android:clickable="true"
-        app:backgroundTint="@color/ic_launcher_background"
+        app:backgroundTint="@color/colorPrimary"
         app:srcCompat="@drawable/op_primo" />
 
     <android.support.design.widget.FloatingActionButton
@@ -54,7 +55,7 @@
         android:layout_centerVertical="true"
         android:layout_marginEnd="74dp"
         android:clickable="true"
-        app:backgroundTint="@color/ic_launcher_background"
+        app:backgroundTint="@color/colorPrimary"
         app:srcCompat="@drawable/op_secondo" />
 
     <TextView
