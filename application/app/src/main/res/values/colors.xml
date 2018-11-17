@@ -7,4 +7,5 @@
     <color name="black">#000000</color>
     <color name="colorDay">#c22700</color>
     <color name="colorOpen">#012360</color>
+    <color name="white">#ffffff</color>
 </resources>

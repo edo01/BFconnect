@@ -26,7 +26,7 @@ public class Rooms extends AppCompatActivity {
         room=""+24;
         title = (TextView)findViewById(R.id.title);
         txtView = (TextView)findViewById(R.id.txtResponse);
-        image = (ImageView) findViewById(R.id.imageContent);
+        image = (ImageView) findViewById(R.id.imageView2);
         JSONparser js = new JSONparser();
         js.execute();
 

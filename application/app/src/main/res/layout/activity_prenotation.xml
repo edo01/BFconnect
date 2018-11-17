@@ -47,7 +47,7 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="74dp"
         android:clickable="true"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="@color/white"
         app:showAsAction="ifRoom"
         app:srcCompat="@drawable/op_primo" />
 
@@ -59,7 +59,7 @@
         android:layout_centerVertical="true"
         android:layout_marginEnd="74dp"
         android:clickable="true"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="@color/white"
         app:showAsAction="ifRoom"
         app:srcCompat="@drawable/op_secondo" />
 
