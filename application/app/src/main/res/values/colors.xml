@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">@color/ic_launcher_background</color>
-    <color name="colorPrimaryDark">#fff</color>
-    <color name="colorAccent">#FFF</color>
+    <color name="colorPrimary">@color/black</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
     <color name="grey">#7c7878</color>
     <color name="black">#000000</color>
     <color name="primary_material_light">#ffffff</color>

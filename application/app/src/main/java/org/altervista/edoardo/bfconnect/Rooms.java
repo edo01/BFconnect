@@ -2,13 +2,17 @@ package org.altervista.edoardo.bfconnect;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 public class Rooms extends AppCompatActivity {
     static TextView txtView, title;
-
+    static ImageView image;
     static String room;
 
     @Override
@@ -22,7 +26,9 @@ public class Rooms extends AppCompatActivity {
         room=""+24;
         title = (TextView)findViewById(R.id.title);
         txtView = (TextView)findViewById(R.id.txtResponse);
+        image = (ImageView) findViewById(R.id.imageContent);
         JSONparser js = new JSONparser();
         js.execute();
+
     }
 }

@@ -42,7 +42,9 @@ class MyHandler(
             print("Skipping favicon request")
             return
         print("\nGET {}".format(str(self.path)))
-        self._send_response(http.HTTPStatus.OK, self.path)
+        print(self.path)
+        self.wfile.write(self.load("ic_bf_connect_horizontal.png"))
+        # self._send_response(http.HTTPStatus.OK, self.path)
 
     def do_POST(self):
         content_length = int(self.headers['Content-Length'])  # <--- Gets the size of data
@@ -54,7 +56,7 @@ class MyHandler(
 
     def _send_response(self, code, message, info=""):
         self.send_response(http.HTTPStatus.OK)  # it is a protocol
-        self.send_header('Content-type', 'text/xml;charset=utf-8')
+        self.send_header('Content-type', 'image/png;charset=utf-8')
         self.end_headers()
         print(self.path)
         try:
@@ -67,3 +69,10 @@ class MyHandler(
         except Exception as ex:
             print("ERRORE in send_response: " + str(ex))
             return False
+
+    def load(self,file):
+        f=open(file, 'r')
+        return self.encode(str(f.read()))
+
+    def encode(self,file):
+        return bytes(file, 'UTF-8')

@@ -15,6 +15,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+/**
+ * @// TODO: 15/11/18 : qrcode reader; download pdf;
+ */
 public abstract class BaseActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     protected BottomNavigationView navigationView;
@@ -30,9 +33,9 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
-        if (nfcAdapter == null) { //if your device hasn't the NFC the application will advise you with a toast
+        /*if (nfcAdapter == null) { //if your device hasn't the NFC the application will advise you with a toast
             Toast.makeText(this, "No NFC", Toast.LENGTH_SHORT).show();
-        }
+        }*/
         pendingIntent = PendingIntent.getActivity(this, 0,// creating a new intent that will be used for reading NFC
                 new Intent(this, this.getClass())
                         .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);

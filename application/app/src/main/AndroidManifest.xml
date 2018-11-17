@@ -21,8 +21,11 @@
         </activity>
         <activity android:name=".Prenotation" />
         <activity android:name=".School" />
-        <activity android:name=".Rooms" />
-        <activity android:name=".Home"></activity>
+        <activity android:name=".Rooms"
+            android:label="activity_rooms"
+            android:parentActivityName=".Home">
+        </activity>
+        <activity android:name=".Home" />
     </application>
 
 </manifest>
