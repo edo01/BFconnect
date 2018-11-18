@@ -43,8 +43,11 @@ class MyHandler(
             return
         print("\nGET {}".format(str(self.path)))
         print(self.path)
+        self.send_response(http.HTTPStatus.OK)  # it is a protocol
+        self.send_header('Content-type', 'image/png;charset=utf-8')
+        self.end_headers()
         self.wfile.write(self.load("ic_bf_connect_horizontal.png"))
-        # self._send_response(http.HTTPStatus.OK, self.path)
+        self.wfile.flush()
 
     def do_POST(self):
         content_length = int(self.headers['Content-Length'])  # <--- Gets the size of data
@@ -71,8 +74,9 @@ class MyHandler(
             return False
 
     def load(self,file):
-        f=open(file, 'r')
-        return self.encode(str(f.read()))
+        f=open(file, 'rb')
+        s=f.read()
+        return s
 
     def encode(self,file):
         return bytes(file, 'UTF-8')
