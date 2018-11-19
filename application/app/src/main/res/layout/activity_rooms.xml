@@ -17,21 +17,6 @@
         android:textColor="@color/black"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="298dp"
-        android:layout_height="166dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerInParent="true"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="43dp"
-        app:srcCompat="@drawable/bf_logo" />
-
     <TextView
         android:id="@+id/txtResponse"
         android:layout_width="wrap_content"

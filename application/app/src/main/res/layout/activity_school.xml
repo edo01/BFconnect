@@ -3,32 +3,63 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/page"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".School">
 
     <android.support.design.widget.BottomNavigationView
-        android:theme="@style/BottomTheme"
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
         android:foreground="?attr/selectableItemBackground"
+        android:theme="@style/BottomTheme"
         app:itemIconTint="@drawable/bottom_navigation_style"
         app:itemTextColor="@drawable/bottom_navigation_style"
-        app:menu="@menu/bottom_navigation"/>
+        app:menu="@menu/bottom_navigation" />
 
     <ImageView
-        android:id="@+id/bf_logo"
-        android:layout_width="316dp"
-        android:layout_height="104dp"
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="484dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="42dp"
-        app:srcCompat="@drawable/bf_logo" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@android:color/transparent"
+        android:visibility="visible"
+        app:showAsAction="ifRoom"
+        app:srcCompat="@drawable/school" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="31dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="61dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@android:color/transparent"
+        android:fontFamily="@font/proximanovasoftbold"
+        android:text="Tecnico" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="31dp"
+        android:layout_alignEnd="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="-21dp"
+        android:layout_marginBottom="87dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@android:color/transparent"
+        android:fontFamily="@font/proximanovasoftbold"
+        android:text="Professionale" />
 
 </RelativeLayout>
