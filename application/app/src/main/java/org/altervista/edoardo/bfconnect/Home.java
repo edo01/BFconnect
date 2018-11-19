@@ -16,18 +16,23 @@ import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.os.Parcelable;
 import android.support.v7.app.ActionBar;
-
-import com.android.volley.toolbox.Volley;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 
 public class Home extends BaseActivity {
 
     NfcAction nfc;
     ActionBar toolbar;
+    ImageView image;
 
     @Override
     void ActivityPage() {
         nfc = new NfcAction();
+        image = (ImageView) findViewById(R.id.logo);
+        Animation animation = AnimationUtils.loadAnimation(this,R.anim.rotation);
+        image.startAnimation(animation);
     }
 
     @Override

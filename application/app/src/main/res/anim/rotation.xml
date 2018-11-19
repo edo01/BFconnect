@@ -1,0 +1,15 @@
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+android:fillAfter="true"
+android:interpolator="@android:anim/linear_interpolator" >
+
+<!-- Rotate 180 degrees -->
+<rotate
+    android:duration="4000"
+    android:fromDegrees="0"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:repeatCount="infinite"
+    android:repeatMode="restart"
+    android:toDegrees="360" />
+
+</set>

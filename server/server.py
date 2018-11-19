@@ -18,7 +18,7 @@ import datetime
 
 def run():
     myserver = None
-    server_name = "BelluzzServer"
+    server_name = "BFServer"
     server_address = ('',80) #the server listens on 80 port
     server_startingtime = datetime.datetime.now()
     print("Starting server", str(server_startingtime), "...")
