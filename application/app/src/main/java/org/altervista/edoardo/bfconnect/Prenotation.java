@@ -31,7 +31,7 @@ public class Prenotation extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent viewIntent = new Intent("android.intent.action.VIEW",
-                        Uri.parse("https://docs.google.com/forms/d/e/1FAIpQLSc6oP6CHRBADXfERIzI8DDKjcV087KvWHsmSQdrJN3N2wj3GQ/viewform"));
+                        Uri.parse("https://docs.google.com/forms/d/e/1FAIpQLSe_MQDuYjkzygCHnvbtcYisnL_hg3UAX4BcDorsfKDmHzxChg/viewform"));
                 startActivity(viewIntent);
             }
         });

@@ -20,15 +20,10 @@ public class Rooms extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_rooms);
         Bundle datapassed = getIntent().getExtras();
-        //room = datapassed.getString("nfc_read");//getting the room from what nfc read
-        room=""+24;
+        room = datapassed.getString("nfc_read");//getting the room from what nfc read
         title = (TextView)findViewById(R.id.title);
-
         txtView = (TextView)findViewById(R.id.txtResponse);
-        image = (ImageView) findViewById(R.id.imageView2);
-
-        JSONparser js = new JSONparser();
-        js.execute();
-
+        image = (ImageView) findViewById(R.id.imageOne);
+        new JSONparser().execute();
     }
 }

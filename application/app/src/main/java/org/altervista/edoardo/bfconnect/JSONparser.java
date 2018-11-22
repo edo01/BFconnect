@@ -18,27 +18,23 @@ import java.net.URL;
 import java.net.URLConnection;
 
 
-public class JSONparser extends AsyncTask<Void, Void, Bitmap> {
+public class JSONparser extends AsyncTask<Void, Void, Void> {
 
     private String content = "";
     private String title = "";
-    private String addresses[];
+    private Bitmap bitmap;
+    /*the address must has this form "https://192.168.1.71/?room=N&image=false" for
+     * if you want an image don't put 'false' but the number of your image
+     */
+    private final String address = "http://192.168.1.71";
     InputStream in;
 
-    public JSONparser(){
-        addresses=new String[3];
-        addresses[0] = "https://api.myjson.com/bins/f63g2";
-        addresses[1] = "http://192.168.1.71";
-        addresses[2] = "https://nadaje.com/static/frontend/img/logo-nadaje.svg";
-
-    }
 
     @Override
-    protected Bitmap doInBackground(Void... voids) {
+    protected Void doInBackground(Void... voids) {
         //in this try-catch we take some JSON datas and we parse them in title,content ecc...
         try {
-            URL url=new URL(addresses[0]);
-            //URL url = new URL(addresses[1]);
+            URL url=new URL(address + "/?room="+ Rooms.room + "&image=false");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             in = httpURLConnection.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
@@ -50,8 +46,6 @@ public class JSONparser extends AsyncTask<Void, Void, Bitmap> {
             JSONObject jo= new JSONObject(content);
             title= (String) jo.get("title");
             content = (String) jo.get("content");
-            String img_url = (String) jo.get("img");
-            url=null;
             in.close();
             br.close();
         } catch (MalformedURLException e) {
@@ -61,7 +55,8 @@ public class JSONparser extends AsyncTask<Void, Void, Bitmap> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return ScaricaImmagine(addresses[1]+ "/"+ Rooms.room);
+        bitmap = ScaricaImmagine(address + "/?room="+ Rooms.room +"&image=1");
+        return null;
     }
 
     private Bitmap ScaricaImmagine(String URL)
@@ -106,16 +101,15 @@ public class JSONparser extends AsyncTask<Void, Void, Bitmap> {
             Log.d("Connessione", ex.getLocalizedMessage());
             throw new IOException("Errore connessione");
         }
-
         return in;
     }
 
     @Override
-    protected void onPostExecute(Bitmap bitmap){
+    protected void onPostExecute(Void aVoids){
         //setting in the view the datas parsed
         Rooms.txtView.setText(content);
         Rooms.title.setText(title);
-        Rooms.image.setImageBitmap( bitmap);
+        Rooms.image.setImageBitmap(bitmap);
     }
 
 }

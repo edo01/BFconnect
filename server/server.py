@@ -3,11 +3,11 @@
 """
 BelluzzServer:
 XXX To do:
-- send video and images
+    - sending pdf
 """
 
-# Belluzzi Python Working Group
-# - E. Carrà, F. Taddia
+# BFCONNECT Working Group
+# - E. Carrà, F. Taddia, R. Bovinelli
 
 __version__ = "0.1c"
 
@@ -24,7 +24,9 @@ def run():
     print("Starting server", str(server_startingtime), "...")
     try:
         myserver = http.server.HTTPServer(server_address, MyHandler) # the constructor of the class http.server.HTTPServer
-        print( server_name, "started on port", server_address[1] )
+
+        print( server_name, "started on port", myserver.server_port )
+        print('\n')
         myserver.serve_forever()#started to listen on the port specificated
     except (KeyboardInterrupt, SystemExit):
         pass

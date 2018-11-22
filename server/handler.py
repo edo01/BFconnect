@@ -3,12 +3,14 @@ __all__ = [
 ]
 
 import http
+from dataHandler import DataHandler
+from urllib.parse import parse_qs
 
 # Default message template
 DEFAULT_MESSAGE_TEMPLATE = """\
 {
-"title":"aula informatica",
-"content":"questa è l'aula di informatica del Belluzzi Fioravanti"
+"title":"ITIS BELLUZZI",
+"content":"Benvenuti all'open day del Belluzzi Fioravanti"
 }
 """
 
@@ -16,46 +18,50 @@ DEFAULT_MESSAGE_TEMPLATE = """\
 class MyHandler(
     http.server.BaseHTTPRequestHandler):  # MyHandler extends http.server.BaseHTTPRequestHandler and implements the method do_Get and do_POST
 
+    datahandler = DataHandler()
+
     def do_GET(self):
         if self.path == '/favicon.ico':
-            print("Skipping favicon request")
+            #print("Skipping favicon request")
             return
-        print("\nGET {}".format(str(self.path)))
-        print(self.path)
+        #print("\nGET {}".format(str(self.path)))
+        keys = parse_qs(self.path[2:]) #in the application the url must be 'https://ip/?room=number&image=something'
+        #print(keys)
+        room = str(keys['room']).replace('[\'','').replace('\']','')
+        image = str(keys['image']).replace('[\'','').replace('\']','')
+
+        if image == 'false':
+            self.sendContent(room)
+            print('la room selezionata è :', room)
+            print('immagine richiesta: nessuna')
+        else :
+            self.sendImage(room, image)
+            print('la room selezionata è :', room)
+            print('immagine richiesta:', image)
+
+    def doHead(self, contentType = 'txt'):  #adding headers
         self.send_response(http.HTTPStatus.OK)  # it is a protocol
-        self.send_header('Content-type', 'image/png;charset=utf-8')
+        contentType = contentType + ';charset=utf-8;'
+        self.send_header('Content-type', contentType)
         self.end_headers()
-        self.wfile.write(self.load("ic_bf_connect_horizontal.png"))
+
+    def sendContent(self, room = 'example'): #send title, description etc..
+        self.doHead('json')
+        self.wfile.write(self.datahandler.getContent(room).encode('UTF-8', 'replace'))  # before sending message must be encode
         self.wfile.flush()
 
+    def sendImage(self, room = 'example', image = 1): #send images
+        self.doHead('image')
+        self.wfile.write(self.load(self.datahandler.getImageName(room, image)))
+        self.wfile.flush()
 
-    def do_POST(self):
-        content_length = int(self.headers['Content-Length'])  # <--- Gets the size of data
-        post_data = self.rfile.read(content_length)  # <--- Gets the data itself
-        print("\nPOST {}\nHeaders:\n{}\nBody:\n{}\n".format(str(self.path), str(self.headers),
-                                                            post_data.decode('utf-8')))  #
-        print(post_data.decode('utf-8'))  # print the datas that the application sent(the class)
-        self._send_response(http.HTTPStatus.OK, self.path)  # send a response to the application
-
-    def _send_response(self, code, message, info=""):
-        self.send_response(http.HTTPStatus.OK)  # it is a protocol
-        self.send_header('Content-type', 'json;charset=utf-8')
-        self.end_headers()
-        print(self.path)
-        try:
-            content = DEFAULT_MESSAGE_TEMPLATE.format # formats the default message
-            self.wfile.write(
-                content.encode('UTF-8', 'replace'))  # send the DEFAULT_MESSAGE_TEMPLATE(formatted) to the client
-            self.wfile.flush()  # channel free
-            return True
-        except Exception as ex:
-            print("ERRORE in send_response: " + str(ex))
-            return False
-
-    def load(self,file):
+    def load(self,file): #open image
         f=open(file, 'rb')
         s=f.read()
         return s
 
-    def encode(self,file):
+    def encode(self,file): #encoding image
         return bytes(file, 'UTF-8')
+
+    def do_POST(self):
+        self.do_GET()

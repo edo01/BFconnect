@@ -20,19 +20,6 @@
         app:itemTextColor="@drawable/bottom_navigation_style"
         app:menu="@menu/bottom_navigation" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:background="@android:color/transparent"
-        android:backgroundTint="@android:color/transparent"
-        android:visibility="visible"
-        app:showAsAction="ifRoom"
-        app:srcCompat="@drawable/school" />
-
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
