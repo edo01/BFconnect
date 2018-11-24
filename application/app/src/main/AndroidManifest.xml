@@ -13,29 +13,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Start"
+        <activity
+            android:name=".Start"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Prenotation"
+        <activity
+            android:name=".Prenotation"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".School"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".School"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Rooms"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Rooms"
+            android:configChanges="keyboardHidden|orientation"
             android:label="activity_rooms"
             android:parentActivityName=".Home"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Home"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".Home"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity android:name=".Tecnico" />
+        <activity android:name=".Proffessionale"></activity>
     </application>
 
 </manifest>
