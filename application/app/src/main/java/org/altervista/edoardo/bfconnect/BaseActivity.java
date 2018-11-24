@@ -16,7 +16,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 /**
- * @// TODO: 15/11/18 : qrcode reader; download pdf;
+ * @// TODO: 15/11/18 : qrcode reader;
  */
 public abstract class BaseActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 

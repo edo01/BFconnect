@@ -5,13 +5,11 @@ __all__ = [
 import http
 from dataHandler import DataHandler
 from urllib.parse import parse_qs
+from timeit import default_timer as timer
 
 # Default message template
-DEFAULT_MESSAGE_TEMPLATE = """\
-{
-"title":"ITIS BELLUZZI",
-"content":"Benvenuti all'open day del Belluzzi Fioravanti"
-}
+DEFAULT_ERROR_MESSAGE = """\
+ERROR IN SENDING MESSAGE
 """
 
 
@@ -21,23 +19,33 @@ class MyHandler(
     datahandler = DataHandler()
 
     def do_GET(self):
-        if self.path == '/favicon.ico':
-            #print("Skipping favicon request")
+        if self.path == '/favicon.ico' and str(self.path).find('?')==-1:
             return
+        start = timer()
         #print("\nGET {}".format(str(self.path)))
-        keys = parse_qs(self.path[2:]) #in the application the url must be 'https://ip/?room=number&image=something'
-        #print(keys)
-        room = str(keys['room']).replace('[\'','').replace('\']','')
-        image = str(keys['image']).replace('[\'','').replace('\']','')
+        #in the application the url must be 'https://ip/?room=number&image=something&pdf=something'
+        keys = parse_qs(self.path[2:])
+        try:
+            room = str(keys['room']).replace('[\'', '').replace('\']', '')
+            image = str(keys['image']).replace('[\'', '').replace('\']', '')
+            pdf = str(keys['pdf']).replace('[\'', '').replace('\']', '')
 
-        if image == 'false':
-            self.sendContent(room)
-            print('la room selezionata è :', room)
-            print('immagine richiesta: nessuna')
-        else :
-            self.sendImage(room, image)
-            print('la room selezionata è :', room)
-            print('immagine richiesta:', image)
+            if pdf == 'true':
+                self.sendPdf(room)
+                print('pdf inviato: ', self.datahandler.orariTecnico)
+            elif image.isdecimal():
+                self.sendImage(room, image)
+                print('la room selezionata è :', room)
+                print('immagine richiesta:', image)
+            else:
+                self.sendContent(room)
+                print('la room selezionata è :', room)
+                print('immagine richiesta: nessuna')
+            end = timer()
+            print('response in:', end - start)
+        except:
+            print('error in sending response')
+
 
     def doHead(self, contentType = 'txt'):  #adding headers
         self.send_response(http.HTTPStatus.OK)  # it is a protocol
@@ -50,6 +58,11 @@ class MyHandler(
         self.wfile.write(self.datahandler.getContent(room).encode('UTF-8', 'replace'))  # before sending message must be encode
         self.wfile.flush()
 
+    def sendPdf(self, room = 'example'): #send title, description etc..
+        self.doHead('pdf')
+        self.wfile.write(self.load(self.datahandler.datasPath + 'orariTecnico.pdf'))  # before sending message must be encode
+        self.wfile.flush()
+
     def sendImage(self, room = 'example', image = 1): #send images
         self.doHead('image')
         self.wfile.write(self.load(self.datahandler.getImageName(room, image)))
@@ -58,6 +71,7 @@ class MyHandler(
     def load(self,file): #open image
         f=open(file, 'rb')
         s=f.read()
+        f.close()
         return s
 
     def encode(self,file): #encoding image

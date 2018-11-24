@@ -1,11 +1,14 @@
 package org.altervista.edoardo.bfconnect;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class Rooms extends AppCompatActivity {
@@ -25,5 +28,11 @@ public class Rooms extends AppCompatActivity {
         txtView = (TextView)findViewById(R.id.txtResponse);
         image = (ImageView) findViewById(R.id.imageOne);
         new JSONparser().execute();
+        try{
+            new PdfHandler().execute();
+        }catch(Exception ex){
+            Toast.makeText(this, "Please give your permission.", Toast.LENGTH_LONG).show();
+        }
+        //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("www.education.gov.yk.ca/pdf/pdf-test.pdf")));
     }
 }

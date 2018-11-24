@@ -17,6 +17,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
+/**
+ * @// TODO: 24/11/18 : Showing pdf download status; Raise exception NO CONNECTION
+ */
 
 public class JSONparser extends AsyncTask<Void, Void, Void> {
 
@@ -26,15 +29,14 @@ public class JSONparser extends AsyncTask<Void, Void, Void> {
     /*the address must has this form "https://192.168.1.71/?room=N&image=false" for
      * if you want an image don't put 'false' but the number of your image
      */
-    private final String address = "http://192.168.1.71";
+    private final String address = "http://192.168.43.99";
     InputStream in;
-
 
     @Override
     protected Void doInBackground(Void... voids) {
         //in this try-catch we take some JSON datas and we parse them in title,content ecc...
         try {
-            URL url=new URL(address + "/?room="+ Rooms.room + "&image=false");
+            URL url=new URL(address + "/?room="+ Rooms.room + "&image=false&pdf=false");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             in = httpURLConnection.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
@@ -55,7 +57,7 @@ public class JSONparser extends AsyncTask<Void, Void, Void> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        bitmap = ScaricaImmagine(address + "/?room="+ Rooms.room +"&image=1");
+        bitmap = ScaricaImmagine(address + "/?room="+ Rooms.room +"&image=1&pdf=false");
         return null;
     }
 
