@@ -18,11 +18,11 @@ public class Tecnico extends BaseActivity {
 
     @Override
     int getContentViewId() {
-        return 0;
+        return R.layout.activity_tecnico;
     }
 
     @Override
     int getNavigationMenuItemId() {
-        return 0;
+        return R.id.tecnico;
     }
 }

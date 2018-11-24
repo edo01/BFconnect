@@ -18,11 +18,11 @@ public class Proffessionale extends BaseActivity {
 
     @Override
     int getContentViewId() {
-        return 0;
+        return R.layout.activity_proffessionale;
     }
 
     @Override
     int getNavigationMenuItemId() {
-        return 0;
+        return R.id.proff;
     }
 }

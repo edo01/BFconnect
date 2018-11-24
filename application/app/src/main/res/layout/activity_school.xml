@@ -21,24 +21,43 @@
         app:menu="@menu/bottom_navigation" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/bfScel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/navigation"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="0dp"
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
-        android:layout_marginBottom="-55dp"
+        android:layout_marginBottom="0dp"
         android:background="@android:color/transparent"
         android:backgroundTint="@android:color/transparent"
         android:visibility="visible"
         app:showAsAction="ifRoom"
         app:srcCompat="@drawable/school" />
+
+    <Button
+        android:id="@+id/proff"
+        android:layout_width="154dp"
+        android:layout_height="24dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="365dp"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/tecnico"
+        android:layout_width="154dp"
+        android:layout_height="24dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="65dp"
+        android:visibility="invisible" />
 
 </RelativeLayout>
