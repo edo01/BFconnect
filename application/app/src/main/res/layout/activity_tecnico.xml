@@ -7,10 +7,46 @@
     tools:context=".activities.Tecnico">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/bAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/b"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/elett"
+        android:layout_width="165dp"
+        android:layout_height="30dp"
+        android:text="Button"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="75dp"
+        tools:layout_editor_absoluteY="318dp" />
+
+    <Button
+        android:id="@+id/meccanica"
+        android:layout_width="165dp"
+        android:layout_height="30dp"
+        android:text="Button"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="75dp"
+        tools:layout_editor_absoluteY="224dp" />
+
+    <Button
+        android:id="@+id/chimica"
+        android:layout_width="165dp"
+        android:layout_height="30dp"
+        android:text="Button"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="75dp"
+        tools:layout_editor_absoluteY="128dp" />
+
+    <Button
+        android:id="@+id/infotlc"
+        android:layout_width="165dp"
+        android:layout_height="30dp"
+        android:text="Button"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="75dp"
+        tools:layout_editor_absoluteY="32dp" />
 </android.support.constraint.ConstraintLayout>

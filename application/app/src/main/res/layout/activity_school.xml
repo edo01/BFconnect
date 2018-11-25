@@ -21,13 +21,14 @@
         app:menu="@menu/bottom_navigation" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/bfScel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/navigation"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_margin="0dp"
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="0dp"
@@ -39,29 +40,24 @@
         android:visibility="visible"
         app:showAsAction="ifRoom"
         app:srcCompat="@drawable/school" />
-
     <Button
-        android:id="@+id/btnProfessionale"
-        android:layout_width="173dp"
-        android:layout_height="31dp"
-        android:layout_alignBottom="@+id/imageView2"
+        android:id="@+id/proff"
+        android:layout_width="154dp"
+        android:layout_height="24dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="74dp"
-        android:layout_marginTop="360dp"
-        android:layout_marginBottom="64dp"
-        android:background="@android:color/transparent" />
-
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="365dp"
+        android:visibility="invisible" />
     <Button
-        android:id="@+id/btnTecnico"
-        android:layout_width="173dp"
-        android:layout_height="31dp"
+        android:id="@+id/tecnico"
+        android:layout_width="154dp"
+        android:layout_height="24dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="61dp"
-        android:layout_marginBottom="419dp"
-        android:background="@android:color/transparent" />
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="65dp"
+        android:visibility="invisible" />
+
 
 </RelativeLayout>
