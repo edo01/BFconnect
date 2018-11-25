@@ -12,7 +12,6 @@ DEFAULT_ERROR_MESSAGE = """\
 ERROR IN SENDING MESSAGE
 """
 
-
 class MyHandler(
     http.server.BaseHTTPRequestHandler):  # MyHandler extends http.server.BaseHTTPRequestHandler and implements the method do_Get and do_POST
 

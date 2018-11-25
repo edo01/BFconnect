@@ -1,13 +1,16 @@
 /**
  * the activity which takes care about the client prenotation.
  **/
-package org.altervista.edoardo.bfconnect;
+package org.altervista.edoardo.bfconnect.activities;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.CalendarView;
+
+import org.altervista.edoardo.bfconnect.BaseActivity;
+import org.altervista.edoardo.bfconnect.R;
 
 import java.nio.channels.FileLock;
 import java.util.Calendar;
@@ -16,7 +19,7 @@ public class Prenotation extends BaseActivity {
     private FloatingActionButton f1,f2;
 
     @Override
-    void ActivityPage() {
+    public void ActivityPage() {
         f1 = (FloatingActionButton) findViewById(R.id.fbtnFirst); // get the reference of CalendarView
         f2 = (FloatingActionButton) findViewById(R.id.fbtnSecond);
         f1.setOnClickListener(new View.OnClickListener() {
@@ -38,12 +41,12 @@ public class Prenotation extends BaseActivity {
     }
 
     @Override
-    int getContentViewId() {
+    public int getContentViewId() {
         return R.layout.activity_prenotation;
     }
 
     @Override
-    int getNavigationMenuItemId() {
+    public int getNavigationMenuItemId() {
         return R.id.prenotation;
     }
 }

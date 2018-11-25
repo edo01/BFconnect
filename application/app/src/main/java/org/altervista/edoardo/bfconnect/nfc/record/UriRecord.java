@@ -15,22 +15,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.altervista.edoardo.bfconnect.record;
+package org.altervista.edoardo.bfconnect.nfc.record;
 
-import android.app.Activity;
 import android.net.Uri;
 import android.nfc.NdefRecord;
-import android.text.util.Linkify;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 import com.google.common.primitives.Bytes;
-import org.altervista.edoardo.bfconnect.R;
 //import org.altervista.edoardo.bfconnect.model.History;
 //import org.altervista.edoardo.bfconnect.NFCReaderApp;
 

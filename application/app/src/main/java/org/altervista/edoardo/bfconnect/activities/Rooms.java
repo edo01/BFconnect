@@ -1,7 +1,10 @@
-package org.altervista.edoardo.bfconnect;
+package org.altervista.edoardo.bfconnect.activities;
 
+
+import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
@@ -10,11 +13,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.altervista.edoardo.bfconnect.R;
+import org.altervista.edoardo.bfconnect.connectionParser.JSONparser;
+
 
 public class Rooms extends AppCompatActivity {
-    static TextView txtView, title;
-    static ImageView image;
-    static String room;
+    public static TextView txtView, title;
+    public static ImageView image;
+    public static String room;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +33,18 @@ public class Rooms extends AppCompatActivity {
         title = (TextView)findViewById(R.id.title);
         txtView = (TextView)findViewById(R.id.txtResponse);
         image = (ImageView) findViewById(R.id.imageOne);
-        new JSONparser().execute();
-        try{
-            new PdfHandler().execute();
-        }catch(Exception ex){
-            Toast.makeText(this, "Please give your permission.", Toast.LENGTH_LONG).show();
+        if(isNetworkAvailable()){
+            new JSONparser().execute();
+        }else{
+            Toast.makeText(this, "NO CONNESSIONE", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(this, Home.class));
         }
-        //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("www.education.gov.yk.ca/pdf/pdf-test.pdf")));
+
+    }
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }

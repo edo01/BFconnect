@@ -2,22 +2,23 @@
 * NfcAction extends Home.
 * The class which implements the NFC methods.
 */
-package org.altervista.edoardo.bfconnect;
+package org.altervista.edoardo.bfconnect.nfc;
 
 import android.nfc.NdefMessage;
 import android.nfc.Tag;
 import android.nfc.tech.MifareClassic;
 import android.nfc.tech.MifareUltralight;
 
-import org.altervista.edoardo.bfconnect.parser.NdefMessageParser;
-import org.altervista.edoardo.bfconnect.record.ParsedNdefRecord;
+import org.altervista.edoardo.bfconnect.activities.Home;
+import org.altervista.edoardo.bfconnect.nfc.parser.NdefMessageParser;
+import org.altervista.edoardo.bfconnect.nfc.record.ParsedNdefRecord;
 
 import java.util.List;
 
-class NfcAction extends Home {
+public class NfcAction extends Home {
 
 
-    String displayMsgs(NdefMessage[] msgs) {
+    public String displayMsgs(NdefMessage[] msgs) {
         if (msgs == null || msgs.length == 0)
             return "";
 
@@ -36,7 +37,7 @@ class NfcAction extends Home {
 
 
 
-    String dumpTagData(Tag tag) {
+    public String dumpTagData(Tag tag) {
         StringBuilder sb = new StringBuilder();
         byte[] id = tag.getId();
         sb.append("ID (hex): ").append(toHex(id)).append('\n');

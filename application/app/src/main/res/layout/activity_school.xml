@@ -5,7 +5,7 @@
     android:id="@+id/page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".School">
+    tools:context=".activities.School">
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
@@ -28,17 +28,40 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="0dp"
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
-        android:layout_marginBottom="-55dp"
+        android:layout_marginBottom="0dp"
         android:background="@android:color/transparent"
         android:backgroundTint="@android:color/transparent"
         android:visibility="visible"
         app:showAsAction="ifRoom"
         app:srcCompat="@drawable/school" />
+
+    <Button
+        android:id="@+id/btnProfessionale"
+        android:layout_width="173dp"
+        android:layout_height="31dp"
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginBottom="64dp"
+        android:background="@android:color/transparent" />
+
+    <Button
+        android:id="@+id/btnTecnico"
+        android:layout_width="173dp"
+        android:layout_height="31dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginBottom="419dp"
+        android:background="@android:color/transparent" />
 
 </RelativeLayout>

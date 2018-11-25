@@ -15,12 +15,11 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package org.altervista.edoardo.bfconnect.record;
+package org.altervista.edoardo.bfconnect.nfc.record;
 
 import android.nfc.NdefRecord;
 
 import com.google.common.base.Preconditions;
-import org.altervista.edoardo.bfconnect.R;
 //import org.altervista.edoardo.belluzzday.model.History;
 
 import java.io.UnsupportedEncodingException;

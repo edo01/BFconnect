@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home">
+    tools:context=".activities.Home">
 
     <ImageView
         android:id="@+id/logo"
@@ -44,5 +44,18 @@
         app:itemIconTint="@drawable/bottom_navigation_style"
         app:itemTextColor="@drawable/bottom_navigation_style"
         app:menu="@menu/bottom_navigation"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatQR"
+        android:layout_width="wrap_content"
+        android:layout_height="61dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="75dp"
+        android:clickable="true"
+        android:onClick="float1onClick"
+        app:backgroundTint="@color/white"
+        app:srcCompat="@drawable/qrcode" />
 
 </RelativeLayout>

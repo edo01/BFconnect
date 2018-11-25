@@ -1,4 +1,4 @@
-package org.altervista.edoardo.bfconnect;
+package org.altervista.edoardo.bfconnect.connectionParser;
 
 
 import android.os.AsyncTask;
@@ -13,6 +13,9 @@ import java.net.URL;
 
 import static android.content.ContentValues.TAG;
 
+/**
+ * @// TODO: 25/11/18 : understand why the name of the pdf is like this.
+ */
 
 public class PdfHandler extends AsyncTask<Void, Void, Void> {
     private String[] pdf = new String[3];
@@ -44,24 +47,24 @@ public class PdfHandler extends AsyncTask<Void, Void, Void> {
             //Create New File if not present
             if (!outputFile.exists()) {
                 outputFile.createNewFile();
-                Log.d(TAG,outputFile.getPath());
+                Log.d(TAG, outputFile.getPath());
                 Log.d(TAG, "File Created");
+
+                FileOutputStream fos = new FileOutputStream(outputFile);//Get OutputStream for NewFile Location
+
+                InputStream is = c.getInputStream();//Get InputStream for connection
+
+                byte[] buffer = new byte[1024];//Set buffer type
+                int len1 = 0;//init length
+                while ((len1 = is.read(buffer)) > 0) {
+                    fos.write(buffer, 0, len1);//Write new file
+                }
+
+                //Close all connection after doing task
+                fos.flush();
+                fos.close();
+                is.close();
             }
-            FileOutputStream fos = new FileOutputStream(outputFile);//Get OutputStream for NewFile Location
-
-            InputStream is = c.getInputStream();//Get InputStream for connection
-
-            byte[] buffer = new byte[1024];//Set buffer type
-            int len1 = 0;//init length
-            while ((len1 = is.read(buffer)) > 0) {
-                fos.write(buffer, 0, len1);//Write new file
-            }
-
-            //Close all connection after doing task
-            fos.flush();
-            fos.close();
-            is.close();
-
         } catch (Exception e) {
             //Read exception if something went wrong
             e.printStackTrace();
@@ -70,4 +73,5 @@ public class PdfHandler extends AsyncTask<Void, Void, Void> {
 
         return null;
     }
+
 }

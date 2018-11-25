@@ -14,17 +14,15 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package org.altervista.edoardo.bfconnect.parser;
+package org.altervista.edoardo.bfconnect.nfc.parser;
 
-import android.app.Activity;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 
-import org.altervista.edoardo.bfconnect.R;
-import org.altervista.edoardo.bfconnect.record.ParsedNdefRecord;
-import org.altervista.edoardo.bfconnect.record.SmartPoster;
-import org.altervista.edoardo.bfconnect.record.TextRecord;
-import org.altervista.edoardo.bfconnect.record.UriRecord;
+import org.altervista.edoardo.bfconnect.nfc.record.ParsedNdefRecord;
+import org.altervista.edoardo.bfconnect.nfc.record.SmartPoster;
+import org.altervista.edoardo.bfconnect.nfc.record.TextRecord;
+import org.altervista.edoardo.bfconnect.nfc.record.UriRecord;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,12 +1,12 @@
-package org.altervista.edoardo.bfconnect;
+package org.altervista.edoardo.bfconnect.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Window;
 import android.view.WindowManager;
+
+import org.altervista.edoardo.bfconnect.R;
 
 public class Start extends AppCompatActivity {
     int timeout = 2000;

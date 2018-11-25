@@ -1,10 +1,11 @@
-package org.altervista.edoardo.bfconnect;
+package org.altervista.edoardo.bfconnect.connectionParser;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import org.altervista.edoardo.bfconnect.activities.Rooms;
 import org.json.JSONException;
 import org.json.JSONObject;
 

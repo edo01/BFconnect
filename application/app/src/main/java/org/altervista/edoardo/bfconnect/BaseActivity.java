@@ -15,6 +15,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import org.altervista.edoardo.bfconnect.activities.Home;
+import org.altervista.edoardo.bfconnect.activities.Prenotation;
+import org.altervista.edoardo.bfconnect.activities.School;
+
 /**
  * @// TODO: 15/11/18 : qrcode reader;
  */
@@ -109,10 +113,10 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         return true;
     }
 
-    abstract void ActivityPage();
+    public abstract void ActivityPage();
 
-    abstract int getContentViewId();
+    public abstract int getContentViewId();
 
-    abstract int getNavigationMenuItemId();
+    public abstract int getNavigationMenuItemId();
 
 }

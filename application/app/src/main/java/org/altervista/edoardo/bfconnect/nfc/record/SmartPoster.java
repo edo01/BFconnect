@@ -15,9 +15,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.altervista.edoardo.bfconnect.record;
+package org.altervista.edoardo.bfconnect.nfc.record;
 
-import android.app.Activity;
 import android.nfc.FormatException;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
@@ -26,7 +25,7 @@ import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
-import org.altervista.edoardo.bfconnect.parser.NdefMessageParser;
+import org.altervista.edoardo.bfconnect.nfc.parser.NdefMessageParser;
 
 import java.util.Arrays;
 import java.util.NoSuchElementException;

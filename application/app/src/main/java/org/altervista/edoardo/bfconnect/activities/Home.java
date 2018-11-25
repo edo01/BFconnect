@@ -5,7 +5,7 @@
 * This is the main class linked to the "ACTIVITY MAIN" in "res/layout/activity_main.xml"
 */
 
-package org.altervista.edoardo.bfconnect;
+package org.altervista.edoardo.bfconnect.activities;
 
 
 import android.content.Intent;
@@ -15,24 +15,39 @@ import android.nfc.NfcAdapter;
 
 import android.nfc.Tag;
 import android.os.Parcelable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import org.altervista.edoardo.bfconnect.BaseActivity;
+import org.altervista.edoardo.bfconnect.R;
+import org.altervista.edoardo.bfconnect.nfc.NfcAction;
+
 
 public class Home extends BaseActivity {
 
-    NfcAction nfc;
-    ActionBar toolbar;
-    ImageView image;
+    private NfcAction nfc;
+    private ActionBar toolbar;
+    private ImageView image;
+    private FloatingActionButton f1;
 
     @Override
-    void ActivityPage() {
+    public void ActivityPage() {
         nfc = new NfcAction();
         image = (ImageView) findViewById(R.id.logo);
         Animation animation = AnimationUtils.loadAnimation(this,R.anim.rotation);
         image.startAnimation(animation);
+        f1 = (FloatingActionButton) findViewById(R.id.floatQR);
+        f1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent qrcode=new Intent(Home.this, QrCode.class);
+                startActivity(qrcode);
+            }
+        });
     }
 
     @Override
@@ -75,12 +90,12 @@ public class Home extends BaseActivity {
     }
 
     @Override
-    int getContentViewId() {
+    public int getContentViewId() {
         return R.layout.activity_main;
     }
 
     @Override
-    int getNavigationMenuItemId() {
+    public int getNavigationMenuItemId() {
         return R.id.reading;
     }
 
