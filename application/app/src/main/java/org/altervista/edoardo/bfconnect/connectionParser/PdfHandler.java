@@ -19,7 +19,7 @@ import static android.content.ContentValues.TAG;
 
 public class PdfHandler extends AsyncTask<Void, Void, Void> {
     private String[] pdf = new String[3];
-    private final String address = "http://192.168.43.99";
+    private final String address = "http://10.72.1.13::6002";
 
     @Override
     protected void onPreExecute() {

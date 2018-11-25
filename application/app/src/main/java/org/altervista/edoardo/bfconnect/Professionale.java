@@ -3,7 +3,7 @@ package org.altervista.edoardo.bfconnect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Proffessionale extends BaseActivity {
+public class Professionale extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

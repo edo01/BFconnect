@@ -30,7 +30,7 @@ public class JSONparser extends AsyncTask<Void, Void, Void> {
     /*the address must has this form "https://192.168.1.71/?room=N&image=false" for
      * if you want an image don't put 'false' but the number of your image
      */
-    private final String address = "http://192.168.43.99";
+    private final String address = "http://10.72.1.13:6002";
     InputStream in;
 
     @Override
