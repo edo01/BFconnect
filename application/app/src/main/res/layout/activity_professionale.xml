@@ -13,48 +13,55 @@
         app:srcCompat="@drawable/f"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
+
     <Button
-        android:id="@+id/mezz1"
+        android:id="@+id/btnSeraliMezzi"
         android:layout_width="165dp"
         android:layout_height="26dp"
         android:text="Button"
         android:visibility="invisible"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="469dp" />
+
     <Button
-        android:id="@+id/apparati2"
+        android:id="@+id/btnSeraleApparati"
         android:layout_width="165dp"
         android:layout_height="30dp"
         android:text="Button"
         android:visibility="invisible"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="412dp" />
+
     <Button
-        android:id="@+id/mezzi"
+        android:id="@+id/btnMezzi"
         android:layout_width="165dp"
         android:layout_height="30dp"
+        android:layout_marginTop="33dp"
         android:text="Button"
         android:visibility="invisible"
-        tools:layout_editor_absoluteX="73dp"
-        tools:layout_editor_absoluteY="338dp" />
+        app:layout_constraintTop_toBottomOf="@+id/btnManutenzione"
+        tools:layout_editor_absoluteX="73dp" />
+
     <Button
-        android:id="@+id/asstec"
+        android:id="@+id/btnManutenzione"
         android:layout_width="165dp"
         android:layout_height="30dp"
         android:text="Button"
         android:visibility="invisible"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="275dp" />
+
     <Button
-        android:id="@+id/apparati1"
+        android:id="@+id/btnApparati"
         android:layout_width="165dp"
         android:layout_height="30dp"
         android:text="Button"
         android:visibility="invisible"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="209dp" />
+
     <Button
-        android:id="@+id/qr"
+        android:id="@+id/btnQuaReg"
         android:layout_width="165dp"
         android:layout_height="30dp"
         android:text="Button"

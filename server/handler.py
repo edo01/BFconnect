@@ -28,10 +28,9 @@ class MyHandler(
             room = str(keys['room']).replace('[\'', '').replace('\']', '')
             image = str(keys['image']).replace('[\'', '').replace('\']', '')
             pdf = str(keys['pdf']).replace('[\'', '').replace('\']', '')
-
-            if pdf == 'true':
-                self.sendPdf(room)
-                print('pdf inviato: ', self.datahandler.orariTecnico)
+            if pdf != 'false':
+                self.sendPdf(pdf)
+                print('pdf inviato: ', self.datahandler.pdf[pdf])
             elif image.isdecimal():
                 self.sendImage(room, image)
                 print('la room selezionata è :', room)
@@ -43,6 +42,7 @@ class MyHandler(
             end = timer()
             print('response in:', end - start)
         except:
+
             print('error in sending response')
 
 
@@ -57,9 +57,9 @@ class MyHandler(
         self.wfile.write(self.datahandler.getContent(room).encode('UTF-8', 'replace'))  # before sending message must be encode
         self.wfile.flush()
 
-    def sendPdf(self, room = 'example'): #send title, description etc..
+    def sendPdf(self, pdf = "0"): #send title, description etc..
         self.doHead('pdf')
-        self.wfile.write(self.load(self.datahandler.datasPath + 'orariTecnico.pdf'))  # before sending message must be encode
+        self.wfile.write(self.load(self.datahandler.datasPath + self.datahandler.getPdfName(pdf)))  # before sending message must be encode
         self.wfile.flush()
 
     def sendImage(self, room = 'example', image = 1): #send images

@@ -4,7 +4,8 @@ __all__ = [
 
 class DataHandler():
     datasPath = 'data/'
-    orariTecnico = 'orariTecnico.pdf'
+    pdf = { '9':'elettronica.pdf', '1' :'informatica.pdf', '3' :'chimica.pdf', '2' :'meccanica.pdf', '4':'serale.pdf', '5':'serale.pdf', '6':'qualifiche.pdf',
+            '8':'apparati.pdf', '7':'manutenzione.pdf', '10':'mezzi.pdf'}
 
     # all the files with the JSON datas must be called 'roomContent.txt'
     def getContent(self, room = 'example'):
@@ -16,3 +17,11 @@ class DataHandler():
 
     def getImageName(self, room = 'example', image = '1'):
         return self.datasPath + 'room' + room + '/image'+ image
+
+    def getPdfName(self, number = 0):
+        if number == 0:
+            return 'orariTecnico.pdf'
+        try:
+            return 'pdf/'+self.pdf[number]
+        except:
+            return 'orariTecnico.pdf'
