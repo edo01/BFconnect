@@ -12,7 +12,8 @@ public class Professionale extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_professionale);
+        setContentView(R
+                .layout.activity_professionale);
         try{
             CharSequence text = "downloading pdf...";
             int duration = Toast.LENGTH_SHORT;

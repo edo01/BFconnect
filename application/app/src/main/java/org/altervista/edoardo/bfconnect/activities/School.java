@@ -13,8 +13,8 @@ public class School extends BaseActivity {
 
     @Override
     public void ActivityPage() {
-        btnTecnico = findViewById(R.id.tecnico);
-        btnProfessionale = findViewById(R.id.proff);
+        btnTecnico = findViewById(R.id.btnTecnico);
+        btnProfessionale = findViewById(R.id.btnProfessionale);
         btnTecnico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

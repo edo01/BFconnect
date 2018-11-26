@@ -19,7 +19,7 @@ import static android.content.ContentValues.TAG;
 
 public class PdfHandler extends AsyncTask<Void, Void, Void> {
     private String[] pdf = new String[3];
-    private final String address = "http://10.72.1.13::6002";
+    private final String address = "http://taddia.sytes.net:6002";
 
     @Override
     protected void onPreExecute() {
@@ -42,7 +42,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Void> {
             }
 
             File downloadPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-            File outputFile = new File(downloadPath + pdf[0]);
+            File outputFile = new File(downloadPath + "/" + pdf[0]);
 
             //Create New File if not present
             if (!outputFile.exists()) {

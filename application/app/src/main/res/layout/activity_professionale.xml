@@ -1,22 +1,18 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     tools:context=".Professionale">
-    application/app/src/main/res/layout/activity_proffessionale.xml
 
     <ImageView
         android:id="@+id/fAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_margin="0dp"
         app:srcCompat="@drawable/f"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
-
     <Button
         android:id="@+id/mezz1"
         android:layout_width="165dp"
@@ -25,7 +21,6 @@
         android:visibility="invisible"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="469dp" />
-
     <Button
         android:id="@+id/apparati2"
         android:layout_width="165dp"
@@ -34,7 +29,6 @@
         android:visibility="invisible"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="412dp" />
-
     <Button
         android:id="@+id/mezzi"
         android:layout_width="165dp"
@@ -43,7 +37,6 @@
         android:visibility="invisible"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="338dp" />
-
     <Button
         android:id="@+id/asstec"
         android:layout_width="165dp"
@@ -52,7 +45,6 @@
         android:visibility="invisible"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="275dp" />
-
     <Button
         android:id="@+id/apparati1"
         android:layout_width="165dp"
@@ -61,7 +53,6 @@
         android:visibility="invisible"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="209dp" />
-
     <Button
         android:id="@+id/qr"
         android:layout_width="165dp"
@@ -70,4 +61,4 @@
         android:visibility="invisible"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="145dp" />
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
