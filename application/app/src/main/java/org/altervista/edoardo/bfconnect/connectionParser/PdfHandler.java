@@ -4,6 +4,9 @@ package org.altervista.edoardo.bfconnect.connectionParser;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
+
+import org.altervista.edoardo.bfconnect.activities.Professionale;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -14,13 +17,13 @@ import java.net.URL;
 import static android.content.ContentValues.TAG;
 
 /**
- * @// TODO: 25/11/18 : understand why the name of the pdf is like this.
+ * @// TODO: 26/11/18 :
  */
 
 public class PdfHandler extends AsyncTask<Void, Void, Void> {
     private String pdf;
     private int nPdf;
-    private final String address = "http://192.168.43.99:80";
+    private final String address = "http://taddia.sytes.net:6002";
 
     public PdfHandler(String indirizzo){
         switch(indirizzo){
@@ -71,8 +74,6 @@ public class PdfHandler extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... arg0) {
 
         try {
-
-
             File downloadPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
             File outputFile = new File(downloadPath + "/" + pdf);
 
@@ -105,6 +106,8 @@ public class PdfHandler extends AsyncTask<Void, Void, Void> {
                 fos.flush();
                 fos.close();
                 is.close();
+            }else {
+                Log.d("file exist","passing over");
             }
         } catch (Exception e) {
             //Read exception if something went wrong

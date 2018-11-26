@@ -1,5 +1,7 @@
 package org.altervista.edoardo.bfconnect.connectionParser;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -10,6 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -19,7 +22,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * @// TODO: 24/11/18 : Showing pdf download status; Raise exception NO CONNECTION
+ * @// TODO: 26/11/18 : Showing pdf download status;
  */
 
 public class JSONparser extends AsyncTask<Void, Void, Void> {
@@ -27,17 +30,25 @@ public class JSONparser extends AsyncTask<Void, Void, Void> {
     private String content = "";
     private String title = "";
     private Bitmap bitmap;
+    private String room;
+    private Context c;
+
     /*the address must has this form "https://192.168.1.71/?room=N&image=false" for
      * if you want an image don't put 'false' but the number of your image
      */
     private final String address = "http://taddia.sytes.net:6002";
     InputStream in;
 
+    public JSONparser(String room, Context c){
+        this.room = room;
+        this.c = c;
+    }
+
     @Override
     protected Void doInBackground(Void... voids) {
         //in this try-catch we take some JSON datas and we parse them in title,content ecc...
         try {
-            URL url=new URL(address + "/?room="+ Rooms.room + "&image=false&pdf=false");
+            URL url=new URL(address + "/?room="+ room + "&image=false&pdf=false");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             in = httpURLConnection.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
@@ -58,7 +69,7 @@ public class JSONparser extends AsyncTask<Void, Void, Void> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        bitmap = ScaricaImmagine(address + "/?room="+ Rooms.room +"&image=1&pdf=false");
+        bitmap = ScaricaImmagine(address + "/?room="+ room +"&image=1&pdf=false");
         return null;
     }
 
@@ -110,9 +121,14 @@ public class JSONparser extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoids){
         //setting in the view the datas parsed
-        Rooms.txtView.setText(content);
-        Rooms.title.setText(title);
-        Rooms.image.setImageBitmap(bitmap);
+        super.onPostExecute(aVoids);
+        Intent in = new Intent(c, Rooms.class);
+        in.putExtra("content", content);
+        in.putExtra("title", title);
+        /*ByteArrayOutputStream bs = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 50, bs);
+        in.putExtra("image", bs.toByteArray());*/
+        c.startActivity(in);
     }
 
 }

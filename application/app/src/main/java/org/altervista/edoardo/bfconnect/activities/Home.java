@@ -26,7 +26,9 @@ import org.altervista.edoardo.bfconnect.BaseActivity;
 import org.altervista.edoardo.bfconnect.R;
 import org.altervista.edoardo.bfconnect.nfc.NfcAction;
 
-
+/***
+ * toDO: 26/11/18 stopping animation when bottommenu is clicked
+ */
 public class Home extends BaseActivity {
 
     private NfcAction nfc;
@@ -82,7 +84,7 @@ public class Home extends BaseActivity {
                     msgs = new NdefMessage[] {msg};
                 }
 
-                Intent room= new Intent(this,Rooms.class);
+                Intent room= new Intent(this, Loading.class);
                 String txtNfc=nfc.displayMsgs(msgs);
                 if (!txtNfc.equals(""))room.putExtra("nfc_read", txtNfc);
                 startActivity(room);
