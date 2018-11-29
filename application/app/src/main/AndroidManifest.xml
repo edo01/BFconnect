@@ -36,52 +36,54 @@
         <activity
             android:name=".activities.Prenotation"
             android:configChanges="keyboardHidden|orientation"
-            android:label=""
             android:icon="@drawable/ic_bf_connect_horizontal_white"
+            android:label=""
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.School"
             android:configChanges="keyboardHidden|orientation"
-            android:label=""
             android:icon="@drawable/ic_bf_connect_horizontal_white"
+            android:label=""
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.Rooms"
             android:configChanges="keyboardHidden|orientation"
-            android:label=""
             android:icon="@drawable/ic_bf_connect_horizontal_white"
+            android:label=""
             android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.Home"
-            android:icon="@drawable/ic_bf_connect_horizontal_white"
             android:configChanges="keyboardHidden|orientation"
+            android:icon="@drawable/ic_bf_connect_horizontal_white"
             android:label=""
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.Tecnico"
             android:configChanges="keyboardHidden|orientation"
-            android:label=""
             android:icon="@drawable/ic_bf_connect_horizontal_white"
+            android:label=""
             android:parentActivityName=".activities.School"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.Professionale"
             android:configChanges="keyboardHidden|orientation"
-            android:label=""
             android:icon="@drawable/ic_bf_connect_horizontal_white"
+            android:label=""
             android:parentActivityName=".activities.School"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.QrCode"
             android:configChanges="keyboardHidden|orientation"
-            android:label=""
             android:icon="@drawable/ic_bf_connect_horizontal_white"
+            android:label=""
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.Loading"
+        <activity
+            android:name=".activities.Loading"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
-            android:screenOrientation="portrait" ></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".Help"></activity>
     </application>
 
 </manifest>
