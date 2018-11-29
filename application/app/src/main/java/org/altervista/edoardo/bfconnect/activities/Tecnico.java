@@ -21,7 +21,7 @@ import org.altervista.edoardo.bfconnect.R;
 import org.altervista.edoardo.bfconnect.connectionParser.PdfHandler;
 
 /**
- *  toDo: 29/11/18:
+ *  toDo: 29/11/18: DOWNLOAD ERROR.
  */
 
 public class Tecnico extends AppCompatActivity {
@@ -44,15 +44,11 @@ public class Tecnico extends AppCompatActivity {
         btnChimica = findViewById(R.id.btnChimica);
         btnMeccanica = findViewById(R.id.btnMeccanica);
         try{
-            if(!isNetworkAvailable()){
-                Toast.makeText(this, "NO CONNESSIONE", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(this, Home.class));
-            }
 
         btnElettronica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!isNetworkAvailable()) {
+                if(isNetworkAvailable()) {
                     doToast("elettronica");
                 }else doSnackbar("elettronica");
             }
@@ -60,7 +56,7 @@ public class Tecnico extends AppCompatActivity {
         btnInformatica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!isNetworkAvailable()) {
+                if(isNetworkAvailable()) {
                     doToast("informatica");
                 }else doSnackbar("informatica");
             }
@@ -68,7 +64,7 @@ public class Tecnico extends AppCompatActivity {
         btnMeccanica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!isNetworkAvailable()) {
+                if(isNetworkAvailable()) {
                     doToast("meccanica");
                 }else doSnackbar("meccanica");
             }
@@ -76,7 +72,7 @@ public class Tecnico extends AppCompatActivity {
         btnChimica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!isNetworkAvailable()) {
+                if(isNetworkAvailable()) {
                     doToast("chimica");
                 }else doSnackbar("chimica");
             }
@@ -94,11 +90,11 @@ public class Tecnico extends AppCompatActivity {
     }
 
     private void doSnackbar(String pdf){
-        Snackbar snackbar = Snackbar.make(findViewById(R.id.professionale), "NO CONNESSIONE", Snackbar.LENGTH_LONG)
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.tecnico), "NO CONNESSIONE", Snackbar.LENGTH_LONG)
                 .setAction("RIPROVA", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!isNetworkAvailable()) {
+                        if(isNetworkAvailable()) {
                             doToast(pdf);
                         }else doSnackbar(pdf);
                     }

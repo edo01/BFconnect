@@ -49,7 +49,7 @@ public class Professionale extends AppCompatActivity {
             btnQuaReg.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(!isNetworkAvailable()) {
+                    if(isNetworkAvailable()) {
                         doToast("qualifiche");
                     }else doSnackbar("qualifiche");
                 }
@@ -57,7 +57,7 @@ public class Professionale extends AppCompatActivity {
             btnMezzi.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(!isNetworkAvailable()) {
+                    if(isNetworkAvailable()) {
                         doToast("mezzi");
                     }else doSnackbar("mezzi");
                 }
@@ -65,7 +65,7 @@ public class Professionale extends AppCompatActivity {
             btnManutenzione.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(!isNetworkAvailable()) {
+                    if(isNetworkAvailable()) {
                         doToast("manutenzione");
                     }else doSnackbar("manutenzione");
                 }
@@ -73,7 +73,7 @@ public class Professionale extends AppCompatActivity {
             btnApparati.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(!isNetworkAvailable()){
+                    if(isNetworkAvailable()){
                         doToast("apparati");
                     }else doSnackbar("apparati");
                 }
@@ -81,7 +81,7 @@ public class Professionale extends AppCompatActivity {
             btnSeraleApparati.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(!isNetworkAvailable()) {
+                    if(isNetworkAvailable()) {
                         doToast("serialiApparati");
                     }else doSnackbar("seraliApparati");
                 }
@@ -89,7 +89,7 @@ public class Professionale extends AppCompatActivity {
             btnSeraliMezzi.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(!isNetworkAvailable()) {
+                    if(isNetworkAvailable()) {
                         doToast("serialiMezzi");
                     }else doSnackbar("seraliMezzi");
                 }
@@ -101,10 +101,10 @@ public class Professionale extends AppCompatActivity {
 
     private void doSnackbar(String pdf){
         Snackbar snackbar = Snackbar.make(findViewById(R.id.professionale), "NO CONNESSIONE", Snackbar.LENGTH_LONG)
-                .setAction("RETRY", new View.OnClickListener() {
+                .setAction("RIPROVA", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!isNetworkAvailable()) {
+                        if(isNetworkAvailable()) {
                             doToast(pdf);
                         }else doSnackbar(pdf);
                     }
