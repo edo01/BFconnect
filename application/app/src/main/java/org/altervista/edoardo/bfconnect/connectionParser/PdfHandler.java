@@ -124,7 +124,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
     protected void onPostExecute(Boolean check) {
         super.onPostExecute(check);
         if (check){
-            Toast tdonwload = Toast.makeText(context, "pdf scaricato con successo" , Toast.LENGTH_LONG);
+            Toast tdonwload = Toast.makeText(context, "pdf scaricato con successo" , Toast.LENGTH_SHORT);
             tdonwload.setGravity(Gravity.CENTER,0,0);
             tdonwload.show();
         }else{

@@ -90,10 +90,14 @@ public class Home extends BaseActivity {
                     msgs = new NdefMessage[] {msg};
                 }
 
-                Intent room= new Intent(this, Loading.class);
-                String txtNfc=nfc.displayMsgs(msgs);
+                String txtNfc = nfc.displayMsgs(msgs);
+
                 if(isNetworkAvailable()){
-                    Toast.makeText(this, "Nuovo nfc trovato", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Home.this, "Nuovo nfc trovato", Toast.LENGTH_SHORT).show();
+
+                    Intent in = new Intent(Home.this, Loading.class);
+                    if (!txtNfc.equals(""))in.putExtra("nfc_read", txtNfc);
+                    startActivity(in);
                 }else{
                     doSnackbar(txtNfc);
                 }
@@ -126,6 +130,7 @@ public class Home extends BaseActivity {
                         if(isNetworkAvailable()) {
                             Intent intent = new Intent(Home.this, Loading.class);
                             intent.putExtra("nfc_read", room);
+                            startActivity(intent);
                         }else doSnackbar(room);
                     }
                 });

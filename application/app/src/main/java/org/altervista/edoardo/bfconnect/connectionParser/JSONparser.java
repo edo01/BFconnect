@@ -6,12 +6,16 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.Gravity;
+import android.widget.Toast;
 
+import org.altervista.edoardo.bfconnect.activities.Home;
 import org.altervista.edoardo.bfconnect.activities.Rooms;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -24,7 +28,7 @@ import java.net.URLConnection;
  * @// TODO: 26/11/18 : Showing pdf download status; PDFhandler error
  */
 
-public class JSONparser extends AsyncTask<Void, Void, Void> {
+public class JSONparser extends AsyncTask<Void, Void, Boolean> {
 
     private String content = "";
     private String title = "";
@@ -32,10 +36,11 @@ public class JSONparser extends AsyncTask<Void, Void, Void> {
     private String room;
     private Context c;
 
-    /*the address must has this form "https://192.168.1.71/?room=N&image=false" for
+    /*the address must has this form "https://ip/?room=N&image=false" for
      * if you want an image don't put 'false' but the number of your image
      */
-    private final String address = "http://taddia.sytes.net:6002";
+    private final String address = "http://192.168.1.71:80";
+    //private final String address = "http://taddia.sytes.net:6002";
     InputStream in;
 
     public JSONparser(String room, Context c){
@@ -44,7 +49,7 @@ public class JSONparser extends AsyncTask<Void, Void, Void> {
     }
 
     @Override
-    protected Void doInBackground(Void... voids) {
+    protected Boolean doInBackground(Void... voids) {
         //in this try-catch we take some JSON datas and we parse them in title,content ecc...
         try {
             URL url=new URL(address + "/?room="+ room + "&image=false&pdf=false");
@@ -63,13 +68,21 @@ public class JSONparser extends AsyncTask<Void, Void, Void> {
             br.close();
         } catch (MalformedURLException e) {
             e.printStackTrace();
+            return false;
         } catch (IOException e) {
             e.printStackTrace();
+            return false;
         } catch (JSONException e) {
             e.printStackTrace();
+            return false;
         }
-        bitmap = ScaricaImmagine(address + "/?room="+ room +"&image=1&pdf=false");
-        return null;
+        try {
+            bitmap = ScaricaImmagine(address + "/?room="+ room +"&image=1&pdf=false");
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return false;
+        }
+        return true;
     }
 
     private Bitmap ScaricaImmagine(String URL)
@@ -108,6 +121,7 @@ public class JSONparser extends AsyncTask<Void, Void, Void> {
             if (risposta == HttpURLConnection.HTTP_OK) {
                 in = httpConn.getInputStream();
             }
+
         }
         catch (Exception ex)
         {
@@ -118,14 +132,29 @@ public class JSONparser extends AsyncTask<Void, Void, Void> {
     }
 
     @Override
-    protected void onPostExecute(Void aVoids){
+    protected void onPostExecute(Boolean check){
         //setting in the view the datas parsed
-        super.onPostExecute(aVoids);
-        Intent in = new Intent(c, Rooms.class);
-        in.putExtra("content", content);
-        in.putExtra("title", title);
-        in.putExtra("image", bitmap);
-        c.startActivity(in);
+        super.onPostExecute(check);
+        if (check) {
+            Intent in = new Intent(c, Rooms.class);
+            try {
+                in.putExtra("content", content);
+                in.putExtra("title", title);
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                byte[] byteArray = stream.toByteArray();
+                in.putExtra("image", byteArray);
+                c.startActivity(in);
+            } catch (Exception ex) {
+                Log.e("ERROR IN LOADING DATA", ex.getMessage());
+            }
+        }else {
+            Toast tdonwload = Toast.makeText(c, "C'È STATO UN ERRORE. CONTATTA L'AMMINISTRATORE" , Toast.LENGTH_LONG);
+            tdonwload.setGravity(Gravity.CENTER,0,0);
+            tdonwload.show();
+            Intent intent = new Intent( c, Home.class);
+            c.startActivity(intent);
+        }
     }
 
 }

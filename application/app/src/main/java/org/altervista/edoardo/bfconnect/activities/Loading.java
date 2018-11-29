@@ -9,6 +9,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
@@ -34,15 +35,18 @@ public class Loading extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_loading);
-
-        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
-
 
         Bundle datapassed = getIntent().getExtras();
         String room = datapassed.getString("nfc_read");//getting the room from what nfc read
-        new JSONparser(room,this).execute();
 
+        setContentView(R.layout.activity_loading);
+
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        try {
+            new JSONparser(room, this).execute();
+        }catch(Exception ex){
+            Log.e("ERROR IN LOADING DATA",ex.getMessage());
+        }
     }
 
     void selectBottomNavigationBarItem(int itemId) {

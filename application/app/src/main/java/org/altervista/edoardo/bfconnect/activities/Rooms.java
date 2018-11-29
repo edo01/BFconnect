@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.Window;
@@ -29,10 +30,18 @@ public class Rooms extends AppCompatActivity {
         content = (TextView)findViewById(R.id.txtResponse);
         image = (ImageView) findViewById(R.id.imageOne);
 
-        Bundle datapassed = getIntent().getExtras();
-        title.setText(datapassed.getString("title"));
-        content.setText(datapassed.getString("content"));
-        image.setImageBitmap(getIntent().getExtras().getParcelable("image"));
+        try {
+            Bundle datapassed = getIntent().getExtras();
+            title.setText(datapassed.getString("title"));
+            content.setText(datapassed.getString("content"));
+            byte[] byteArray = datapassed.getByteArray("image");
+            Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+            image.setImageBitmap(bmp);
+        }catch(Exception ex){
+            Log.e("ERROR IN LOADING DATA",ex.getMessage());
+        }
+
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
