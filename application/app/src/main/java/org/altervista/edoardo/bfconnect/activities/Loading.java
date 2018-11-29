@@ -41,24 +41,12 @@ public class Loading extends AppCompatActivity {
 
         Bundle datapassed = getIntent().getExtras();
         String room = datapassed.getString("nfc_read");//getting the room from what nfc read
+        new JSONparser(room,this).execute();
 
-        if(isNetworkAvailable()){
-            new JSONparser(room,this).execute();
-        }else{
-            Toast.makeText(this, "NO CONNESSIONE", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(this, Home.class));
-        }
     }
 
     void selectBottomNavigationBarItem(int itemId) {
         MenuItem item = navigationView.getMenu().findItem(itemId);
         item.setChecked(true);
-    }
-
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }

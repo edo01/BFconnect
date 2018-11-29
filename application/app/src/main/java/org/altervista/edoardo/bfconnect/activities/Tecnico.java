@@ -1,7 +1,6 @@
 package org.altervista.edoardo.bfconnect.activities;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.design.widget.Snackbar;
