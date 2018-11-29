@@ -32,8 +32,7 @@ public class Rooms extends AppCompatActivity {
         Bundle datapassed = getIntent().getExtras();
         title.setText(datapassed.getString("title"));
         content.setText(datapassed.getString("content"));
-        //image.setImageBitmap(BitmapFactory.decodeByteArray(datapassed.getByteArray("image"),0,getIntent().getByteArrayExtra("byteArray").length));
-
+        image.setImageBitmap(getIntent().getExtras().getParcelable("image"));
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);

@@ -1,9 +1,11 @@
 package org.altervista.edoardo.bfconnect.connectionParser;
 
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
+import android.view.Gravity;
 import android.widget.Toast;
 
 import org.altervista.edoardo.bfconnect.activities.Professionale;
@@ -24,8 +26,10 @@ public class PdfHandler extends AsyncTask<Void, Void, Void> {
     private String pdf;
     private int nPdf;
     private final String address = "http://taddia.sytes.net:6002";
+    private Context context;
 
-    public PdfHandler(String indirizzo){
+    public PdfHandler(String indirizzo,Context context){
+        this.context = context;
         switch(indirizzo){
             case "elettronica":
                 pdf = "15_12_2018_elettronica_elettrotecnica.pdf";
@@ -83,7 +87,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Void> {
                 HttpURLConnection c = (HttpURLConnection) url.openConnection();//Open Url Connection
                 c.setRequestMethod("GET");//Set Request Method to "GET" since we are grtting data
                 c.connect();//connect the URL Connection
-
+                c.getContent();
                 //If Connection response is not OK then show Logs
                 if (c.getResponseCode() != HttpURLConnection.HTTP_OK) {
                     return null;
@@ -91,7 +95,6 @@ public class PdfHandler extends AsyncTask<Void, Void, Void> {
                 outputFile.createNewFile();
                 Log.d(TAG, outputFile.getPath());
                 Log.d(TAG, "File Created");
-
                 FileOutputStream fos = new FileOutputStream(outputFile);//Get OutputStream for NewFile Location
 
                 InputStream is = c.getInputStream();//Get InputStream for connection
@@ -106,6 +109,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Void> {
                 fos.flush();
                 fos.close();
                 is.close();
+                c.disconnect();
             }else {
                 Log.d("file exist","passing over");
             }
@@ -118,4 +122,11 @@ public class PdfHandler extends AsyncTask<Void, Void, Void> {
         return null;
     }
 
+    @Override
+    protected void onPostExecute(Void aVoid) {
+        super.onPostExecute(aVoid);
+        Toast tdonwload = Toast.makeText(context, "pdf scaricato" , Toast.LENGTH_SHORT);
+        tdonwload.setGravity(Gravity.CENTER,0,0);
+        tdonwload.show();
+    }
 }

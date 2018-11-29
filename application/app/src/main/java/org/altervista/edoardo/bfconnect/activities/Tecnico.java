@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -19,7 +21,7 @@ import org.altervista.edoardo.bfconnect.R;
 import org.altervista.edoardo.bfconnect.connectionParser.PdfHandler;
 
 /**
- *  toDo: 26/11/18 adding scroolling to the activty;
+ *  toDo: 29/11/18:
  */
 
 public class Tecnico extends AppCompatActivity {
@@ -50,37 +52,33 @@ public class Tecnico extends AppCompatActivity {
         btnElettronica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CharSequence text = "downloading pdf...";
-                int duration = Toast.LENGTH_SHORT;
-                Toast.makeText(Tecnico.this, text, duration).show();
-                new PdfHandler("elettronica").execute();
+                if(!isNetworkAvailable()) {
+                    doToast("elettronica");
+                }else doSnackbar("elettronica");
             }
         });
         btnInformatica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CharSequence text = "downloading pdf...";
-                int duration = Toast.LENGTH_SHORT;
-                Toast.makeText(Tecnico.this, text, duration).show();
-                new PdfHandler("informatica").execute();
+                if(!isNetworkAvailable()) {
+                    doToast("informatica");
+                }else doSnackbar("informatica");
             }
         });
         btnMeccanica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CharSequence text = "downloading pdf...";
-                int duration = Toast.LENGTH_SHORT;
-                Toast.makeText(Tecnico.this, text, duration).show();
-                new PdfHandler("meccanica").execute();
+                if(!isNetworkAvailable()) {
+                    doToast("meccanica");
+                }else doSnackbar("meccanica");
             }
         });
         btnChimica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CharSequence text = "downloading pdf...";
-                int duration = Toast.LENGTH_SHORT;
-                Toast.makeText(Tecnico.this, text, duration).show();
-                new PdfHandler("chimica").execute();
+                if(!isNetworkAvailable()) {
+                    doToast("chimica");
+                }else doSnackbar("chimica");
             }
         });
         }catch(Exception ex){
@@ -93,6 +91,26 @@ public class Tecnico extends AppCompatActivity {
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    private void doSnackbar(String pdf){
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.professionale), "NO CONNESSIONE", Snackbar.LENGTH_LONG)
+                .setAction("RIPROVA", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(!isNetworkAvailable()) {
+                            doToast(pdf);
+                        }else doSnackbar(pdf);
+                    }
+                });
+        snackbar.show();
+    }
+
+    private void doToast(String pdf){
+        Toast tdonwload = Toast.makeText(Tecnico.this, "downloading pdf..." , Toast.LENGTH_SHORT);
+        tdonwload.setGravity(Gravity.CENTER,0,0);
+        tdonwload.show();
+        new PdfHandler(pdf,Tecnico.this).execute();
     }
 
     @Override
