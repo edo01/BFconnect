@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -43,68 +45,78 @@ public class Professionale extends AppCompatActivity {
         btnSeraliMezzi = findViewById(R.id.btnSeraliMezzi);
 
         try{
-            if(!isNetworkAvailable()){
-                Toast.makeText(this, "NO CONNESSIONE", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(this, Home.class));
-            }
 
             btnQuaReg.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CharSequence text = "downloading pdf...";
-                    int duration = Toast.LENGTH_SHORT;
-                    Toast.makeText(Professionale.this, text, duration).show();
-                    new PdfHandler("qualifiche").execute();
+                    if(isNetworkAvailable()) {
+                        doToast("qualifiche");
+                    }else doSnackbar("qualifiche");
                 }
             });
             btnMezzi.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CharSequence text = "downloading pdf...";
-                    int duration = Toast.LENGTH_SHORT;
-                    Toast.makeText(Professionale.this, text, duration).show();
-                    new PdfHandler("mezzi").execute();
+                    if(isNetworkAvailable()) {
+                        doToast("mezzi");
+                    }else doSnackbar("mezzi");
                 }
             });
             btnManutenzione.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CharSequence text = "downloading pdf...";
-                    int duration = Toast.LENGTH_SHORT;
-                    Toast.makeText(Professionale.this, text, duration).show();
-                    new PdfHandler("manutenzione").execute();
+                    if(isNetworkAvailable()) {
+                        doToast("manutenzione");
+                    }else doSnackbar("manutenzione");
                 }
             });
             btnApparati.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CharSequence text = "downloading pdf...";
-                    int duration = Toast.LENGTH_SHORT;
-                    Toast.makeText(Professionale.this, text, duration).show();
-                    new PdfHandler("apparati").execute();
+                    if(isNetworkAvailable()){
+                        doToast("apparati");
+                    }else doSnackbar("apparati");
                 }
             });
             btnSeraleApparati.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CharSequence text = "downloading pdf...";
-                    int duration = Toast.LENGTH_SHORT;
-                    Toast.makeText(Professionale.this, text, duration).show();
-                    new PdfHandler("seraliApparati").execute();
+                    if(isNetworkAvailable()) {
+                        doToast("serialiApparati");
+                    }else doSnackbar("seraliApparati");
                 }
             });
             btnSeraliMezzi.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CharSequence text = "downloading pdf...";
-                    int duration = Toast.LENGTH_SHORT;
-                    Toast.makeText(Professionale.this, text, duration).show();
-                    new PdfHandler("seraliMezzi").execute();
+                    if(isNetworkAvailable()) {
+                        doToast("serialiMezzi");
+                    }else doSnackbar("seraliMezzi");
                 }
             });
         }catch(Exception ex){
             Toast.makeText(this, "Please give your permission.", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void doSnackbar(String pdf){
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.professionale), "NO CONNESSIONE", Snackbar.LENGTH_LONG)
+                .setAction("RIPROVA", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(isNetworkAvailable()) {
+                            doToast(pdf);
+                        }else doSnackbar(pdf);
+                    }
+                });
+        snackbar.show();
+    }
+
+    private void doToast(String pdf){
+        Toast tdonwload = Toast.makeText(Professionale.this, "downloading pdf..." , Toast.LENGTH_SHORT);
+        tdonwload.setGravity(Gravity.CENTER,0,0);
+        tdonwload.show();
+        new PdfHandler(pdf, Professionale.this).execute();
     }
 
     private boolean isNetworkAvailable() {

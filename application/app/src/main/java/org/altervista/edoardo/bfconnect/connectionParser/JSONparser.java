@@ -12,7 +12,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -125,9 +124,7 @@ public class JSONparser extends AsyncTask<Void, Void, Void> {
         Intent in = new Intent(c, Rooms.class);
         in.putExtra("content", content);
         in.putExtra("title", title);
-        /*ByteArrayOutputStream bs = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 50, bs);
-        in.putExtra("image", bs.toByteArray());*/
+        in.putExtra("image", bitmap);
         c.startActivity(in);
     }
 

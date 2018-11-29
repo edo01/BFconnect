@@ -3,7 +3,6 @@
 """
 BFServer:
 XXX To do:
-    - sending pdf
 """
 
 # BFCONNECT Working Group
@@ -19,7 +18,7 @@ import datetime
 def run():
     myserver = None
     server_name = "BFServer"
-    server_address = ('10.72.1.13',6002) #the server listens on 6002 port
+    server_address = ('',80) #the server listens on 6002 port
     server_startingtime = datetime.datetime.now()
     print("Starting server", str(server_startingtime), "...")
     try:
