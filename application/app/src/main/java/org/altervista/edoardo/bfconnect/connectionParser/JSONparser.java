@@ -21,7 +21,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * @// TODO: 26/11/18 : Showing pdf download status;
+ * @// TODO: 26/11/18 : Showing pdf download status; PDFhandler error
  */
 
 public class JSONparser extends AsyncTask<Void, Void, Void> {

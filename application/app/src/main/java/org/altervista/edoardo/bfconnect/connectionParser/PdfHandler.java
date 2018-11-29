@@ -8,8 +8,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
 
-import org.altervista.edoardo.bfconnect.activities.Professionale;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -22,7 +20,7 @@ import static android.content.ContentValues.TAG;
  * @// TODO: 26/11/18 :
  */
 
-public class PdfHandler extends AsyncTask<Void, Void, Void> {
+public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
     private String pdf;
     private int nPdf;
     private final String address = "http://taddia.sytes.net:6002";
@@ -75,7 +73,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Void> {
     }
 
     @Override
-    protected Void doInBackground(Void... arg0) {
+    protected Boolean doInBackground(Void... arg0) {
 
         try {
             File downloadPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
@@ -87,10 +85,9 @@ public class PdfHandler extends AsyncTask<Void, Void, Void> {
                 HttpURLConnection c = (HttpURLConnection) url.openConnection();//Open Url Connection
                 c.setRequestMethod("GET");//Set Request Method to "GET" since we are grtting data
                 c.connect();//connect the URL Connection
-                c.getContent();
                 //If Connection response is not OK then show Logs
                 if (c.getResponseCode() != HttpURLConnection.HTTP_OK) {
-                    return null;
+                    return false;
                 }
                 outputFile.createNewFile();
                 Log.d(TAG, outputFile.getPath());
@@ -117,16 +114,23 @@ public class PdfHandler extends AsyncTask<Void, Void, Void> {
             //Read exception if something went wrong
             e.printStackTrace();
             Log.e(TAG, "Download Error Exception " + e.getMessage());
+            return false;
         }
 
-        return null;
+        return true;
     }
 
     @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
-        Toast tdonwload = Toast.makeText(context, "pdf scaricato con successo" , Toast.LENGTH_LONG);
-        tdonwload.setGravity(Gravity.CENTER,0,0);
-        tdonwload.show();
+    protected void onPostExecute(Boolean check) {
+        super.onPostExecute(check);
+        if (check){
+            Toast tdonwload = Toast.makeText(context, "pdf scaricato con successo" , Toast.LENGTH_LONG);
+            tdonwload.setGravity(Gravity.CENTER,0,0);
+            tdonwload.show();
+        }else{
+            Toast tdonwload = Toast.makeText(context, "C'È STATO UN ERRORE. CONTATTA L'AMMINISTRATORE" , Toast.LENGTH_LONG);
+            tdonwload.setGravity(Gravity.CENTER,0,0);
+            tdonwload.show();
+        }
     }
 }
