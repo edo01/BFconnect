@@ -1,6 +1,5 @@
 /**
-* NfcAction extends Home.
-* The class which implements the NFC methods.
+* @class NfcAction.java
 */
 package org.altervista.edoardo.bfconnect.nfc;
 
@@ -15,9 +14,16 @@ import org.altervista.edoardo.bfconnect.nfc.record.ParsedNdefRecord;
 
 import java.util.List;
 
+/**
+ * this class takes care of reading from nfc.
+ */
 public class NfcAction extends Home {
 
-
+    /**
+     *
+     * @param msgs
+     * @return the text written into nfc.
+     */
     public String displayMsgs(NdefMessage[] msgs) {
         if (msgs == null || msgs.length == 0)
             return "";

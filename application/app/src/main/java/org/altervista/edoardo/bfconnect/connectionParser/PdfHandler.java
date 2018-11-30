@@ -1,3 +1,6 @@
+/**
+ * @class PdfHandler.java
+ */
 package org.altervista.edoardo.bfconnect.connectionParser;
 
 
@@ -19,7 +22,7 @@ import java.net.URL;
 import static android.content.ContentValues.TAG;
 
 /**
- * @// TODO: 26/11/18 :
+ * this class download the pdf from the server
  */
 
 public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
@@ -29,6 +32,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
     private Context context;
     private ProgressDialog pDialog;
 
+    //first choosing the name of the pdf( in base of the specialization clicked)
     public PdfHandler(String indirizzo,Context context){
         this.context = context;
         switch(indirizzo){
@@ -82,6 +86,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
     protected void onPreExecute() {
         super.onPreExecute();
         PdfHandler pdfHandler = this;
+        //creating the process dialog bar
         pDialog = new ProgressDialog(context,
                 ProgressDialog.THEME_DEVICE_DEFAULT_DARK);
         pDialog.setTitle("Please wait");
@@ -90,6 +95,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
         pDialog.setIndeterminate(true);
         pDialog.setCancelable(true);
         pDialog.setInverseBackgroundForced(true);
+        //setting the cancel listener of the process dialog
         pDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
             public void onCancel(DialogInterface dialog) {
@@ -101,7 +107,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
 
     @Override
     protected Boolean doInBackground(Void... arg0) {
-
+        //getting the pdf from the server
         try {
             File downloadPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
             File outputFile = new File(downloadPath + "/" + pdf);

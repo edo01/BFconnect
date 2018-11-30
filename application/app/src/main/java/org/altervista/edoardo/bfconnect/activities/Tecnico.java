@@ -1,3 +1,6 @@
+/**
+ * @class Tecnico
+ */
 package org.altervista.edoardo.bfconnect.activities;
 
 import android.content.Context;
@@ -8,7 +11,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,13 +20,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
-import org.altervista.edoardo.bfconnect.threeDots.Help;
+import org.altervista.edoardo.bfconnect.activities.threeDots.Help;
 import org.altervista.edoardo.bfconnect.R;
 import org.altervista.edoardo.bfconnect.connectionParser.PdfHandler;
-
-/**
- *  toDo: 29/11/18: DOWNLOAD ERROR.
- */
 
 public class Tecnico extends AppCompatActivity {
 
@@ -41,10 +39,13 @@ public class Tecnico extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
 
+        //getting the specialization button
         btnElettronica = findViewById(R.id.btnElettronica);
         btnInformatica = findViewById(R.id.btnInfo);
         btnChimica = findViewById(R.id.btnChimica);
         btnMeccanica = findViewById(R.id.btnMeccanica);
+
+        //setting the onClickListener of the button
         try{
 
         btnElettronica.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +93,7 @@ public class Tecnico extends AppCompatActivity {
     }
 
     private void doSnackbar(String pdf){
-        Snackbar snackbar = Snackbar.make(findViewById(R.id.tecnico), "NO CONNESSIONE", Snackbar.LENGTH_LONG)
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.Atecnico), "NO CONNESSIONE", Snackbar.LENGTH_LONG)
                 .setAction("RIPROVA", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

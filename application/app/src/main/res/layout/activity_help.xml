@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Help"
-    android:id="@+id/help">
+    tools:context=".activities.threeDots.Help"
+    android:id="@+id/Ahelp">
 
 
     <android.support.design.widget.FloatingActionButton

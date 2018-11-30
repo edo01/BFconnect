@@ -15,7 +15,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import org.altervista.edoardo.bfconnect.R;
-import org.altervista.edoardo.bfconnect.threeDots.Help;
+import org.altervista.edoardo.bfconnect.activities.threeDots.Help;
 
 
 public class Rooms extends AppCompatActivity {

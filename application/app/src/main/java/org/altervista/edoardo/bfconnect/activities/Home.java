@@ -1,8 +1,5 @@
 /**
-* BFCONNECT THE NEW APPLICATION POWERED BY EDOARDO CARRÀ, RICCARDO BOVINELLI and FRANCESCO TADDIA.
-*
-* BFconnect the new system aplication for the ISS BELLUZZI FIORAVANTI'S OPEN DAY.
-* This is the main class linked to the "ACTIVITY MAIN" in "res/layout/activity_main.xml"
+ * @class Home.java
 */
 
 package org.altervista.edoardo.bfconnect.activities;
@@ -29,11 +26,15 @@ import android.widget.Toast;
 
 import org.altervista.edoardo.bfconnect.BaseActivity;
 import org.altervista.edoardo.bfconnect.R;
-import org.altervista.edoardo.bfconnect.connectionParser.JSONparser;
 import org.altervista.edoardo.bfconnect.nfc.NfcAction;
 
-/***
+/**
  * toDO: 26/11/18 stopping animation when bottom menu is clicked
+ *
+ * This is the main class linked to the "activity_main.xml" in "res/layout/activity_main.xml".
+ * @extends BaseActivity
+ *
+ * This is one of the three main pages.
  */
 public class Home extends BaseActivity {
 
@@ -43,11 +44,15 @@ public class Home extends BaseActivity {
     private FloatingActionButton f1;
 
     @Override
-    public void ActivityPage() {
-        nfc = new NfcAction();
+    public void activityPage() {
+        nfc = new NfcAction();//create an NfcAction object for maneging the nfc reader
         image = (ImageView) findViewById(R.id.logo);
+
+        //loading rotation animation from "res/anim/rotation.xml"
         Animation animation = AnimationUtils.loadAnimation(this,R.anim.rotation);
         image.startAnimation(animation);
+
+        //this floating button is linked to the page of the qrcode
         f1 = (FloatingActionButton) findViewById(R.id.floatQR);
         f1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,16 +94,24 @@ public class Home extends BaseActivity {
                     NdefMessage msg = new NdefMessage(new NdefRecord[] {record});
                     msgs = new NdefMessage[] {msg};
                 }
-
+                //the message read by our nfc reader
                 String txtNfc = nfc.displayMsgs(msgs);
-
+                /* if the connection is available it starts the loading of the contents of the room
+                 * read.
+                 */
                 if(isNetworkAvailable()){
                     Toast.makeText(Home.this, "Nuovo nfc trovato", Toast.LENGTH_SHORT).show();
 
-                    Intent in = new Intent(Home.this, Loading.class);
-                    if (!txtNfc.equals(""))in.putExtra("nfc_read", txtNfc);
-                    startActivity(in);
+                    /* opening the loading page and passing the number of the room read.(if the
+                     *  number is different from null
+                     */
+                    if (!txtNfc.equals("")) {
+                        Intent in = new Intent(Home.this, Loading.class);
+                        in.putExtra("nfc_read", txtNfc);
+                        startActivity(in);
+                    }
                 }else{
+                    //showing snackbar.
                     doSnackbar(txtNfc);
                 }
             }
@@ -115,13 +128,20 @@ public class Home extends BaseActivity {
     }
 
 
-
-    private boolean isNetworkAvailable() {
+    /**
+     * @return true if the network is available and false if is not
+     */
+    public boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
+
+    /**
+     * This method creates the snackbar when the connection isn't available.
+     * @param room
+     */
     private void doSnackbar(String room){
         Snackbar snackbar = Snackbar.make(findViewById(R.id.home), "NO CONNESSIONE", Snackbar.LENGTH_LONG)
                 .setAction("RIPROVA", new View.OnClickListener() {

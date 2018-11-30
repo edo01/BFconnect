@@ -1,3 +1,6 @@
+/**
+ * @class Start.java
+ */
 package org.altervista.edoardo.bfconnect.activities;
 
 import android.content.Intent;
@@ -10,8 +13,12 @@ import android.widget.Toast;
 
 import org.altervista.edoardo.bfconnect.R;
 
+/**
+ * the first activity with the bf connect logo
+ */
 public class Start extends AppCompatActivity {
-    int timeout = 2000;
+
+    private final int timeout = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +30,8 @@ public class Start extends AppCompatActivity {
         if (nfcAdapter == null) { //if your device hasn't the NFC the application will advise you with a toast
             Toast.makeText(this, "SEMBRA CHE TU NON ABBIA L'NFC SUL TELEFONO, USA IL QR CODE", Toast.LENGTH_LONG).show();
         }
+
+        //starting the main page after 2 seconds of loading
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

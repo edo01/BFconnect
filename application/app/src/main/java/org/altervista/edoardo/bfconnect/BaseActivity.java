@@ -1,3 +1,7 @@
+/**
+ * @class BaseActivity.java
+ */
+
 package org.altervista.edoardo.bfconnect;
 
 import android.app.PendingIntent;
@@ -16,14 +20,16 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import org.altervista.edoardo.bfconnect.threeDots.Help;
+import org.altervista.edoardo.bfconnect.activities.threeDots.Help;
 import org.altervista.edoardo.bfconnect.activities.Home;
 import org.altervista.edoardo.bfconnect.activities.Prenotation;
 import org.altervista.edoardo.bfconnect.activities.School;
-import org.altervista.edoardo.bfconnect.threeDots.Help;
 
 /**
- * @// TODO: 15/11/18 : qrcode reader;
+ * @// TODO: 15/11/18 : null
+ *
+ * This is the base activity for a correct navigation bottom menu. The class is implemented by
+ * School.java, Prenotation.java and Home.java.
  */
 public abstract class BaseActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -51,7 +57,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         pendingIntent = PendingIntent.getActivity(this, 0,// creating a new intent that will be used for reading NFC
                 new Intent(this, this.getClass())
                         .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
-        ActivityPage();
+        activityPage();
     }
 
     @Override
@@ -113,14 +119,25 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         item.setChecked(true);
     }
 
+    /**
+     * find and fix the mneu on the view(three dots on the right of the top)
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.three_dots,menu);
         return true;
+
     }
 
+    /**
+     * the listener of the three dots menu
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
@@ -139,10 +156,25 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         }
     }
 
-    public abstract void ActivityPage();
+    /**
+     * implements activityPage() and put the code of your page activity, this method is called at
+     * the end of this.onCreate()
+    */
+    public abstract void activityPage();
 
+    /**
+     * This method is called by this.onCreate() and set the activity layout of the son class
+     * which implements this class.
+     * @return the id of the page content
+     */
     public abstract int getContentViewId();
 
+    /**
+     * This method is called by this.onCreate() and set the navigation bottom menu of the son class
+     * which implements this class.
+     *
+     * @return the id of the bottom navigation menu.
+     */
     public abstract int getNavigationMenuItemId();
 
 }

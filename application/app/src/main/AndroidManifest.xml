@@ -84,11 +84,11 @@
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:screenOrientation="portrait" />
-
-        <activity android:name=".threeDots.Hrileva">
-
-        </activity>
-        <activity android:name=".threeDots.Help"
+        <activity android:name=".activities.threeDots.Hrileva"
+            android:configChanges="keyboardHidden|orientation"
+            android:label=""
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.threeDots.Help"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:parentActivityName=".activities.Home"

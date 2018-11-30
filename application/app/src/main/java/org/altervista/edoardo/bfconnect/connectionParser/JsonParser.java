@@ -1,3 +1,6 @@
+/**
+ * @class JsonParser
+ */
 package org.altervista.edoardo.bfconnect.connectionParser;
 
 import android.app.ProgressDialog;
@@ -28,9 +31,17 @@ import java.net.URLConnection;
 
 /**
  * @// TODO: 26/11/18 :
+ *
+ * In this class we take some JSON data and we parse them inside our view( the context passed).
+ * the form of the JSON data MUST be like this:
+ * {
+ * "title":"ITIS BELLUZZI",
+ * "content":"Benvenuti all'open day del Belluzzi Fioravanti"
+ * }
+ *
  */
 
-public class JSONparser extends AsyncTask<Void, Void, Boolean> {
+public class JsonParser extends AsyncTask<Void, Void, Boolean> {
 
     private String content = "";
     private String title = "";
@@ -42,11 +53,11 @@ public class JSONparser extends AsyncTask<Void, Void, Boolean> {
     /*the address must has this form "https://ip/?room=N&image=false" for
      * if you want an image don't put 'false' but the number of your image
      */
-    private final String address = "http://192.168.1.71:80";
-    //private final String address = "http://taddia.sytes.net:6002";
+    //private final String address = "http://192.168.1.71:80";
+    private final String address = "http://taddia.sytes.net:6002"; //put here the server address
     InputStream in;
 
-    public JSONparser(String room, Context c){
+    public JsonParser(String room, Context c){
         this.room = room;
         this.c = c;
     }
@@ -54,7 +65,9 @@ public class JSONparser extends AsyncTask<Void, Void, Boolean> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        JSONparser jsonParser = this;
+        JsonParser jsonParser = this;
+
+        //creating the progress bar of the download
         pDialog = new ProgressDialog(c,
                 ProgressDialog.THEME_DEVICE_DEFAULT_DARK);
         pDialog.setTitle("Please wait");
@@ -63,6 +76,7 @@ public class JSONparser extends AsyncTask<Void, Void, Boolean> {
         pDialog.setIndeterminate(true);
         pDialog.setCancelable(true);
         pDialog.setInverseBackgroundForced(true);
+        //setting the cancel listener of the progress bar
         pDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
             public void onCancel(DialogInterface dialog) {
@@ -81,23 +95,7 @@ public class JSONparser extends AsyncTask<Void, Void, Boolean> {
     protected Boolean doInBackground(Void... voids) {
         //in this try-catch we take some JSON datas and we parse them in title,content ecc...
         try {
-            URL url=new URL(address + "/?room="+ room + "&image=false&pdf=false");
-            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-            in = httpURLConnection.getInputStream();
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
-            String line="";
-            while(line!=null){
-                content +=line;
-                line=br.readLine();
-            }
-            JSONObject jo= new JSONObject(content);
-            title= (String) jo.get("title");
-            content = (String) jo.get("content");
-            in.close();
-            br.close();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            return false;
+          DownloadContent(address + "/?room="+ room + "&image=false&pdf=false");
         } catch (IOException e) {
             e.printStackTrace();
             return false;
@@ -106,7 +104,8 @@ public class JSONparser extends AsyncTask<Void, Void, Boolean> {
             return false;
         }
         try {
-            bitmap = ScaricaImmagine(address + "/?room="+ room +"&image=1&pdf=false");
+            //download the image
+            bitmap = DownloadImage(address + "/?room="+ room +"&image=1&pdf=false");
         }catch (Exception ex){
             ex.printStackTrace();
             return false;
@@ -114,14 +113,69 @@ public class JSONparser extends AsyncTask<Void, Void, Boolean> {
         return true;
     }
 
-    private Bitmap ScaricaImmagine(String URL)
+    /**
+     * download the content in JSON data format
+     * @param address
+     * @throws IOException
+     * @throws JSONException
+     */
+    private void DownloadContent(String address) throws IOException, JSONException {
+        URL url=new URL(address);
+        //opening the connection to the host
+        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+        //getting the stream with the host
+        in = httpURLConnection.getInputStream();
+        BufferedReader br = new BufferedReader(new InputStreamReader(in));
+        String line = "";
+        while(line != null){
+            content += line;
+            line = br.readLine();//reading byte in the stream
+        }
+        //parsing the json data
+        JSONObject jo= new JSONObject(content);
+        title= (String) jo.get("title");
+        content = (String) jo.get("content");
+        in.close();
+        br.close();
+    }
+
+    /**
+     * download the image
+     * @param address of the host
+     * @return the image in BitMap downloaded
+     */
+    private Bitmap DownloadImage(String address)
     {
         Bitmap bitmap = null;
         InputStream in = null;
-        try {
-            in = ApriConnessioneHttp(URL);
-            bitmap = BitmapFactory.decodeStream(in);
 
+        try {
+            int risposta = -1;
+
+            URL url = new URL(address);
+            URLConnection conn = url.openConnection();
+
+            if (!(conn instanceof HttpURLConnection))
+                throw new IOException("No connessione HTTP");
+
+            try{
+                HttpURLConnection httpConn = (HttpURLConnection) conn;
+                httpConn.setAllowUserInteraction(false);
+                httpConn.setInstanceFollowRedirects(true);
+                httpConn.setRequestMethod("GET");
+                httpConn.connect();
+                risposta = httpConn.getResponseCode();
+                if (risposta == HttpURLConnection.HTTP_OK) {
+                    in = httpConn.getInputStream();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.d("Connessione", ex.getLocalizedMessage());
+                throw new IOException("Errore connessione");
+            }
+            bitmap = BitmapFactory.decodeStream(in);
             in.close();
         } catch (IOException e1) {
             Log.d("Servizio web", e1.getLocalizedMessage());
@@ -129,37 +183,10 @@ public class JSONparser extends AsyncTask<Void, Void, Boolean> {
         return bitmap;
     }
 
-    private InputStream ApriConnessioneHttp(String urlString) throws IOException
-    {
-        InputStream in = null;
-        int risposta = -1;
-
-        URL url = new URL(urlString);
-        URLConnection conn = url.openConnection();
-
-        if (!(conn instanceof HttpURLConnection))
-            throw new IOException("No connessione HTTP");
-
-        try{
-            HttpURLConnection httpConn = (HttpURLConnection) conn;
-            httpConn.setAllowUserInteraction(false);
-            httpConn.setInstanceFollowRedirects(true);
-            httpConn.setRequestMethod("GET");
-            httpConn.connect();
-            risposta = httpConn.getResponseCode();
-            if (risposta == HttpURLConnection.HTTP_OK) {
-                in = httpConn.getInputStream();
-            }
-
-        }
-        catch (Exception ex)
-        {
-            Log.d("Connessione", ex.getLocalizedMessage());
-            throw new IOException("Errore connessione");
-        }
-        return in;
-    }
-
+    /**
+     * if the execute is done properly shows the room class else it shows toast error
+     * @param check
+     */
     @Override
     protected void onPostExecute(Boolean check){
         //setting in the view the datas parsed
@@ -168,18 +195,24 @@ public class JSONparser extends AsyncTask<Void, Void, Boolean> {
             Intent in = new Intent(c, Rooms.class);
             try {
                 pDialog.dismiss();
+                //putting the content inside the intent
                 in.putExtra("content", content);
                 in.putExtra("title", title);
+
+                //compressing the image to pass, if this is too large the application will crash
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                 byte[] byteArray = stream.toByteArray();
                 in.putExtra("image", byteArray);
+
+                //starting activity
                 c.startActivity(in);
             } catch (Exception ex) {
                 Log.e("ERROR IN LOADING DATA", ex.getMessage());
             }
         }else {
             pDialog.dismiss();
+            //show error toast
             Toast tdonwload = Toast.makeText(c, "C'È STATO UN ERRORE. CONTATTA L'AMMINISTRATORE" , Toast.LENGTH_LONG);
             tdonwload.setGravity(Gravity.CENTER,0,0);
             tdonwload.show();

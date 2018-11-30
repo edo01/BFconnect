@@ -1,3 +1,6 @@
+/**
+ * @class Professionale.java
+ */
 package org.altervista.edoardo.bfconnect.activities;
 
 import android.content.Context;
@@ -19,8 +22,11 @@ import android.widget.Toast;
 
 import org.altervista.edoardo.bfconnect.R;
 import org.altervista.edoardo.bfconnect.connectionParser.PdfHandler;
-import org.altervista.edoardo.bfconnect.threeDots.Help;
+import org.altervista.edoardo.bfconnect.activities.threeDots.Help;
 
+/**
+ * In this class we take all the specializations of the Professionale
+ */
 public class Professionale extends AppCompatActivity {
 
     private Button btnQuaReg, btnApparati, btnMezzi, btnManutenzione,
@@ -38,6 +44,7 @@ public class Professionale extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
 
+        //getting the button of the specialization
         btnQuaReg = findViewById(R.id.btnQuaReg);
         btnMezzi = findViewById(R.id.btnMezzi);
         btnApparati = findViewById(R.id.btnApparati);
@@ -45,6 +52,7 @@ public class Professionale extends AppCompatActivity {
         btnSeraleApparati = findViewById(R.id.btnSeraleApparati);
         btnSeraliMezzi = findViewById(R.id.btnSeraliMezzi);
 
+        //setting the onClickListener of the button, if the network isn't available it shows the snackbar
         try{
 
             btnQuaReg.setOnClickListener(new View.OnClickListener() {
@@ -101,7 +109,7 @@ public class Professionale extends AppCompatActivity {
     }
 
     private void doSnackbar(String pdf){
-        Snackbar snackbar = Snackbar.make(findViewById(R.id.professionale), "NO CONNESSIONE", Snackbar.LENGTH_LONG)
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.Aprofessionale), "NO CONNESSIONE", Snackbar.LENGTH_LONG)
                 .setAction("RIPROVA", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -113,6 +121,7 @@ public class Professionale extends AppCompatActivity {
         snackbar.show();
     }
 
+    //starting download the pdf
     private void startDownload(String pdf){
         new PdfHandler(pdf, Professionale.this).execute();
     }

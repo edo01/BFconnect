@@ -1,6 +1,5 @@
-package org.altervista.edoardo.bfconnect.threeDots;
+package org.altervista.edoardo.bfconnect.activities.threeDots;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
@@ -19,7 +18,7 @@ public class Hrileva extends BaseActivity {
     }
 
     @Override
-    public void ActivityPage() {
+    public void activityPage() {
 
     }
 

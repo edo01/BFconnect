@@ -1,3 +1,6 @@
+/**
+ * @class QrCode.java
+ */
 package org.altervista.edoardo.bfconnect.activities;
 
 import android.content.Intent;
@@ -11,7 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import org.altervista.edoardo.bfconnect.R;
-import org.altervista.edoardo.bfconnect.threeDots.Help;
+import org.altervista.edoardo.bfconnect.activities.threeDots.Help;
 
 public class QrCode extends AppCompatActivity {
 

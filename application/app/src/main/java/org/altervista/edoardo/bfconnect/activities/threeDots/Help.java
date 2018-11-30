@@ -1,4 +1,4 @@
-package org.altervista.edoardo.bfconnect.threeDots;
+package org.altervista.edoardo.bfconnect.activities.threeDots;
 
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
