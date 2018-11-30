@@ -83,7 +83,8 @@
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:screenOrientation="portrait" />
-        <activity android:name=".Help"></activity>
+        <activity android:name=".threeDots.Help" />
+        <activity android:name=".threeDots.Hrileva"></activity>
     </application>
 
 </manifest>
