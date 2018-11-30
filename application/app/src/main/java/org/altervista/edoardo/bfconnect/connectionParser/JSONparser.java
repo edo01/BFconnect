@@ -1,6 +1,8 @@
 package org.altervista.edoardo.bfconnect.connectionParser;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -35,6 +37,7 @@ public class JSONparser extends AsyncTask<Void, Void, Boolean> {
     private Bitmap bitmap;
     private String room;
     private Context c;
+    private ProgressDialog pDialog;
 
     /*the address must has this form "https://ip/?room=N&image=false" for
      * if you want an image don't put 'false' but the number of your image
@@ -46,6 +49,32 @@ public class JSONparser extends AsyncTask<Void, Void, Boolean> {
     public JSONparser(String room, Context c){
         this.room = room;
         this.c = c;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        JSONparser jsonParser = this;
+        pDialog = new ProgressDialog(c,
+                ProgressDialog.THEME_DEVICE_DEFAULT_DARK);
+        pDialog.setTitle("Please wait");
+        pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        pDialog.setMessage("Loading data...");
+        pDialog.setIndeterminate(true);
+        pDialog.setCancelable(true);
+        pDialog.setInverseBackgroundForced(true);
+        pDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                jsonParser.cancel(true);
+                Toast tdonwload = Toast.makeText(c, "DOWNLOAD INTERROTTO" , Toast.LENGTH_SHORT);
+                tdonwload.setGravity(Gravity.CENTER,0,0);
+                tdonwload.show();
+                Intent intent = new Intent( c, Home.class);
+                c.startActivity(intent);
+            }
+        });
+        pDialog.show();
     }
 
     @Override
@@ -138,6 +167,7 @@ public class JSONparser extends AsyncTask<Void, Void, Boolean> {
         if (check) {
             Intent in = new Intent(c, Rooms.class);
             try {
+                pDialog.dismiss();
                 in.putExtra("content", content);
                 in.putExtra("title", title);
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -149,6 +179,7 @@ public class JSONparser extends AsyncTask<Void, Void, Boolean> {
                 Log.e("ERROR IN LOADING DATA", ex.getMessage());
             }
         }else {
+            pDialog.dismiss();
             Toast tdonwload = Toast.makeText(c, "C'È STATO UN ERRORE. CONTATTA L'AMMINISTRATORE" , Toast.LENGTH_LONG);
             tdonwload.setGravity(Gravity.CENTER,0,0);
             tdonwload.show();

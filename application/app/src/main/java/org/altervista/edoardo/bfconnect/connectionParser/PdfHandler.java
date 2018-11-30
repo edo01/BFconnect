@@ -1,7 +1,9 @@
 package org.altervista.edoardo.bfconnect.connectionParser;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
@@ -25,6 +27,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
     private int nPdf;
     private final String address = "http://taddia.sytes.net:6002";
     private Context context;
+    private ProgressDialog pDialog;
 
     public PdfHandler(String indirizzo,Context context){
         this.context = context;
@@ -70,6 +73,30 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
                 nPdf=10;
                 break;
         }
+
+        Log.i("DownloadTask","Constructor done");
+
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        PdfHandler pdfHandler = this;
+        pDialog = new ProgressDialog(context,
+                ProgressDialog.THEME_DEVICE_DEFAULT_DARK);
+        pDialog.setTitle("Please wait");
+        pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        pDialog.setMessage("Loading data...");
+        pDialog.setIndeterminate(true);
+        pDialog.setCancelable(true);
+        pDialog.setInverseBackgroundForced(true);
+        pDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                pdfHandler.cancel(true);
+            }
+        });
+        pDialog.show();
     }
 
     @Override
@@ -124,13 +151,17 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
     protected void onPostExecute(Boolean check) {
         super.onPostExecute(check);
         if (check){
-            Toast tdonwload = Toast.makeText(context, "pdf scaricato con successo" , Toast.LENGTH_SHORT);
+            Toast tdonwload = Toast.makeText(context, "pdf scaricato con successo, aprilo nei download" , Toast.LENGTH_SHORT);
             tdonwload.setGravity(Gravity.CENTER,0,0);
             tdonwload.show();
+            //ListDrawer();
+            pDialog.dismiss();
         }else{
-            Toast tdonwload = Toast.makeText(context, "C'È STATO UN ERRORE. CONTATTA L'AMMINISTRATORE" , Toast.LENGTH_LONG);
+            Toast tdonwload = Toast.makeText(context, "C'È STATO UN ERRORE NEL DOWNLOAD" , Toast.LENGTH_LONG);
             tdonwload.setGravity(Gravity.CENTER,0,0);
             tdonwload.show();
+            //ListDrawer();
+            pDialog.dismiss();
         }
     }
 }

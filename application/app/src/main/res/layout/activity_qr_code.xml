@@ -12,7 +12,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="65dp"
-        android:src="@drawable/qrcode" />
+        android:src="@drawable/ic_qrcode" />
 
     <EditText
         android:id="@+id/editText"
