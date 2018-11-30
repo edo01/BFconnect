@@ -23,7 +23,7 @@ import org.altervista.edoardo.bfconnect.activities.Rooms;
 import org.altervista.edoardo.bfconnect.connectionParser.JSONparser;
 
 /**
- * toDO: 26/11/18 passing bitmap image to the other Activity; adding animation;
+ * toDO: 30/11/18  adding animation;
  */
 
 public class Loading extends AppCompatActivity {

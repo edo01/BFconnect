@@ -154,13 +154,11 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
             Toast tdonwload = Toast.makeText(context, "pdf scaricato con successo, aprilo nei download" , Toast.LENGTH_SHORT);
             tdonwload.setGravity(Gravity.CENTER,0,0);
             tdonwload.show();
-            //ListDrawer();
             pDialog.dismiss();
         }else{
             Toast tdonwload = Toast.makeText(context, "C'È STATO UN ERRORE NEL DOWNLOAD" , Toast.LENGTH_LONG);
             tdonwload.setGravity(Gravity.CENTER,0,0);
             tdonwload.show();
-            //ListDrawer();
             pDialog.dismiss();
         }
     }

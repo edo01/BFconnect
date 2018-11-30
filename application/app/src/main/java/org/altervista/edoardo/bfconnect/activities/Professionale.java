@@ -8,9 +8,9 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import org.altervista.edoardo.bfconnect.R;
 import org.altervista.edoardo.bfconnect.connectionParser.PdfHandler;
+import org.altervista.edoardo.bfconnect.threeDots.Help;
 
 public class Professionale extends AppCompatActivity {
 
@@ -50,7 +51,7 @@ public class Professionale extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if(isNetworkAvailable()) {
-                        doToast("qualifiche");
+                        startDownload("qualifiche");
                     }else doSnackbar("qualifiche");
                 }
             });
@@ -58,7 +59,7 @@ public class Professionale extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if(isNetworkAvailable()) {
-                        doToast("mezzi");
+                        startDownload("mezzi");
                     }else doSnackbar("mezzi");
                 }
             });
@@ -66,7 +67,7 @@ public class Professionale extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if(isNetworkAvailable()) {
-                        doToast("manutenzione");
+                        startDownload("manutenzione");
                     }else doSnackbar("manutenzione");
                 }
             });
@@ -74,7 +75,7 @@ public class Professionale extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if(isNetworkAvailable()){
-                        doToast("apparati");
+                        startDownload("apparati");
                     }else doSnackbar("apparati");
                 }
             });
@@ -82,7 +83,7 @@ public class Professionale extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if(isNetworkAvailable()) {
-                        doToast("serialiApparati");
+                        startDownload("serialiApparati");
                     }else doSnackbar("seraliApparati");
                 }
             });
@@ -90,7 +91,7 @@ public class Professionale extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if(isNetworkAvailable()) {
-                        doToast("serialiMezzi");
+                        startDownload("serialiMezzi");
                     }else doSnackbar("seraliMezzi");
                 }
             });
@@ -105,17 +106,14 @@ public class Professionale extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if(isNetworkAvailable()) {
-                            doToast(pdf);
+                            startDownload(pdf);
                         }else doSnackbar(pdf);
                     }
                 });
         snackbar.show();
     }
 
-    private void doToast(String pdf){
-        Toast tdonwload = Toast.makeText(Professionale.this, "downloading pdf..." , Toast.LENGTH_SHORT);
-        tdonwload.setGravity(Gravity.CENTER,0,0);
-        tdonwload.show();
+    private void startDownload(String pdf){
         new PdfHandler(pdf, Professionale.this).execute();
     }
 
@@ -132,6 +130,23 @@ public class Professionale extends AppCompatActivity {
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.three_dots,menu);
         return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.myrooms:
+                startActivity(new Intent(this, Home.class));
+                return true;
+            case R.id.about_us:
+                startActivity(new Intent(this, Home.class));
+                return true;
+            case R.id.help:
+                startActivity(new Intent(this, Help.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }

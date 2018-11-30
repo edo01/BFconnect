@@ -84,7 +84,11 @@
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:screenOrientation="portrait" />
-        <activity android:name=".Help"></activity>
+        <activity android:name=".threeDots.Help"
+            android:configChanges="keyboardHidden|orientation"
+            android:label=""
+            android:parentActivityName=".activities.Home"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

@@ -1,14 +1,17 @@
 package org.altervista.edoardo.bfconnect.activities;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
 import org.altervista.edoardo.bfconnect.R;
+import org.altervista.edoardo.bfconnect.threeDots.Help;
 
 public class QrCode extends AppCompatActivity {
 
@@ -33,5 +36,22 @@ public class QrCode extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.myrooms:
+                startActivity(new Intent(this, Home.class));
+                return true;
+            case R.id.about_us:
+                startActivity(new Intent(this, Home.class));
+                return true;
+            case R.id.help:
+                startActivity(new Intent(this, Help.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 }

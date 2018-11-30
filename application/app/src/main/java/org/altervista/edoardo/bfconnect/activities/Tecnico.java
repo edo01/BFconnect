@@ -1,6 +1,7 @@
 package org.altervista.edoardo.bfconnect.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.design.widget.Snackbar;
@@ -10,12 +11,14 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import org.altervista.edoardo.bfconnect.threeDots.Help;
 import org.altervista.edoardo.bfconnect.R;
 import org.altervista.edoardo.bfconnect.connectionParser.PdfHandler;
 
@@ -48,7 +51,7 @@ public class Tecnico extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(isNetworkAvailable()) {
-                    doToast("elettronica");
+                    startDownload("elettronica");
                 }else doSnackbar("elettronica");
             }
         });
@@ -56,7 +59,7 @@ public class Tecnico extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(isNetworkAvailable()) {
-                    doToast("informatica");
+                    startDownload("informatica");
                 }else doSnackbar("informatica");
             }
         });
@@ -64,7 +67,7 @@ public class Tecnico extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(isNetworkAvailable()) {
-                    doToast("meccanica");
+                    startDownload("meccanica");
                 }else doSnackbar("meccanica");
             }
         });
@@ -72,7 +75,7 @@ public class Tecnico extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(isNetworkAvailable()) {
-                    doToast("chimica");
+                    startDownload("chimica");
                 }else doSnackbar("chimica");
             }
         });
@@ -94,17 +97,14 @@ public class Tecnico extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if(isNetworkAvailable()) {
-                            doToast(pdf);
+                            startDownload(pdf);
                         }else doSnackbar(pdf);
                     }
                 });
         snackbar.show();
     }
 
-    private void doToast(String pdf){
-        Toast tdonwload = Toast.makeText(Tecnico.this, "downloading pdf..." , Toast.LENGTH_SHORT);
-        tdonwload.setGravity(Gravity.CENTER,0,0);
-        tdonwload.show();
+    private void startDownload(String pdf){
         new PdfHandler(pdf,Tecnico.this).execute();
     }
 
@@ -114,6 +114,24 @@ public class Tecnico extends AppCompatActivity {
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.three_dots,menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.myrooms:
+                startActivity(new Intent(this, Home.class));
+                return true;
+            case R.id.about_us:
+                startActivity(new Intent(this, Home.class));
+                return true;
+            case R.id.help:
+                startActivity(new Intent(this, Help.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }
