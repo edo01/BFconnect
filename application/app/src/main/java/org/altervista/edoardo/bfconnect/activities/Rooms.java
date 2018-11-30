@@ -1,17 +1,21 @@
 package org.altervista.edoardo.bfconnect.activities;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import org.altervista.edoardo.bfconnect.R;
+import org.altervista.edoardo.bfconnect.threeDots.Help;
 
 
 public class Rooms extends AppCompatActivity {
@@ -29,10 +33,18 @@ public class Rooms extends AppCompatActivity {
         content = (TextView)findViewById(R.id.txtResponse);
         image = (ImageView) findViewById(R.id.imageOne);
 
-        Bundle datapassed = getIntent().getExtras();
-        title.setText(datapassed.getString("title"));
-        content.setText(datapassed.getString("content"));
-        image.setImageBitmap(getIntent().getExtras().getParcelable("image"));
+        try {
+            Bundle datapassed = getIntent().getExtras();
+            title.setText(datapassed.getString("title"));
+            content.setText(datapassed.getString("content"));
+            byte[] byteArray = datapassed.getByteArray("image");
+            Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+            image.setImageBitmap(bmp);
+        }catch(Exception ex){
+            Log.e("ERROR IN LOADING DATA",ex.getMessage());
+        }
+
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
@@ -44,5 +56,23 @@ public class Rooms extends AppCompatActivity {
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.three_dots,menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.myrooms:
+                startActivity(new Intent(this, Home.class));
+                return true;
+            case R.id.about_us:
+                startActivity(new Intent(this, Home.class));
+                return true;
+            case R.id.help:
+                startActivity(new Intent(this, Help.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

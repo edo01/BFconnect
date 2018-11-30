@@ -8,7 +8,10 @@
 package org.altervista.edoardo.bfconnect.activities;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
@@ -16,18 +19,21 @@ import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import org.altervista.edoardo.bfconnect.BaseActivity;
 import org.altervista.edoardo.bfconnect.R;
+import org.altervista.edoardo.bfconnect.connectionParser.JSONparser;
 import org.altervista.edoardo.bfconnect.nfc.NfcAction;
 
 /***
- * toDO: 26/11/18 stopping animation when bottommenu is clicked
+ * toDO: 26/11/18 stopping animation when bottom menu is clicked
  */
 public class Home extends BaseActivity {
 
@@ -84,10 +90,17 @@ public class Home extends BaseActivity {
                     msgs = new NdefMessage[] {msg};
                 }
 
-                Intent room= new Intent(this, Loading.class);
-                String txtNfc=nfc.displayMsgs(msgs);
-                if (!txtNfc.equals(""))room.putExtra("nfc_read", txtNfc);
-                startActivity(room);
+                String txtNfc = nfc.displayMsgs(msgs);
+
+                if(isNetworkAvailable()){
+                    Toast.makeText(Home.this, "Nuovo nfc trovato", Toast.LENGTH_SHORT).show();
+
+                    Intent in = new Intent(Home.this, Loading.class);
+                    if (!txtNfc.equals(""))in.putExtra("nfc_read", txtNfc);
+                    startActivity(in);
+                }else{
+                    doSnackbar(txtNfc);
+                }
             }
     }
 
@@ -99,6 +112,29 @@ public class Home extends BaseActivity {
     @Override
     public int getNavigationMenuItemId() {
         return R.id.reading;
+    }
+
+
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+    private void doSnackbar(String room){
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.home), "NO CONNESSIONE", Snackbar.LENGTH_LONG)
+                .setAction("RIPROVA", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(isNetworkAvailable()) {
+                            Intent intent = new Intent(Home.this, Loading.class);
+                            intent.putExtra("nfc_read", room);
+                            startActivity(intent);
+                        }else doSnackbar(room);
+                    }
+                });
+        snackbar.show();
     }
 
 }

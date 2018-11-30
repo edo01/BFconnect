@@ -9,6 +9,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
@@ -22,7 +23,7 @@ import org.altervista.edoardo.bfconnect.activities.Rooms;
 import org.altervista.edoardo.bfconnect.connectionParser.JSONparser;
 
 /**
- * toDO: 26/11/18 passing bitmap image to the other Activity; adding animation;
+ * toDO: 30/11/18  adding animation;
  */
 
 public class Loading extends AppCompatActivity {
@@ -34,31 +35,22 @@ public class Loading extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_loading);
-
-        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
-
 
         Bundle datapassed = getIntent().getExtras();
         String room = datapassed.getString("nfc_read");//getting the room from what nfc read
 
-        if(isNetworkAvailable()){
-            new JSONparser(room,this).execute();
-        }else{
-            Toast.makeText(this, "NO CONNESSIONE", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(this, Home.class));
+        setContentView(R.layout.activity_loading);
+
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        try {
+            new JSONparser(room, this).execute();
+        }catch(Exception ex){
+            Log.e("ERROR IN LOADING DATA",ex.getMessage());
         }
     }
 
     void selectBottomNavigationBarItem(int itemId) {
         MenuItem item = navigationView.getMenu().findItem(itemId);
         item.setChecked(true);
-    }
-
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }

@@ -20,6 +20,7 @@ import org.altervista.edoardo.bfconnect.threeDots.Help;
 import org.altervista.edoardo.bfconnect.activities.Home;
 import org.altervista.edoardo.bfconnect.activities.Prenotation;
 import org.altervista.edoardo.bfconnect.activities.School;
+import org.altervista.edoardo.bfconnect.threeDots.Help;
 
 /**
  * @// TODO: 15/11/18 : qrcode reader;
@@ -118,6 +119,24 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.three_dots,menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.myrooms:
+                startActivity(new Intent(this, Home.class));
+                return true;
+            case R.id.about_us:
+                startActivity(new Intent(this, Home.class));
+                return true;
+            case R.id.help:
+                startActivity(new Intent(this, Help.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public abstract void ActivityPage();

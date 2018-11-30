@@ -76,6 +76,7 @@
             android:name=".activities.QrCode"
             android:configChanges="keyboardHidden|orientation"
             android:icon="@drawable/ic_bf_connect_horizontal_white"
+            android:parentActivityName=".activities.Home"
             android:label=""
             android:screenOrientation="portrait" />
         <activity
@@ -83,8 +84,16 @@
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:screenOrientation="portrait" />
-        <activity android:name=".threeDots.Help" />
-        <activity android:name=".threeDots.Hrileva"></activity>
+
+        <activity android:name=".threeDots.Hrileva">
+
+        </activity>
+        <activity android:name=".threeDots.Help"
+            android:configChanges="keyboardHidden|orientation"
+            android:label=""
+            android:parentActivityName=".activities.Home"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>
