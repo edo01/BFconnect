@@ -24,6 +24,7 @@ import org.altervista.edoardo.bfconnect.activities.threeDots.Help;
 import org.altervista.edoardo.bfconnect.activities.Home;
 import org.altervista.edoardo.bfconnect.activities.Prenotation;
 import org.altervista.edoardo.bfconnect.activities.School;
+import org.altervista.edoardo.bfconnect.activities.threeDots.MyRooms;
 
 /**
  * @// TODO: 15/11/18 : null
@@ -143,7 +144,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.myrooms:
-                startActivity(new Intent(this, Home.class));
+                startActivity(new Intent(this, MyRooms.class));
                 return true;
             case R.id.about_us:
                 startActivity(new Intent(this, Home.class));

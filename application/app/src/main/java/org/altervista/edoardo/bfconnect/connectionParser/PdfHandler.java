@@ -53,11 +53,11 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
                 nPdf=3;
                 break;
             case "seraliApparati":
-                pdf = "15_12_2018_serale_manutenzioneMezziDiTrasporto.pdf";
+                pdf = "15_12_2018_serale.pdf";
                 nPdf=4;
                 break;
             case "seraliMezzi":
-                pdf = "15_12_2018_serale_manutenzioneMezziDiTrasporto.pdf";
+                pdf = "15_12_2018_serale.pdf";
                 nPdf=5;
                 break;
             case "qualifiche":
@@ -100,6 +100,9 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
             @Override
             public void onCancel(DialogInterface dialog) {
                 pdfHandler.cancel(true);
+                Toast tdonwload = Toast.makeText(context, "DOWNLOAD INTERROTTO" , Toast.LENGTH_SHORT);
+                tdonwload.setGravity(Gravity.CENTER,0,0);
+                tdonwload.show();
             }
         });
         pDialog.show();
@@ -162,7 +165,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
             tdonwload.show();
             pDialog.dismiss();
         }else{
-            Toast tdonwload = Toast.makeText(context, "C'È STATO UN ERRORE NEL DOWNLOAD" , Toast.LENGTH_LONG);
+            Toast tdonwload = Toast.makeText(context, "C'È STATO UN ERRORE DURANTE IL DOWNLOAD" , Toast.LENGTH_LONG);
             tdonwload.setGravity(Gravity.CENTER,0,0);
             tdonwload.show();
             pDialog.dismiss();

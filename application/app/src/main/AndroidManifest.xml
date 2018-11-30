@@ -76,24 +76,26 @@
             android:name=".activities.QrCode"
             android:configChanges="keyboardHidden|orientation"
             android:icon="@drawable/ic_bf_connect_horizontal_white"
-            android:parentActivityName=".activities.Home"
             android:label=""
+            android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.Loading"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.threeDots.Hrileva"
+        <activity
+            android:name=".activities.threeDots.Hrileva"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.threeDots.Help"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.threeDots.Help"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:parentActivityName=".activities.Home"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait" />
+        <activity android:name=".activities.threeDots.MyRooms"></activity>
     </application>
 
 </manifest>

@@ -4,9 +4,11 @@
 package org.altervista.edoardo.bfconnect.connectionParser;
 
 import android.app.ProgressDialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -16,6 +18,8 @@ import android.widget.Toast;
 
 import org.altervista.edoardo.bfconnect.activities.Home;
 import org.altervista.edoardo.bfconnect.activities.Rooms;
+import org.altervista.edoardo.bfconnect.database.DbHandler;
+import org.altervista.edoardo.bfconnect.database.DbBaseColumns;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -25,7 +29,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -49,12 +52,14 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
     private String room;
     private Context c;
     private ProgressDialog pDialog;
+    private DbHandler dbHandler;
+    private SQLiteDatabase mydb;
 
     /*the address must has this form "https://ip/?room=N&image=false" for
      * if you want an image don't put 'false' but the number of your image
      */
-    //private final String address = "http://192.168.1.71:80";
-    private final String address = "http://taddia.sytes.net:6002"; //put here the server address
+    private final String address = "http://192.168.1.71:80";
+    //private final String address = "http://taddia.sytes.net:6002"; //put here the server address
     InputStream in;
 
     public JsonParser(String room, Context c){
@@ -66,7 +71,8 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
     protected void onPreExecute() {
         super.onPreExecute();
         JsonParser jsonParser = this;
-
+        dbHandler = new DbHandler(c);
+        mydb = dbHandler.getWritableDatabase();
         //creating the progress bar of the download
         pDialog = new ProgressDialog(c,
                 ProgressDialog.THEME_DEVICE_DEFAULT_DARK);
@@ -203,8 +209,17 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                 byte[] byteArray = stream.toByteArray();
+                //insert the new room inside the
+                ContentValues values = new ContentValues();
+                values.put(DbBaseColumns.KEY_TITLE, title);
+                values.put(DbBaseColumns.KEY_CONTENT, content);
+                values.put(DbBaseColumns.KEY_CONTENT, byteArray);
+                long newRowId = mydb.insert(DbBaseColumns.TABLE_NAME, null, values);
+                Toast tdonwload = Toast.makeText(c, ""+newRowId, Toast.LENGTH_LONG);
+                tdonwload.setGravity(Gravity.CENTER,0,0);
+                tdonwload.show();
                 in.putExtra("image", byteArray);
-
+                dbHandler.close();
                 //starting activity
                 c.startActivity(in);
             } catch (Exception ex) {
@@ -213,7 +228,8 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
         }else {
             pDialog.dismiss();
             //show error toast
-            Toast tdonwload = Toast.makeText(c, "C'È STATO UN ERRORE. CONTATTA L'AMMINISTRATORE" , Toast.LENGTH_LONG);
+            dbHandler.close();
+            Toast tdonwload = Toast.makeText(c, "C'È STATO UN ERRORE NEL CARIMENTO DELLA PAGINA" , Toast.LENGTH_LONG);
             tdonwload.setGravity(Gravity.CENTER,0,0);
             tdonwload.show();
             Intent intent = new Intent( c, Home.class);
