@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DbHandler extends SQLiteOpenHelper {
     // If you change the database schema, you must increment the database version.
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "FeedReader.db";
+    public static final String DATABASE_NAME = "BfConnect.db";
 
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + DbBaseColumns.TABLE_NAME + " (" +
