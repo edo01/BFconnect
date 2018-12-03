@@ -23,7 +23,7 @@ import android.widget.Toast;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.Help;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms;
-import org.iisbelluzzifioravanti.app.bfconnect.connectionParser.PdfHandler;
+import org.iisbelluzzifioravanti.app.bfconnect.connection.PdfHandler;
 
 public class Tecnico extends AppCompatActivity {
 

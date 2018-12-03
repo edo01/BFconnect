@@ -9,6 +9,7 @@ public class DbBaseColumns implements BaseColumns {
     private DbBaseColumns() {}
 
     public static final String TABLE_NAME = "rooms";
+    public static final String KEY_ROOMID = "room_id";
     public static final String KEY_TITLE = "title";
     public static final String KEY_CONTENT = "content";
     public static final String KEY_IMAGE = "image";

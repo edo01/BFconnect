@@ -25,7 +25,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="47dp"
         android:layout_marginEnd="47dp"
-        android:layout_marginBottom="85dp"
+        android:layout_marginBottom="139dp"
         android:ems="10"
         android:hint="inserisci qui il codice del qrcode"
         android:inputType="textPersonName" />

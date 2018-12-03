@@ -1,14 +1,13 @@
 /**
  * @class JsonParser
  */
-package org.iisbelluzzifioravanti.app.bfconnect.connectionParser;
+package org.iisbelluzzifioravanti.app.bfconnect.connection;
 
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -18,8 +17,8 @@ import android.widget.Toast;
 
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Rooms;
-import org.iisbelluzzifioravanti.app.bfconnect.database.DbHandler;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbBaseColumns;
+import org.iisbelluzzifioravanti.app.bfconnect.database.DbTools;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -52,8 +51,7 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
     private String room;
     private Context c;
     private ProgressDialog pDialog;
-    private DbHandler dbHandler;
-    private SQLiteDatabase mydb;
+    private DbTools dbHandler;
 
     /*the address must has this form "https://ip/?room=N&image=false" for
      * if you want an image don't put 'false' but the number of your image
@@ -71,8 +69,6 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
     protected void onPreExecute() {
         super.onPreExecute();
         JsonParser jsonParser = this;
-        dbHandler = new DbHandler(c);
-        mydb = dbHandler.getWritableDatabase();
         //creating the progress bar of the download
         pDialog = new ProgressDialog(c,
                 ProgressDialog.THEME_DEVICE_DEFAULT_DARK);
@@ -200,38 +196,52 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
         if (check) {
             Intent in = new Intent(c, Rooms.class);
             try {
+                dbHandler = new DbTools(c);
                 pDialog.dismiss();
-                //putting the content inside the intent
-                in.putExtra("content", content);
-                in.putExtra("title", title);
 
-                //compressing the image to pass, if this is too large the application will crash
+                //selection only the row with the title which itt downloaded
+
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                 byte[] byteArray = stream.toByteArray();
-                //insert the new room inside the
-                ContentValues values = new ContentValues();
-                values.put(DbBaseColumns.KEY_TITLE, title);
-                values.put(DbBaseColumns.KEY_CONTENT, content);
-                values.put(DbBaseColumns.KEY_IMAGE, byteArray);
-                long newRowId = mydb.insert(DbBaseColumns.TABLE_NAME, null, values);
-                Toast tdonwload = Toast.makeText(c, ""+newRowId, Toast.LENGTH_LONG);
-                tdonwload.setGravity(Gravity.CENTER,0,0);
-                tdonwload.show();
-                in.putExtra("image", byteArray);
+
+                //if there isn't the room on the db it saves it
+                if(!dbHandler.roomExists(title)) {
+                    dbHandler.setWriteable();
+                    ContentValues values = new ContentValues();
+                    values.put(DbBaseColumns.KEY_TITLE, title);
+                    values.put(DbBaseColumns.KEY_CONTENT, content);
+                    values.put(DbBaseColumns.KEY_IMAGE, byteArray);
+                    dbHandler.insert(values);
+
+                    Toast toast = Toast.makeText(c, "aula " + title + " salvata.", Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+                }
+                //closing the db
                 dbHandler.close();
+
+                //putting the content inside the intent
+                in.putExtra("content", content);
+                in.putExtra("title", title);
+                //compressing the image to pass, if this is too large the application will crash
+                in.putExtra("image", byteArray);
+
                 //starting activity
                 c.startActivity(in);
+
             } catch (Exception ex) {
                 Log.e("ERROR IN LOADING DATA", ex.getMessage());
             }
         }else {
             pDialog.dismiss();
-            //show error toast
             dbHandler.close();
+
+            //show error toast
             Toast toast = Toast.makeText(c, "C'È STATO UN ERRORE NEL CARIMENTO DELLA PAGINA" , Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
+
             Intent intent = new Intent( c, Home.class);
             c.startActivity(intent);
         }

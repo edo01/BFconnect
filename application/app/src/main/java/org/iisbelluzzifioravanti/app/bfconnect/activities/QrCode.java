@@ -3,8 +3,12 @@
  */
 package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,10 +42,18 @@ public class QrCode extends AppCompatActivity {
         f1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (!editText.getText().toString().equals("")) {
-                    Intent in = new Intent(QrCode.this, Loading.class);
-                    in.putExtra("nfc_read", editText.getText().toString());
-                    startActivity(in);
+                String qtxt = editText.getText().toString();
+                if (!qtxt.equals("")) {
+
+                    if(isNetworkAvailable()){
+                        Intent in = new Intent(QrCode.this, Loading.class);
+                        in.putExtra("nfc_read", qtxt);
+                        startActivity(in);
+
+                    }else{
+                        //showing snackbar.
+                        doSnackbar(qtxt);
+                    }
                 }
             }
         });
@@ -72,6 +84,35 @@ public class QrCode extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    /**
+     * @return true if the network is available and false if is not
+     */
+    public boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    /**
+     * This method creates the snackbar when the connection isn't available.
+     * @param room
+     */
+    private void doSnackbar(String room){
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.home), "NO CONNESSIONE", Snackbar.LENGTH_LONG)
+                .setAction("RIPROVA", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(isNetworkAvailable()) {
+                            Intent intent = new Intent(QrCode.this, Loading.class);
+                            intent.putExtra("nfc_read", room);
+                            startActivity(intent);
+                        }else doSnackbar(room);
+                    }
+                });
+        snackbar.show();
     }
 
 }

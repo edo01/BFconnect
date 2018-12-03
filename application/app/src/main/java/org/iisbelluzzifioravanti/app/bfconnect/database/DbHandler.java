@@ -12,6 +12,7 @@ public class DbHandler extends SQLiteOpenHelper {
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + DbBaseColumns.TABLE_NAME + " (" +
                     DbBaseColumns._ID + " INTEGER PRIMARY KEY," +
+                    DbBaseColumns.KEY_ROOMID + " TEXT,"+
                     DbBaseColumns.KEY_TITLE + " TEXT," +
                     DbBaseColumns.KEY_CONTENT + " TEXT," +
                     DbBaseColumns.KEY_IMAGE + " BLOB)";
