@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import org.iisbelluzzifioravanti.app.bfconnect.R;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms;
 import org.iisbelluzzifioravanti.app.bfconnect.connectionParser.PdfHandler;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.Help;
 
@@ -145,7 +146,7 @@ public class Professionale extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.myrooms:
-                startActivity(new Intent(this, Home.class));
+                startActivity(new Intent(this, MyRooms.class));
                 return true;
             case R.id.about_us:
                 startActivity(new Intent(this, Home.class));

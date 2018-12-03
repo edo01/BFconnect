@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.Help;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms;
 import org.iisbelluzzifioravanti.app.bfconnect.connectionParser.PdfHandler;
 
 public class Tecnico extends AppCompatActivity {
@@ -122,7 +123,7 @@ public class Tecnico extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.myrooms:
-                startActivity(new Intent(this, Home.class));
+                startActivity(new Intent(this, MyRooms.class));
                 return true;
             case R.id.about_us:
                 startActivity(new Intent(this, Home.class));

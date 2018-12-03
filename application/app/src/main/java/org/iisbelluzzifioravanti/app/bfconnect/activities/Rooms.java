@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.Help;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms;
 
 
 public class Rooms extends AppCompatActivity {
@@ -63,7 +64,7 @@ public class Rooms extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.myrooms:
-                startActivity(new Intent(this, Home.class));
+                startActivity(new Intent(this, MyRooms.class));
                 return true;
             case R.id.about_us:
                 startActivity(new Intent(this, Home.class));

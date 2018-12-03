@@ -58,8 +58,8 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
     /*the address must has this form "https://ip/?room=N&image=false" for
      * if you want an image don't put 'false' but the number of your image
      */
-    //private final String address = "http://192.168.43.99:80";
-    private final String address = "http://taddia.sytes.net:6002"; //put here the server address
+    private final String address = "http://192.168.43.99:80";
+    //private final String address = "http://taddia.sytes.net:6002"; //put here the server address
     InputStream in;
 
     public JsonParser(String room, Context c){
@@ -229,9 +229,9 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
             pDialog.dismiss();
             //show error toast
             dbHandler.close();
-            Toast tdonwload = Toast.makeText(c, "C'È STATO UN ERRORE NEL CARIMENTO DELLA PAGINA" , Toast.LENGTH_LONG);
-            tdonwload.setGravity(Gravity.CENTER,0,0);
-            tdonwload.show();
+            Toast toast = Toast.makeText(c, "C'È STATO UN ERRORE NEL CARIMENTO DELLA PAGINA" , Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.show();
             Intent intent = new Intent( c, Home.class);
             c.startActivity(intent);
         }
