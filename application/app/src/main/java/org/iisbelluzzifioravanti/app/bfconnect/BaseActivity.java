@@ -152,11 +152,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
                 startActivity(new Intent(this, Home.class));
                 return true;
             case R.id.help:
-<<<<<<< HEAD
-                startActivity(new Intent(this, HNFCuno.class));
-=======
                 startActivity(new Intent(this, Help.class));
->>>>>>> 8054311c7b30286720365642ab3624a1c3d91ed8
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
