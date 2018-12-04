@@ -5,8 +5,10 @@
 package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -18,6 +20,8 @@ import android.nfc.Tag;
 import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.View;
@@ -50,6 +54,10 @@ public class Home extends BaseActivity {
 
     @Override
     public void activityPage() {
+
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+
         nfc = new NfcAction();//create an NfcAction object for maneging the nfc reader
         image = (ImageView) findViewById(R.id.logo);
 
