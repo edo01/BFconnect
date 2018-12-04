@@ -117,9 +117,9 @@ public class Home extends BaseActivity {
             if (dbHandler.roomExists(txtNfc)) {
                 Log.d("aula trovata nel db", "apertura dell'aula");
 
-                Cursor cursor = dbHandler.getCursor();
-                //this is wrong
-                cursor.move(1);//NON VA BENE SI DEVE SPOSTARE DOVE L'ID È COME L'ID CHE CERCHIAMO
+                Cursor cursor = dbHandler.getCursorLineById(txtNfc);
+
+                if(!cursor.move(1)) return;
                 //creating intent
                 Intent in = new Intent(Home.this, Rooms.class);
                 //getting the content of the room

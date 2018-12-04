@@ -58,18 +58,17 @@ public class QrCode extends AppCompatActivity {
                         Log.d("room found in db","open the room");
 
                         //getting the cursor
-                        Cursor cursor = dbHandler.getCursor();
-
+                        Cursor cursor = dbHandler.getCursorLineById(qtxt);
                         //open the intent
                         Intent in = new Intent(QrCode.this, Rooms.class);
 
-                        //THIS IS WRONG
-                        cursor.move(1);
+                        if(!cursor.move(1)) return;
 
                         //getting the content of the room
                         String title = cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_TITLE));
                         String content = cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_CONTENT));
                         byte[] byteArray = cursor.getBlob(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_IMAGE));
+
                         //closing the db
                         dbHandler.close();
 
