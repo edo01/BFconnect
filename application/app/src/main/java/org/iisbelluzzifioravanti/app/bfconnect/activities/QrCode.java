@@ -23,7 +23,7 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.iisbelluzzifioravanti.app.bfconnect.Keys;
+import org.iisbelluzzifioravanti.app.bfconnect.Tools;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.Help;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms;
@@ -50,7 +50,7 @@ public class QrCode extends AppCompatActivity {
             public void onClick(View v) {
                 String qtxt = editText.getText().toString();
                 //if the text is corrected
-                if (Keys.CheckId(qtxt)) {
+                if (Tools.CheckId(qtxt)) {
                     //open the db
                     DbTools dbHandler = new DbTools(QrCode.this);
                     if (dbHandler.roomExists(qtxt)) {

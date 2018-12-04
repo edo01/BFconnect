@@ -1,11 +1,11 @@
 package org.iisbelluzzifioravanti.app.bfconnect;
 
-public final class Keys {
+public final class Tools {
 
     private static String[] keys_id = new String[]{ "1", "A34cb", "BBwcb", "ccrcb", "tt2cb"};
 
     //not instantiable
-    private Keys(){}
+    private Tools(){}
 
     //all the string must finish with cb
     public static boolean CheckId(String txt){

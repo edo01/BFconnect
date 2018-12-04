@@ -27,7 +27,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.iisbelluzzifioravanti.app.bfconnect.BaseActivity;
-import org.iisbelluzzifioravanti.app.bfconnect.Keys;
+import org.iisbelluzzifioravanti.app.bfconnect.Tools;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbBaseColumns;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbTools;
@@ -111,7 +111,7 @@ public class Home extends BaseActivity {
 
     private void openRoom(String txtNfc) {
         //checking the id of the nfc
-        if (Keys.CheckId(txtNfc)) {
+        if (Tools.CheckId(txtNfc)) {
             //opening the db
             DbTools dbHandler = new DbTools(this);
             if (dbHandler.roomExists(txtNfc)) {

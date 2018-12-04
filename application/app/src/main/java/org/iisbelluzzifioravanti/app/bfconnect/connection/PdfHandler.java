@@ -30,7 +30,7 @@ import static android.content.ContentValues.TAG;
 public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
     private String pdf;
     private int nPdf;
-    private final String address = "http://192.168.43.99:80";
+    private final String address = "http://192.168.1.107:80";
   //  private final String address = "http://taddia.sytes.net:6002";
     private Context context;
     private ProgressDialog pDialog;
