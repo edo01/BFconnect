@@ -26,7 +26,7 @@ public class HQRdue extends AppCompatActivity {
         actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
 
 
-        FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltPrevH2);
+        FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.indietro_due);
         fprev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,7 +35,7 @@ public class HQRdue extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton fnext = (FloatingActionButton) findViewById(R.id.fltNextH2);
+        FloatingActionButton fnext = (FloatingActionButton) findViewById(R.id.avanti_due);
         fnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,7 +44,7 @@ public class HQRdue extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton fhome = (FloatingActionButton) findViewById(R.id.fltHomeH2);
+        FloatingActionButton fhome = (FloatingActionButton) findViewById(R.id.help_due);
         fhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

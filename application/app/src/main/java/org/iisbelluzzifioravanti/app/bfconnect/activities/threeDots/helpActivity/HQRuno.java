@@ -24,7 +24,7 @@ public class HQRuno extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
 
-        FloatingActionButton f1 = (FloatingActionButton) findViewById(R.id.fltMenuH1);
+        FloatingActionButton f1 = (FloatingActionButton) findViewById(R.id.help_uno);
         f1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,7 +33,7 @@ public class HQRuno extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton fnext = (FloatingActionButton) findViewById(R.id.fltNextH1);
+        FloatingActionButton fnext = (FloatingActionButton) findViewById(R.id.avanti_uno);
         fnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
