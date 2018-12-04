@@ -39,7 +39,7 @@ public class HQRdue extends AppCompatActivity {
         fnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent qrcode = new Intent(getApplicationContext(), Home.class);
+                Intent qrcode = new Intent(getApplicationContext(), HNFCuno.class);
                 startActivity(qrcode);
             }
         });
