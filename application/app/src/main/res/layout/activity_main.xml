@@ -55,6 +55,6 @@
         android:layout_marginBottom="75dp"
         android:clickable="true"
         app:backgroundTint="@color/white"
-        app:srcCompat="@drawable/qrcode" />
+        app:srcCompat="@drawable/qrcodeicon" />
 
 </RelativeLayout>

@@ -20,6 +20,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.HQRdue;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.HQRuno;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.Help;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Prenotation;
@@ -150,7 +152,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
                 startActivity(new Intent(this, Home.class));
                 return true;
             case R.id.help:
-                startActivity(new Intent(this, Help.class));
+                startActivity(new Intent(this, HQRdue.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
