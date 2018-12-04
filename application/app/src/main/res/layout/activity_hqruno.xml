@@ -22,7 +22,7 @@
         app:srcCompat="@drawable/hs_uno" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/avanti_uno"
+        android:id="@+id/fltNextH1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -38,9 +38,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.907"
         app:srcCompat="@drawable/freccia" />
+
     <android.support.design.widget.FloatingActionButton
 
-        android:id="@+id/help_uno"
+        android:id="@+id/fltMenuH1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

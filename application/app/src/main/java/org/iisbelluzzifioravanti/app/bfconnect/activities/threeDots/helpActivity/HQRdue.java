@@ -44,7 +44,7 @@ public class HQRdue extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton fhome = (FloatingActionButton) findViewById(R.id.fltHomeH2);
+        FloatingActionButton fhome = (FloatingActionButton) findViewById(R.id.fltMenuH2);
         fhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
