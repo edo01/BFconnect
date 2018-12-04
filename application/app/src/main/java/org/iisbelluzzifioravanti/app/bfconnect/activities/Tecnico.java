@@ -21,7 +21,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.Help;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity.Help;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms;
 import org.iisbelluzzifioravanti.app.bfconnect.connection.PdfHandler;

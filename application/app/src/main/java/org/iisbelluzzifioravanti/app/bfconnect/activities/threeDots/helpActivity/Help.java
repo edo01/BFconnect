@@ -1,4 +1,4 @@
-package org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots;
+package org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;

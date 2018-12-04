@@ -15,7 +15,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.Help;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity.Help;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms;
 
 

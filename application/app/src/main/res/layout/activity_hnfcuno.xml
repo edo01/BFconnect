@@ -4,24 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.threeDots.helpActivity.HQRdue">
+    tools:context=".activities.threeDots.helpActivity.HNFCuno">
 
     <ImageView
-        android:id="@+id/rileva_qrdue"
-        android:layout_width="310dp"
-        android:layout_height="430dp"
+        android:id="@+id/punti_tre"
+        android:layout_width="206dp"
+        android:layout_height="27dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/hs_due" />
+        app:layout_constraintVertical_bias="0.982"
+        app:srcCompat="@drawable/punti_hr_tre" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/avanti_due"
+        android:id="@+id/help_tre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -32,14 +33,13 @@
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907"
-        app:srcCompat="@drawable/freccia" />
+        app:layout_constraintVertical_bias="0.906"
+        app:srcCompat="@drawable/ic_help" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/indietro_due"
+        android:id="@+id/indietro_tre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -56,23 +56,8 @@
         app:layout_constraintVertical_bias="0.907"
         app:srcCompat="@drawable/freccia_in" />
 
-    <ImageView
-        android:id="@+id/punti_due"
-        android:layout_width="206dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.982"
-        app:srcCompat="@drawable/punti_hr_due" />
-
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/help_due"
+        android:id="@+id/avanti_tre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -83,10 +68,29 @@
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.906"
-        app:srcCompat="@drawable/ic_help" />
+        app:layout_constraintVertical_bias="0.907"
+        app:srcCompat="@drawable/freccia" />
 
+    <TextView
+        android:id="@+id/lblTagNFC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/proximanovasoftbold"
+        android:text="Tag NFC"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.016" />
 
 </android.support.constraint.ConstraintLayout>
