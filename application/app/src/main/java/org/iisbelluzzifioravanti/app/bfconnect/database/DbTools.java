@@ -37,9 +37,9 @@ public class DbTools {
         dbHandler.close();
     }
 
-    public  boolean roomExists(String title){
-        String selection = DbBaseColumns.KEY_TITLE + " = ?";
-        String[] selectionArgs = { title };
+    public  boolean roomExists(String roomId){
+        String selection = DbBaseColumns.KEY_ROOMID + " = ?";
+        String[] selectionArgs = { roomId };
         setReadable();
 
         Cursor cursor = db.query(
@@ -52,6 +52,40 @@ public class DbTools {
                 null               // The sort order
         );
         return cursor.move(1);
+    }
+
+    public Cursor getCursorLineByTitle(String title){
+        String selection = DbBaseColumns.KEY_TITLE + " = ?";
+        String[] selectionArgs = { title };
+        setReadable();
+
+        return db.query(
+                DbBaseColumns.TABLE_NAME,   // The table to query
+                null,             // The array of columns to return (pass null to get all)
+                selection,              // The columns for the WHERE clause
+                selectionArgs,          // The values for the WHERE clause
+                null,                   // don't group the rows
+                null,                   // don't filter by row groups
+                null               // The sort order
+        );
+
+    }
+
+    public Cursor getCursorLineById(String room_id){
+        String selection = DbBaseColumns.KEY_ROOMID + " = ?";
+        String[] selectionArgs = { room_id };
+        setReadable();
+
+        return db.query(
+                DbBaseColumns.TABLE_NAME,   // The table to query
+                null,             // The array of columns to return (pass null to get all)
+                selection,              // The columns for the WHERE clause
+                selectionArgs,          // The values for the WHERE clause
+                null,                   // don't group the rows
+                null,                   // don't filter by row groups
+                null               // The sort order
+        );
+
     }
 
     public Cursor getCursor(){

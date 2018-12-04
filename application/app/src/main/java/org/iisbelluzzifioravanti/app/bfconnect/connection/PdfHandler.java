@@ -7,6 +7,8 @@ package org.iisbelluzzifioravanti.app.bfconnect.connection;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
@@ -32,6 +34,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
   //  private final String address = "http://taddia.sytes.net:6002";
     private Context context;
     private ProgressDialog pDialog;
+    private File outputFile;
 
     //first choosing the name of the pdf( in base of the specialization clicked)
     public PdfHandler(String indirizzo,Context context){
@@ -114,7 +117,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
         //getting the pdf from the server
         try {
             File downloadPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-            File outputFile = new File(downloadPath + "/" + pdf);
+            outputFile = new File(downloadPath + "/" + pdf);
 
             //Create New File if not present
             if (!outputFile.exists()) {
@@ -165,6 +168,11 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
             tdonwload.setGravity(Gravity.CENTER,0,0);
             tdonwload.show();
             pDialog.dismiss();
+
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setDataAndType(Uri.fromFile(outputFile), "application/pdf");
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+            context.startActivity(intent);
         }else{
             Toast tdonwload = Toast.makeText(context, "C'È STATO UN ERRORE DURANTE IL DOWNLOAD" , Toast.LENGTH_LONG);
             tdonwload.setGravity(Gravity.CENTER,0,0);

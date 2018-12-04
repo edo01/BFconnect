@@ -3,6 +3,7 @@
  */
 package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
+import android.content.Intent;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,7 +32,7 @@ public class Loading extends AppCompatActivity {
         Bundle datapassed = getIntent().getExtras();
         String room = "";
         room = datapassed.getString("nfc_read");//getting the room from what nfc read
-        //if(room.equals(null))startActivity(new Intent(this, Home.class));//if the nfc is empty passing on the Home page
+        if(room.equals(null))startActivity(new Intent(this, Home.class));//if the nfc is empty passing on the Home page
         setContentView(R.layout.activity_loading);
 
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);

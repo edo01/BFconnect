@@ -7,6 +7,7 @@ package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.nfc.NdefMessage;
@@ -18,6 +19,7 @@ import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -25,7 +27,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.iisbelluzzifioravanti.app.bfconnect.BaseActivity;
+import org.iisbelluzzifioravanti.app.bfconnect.Keys;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
+import org.iisbelluzzifioravanti.app.bfconnect.database.DbBaseColumns;
+import org.iisbelluzzifioravanti.app.bfconnect.database.DbTools;
 import org.iisbelluzzifioravanti.app.bfconnect.nfc.NfcAction;
 
 /**
@@ -91,30 +96,67 @@ public class Home extends BaseActivity {
                     Tag tag = (Tag) intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
                     byte[] payload = nfc.dumpTagData(tag).getBytes();
                     NdefRecord record = new NdefRecord(NdefRecord.TNF_UNKNOWN, empty, id, payload);
-                    NdefMessage msg = new NdefMessage(new NdefRecord[] {record});
-                    msgs = new NdefMessage[] {msg};
+                    NdefMessage msg = new NdefMessage(new NdefRecord[]{record});
+                    msgs = new NdefMessage[]{msg};
                 }
                 //the message read by our nfc reader
                 String txtNfc = nfc.displayMsgs(msgs);
-                /* if the connection is available it starts the loading of the contents of the room
-                 * read.
-                 */
-                if(isNetworkAvailable()){
-                    Toast.makeText(Home.this, "Nuovo nfc trovato", Toast.LENGTH_SHORT).show();
-
-                    /* opening the loading page and passing the number of the room read.(if the
-                     *  number is different from null
-                     */
-                    if (!txtNfc.equals("")) {
-                        Intent in = new Intent(Home.this, Loading.class);
-                        in.putExtra("nfc_read", txtNfc);
-                        startActivity(in);
-                    }
-                }else{
-                    //showing snackbar.
-                    doSnackbar(txtNfc);
-                }
+                //cleaning the text inside the nfc
+                txtNfc = txtNfc.substring(0, 5);
+                Log.d("nfc read", txtNfc);
+                openRoom(txtNfc);
             }
+
+    }
+
+    private void openRoom(String txtNfc) {
+        //checking the id of the nfc
+        if (Keys.CheckId(txtNfc)) {
+            //opening the db
+            DbTools dbHandler = new DbTools(this);
+            if (dbHandler.roomExists(txtNfc)) {
+                Log.d("aula trovata nel db", "apertura dell'aula");
+
+                Cursor cursor = dbHandler.getCursorLineById(txtNfc);
+
+                if(!cursor.move(1)) return;
+                //creating intent
+                Intent in = new Intent(Home.this, Rooms.class);
+                //getting the content of the room
+                String title = cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_TITLE));
+                String content = cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_CONTENT));
+                byte[] byteArray = cursor.getBlob(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_IMAGE));
+                //closing the db
+                dbHandler.close();
+
+                //putting the content inside the intent
+                in.putExtra("content", content);
+                in.putExtra("title", title);
+                //compressing the image to pass, if this is too large the application will crash
+                in.putExtra("image", byteArray);
+                //starting activity
+                startActivity(in);
+            } else if (isNetworkAvailable()) {
+                Log.d("aula non trovata nel db", "salvataggio dell'aula nel db");
+
+                dbHandler.close();
+                Toast.makeText(Home.this, "Nuovo nfc trovato", Toast.LENGTH_SHORT).show();
+
+                /* opening the loading page and passing the number of the room read.(if the
+                 *  number is different from null
+                 */
+                if (!txtNfc.equals("")) {
+                    Intent in = new Intent(Home.this, Loading.class);
+                    in.putExtra("nfc_read", txtNfc);
+                    startActivity(in);
+                }
+            } else {
+                //showing snackbar.
+                doSnackbar(txtNfc);
+            }
+        }else{
+            Toast.makeText(Home.this, "Nfc non valido!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
