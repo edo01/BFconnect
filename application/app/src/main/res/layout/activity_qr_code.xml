@@ -40,7 +40,7 @@
         android:layout_marginBottom="17dp"
         android:clickable="true"
         app:backgroundTint="@color/black"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@drawable/piu" />
 
 
 </RelativeLayout>

@@ -82,6 +82,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
         android:backgroundTint="@android:color/transparent"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"

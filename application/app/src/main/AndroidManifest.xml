@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="org.iisbelluzzifioravanti.app.bfconnect.activities.Start"
+            android:name=".activities.Start"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -26,72 +26,74 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="org.iisbelluzzifioravanti.app.bfconnect.activities.Prenotation"
+            android:name=".activities.Prenotation"
             android:configChanges="keyboardHidden|orientation"
             android:icon="@drawable/ic_bf_connect_horizontal_white"
             android:label=""
             android:screenOrientation="portrait" />
         <activity
-            android:name="org.iisbelluzzifioravanti.app.bfconnect.activities.School"
+            android:name=".activities.School"
             android:configChanges="keyboardHidden|orientation"
             android:icon="@drawable/ic_bf_connect_horizontal_white"
             android:label=""
             android:screenOrientation="portrait" />
         <activity
-            android:name="org.iisbelluzzifioravanti.app.bfconnect.activities.Rooms"
+            android:name=".activities.Rooms"
             android:configChanges="keyboardHidden|orientation"
             android:icon="@drawable/ic_bf_connect_horizontal_white"
             android:label=""
-            android:parentActivityName="org.iisbelluzzifioravanti.app.bfconnect.activities.Home"
+            android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
         <activity
-            android:name="org.iisbelluzzifioravanti.app.bfconnect.activities.Home"
+            android:name=".activities.Home"
             android:configChanges="keyboardHidden|orientation"
             android:icon="@drawable/ic_bf_connect_horizontal_white"
             android:label=""
             android:screenOrientation="portrait" />
         <activity
-            android:name="org.iisbelluzzifioravanti.app.bfconnect.activities.Tecnico"
+            android:name=".activities.Tecnico"
             android:configChanges="keyboardHidden|orientation"
             android:icon="@drawable/ic_bf_connect_horizontal_white"
             android:label=""
-            android:parentActivityName="org.iisbelluzzifioravanti.app.bfconnect.activities.School"
+            android:parentActivityName=".activities.School"
             android:screenOrientation="portrait" />
         <activity
-            android:name="org.iisbelluzzifioravanti.app.bfconnect.activities.Professionale"
+            android:name=".activities.Professionale"
             android:configChanges="keyboardHidden|orientation"
             android:icon="@drawable/ic_bf_connect_horizontal_white"
             android:label=""
-            android:parentActivityName="org.iisbelluzzifioravanti.app.bfconnect.activities.School"
+            android:parentActivityName=".activities.School"
             android:screenOrientation="portrait" />
         <activity
-            android:name="org.iisbelluzzifioravanti.app.bfconnect.activities.QrCode"
+            android:name=".activities.QrCode"
             android:configChanges="keyboardHidden|orientation"
             android:icon="@drawable/ic_bf_connect_horizontal_white"
             android:label=""
-            android:parentActivityName="org.iisbelluzzifioravanti.app.bfconnect.activities.Home"
+            android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
         <activity
-            android:name="org.iisbelluzzifioravanti.app.bfconnect.activities.Loading"
-            android:configChanges="keyboardHidden|orientation"
-            android:label=""
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.Hrileva"
+            android:name=".activities.Loading"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:screenOrientation="portrait" />
         <activity
-            android:name="org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.Help"
+            android:name=".activities.threeDots.HQRuno"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
-            android:parentActivityName="org.iisbelluzzifioravanti.app.bfconnect.activities.Home"
             android:screenOrientation="portrait" />
-        <activity android:name="org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms"
+        <activity
+            android:name=".activities.threeDots.Help"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
-            android:parentActivityName="org.iisbelluzzifioravanti.app.bfconnect.activities.Home"
+            android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.threeDots.MyRooms"
+            android:configChanges="keyboardHidden|orientation"
+            android:label=""
+            android:parentActivityName=".activities.Home"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activities.threeDots.HQRdue"></activity>
     </application>
 
 </manifest>
