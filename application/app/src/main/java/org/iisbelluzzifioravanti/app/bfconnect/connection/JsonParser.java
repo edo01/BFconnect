@@ -56,7 +56,7 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
     /*the address must has this form "https://ip/?room=N&image=false" for
      * if you want an image don't put 'false' but the number of your image
      */
-    private final String address = "http://192.168.43.99:80";
+    private final String address = "http://192.168.1.107:80";
     //private final String address = "http://taddia.sytes.net:6002"; //put here the server address
     InputStream in;
 
