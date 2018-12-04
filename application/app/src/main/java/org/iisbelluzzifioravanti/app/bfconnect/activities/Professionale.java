@@ -24,7 +24,7 @@ import android.widget.Toast;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms;
 import org.iisbelluzzifioravanti.app.bfconnect.connection.PdfHandler;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.Help;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity.Help;
 
 /**
  * In this class we take all the specializations of the Professionale

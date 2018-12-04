@@ -77,7 +77,7 @@
             android:label=""
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.threeDots.HQRuno"
+            android:name=".activities.threeDots.helpActivity.HQRuno"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:screenOrientation="portrait" />
@@ -93,7 +93,8 @@
             android:label=""
             android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.threeDots.HQRdue"></activity>
+        <activity android:name=".activities.threeDots.helpActivity.HQRdue" />
+        <activity android:name=".activities.threeDots.helpActivity.HNFCuno"></activity>
     </application>
 
 </manifest>

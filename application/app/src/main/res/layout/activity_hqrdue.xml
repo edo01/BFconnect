@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.threeDots.HQRdue">
+    tools:context=".activities.threeDots.helpActivity.HQRdue">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/rileva_qrdue"
         android:layout_width="310dp"
         android:layout_height="430dp"
         android:layout_marginStart="8dp"
@@ -21,7 +21,7 @@
         app:srcCompat="@drawable/hs_due" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
+        android:id="@+id/avanti_due"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -39,7 +39,7 @@
         app:srcCompat="@drawable/freccia" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/indietro_due"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -57,7 +57,7 @@
         app:srcCompat="@drawable/freccia_in" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/punti_due"
         android:layout_width="206dp"
         android:layout_height="27dp"
         android:layout_marginStart="8dp"
@@ -72,7 +72,7 @@
         app:srcCompat="@drawable/punti_hr_due" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton7"
+        android:id="@+id/help_due"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

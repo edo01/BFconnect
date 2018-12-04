@@ -7,6 +7,7 @@ package org.iisbelluzzifioravanti.app.bfconnect;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.nfc.NfcAdapter;
+import android.nfc.cardemulation.HostNfcFService;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -20,9 +21,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.HQRdue;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.HQRuno;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.Help;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity.*;
+
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Prenotation;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.School;
@@ -152,7 +152,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
                 startActivity(new Intent(this, Home.class));
                 return true;
             case R.id.help:
-                startActivity(new Intent(this, HQRdue.class));
+                startActivity(new Intent(this, HNFCuno.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

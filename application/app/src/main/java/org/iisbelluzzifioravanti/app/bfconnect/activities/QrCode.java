@@ -25,7 +25,7 @@ import android.widget.Toast;
 
 import org.iisbelluzzifioravanti.app.bfconnect.Keys;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.Help;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity.Help;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbBaseColumns;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbTools;
