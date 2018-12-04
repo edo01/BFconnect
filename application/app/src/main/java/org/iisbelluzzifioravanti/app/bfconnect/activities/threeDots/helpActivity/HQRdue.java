@@ -26,7 +26,7 @@ public class HQRdue extends AppCompatActivity {
         actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
 
 
-        FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.indietro_due);
+        FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltPrevH2);
         fprev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,16 +35,16 @@ public class HQRdue extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton fnext = (FloatingActionButton) findViewById(R.id.avanti_due);
+        FloatingActionButton fnext = (FloatingActionButton) findViewById(R.id.fltNextH2);
         fnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent qrcode = new Intent(getApplicationContext(), Home.class);
+                Intent qrcode = new Intent(getApplicationContext(), HNFCuno.class);
                 startActivity(qrcode);
             }
         });
 
-        FloatingActionButton fhome = (FloatingActionButton) findViewById(R.id.help_due);
+        FloatingActionButton fhome = (FloatingActionButton) findViewById(R.id.fltMenuH2);
         fhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

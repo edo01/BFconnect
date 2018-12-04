@@ -21,7 +21,7 @@
         app:srcCompat="@drawable/hs_due" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/avanti_due"
+        android:id="@+id/fltNextH2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -39,7 +39,7 @@
         app:srcCompat="@drawable/freccia" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/indietro_due"
+        android:id="@+id/fltPrevH2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -72,7 +72,7 @@
         app:srcCompat="@drawable/punti_hr_due" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/help_due"
+        android:id="@+id/fltMenuH2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
