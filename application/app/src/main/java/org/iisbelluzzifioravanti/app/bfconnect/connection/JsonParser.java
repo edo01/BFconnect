@@ -196,28 +196,30 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
         if (check) {
             Intent in = new Intent(c, Rooms.class);
             try {
+                //open db
                 dbHandler = new DbTools(c);
+                //stooping pdialog
                 pDialog.dismiss();
 
                 //selection only the row with the title which itt downloaded
-
+                //compression of the image
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                 byte[] byteArray = stream.toByteArray();
 
-                //if there isn't the room on the db it saves it
-                if(!dbHandler.roomExists(title)) {
-                    dbHandler.setWriteable();
-                    ContentValues values = new ContentValues();
-                    values.put(DbBaseColumns.KEY_TITLE, title);
-                    values.put(DbBaseColumns.KEY_CONTENT, content);
-                    values.put(DbBaseColumns.KEY_IMAGE, byteArray);
-                    dbHandler.insert(values);
+                //if we are here the room isn't inside the db so we save it
+                dbHandler.setWriteable();
+                ContentValues values = new ContentValues();
+                values.put(DbBaseColumns.KEY_ROOMID,room);
+                values.put(DbBaseColumns.KEY_TITLE, title);
+                values.put(DbBaseColumns.KEY_CONTENT, content);
+                values.put(DbBaseColumns.KEY_IMAGE, byteArray);
+                dbHandler.insert(values);
 
-                    Toast toast = Toast.makeText(c, "aula " + title + " salvata.", Toast.LENGTH_LONG);
-                    toast.setGravity(Gravity.CENTER, 0, 0);
-                    toast.show();
-                }
+                Toast toast = Toast.makeText(c, "aula " + title + " salvata.", Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+
                 //closing the db
                 dbHandler.close();
 
@@ -235,13 +237,12 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
             }
         }else {
             pDialog.dismiss();
-            dbHandler.close();
 
             //show error toast
             Toast toast = Toast.makeText(c, "C'È STATO UN ERRORE NEL CARIMENTO DELLA PAGINA" , Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
-
+            //returning to home
             Intent intent = new Intent( c, Home.class);
             c.startActivity(intent);
         }

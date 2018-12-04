@@ -37,9 +37,9 @@ public class DbTools {
         dbHandler.close();
     }
 
-    public  boolean roomExists(String title){
-        String selection = DbBaseColumns.KEY_TITLE + " = ?";
-        String[] selectionArgs = { title };
+    public  boolean roomExists(String roomId){
+        String selection = DbBaseColumns.KEY_ROOMID + " = ?";
+        String[] selectionArgs = { roomId };
         setReadable();
 
         Cursor cursor = db.query(
