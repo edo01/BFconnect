@@ -25,6 +25,7 @@ import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms;
 import org.iisbelluzzifioravanti.app.bfconnect.connection.PdfHandler;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity.Help;
+import org.iisbelluzzifioravanti.app.bfconnect.util.ActivityTools;
 
 /**
  * In this class we take all the specializations of the Professionale
@@ -64,7 +65,7 @@ public class Professionale extends AppCompatActivity {
             btnQuaReg.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(isNetworkAvailable()) {
+                    if(ActivityTools.isNetworkAvailable(Professionale.this)) {
                         startDownload("qualifiche");
                     }else doSnackbar("qualifiche");
                 }
@@ -72,7 +73,7 @@ public class Professionale extends AppCompatActivity {
             btnMezzi.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(isNetworkAvailable()) {
+                    if(ActivityTools.isNetworkAvailable(Professionale.this)) {
                         startDownload("mezzi");
                     }else doSnackbar("mezzi");
                 }
@@ -80,7 +81,7 @@ public class Professionale extends AppCompatActivity {
             btnManutenzione.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(isNetworkAvailable()) {
+                    if(ActivityTools.isNetworkAvailable(Professionale.this)) {
                         startDownload("manutenzione");
                     }else doSnackbar("manutenzione");
                 }
@@ -88,7 +89,7 @@ public class Professionale extends AppCompatActivity {
             btnApparati.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(isNetworkAvailable()){
+                    if(ActivityTools.isNetworkAvailable(Professionale.this)){
                         startDownload("apparati");
                     }else doSnackbar("apparati");
                 }
@@ -96,7 +97,7 @@ public class Professionale extends AppCompatActivity {
             btnSeraleApparati.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(isNetworkAvailable()) {
+                    if(ActivityTools.isNetworkAvailable(Professionale.this)) {
                         startDownload("serialiApparati");
                     }else doSnackbar("seraliApparati");
                 }
@@ -104,7 +105,7 @@ public class Professionale extends AppCompatActivity {
             btnSeraliMezzi.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(isNetworkAvailable()) {
+                    if(ActivityTools.isNetworkAvailable(Professionale.this)) {
                         startDownload("serialiMezzi");
                     }else doSnackbar("seraliMezzi");
                 }
@@ -119,7 +120,7 @@ public class Professionale extends AppCompatActivity {
                 .setAction("RIPROVA", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(isNetworkAvailable()) {
+                        if(ActivityTools.isNetworkAvailable(Professionale.this)) {
                             startDownload(pdf);
                         }else doSnackbar(pdf);
                     }
@@ -131,13 +132,7 @@ public class Professionale extends AppCompatActivity {
     private void startDownload(String pdf){
         new PdfHandler(pdf, Professionale.this).execute();
     }
-
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
+    
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -146,6 +141,7 @@ public class Professionale extends AppCompatActivity {
         inflater.inflate(R.menu.three_dots,menu);
         return true;
     }
+    
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection

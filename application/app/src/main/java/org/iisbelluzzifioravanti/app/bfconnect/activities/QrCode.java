@@ -29,6 +29,7 @@ import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbBaseColumns;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbTools;
+import org.iisbelluzzifioravanti.app.bfconnect.util.ActivityTools;
 
 public class QrCode extends AppCompatActivity {
 
@@ -80,7 +81,7 @@ public class QrCode extends AppCompatActivity {
                         //starting activity
                         startActivity(in);
 
-                    }else if(isNetworkAvailable()){ //if there isn't in the db we open the loading page and download the content
+                    }else if(ActivityTools.isNetworkAvailable(QrCode.this)){ //if there isn't in the db we open the loading page and download the content
                         Log.d("aula non trovata nel db","creazione dell'aula nel db");
                         //open the page
                         Intent in = new Intent(QrCode.this, Loading.class);
@@ -125,16 +126,6 @@ public class QrCode extends AppCompatActivity {
     }
 
     /**
-     * @return true if the network is available and false if is not
-     */
-    public boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-
-    /**
      * This method creates the snackbar when the connection isn't available.
      * @param room
      */
@@ -143,7 +134,7 @@ public class QrCode extends AppCompatActivity {
                 .setAction("RIPROVA", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(isNetworkAvailable()) {
+                        if(ActivityTools.isNetworkAvailable(QrCode.this)) {
                             Intent intent = new Intent(QrCode.this, Loading.class);
                             intent.putExtra("nfc_read", room);
                             startActivity(intent);

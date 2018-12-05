@@ -6,6 +6,7 @@ package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -36,6 +37,7 @@ import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbBaseColumns;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbTools;
 import org.iisbelluzzifioravanti.app.bfconnect.nfc.NfcAction;
+import org.iisbelluzzifioravanti.app.bfconnect.util.ActivityTools;
 
 /**
  * toDO: 26/11/18 stopping animation when bottom menu is clicked
@@ -144,7 +146,7 @@ public class Home extends BaseActivity {
                 in.putExtra("image", byteArray);
                 //starting activity
                 startActivity(in);
-            } else if (isNetworkAvailable()) {
+            } else if (ActivityTools.isNetworkAvailable(this)) {
                 Log.d("aula non trovata nel db", "salvataggio dell'aula nel db");
 
                 dbHandler.close();
@@ -179,16 +181,6 @@ public class Home extends BaseActivity {
 
 
     /**
-     * @return true if the network is available and false if is not
-     */
-    public boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-
-    /**
      * This method creates the snackbar when the connection isn't available.
      * @param room
      */
@@ -197,7 +189,7 @@ public class Home extends BaseActivity {
                 .setAction("RIPROVA", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(isNetworkAvailable()) {
+                        if(ActivityTools.isNetworkAvailable(Home.this)) {
                             Intent intent = new Intent(Home.this, Loading.class);
                             intent.putExtra("nfc_read", room);
                             startActivity(intent);

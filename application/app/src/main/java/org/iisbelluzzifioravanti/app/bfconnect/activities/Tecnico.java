@@ -25,6 +25,7 @@ import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms;
 import org.iisbelluzzifioravanti.app.bfconnect.connection.PdfHandler;
+import org.iisbelluzzifioravanti.app.bfconnect.util.ActivityTools;
 
 public class Tecnico extends AppCompatActivity {
 
@@ -57,7 +58,7 @@ public class Tecnico extends AppCompatActivity {
         btnElettronica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isNetworkAvailable()) {
+                if(ActivityTools.isNetworkAvailable(Tecnico.this)) {
                     startDownload("elettronica");
                 }else doSnackbar("elettronica");
             }
@@ -65,7 +66,7 @@ public class Tecnico extends AppCompatActivity {
         btnInformatica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isNetworkAvailable()) {
+                if(ActivityTools.isNetworkAvailable(Tecnico.this)) {
                     startDownload("informatica");
                 }else doSnackbar("informatica");
             }
@@ -73,7 +74,7 @@ public class Tecnico extends AppCompatActivity {
         btnMeccanica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isNetworkAvailable()) {
+                if(ActivityTools.isNetworkAvailable(Tecnico.this)) {
                     startDownload("meccanica");
                 }else doSnackbar("meccanica");
             }
@@ -81,7 +82,7 @@ public class Tecnico extends AppCompatActivity {
         btnChimica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isNetworkAvailable()) {
+                if(ActivityTools.isNetworkAvailable(Tecnico.this)) {
                     startDownload("chimica");
                 }else doSnackbar("chimica");
             }
@@ -91,19 +92,12 @@ public class Tecnico extends AppCompatActivity {
         }
     }
 
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-
     private void doSnackbar(String pdf){
         Snackbar snackbar = Snackbar.make(findViewById(R.id.Atecnico), "NO CONNESSIONE", Snackbar.LENGTH_LONG)
                 .setAction("RIPROVA", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(isNetworkAvailable()) {
+                        if(ActivityTools.isNetworkAvailable(Tecnico.this)) {
                             startDownload(pdf);
                         }else doSnackbar(pdf);
                     }
