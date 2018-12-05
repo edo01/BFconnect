@@ -18,6 +18,7 @@ import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Rooms;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbBaseColumns;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbTools;
+import org.iisbelluzzifioravanti.app.bfconnect.util.MyAdapter;
 
 import java.util.Vector;
 
@@ -56,11 +57,11 @@ public class MyRooms extends AppCompatActivity {
                     Log.i("ELEMENT at  :", i + " " + vector.elementAt(i));
                 }
             }else rooms = new String[]{"NON HAI ANCORA TROVATO DELLE AULE!!"}; //if the db hasn't anything
-
             //creating listView
-            ArrayAdapter<String> adapter=new ArrayAdapter<String>(this, R.layout.row, rooms);
+            //the class my adapter customize the row of the list view
+            MyAdapter myAdapter = new MyAdapter(this, rooms);
             ListView listView = (ListView) findViewById(R.id.listView);
-            listView.setAdapter(adapter);
+            listView.setAdapter(myAdapter);
             listView.setOnItemClickListener(listener);
 
         }catch (Exception ex){

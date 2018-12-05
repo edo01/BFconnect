@@ -93,9 +93,18 @@
             android:label=""
             android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.threeDots.helpActivity.HQRdue" />
-        <activity android:name=".activities.threeDots.helpActivity.HNFCuno" />
-        <activity android:name=".activities.threeDots.helpActivity.HNFCdue"></activity>
+        <activity android:name=".activities.threeDots.helpActivity.HQRdue"
+            android:configChanges="keyboardHidden|orientation"
+            android:label=""
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.threeDots.helpActivity.HNFCuno"
+            android:configChanges="keyboardHidden|orientation"
+            android:label=""
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.threeDots.helpActivity.HNFCdue"
+            android:configChanges="keyboardHidden|orientation"
+            android:label=""
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
