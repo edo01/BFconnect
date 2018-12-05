@@ -6,16 +6,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import org.iisbelluzzifioravanti.app.bfconnect.R;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Rooms;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity.Help;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbBaseColumns;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbTools;
 import org.iisbelluzzifioravanti.app.bfconnect.util.MyAdapter;
@@ -100,6 +104,31 @@ public class MyRooms extends AppCompatActivity {
             startActivity(in);
         }
     };
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.myrooms_three_dots,menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.help:
+                startActivity(new Intent(this, Help.class));
+                return true;
+            case R.id.about_us:
+                startActivity(new Intent(this, Home.class));
+                return true;
+            case R.id.toHome:
+                startActivity(new Intent(this, Home.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
 
 
