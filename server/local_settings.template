@@ -1,0 +1,3 @@
+#template of your local settings. You must create a local_settings.py in . folder and paste this code inside, then change fields based on your #local settings.
+port = 80 
+ip_address = ''

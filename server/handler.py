@@ -6,6 +6,7 @@ import http
 from dataHandler import DataHandler
 from urllib.parse import parse_qs
 from timeit import default_timer as timer
+import threading
 
 # Default message template
 DEFAULT_ERROR_MESSAGE = """\
@@ -21,8 +22,10 @@ class MyHandler(
         if self.path == '/favicon.ico' and str(self.path).find('?')==-1:
             return
         start = timer()
+        print(threading.currentThread().getName())
         #print("\nGET {}".format(str(self.path)))
         #in the application the url must be 'https://ip/?room=number&image=something&pdf=something'
+
         keys = parse_qs(self.path[2:])
         try:
             room = str(keys['room']).replace('[\'', '').replace('\']', '')
@@ -42,8 +45,8 @@ class MyHandler(
             end = timer()
             print('response in:', end - start)
         except:
-
-            print('error in sending response')
+            self.send_error(404, 'File Not Found: %s' % self.path)
+            print('file not found, error in responding')
 
 
     def doHead(self, contentType = 'txt'):  #adding headers
