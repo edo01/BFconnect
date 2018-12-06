@@ -1,5 +1,6 @@
 package org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -34,7 +35,9 @@ public class HQRuno extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent qrcode=new Intent(getApplicationContext(), Help.class);
-                startActivity(qrcode);
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                startActivity(qrcode, options.toBundle());
             }
         });
 
@@ -43,7 +46,9 @@ public class HQRuno extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent qrcode = new Intent(getApplicationContext(), HQRdue.class);
-                startActivity(qrcode);
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                startActivity(qrcode, options.toBundle());
             }
         });
     }

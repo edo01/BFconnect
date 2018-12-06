@@ -3,6 +3,7 @@
  */
 package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -79,14 +80,19 @@ public class QrCode extends AppCompatActivity {
                         //compressing the image to pass, if this is too large the application will crash
                         in.putExtra("image", byteArray);
                         //starting activity
-                        startActivity(in);
+                        ActivityOptions options =
+                                ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                        startActivity(in , options.toBundle());
 
                     }else if(ActivityTools.isNetworkAvailable(QrCode.this)){ //if there isn't in the db we open the loading page and download the content
                         Log.d("aula non trovata nel db","creazione dell'aula nel db");
                         //open the page
                         Intent in = new Intent(QrCode.this, Loading.class);
                         in.putExtra("nfc_read", qtxt);
-                        startActivity(in);
+
+                        ActivityOptions options =
+                                ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                        startActivity(in , options.toBundle());
                     }else{
                         //showing snackbar
                         doSnackbar(qtxt);

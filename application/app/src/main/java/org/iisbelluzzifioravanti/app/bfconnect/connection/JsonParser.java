@@ -3,6 +3,7 @@
  */
 package org.iisbelluzzifioravanti.app.bfconnect.connection;
 
+import android.app.ActivityOptions;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
@@ -15,6 +16,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
 
+import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Rooms;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbBaseColumns;
@@ -56,7 +58,7 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
     /*the address must has this form "https://ip/?room=N&image=false" for
      * if you want an image don't put 'false' but the number of your image
      */
-    private final String address = "http://192.168.1.107:80";
+    private final String address = "http://192.168.43.99:80";
     //private final String address = "http://taddia.sytes.net:6002"; //put here the server address
     InputStream in;
 
@@ -193,13 +195,14 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
     protected void onPostExecute(Boolean check){
         //setting in the view the datas parsed
         super.onPostExecute(check);
+        //stooping pdialog
+        pDialog.dismiss();
+
         if (check) {
             Intent in = new Intent(c, Rooms.class);
             try {
                 //open db
                 dbHandler = new DbTools(c);
-                //stooping pdialog
-                pDialog.dismiss();
 
                 //selection only the row with the title which itt downloaded
                 //compression of the image
@@ -230,14 +233,15 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
                 in.putExtra("image", byteArray);
 
                 //starting activity
-                c.startActivity(in);
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(c.getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                c.startActivity(in , options.toBundle());
+
 
             } catch (Exception ex) {
                 Log.e("ERROR IN LOADING DATA", ex.getMessage());
             }
         }else {
-            pDialog.dismiss();
-
             //show error toast
             Toast toast = Toast.makeText(c, "C'È STATO UN ERRORE NEL CARIMENTO DELLA PAGINA" , Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER,0,0);

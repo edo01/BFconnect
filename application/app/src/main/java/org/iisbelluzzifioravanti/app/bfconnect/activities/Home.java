@@ -6,7 +6,10 @@ package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
 
 import android.Manifest;
+import android.animation.Animator;
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -18,14 +21,15 @@ import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 
 import android.nfc.Tag;
+import android.os.Build;
 import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -64,7 +68,8 @@ public class Home extends BaseActivity {
         image = (ImageView) findViewById(R.id.logo);
 
         //loading rotation animation from "res/anim/rotation.xml"
-        Animation animation = AnimationUtils.loadAnimation(this,R.anim.rotation);
+        Animation animation = AnimationUtils.loadAnimation(this,R.anim.fadeinout);
+        animation.setStartOffset(500);
         image.startAnimation(animation);
 
         //this floating button is linked to the page of the qrcode
@@ -144,8 +149,12 @@ public class Home extends BaseActivity {
                 in.putExtra("title", title);
                 //compressing the image to pass, if this is too large the application will crash
                 in.putExtra("image", byteArray);
+
                 //starting activity
-                startActivity(in);
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                startActivity(in , options.toBundle());
+
             } else if (ActivityTools.isNetworkAvailable(this)) {
                 Log.d("aula non trovata nel db", "salvataggio dell'aula nel db");
 
@@ -158,7 +167,9 @@ public class Home extends BaseActivity {
                 if (!txtNfc.equals("")) {
                     Intent in = new Intent(Home.this, Loading.class);
                     in.putExtra("nfc_read", txtNfc);
-                    startActivity(in);
+                    ActivityOptions options =
+                            ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                    startActivity(in , options.toBundle());
                 }
             } else {
                 //showing snackbar.
@@ -198,5 +209,4 @@ public class Home extends BaseActivity {
                 });
         snackbar.show();
     }
-
 }

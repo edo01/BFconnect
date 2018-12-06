@@ -1,5 +1,6 @@
 package org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
@@ -101,7 +102,9 @@ public class MyRooms extends AppCompatActivity {
             //compressing the image to pass, if this is too large the application will crash
             in.putExtra("image", byteArray);
             //starting activity
-            startActivity(in);
+            ActivityOptions options =
+                    ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+            startActivity(in , options.toBundle());
         }
     };
 

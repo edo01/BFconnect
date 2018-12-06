@@ -3,6 +3,7 @@
  */
 package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
@@ -28,15 +29,19 @@ public class School extends BaseActivity {
         btnTecnico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewIntent = new Intent(School.this, Tecnico.class);
-                startActivity(viewIntent);
+                Intent intent = new Intent(School.this, Tecnico.class);
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                startActivity(intent , options.toBundle());
             }
         });
         btnProfessionale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewIntent = new Intent(School.this, Professionale.class);
-                startActivity(viewIntent);
+                Intent intent = new Intent(School.this, Professionale.class);
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                startActivity(intent, options.toBundle());
             }
         });
     }

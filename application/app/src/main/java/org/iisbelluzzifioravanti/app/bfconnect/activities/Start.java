@@ -3,6 +3,7 @@
  */
 package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.nfc.NfcAdapter;
 import android.os.Handler;
@@ -14,7 +15,8 @@ import android.widget.Toast;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 
 /**
- * the first activity with the bf connect logo
+ * the first activity with the bf connect logo.
+ * Splash activity
  */
 public class Start extends AppCompatActivity {
 
@@ -35,8 +37,8 @@ public class Start extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(Start.this, Home.class);
-                startActivity(i);
+                Intent in = new Intent(Start.this, Home.class);
+                startActivity(in);
                 finish();
             }
         }, timeout);

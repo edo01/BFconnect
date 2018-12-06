@@ -4,6 +4,7 @@
 
 package org.iisbelluzzifioravanti.app.bfconnect;
 
+import android.app.ActivityOptions;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.nfc.NfcAdapter;
@@ -93,12 +94,17 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
             navigationView.postDelayed(() -> {
 
                 if (itemId == R.id.reading) {
-                    startActivity(new Intent(this, Home.class));
+                    Intent in = new Intent(this, Home.class);
+                    //starting activity
+                    startActivity(in);
                 } else if (itemId == R.id.prenotation) {
-                    startActivity(new Intent(this, Prenotation.class));
+                    Intent in = new Intent(this, Prenotation.class);
+                    //starting activity
+                    startActivity(in);
                 } else if (itemId == R.id.school) {
-                    startActivity(new Intent(this, School.class));
-                }
+                    Intent in = new Intent(this, School.class);
+                    //starting activity
+                    startActivity(in);                }
                 finish();
             }, 310);
         }

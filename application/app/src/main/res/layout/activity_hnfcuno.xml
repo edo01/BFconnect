@@ -22,7 +22,7 @@
         app:srcCompat="@drawable/punti_hr_tre" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/help_tre"
+        android:id="@+id/fltHomeQR1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -39,7 +39,7 @@
         app:srcCompat="@drawable/ic_help" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/indietro_tre"
+        android:id="@+id/fltPrevQR1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -57,7 +57,7 @@
         app:srcCompat="@drawable/freccia_in" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/avanti_tre"
+        android:id="@+id/fltNextQR1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -185,7 +185,7 @@
         app:layout_constraintVertical_bias="0.725" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fltRileva"
+        android:id="@+id/fltNFCQR1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

@@ -1,5 +1,6 @@
 package org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
@@ -35,7 +36,9 @@ public class HQRdue extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent qrcode=new Intent(getApplicationContext(), HQRuno.class);
-                startActivity(qrcode);
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                startActivity(qrcode, options.toBundle());
             }
         });
 
@@ -44,7 +47,9 @@ public class HQRdue extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent qrcode = new Intent(getApplicationContext(), HNFCuno.class);
-                startActivity(qrcode);
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                startActivity(qrcode, options.toBundle());
             }
         });
 
@@ -53,7 +58,9 @@ public class HQRdue extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent qrcode = new Intent(getApplicationContext(), Help.class);
-                startActivity(qrcode);
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                startActivity(qrcode, options.toBundle());
             }
         });
     }
