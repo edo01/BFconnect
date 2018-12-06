@@ -27,7 +27,11 @@ class ThreadingSimpleServer(ThreadingMixIn, HTTPServer):
 def run():
     myserver = None
     server_name = "BFServer"
+<<<<<<< HEAD
     server_address = (local_settings.ip_address, local_settings.port) #the server listens on 6002 port
+=======
+    server_address = ('10.72.1.6',6002) #the server listens on 6002 port
+>>>>>>> e3b4696f279853f4b38b3fc4391575e379eb65d9
     server_startingtime = datetime.datetime.now()
     print("Starting server", str(server_startingtime), "...")
     try:
