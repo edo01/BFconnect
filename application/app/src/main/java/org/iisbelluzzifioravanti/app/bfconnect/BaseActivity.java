@@ -22,6 +22,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.aboutUs.AboutUs;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity.*;
 
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
@@ -155,7 +156,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
                 startActivity(new Intent(this, MyRooms.class));
                 return true;
             case R.id.about_us:
-                startActivity(new Intent(this, Home.class));
+                startActivity(new Intent(this, AboutUs.class));
                 return true;
             case R.id.help:
                 startActivity(new Intent(this, Help.class));
