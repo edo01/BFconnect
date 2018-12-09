@@ -3,7 +3,7 @@
 <br>
 <h3 align="center">BFconnect is an innovative app that will allow schools to better manage their Open Day.</h3><br>
 <h3 align="center">Powered by Edoardo Carrà, Francesco Taddia and Riccardo Bovinelli.</h3>
-<div align="center">
+<div>
 <h2>RUN SERVER</h2>
   <h3>server directory: "BFconnect/server/".</h3>
   <h4>The structure of the server must be like this: </h4>
@@ -37,7 +37,7 @@ Here you can set the port and the ip_address of your server.
 </ol>
 </h4>
 </div>
-<div align="center">
+<div>
 <h2>RUN STATISTIC SERVER</h2>
   <h4>directory: "BFconnect/webStatistic".</h4>
   <h4>using framework django ver = 1.8 .</h4>
