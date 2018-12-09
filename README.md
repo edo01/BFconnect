@@ -39,7 +39,7 @@ Here you can set the port and the ip_address of your server.
 </div>
 <div>
 <h2>RUN STATISTIC SERVER</h2>
-  <h3>Server directory: "BFconnect/webStatistic".</h3>
+  <h3>Server directory: "BFconnect/webStatistic/".</h3>
   <h4>using framework django ver = 1.8 .</h4>
   <h4>Django reference online:https://docs.djangoproject.com/en/1.8/ref/ .</h4>
   <h4>run server:</h4>
