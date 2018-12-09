@@ -16,5 +16,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/aus_new" />
+        app:srcCompat="@drawable/aus_bfconnect" />
 </android.support.constraint.ConstraintLayout>
