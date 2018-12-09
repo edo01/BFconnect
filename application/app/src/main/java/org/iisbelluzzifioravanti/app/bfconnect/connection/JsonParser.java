@@ -58,8 +58,8 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
     /*the address must has this form "https://ip/?room=N&image=false" for
      * if you want an image don't put 'false' but the number of your image
      */
-    private final String address = "http://192.168.1.107:80";
-    //private final String address = "http://taddia.sytes.net:6002"; //put here the server address
+    //private final String address = "http://192.168.1.107:80";
+    private final String address = "http://taddia.sytes.net:6002"; //put here the server address
     InputStream in;
 
     public JsonParser(String room, Context c){
@@ -73,7 +73,7 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
         JsonParser jsonParser = this;
         //creating the progress bar of the download
         pDialog = new ProgressDialog(c,
-                ProgressDialog.THEME_DEVICE_DEFAULT_DARK);
+                ProgressDialog.THEME_DEVICE_DEFAULT_LIGHT);
         pDialog.setTitle("Please wait");
         pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         pDialog.setMessage("Loading data...");

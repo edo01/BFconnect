@@ -30,9 +30,9 @@ import static android.content.ContentValues.TAG;
 public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
     private String pdf;
     private int nPdf;
-    private final String address = "http://192.168.1.107:80";
+    //private final String address = "http://192.168.1.107:80";
 
-  //  private final String address = "http://taddia.sytes.net:6002";
+    private final String address = "http://taddia.sytes.net:6002";
 
     private Context context;
     private ProgressDialog pDialog;
@@ -44,7 +44,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
         switch(indirizzo){
             case "elettronica":
                 pdf = "15_12_2018_elettronica_elettrotecnica.pdf";
-                nPdf=9;
+                nPdf=4;
                 break;
             case "informatica":
                 pdf = "15_12_2018__informatica_telecomunicazioni.pdf";
@@ -60,7 +60,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
                 break;
             case "seraliApparati":
                 pdf = "15_12_2018_serale.pdf";
-                nPdf=4;
+                nPdf=9;
                 break;
             case "seraliMezzi":
                 pdf = "15_12_2018_serale.pdf";
@@ -94,13 +94,14 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
         PdfHandler pdfHandler = this;
         //creating the process dialog bar
         pDialog = new ProgressDialog(context,
-                ProgressDialog.THEME_DEVICE_DEFAULT_DARK);
+                ProgressDialog.THEME_DEVICE_DEFAULT_LIGHT);
         pDialog.setTitle("Please wait");
         pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         pDialog.setMessage("Loading data...");
         pDialog.setIndeterminate(true);
         pDialog.setCancelable(true);
         pDialog.setInverseBackgroundForced(true);
+
         //setting the cancel listener of the process dialog
         pDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override

@@ -2,7 +2,8 @@ package org.iisbelluzzifioravanti.app.bfconnect;
 
 public final class Tools {
 
-    private static String[] keys_id = new String[]{ "1", "A34cb", "BBwcb", "ccrcb", "tt2cb"};
+    //the key
+    private static String[] keys_id = new String[]{ "belOPEN", "ETC34c", "ETC620", "ETC34d"};
 
     //not instantiable
     private Tools(){}
