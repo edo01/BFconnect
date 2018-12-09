@@ -1,0 +1,167 @@
+{% load staticfiles %}
+<html>
+<head>
+  <title>DASHBOARD</title>
+  <style>
+    h3.error{
+      color:red;
+    }
+    h3{
+      color: blue;
+    }
+    h1{
+      font-weight: bold;
+    }
+    #primo{
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      left: 0%;
+    }
+    #terzo{
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      left: 0%;
+      top: 50%;
+    }
+    #secondo{
+      position: absolute;
+      width: 40%;
+      height: 50%;
+      right: 0%;
+    }
+    #quarto{
+      position: absolute;
+      width: 40%;
+      height: 50%;
+      top:50%;
+      right: 0%;
+    }
+    #title{
+      text-align: center;
+    }
+  </style>
+ <script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
+ <script src="{% static 'js/chart.js/dist/Chart.js' %}"></script>
+</head>
+<body onload="updateGraphs()">
+  <div id="title"><h1>SERVER DASHBOARD</div>
+  <div id="primo">
+    <canvas id="numberE" width="100%" height="30%"></canvas>
+  </div>
+  <div id="secondo">
+    <h3 class = "error" id = "e">Error: </h3>
+    <h3 id = "r"> Number of response: </h3>
+    <h3 id = "m"> Middle time of response: </h3>
+  </div>
+  <div id="terzo">
+    <canvas id="dataPdf" width="100%" height="30%"></canvas>
+  </div>
+  <div id="quarto">
+    <canvas id="dataRoom" width="100%" height="45%"></canvas>
+  </div>
+  <script type="text/javascript">
+    var requestTime =;
+    var error = 4;
+    var response =;
+    var responses = [20,45,70,150,response];
+    var errors = [0,0,3,3,error];
+    var pdfs = [10,24,35,68,12,19,20,7,2];
+    var rooms = [400,222,100,36,24,32,1,7,2];
+    function updateGraphs() {
+        document.getElementById("m").innerHTML += requestTime;
+        document.getElementById("e").innerHTML += error;
+        document.getElementById("r").innerHTML += response;
+        var ctx = document.getElementById("numberE");
+        var myChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: [1,2,3,4,5],
+                datasets: [{
+                    type: 'bar',
+                    label: "Error responses",
+                    data: errors,
+                    borderColor:'rgba(255, 0, 0, 1)',
+                    borderWidth: 3
+                },{
+                  type: 'line',
+                  label: 'OK Responses',
+                  data: responses,
+                  borderColor:'rgba(0, 0, 255, 1)',
+                  borderWidth: 3
+                }]
+            },options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+        var ctr = document.getElementById("dataPdf");
+        var myChart = new Chart(ctr, {
+            type: "bar",
+            data: {
+                labels: ["chimica","meccanica","informatica","elettronica","qualifiche", "servizi", "assistenza", "manutenzione","serale"],
+                datasets: [{
+                    type: 'bar',
+                    label: "pdf",
+                    data: pdfs,
+                    borderColor:'rgba(0, 0, 255, 1)',
+                    borderWidth: 3
+                }]
+            },options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+        var ctm = document.getElementById("dataRoom");
+        var myChart = new Chart(ctm, {
+            type: "bar",
+            data: {
+                labels: ["aula informatica","aula meccanica","aula elettronica","aula chimica","aula qualifiche", "aula servizi", "aula assistenza", "aula manutenzione","aula serale"],
+                datasets: [{
+                    type: 'bar',
+                    label: "pagine dei laboratori",
+                    data: rooms,
+                    borderColor:'rgba(0, 0, 255, 1)',
+                    borderWidth: 3
+                }]
+            },options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+  </script>
+</body>
+<html>
