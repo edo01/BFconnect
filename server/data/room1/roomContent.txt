@@ -1,4 +1,4 @@
 {
-"title":"ITIS BELLUZZI",
-"content":"Benvenuti all'open day del Belluzzi Fioravanti"
+"title":"SISTEMI ELETTRONICI AUTOMATICI",
+"content":"studio di linguaggi di programmazione ad alto e basso livello per microcontrollori, plc, sistemi programmabili. Studio della stabilita` dei sistemi e delle automazioni"
 }

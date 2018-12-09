@@ -8,10 +8,6 @@ from urllib.parse import parse_qs
 from timeit import default_timer as timer
 import threading
 
-# Default message template
-DEFAULT_ERROR_MESSAGE = """\
-ERROR IN SENDING MESSAGE
-"""
 
 class MyHandler(
     http.server.BaseHTTPRequestHandler):  # MyHandler extends http.server.BaseHTTPRequestHandler and implements the method do_Get and do_POST
@@ -19,64 +15,83 @@ class MyHandler(
     datahandler = DataHandler()
 
     def do_GET(self):
-        if self.path == '/favicon.ico' and str(self.path).find('?')==-1:
+        if self.path == '/favicon.ico' and str(self.path).find('?') == -1:
             return
-        start = timer()
-        print(threading.currentThread().getName())
-        #print("\nGET {}".format(str(self.path)))
-        #in the application the url must be 'https://ip/?room=number&image=something&pdf=something'
-
-        keys = parse_qs(self.path[2:])
         try:
-            room = str(keys['room']).replace('[\'', '').replace('\']', '')
-            image = str(keys['image']).replace('[\'', '').replace('\']', '')
-            pdf = str(keys['pdf']).replace('[\'', '').replace('\']', '')
-            if pdf != 'false':
+            start = timer()
+            print(threading.currentThread().getName())
+            # print("\nGET {}".format(str(self.path)))
+            # in the application the url must be 'https://ip/?room=number&image=something&pdf=something'
+
+            keys = parse_qs(self.path[2:])
+            if 'check' in keys:
+                self.sendStatistic()
+                print('STATISTICHE INVIATE')
+            elif 'room' in keys:
+                room = str(keys.get('room'))
+                room = room.replace('[\'', '').replace('\']', '')
+                if 'image' in keys:
+                    image = str(keys.get('image'))
+                    image = image.replace('[\'', '').replace('\']', '')
+                    self.sendImage(room, image)
+                    print('la room selezionata è :', room)
+                    print('immagine richiesta:', image)
+                else:
+                    self.sendContent(room)
+                    print('la room selezionata è :', room)
+                    print('immagine richiesta: nessuna')
+
+            elif 'pdf' in keys:
+                pdf = str(keys.get('pdf'))
+                pdf = pdf.replace('[\'', '').replace('\']', '')
                 self.sendPdf(pdf)
                 print('pdf inviato: ', self.datahandler.pdf[pdf])
-            elif image.isdecimal():
-                self.sendImage(room, image)
-                print('la room selezionata è :', room)
-                print('immagine richiesta:', image)
             else:
-                self.sendContent(room)
-                print('la room selezionata è :', room)
-                print('immagine richiesta: nessuna')
+                print('invalid url')
+                self.send_error(404, 'File Not Found: %s' % self.path)
             end = timer()
-            print('response in:', end - start)
+            time = float("{0:.8f}".format(end - start))
+            print('response in:', time)
+            self.datahandler.addResponseTime(time)
         except:
-            self.send_error(404, 'File Not Found: %s' % self.path)
-            print('file not found, error in responding')
+            self.datahandler.addError()
 
-
-    def doHead(self, contentType = 'txt'):  #adding headers
+    def doHead(self, contentType='txt'):  # adding headers
         self.send_response(http.HTTPStatus.OK)  # it is a protocol
         contentType = contentType + ';charset=utf-8;'
         self.send_header('Content-type', contentType)
         self.end_headers()
 
-    def sendContent(self, room = 'example'): #send title, description etc..
+    def sendContent(self, room='example'):  # send title, description etc..
         self.doHead('json')
-        self.wfile.write(self.datahandler.getContent(room).encode('UTF-8', 'replace'))  # before sending message must be encode
+        self.wfile.write(
+            self.datahandler.getContent(room).encode('UTF-8', 'replace'))  # before sending message must be encode
         self.wfile.flush()
 
-    def sendPdf(self, pdf = "0"): #send title, description etc..
+    def sendPdf(self, pdf="0"):  # send title, description etc..
         self.doHead('pdf')
-        self.wfile.write(self.load(self.datahandler.datasPath + self.datahandler.getPdfName(pdf)))  # before sending message must be encode
+        self.wfile.write(self.load(
+            self.datahandler.datasPath + self.datahandler.getPdfName(pdf)))  # before sending message must be encode
         self.wfile.flush()
 
-    def sendImage(self, room = 'example', image = 1): #send images
+    def sendImage(self, room='example', image=1):  # send images
         self.doHead('image')
         self.wfile.write(self.load(self.datahandler.getImageName(room, image)))
         self.wfile.flush()
 
-    def load(self,file): #open image
-        f=open(file, 'rb')
-        s=f.read()
+    def sendStatistic(self):
+        self.doHead('json')
+        self.wfile.write(
+            self.datahandler.getStatistic().encode('UTF-8', 'replace'))  # before sending message must be encode
+        self.wfile.flush()
+
+    def load(self, file):  # open image
+        f = open(file, 'rb')
+        s = f.read()
         f.close()
         return s
 
-    def encode(self,file): #encoding image
+    def encode(self, file):  # encoding image
         return bytes(file, 'UTF-8')
 
     def do_POST(self):

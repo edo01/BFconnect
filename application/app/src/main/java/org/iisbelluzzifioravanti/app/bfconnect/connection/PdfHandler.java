@@ -30,7 +30,7 @@ import static android.content.ContentValues.TAG;
 public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
     private String pdf;
     private int nPdf;
-    private final String address = "http://192.168.43.99:80";
+    private final String address = "http://192.168.1.107:80";
 
   //  private final String address = "http://taddia.sytes.net:6002";
 
@@ -123,7 +123,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
 
             //Create New File if not present
             if (!outputFile.exists()) {
-                URL url = new URL(address + "/?room=false&image=false&pdf=" + nPdf);//Create Download URl
+                URL url = new URL(address + "/?pdf=" + nPdf);//Create Download URl
                 HttpURLConnection c = (HttpURLConnection) url.openConnection();//Open Url Connection
                 c.setRequestMethod("GET");//Set Request Method to "GET" since we are grtting data
                 c.connect();//connect the URL Connection

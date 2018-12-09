@@ -58,7 +58,7 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
     /*the address must has this form "https://ip/?room=N&image=false" for
      * if you want an image don't put 'false' but the number of your image
      */
-    private final String address = "http://192.168.43.99:80";
+    private final String address = "http://192.168.1.107:80";
     //private final String address = "http://taddia.sytes.net:6002"; //put here the server address
     InputStream in;
 
@@ -99,7 +99,7 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
     protected Boolean doInBackground(Void... voids) {
         //in this try-catch we take some JSON datas and we parse them in title,content ecc...
         try {
-          DownloadContent(address + "/?room="+ room + "&image=false&pdf=false");
+          DownloadContent(address + "/?room="+ room);
         } catch (IOException e) {
             e.printStackTrace();
             return false;
@@ -109,7 +109,7 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
         }
         try {
             //download the image
-            bitmap = DownloadImage(address + "/?room="+ room +"&image=1&pdf=false");
+            bitmap = DownloadImage(address + "/?room="+ room +"&image=1");
         }catch (Exception ex){
             ex.printStackTrace();
             return false;
