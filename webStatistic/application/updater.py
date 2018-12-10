@@ -30,7 +30,7 @@ class Updater (Thread):
        self.request = request
 
    def upload(self):
-       r = requests.get('http://localhost:8080/?check=true')
+       r = requests.get('http://taddia.sytes.net:6002/?check=true')
        print(r.text)
        dic = json.loads(r.text)
 
