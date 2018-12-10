@@ -30,9 +30,9 @@ import static android.content.ContentValues.TAG;
 public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
     private String pdf;
     private int nPdf;
-    //private final String address = "http://192.168.1.107:80";
+    private final String address = "http://192.168.1.107:8080";
 
-    private final String address = "http://taddia.sytes.net:6002";
+    //private final String address = "http://taddia.sytes.net:6002";
 
     private Context context;
     private ProgressDialog pDialog;
@@ -167,7 +167,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
     protected void onPostExecute(Boolean check) {
         super.onPostExecute(check);
         if (check){
-            Toast tdonwload = Toast.makeText(context, "pdf scaricato con successo, aprilo nei download" , Toast.LENGTH_SHORT);
+            Toast tdonwload = Toast.makeText(context, "pdf scaricato con successo" , Toast.LENGTH_SHORT);
             tdonwload.setGravity(Gravity.CENTER,0,0);
             tdonwload.show();
             pDialog.dismiss();
