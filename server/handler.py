@@ -36,23 +36,24 @@ class MyHandler(
                     self.sendImage(room, image)
                     print('la room selezionata è :', room)
                     print('immagine richiesta:', image)
+                    self.datahandler.addResponseTime(time)
                 else:
                     self.sendContent(room)
                     print('la room selezionata è :', room)
                     print('immagine richiesta: nessuna')
-
+                    self.datahandler.addResponseTime(time)
             elif 'pdf' in keys:
                 pdf = str(keys.get('pdf'))
                 pdf = pdf.replace('[\'', '').replace('\']', '')
                 self.sendPdf(pdf)
                 print('pdf inviato: ', self.datahandler.pdf[pdf])
+                self.datahandler.addResponseTime(time)
             else:
                 print('invalid url')
                 self.send_error(404, 'File Not Found: %s' % self.path)
             end = timer()
             time = float("{0:.8f}".format(end - start))
             print('response in:', time)
-            self.datahandler.addResponseTime(time)
         except:
             self.datahandler.addError()
 
