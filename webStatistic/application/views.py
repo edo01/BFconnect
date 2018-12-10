@@ -2,9 +2,9 @@ from django.shortcuts import render
 from .models import Statistic
 from .updater import Updater
 
+up = Updater('2', 30)
 
 def showDashboard(request):
-    up = Updater('2', 2)
     if(not up.is_alive()):
         print('aggiornamento non in corso, attivazione:')
         up.start()

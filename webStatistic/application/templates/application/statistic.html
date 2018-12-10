@@ -70,6 +70,7 @@
     var pdfs = {{ statistic.pdf }};
     var rooms = {{ statistic.rooms }};
     function updateGraphs() {
+        setTimeout('location.reload()',30000);
         document.getElementById("m").innerHTML += requestTime;
         document.getElementById("e").innerHTML += error;
         document.getElementById("r").innerHTML += response;
