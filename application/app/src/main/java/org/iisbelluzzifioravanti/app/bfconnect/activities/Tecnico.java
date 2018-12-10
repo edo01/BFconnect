@@ -3,10 +3,7 @@
  */
 package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.StrictMode;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
@@ -21,9 +18,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity.Help;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity.Help;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
 import org.iisbelluzzifioravanti.app.bfconnect.connection.PdfHandler;
 import org.iisbelluzzifioravanti.app.bfconnect.util.ActivityTools;
 

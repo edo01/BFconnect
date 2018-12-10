@@ -1,4 +1,4 @@
-package org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity;
+package org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
@@ -15,52 +15,55 @@ import android.view.WindowManager;
 
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
 
-
-public class Help extends AppCompatActivity{
+public class HNFCdue extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_help);
+        setContentView(R.layout.activity_hnfcdue);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
 
-        FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltRileva);
+
+        FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltPrevQR2);
         fprev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent qrcode=new Intent(getApplicationContext(), HQRuno.class);
+                Intent qrcode=new Intent(getApplicationContext(), HNFCuno.class);
                 ActivityOptions options =
                         ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
                 startActivity(qrcode, options.toBundle());
             }
         });
 
-        FloatingActionButton fnext = (FloatingActionButton) findViewById(R.id.fltPrenota);
+        FloatingActionButton fnext = (FloatingActionButton) findViewById(R.id.fltNextQR2);
         fnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent qrcode = new Intent(getApplicationContext(), HQRuno.class);
-                startActivity(qrcode);
+                Intent qrcode = new Intent(getApplicationContext(), Help.class);
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                startActivity(qrcode, options.toBundle());
             }
         });
 
-        FloatingActionButton fhome = (FloatingActionButton) findViewById(R.id.fltScuola);
+        FloatingActionButton fhome = (FloatingActionButton) findViewById(R.id.fltHomeQR2);
         fhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent qrcode = new Intent(getApplicationContext(), HQRuno.class);
-                startActivity(qrcode);
+                Intent qrcode = new Intent(getApplicationContext(), Help.class);
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                startActivity(qrcode, options.toBundle());
             }
         });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -86,5 +89,4 @@ public class Help extends AppCompatActivity{
                 return super.onOptionsItemSelected(item);
         }
     }
-
 }

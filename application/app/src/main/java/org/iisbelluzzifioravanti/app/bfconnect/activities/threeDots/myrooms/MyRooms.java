@@ -1,4 +1,4 @@
-package org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots;
+package org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
@@ -20,7 +20,7 @@ import android.widget.Toast;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Rooms;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity.Help;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity.Help;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbBaseColumns;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbTools;
 import org.iisbelluzzifioravanti.app.bfconnect.util.MyAdapter;

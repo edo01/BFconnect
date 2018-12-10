@@ -4,11 +4,9 @@
 
 package org.iisbelluzzifioravanti.app.bfconnect;
 
-import android.app.ActivityOptions;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.nfc.NfcAdapter;
-import android.nfc.cardemulation.HostNfcFService;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -22,13 +20,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.aboutUs.AboutUs;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity.*;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.aboutus.AboutUs;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity.*;
 
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Prenotation;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.School;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
+import org.iisbelluzzifioravanti.app.bfconnect.util.MapsActivity;
 
 /**
  * @// TODO: 15/11/18 : null

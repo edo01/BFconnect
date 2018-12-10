@@ -1,4 +1,4 @@
-package org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity;
+package org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
@@ -15,7 +15,7 @@ import android.view.WindowManager;
 
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
 
 public class HQRuno extends AppCompatActivity {
 

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.threeDots.aboutUs.AboutUs">
+    tools:context=".activities.threeDots.aboutus.AboutUs"
+    android:id="@+id/Aaboutus">
 
     <ImageView
         android:id="@+id/aus"
@@ -17,4 +18,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/aus_bfconnect" />
+
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="248dp"
+        android:layout_height="176dp"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="126dp" />
+
 </android.support.constraint.ConstraintLayout>
