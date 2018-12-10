@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
 
     <application
         android:allowBackup="true"
@@ -15,6 +17,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="@string/google_maps_key" />
+
         <activity
             android:name=".activities.Start"
             android:configChanges="keyboardHidden|orientation"
@@ -77,42 +84,46 @@
             android:label=""
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.threeDots.helpActivity.HQRuno"
+            android:name=".activities.threeDots.helpactivity.HQRuno"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.threeDots.helpActivity.Help"
+            android:name=".activities.threeDots.helpactivity.Help"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.threeDots.MyRooms"
+            android:name=".activities.threeDots.myrooms.MyRooms"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.threeDots.helpActivity.HQRdue"
+            android:name=".activities.threeDots.helpactivity.HQRdue"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.threeDots.helpActivity.HNFCuno"
+            android:name=".activities.threeDots.helpactivity.HNFCuno"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.threeDots.helpActivity.HNFCdue"
+            android:name=".activities.threeDots.helpactivity.HNFCdue"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.threeDots.aboutUs.AboutUs"
+        <activity
+            android:name=".activities.threeDots.aboutus.AboutUs"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".util.MapsActivity"
+            android:label="mappa"/>
     </application>
 
 </manifest>

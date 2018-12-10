@@ -1,4 +1,4 @@
-package org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpActivity;
+package org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
@@ -15,44 +15,45 @@ import android.view.WindowManager;
 
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.MyRooms;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
 
-public class HNFCuno extends AppCompatActivity {
+public class HQRdue extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_hnfcuno);
+        setContentView(R.layout.activity_hqrdue);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
 
-        FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltPrevQR1);
+
+        FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltPrevH2);
         fprev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent qrcode=new Intent(getApplicationContext(), HQRdue.class);
+                Intent qrcode=new Intent(getApplicationContext(), HQRuno.class);
                 ActivityOptions options =
                         ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
                 startActivity(qrcode, options.toBundle());
             }
         });
 
-        FloatingActionButton fnext = (FloatingActionButton) findViewById(R.id.fltNextQR1);
+        FloatingActionButton fnext = (FloatingActionButton) findViewById(R.id.fltNextH2);
         fnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent qrcode = new Intent(getApplicationContext(), HNFCdue.class);
+                Intent qrcode = new Intent(getApplicationContext(), HNFCuno.class);
                 ActivityOptions options =
                         ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
                 startActivity(qrcode, options.toBundle());
             }
         });
 
-        FloatingActionButton fhome = (FloatingActionButton) findViewById(R.id.fltHomeQR1);
+        FloatingActionButton fhome = (FloatingActionButton) findViewById(R.id.fltMenuH2);
         fhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,18 +63,6 @@ public class HNFCuno extends AppCompatActivity {
                 startActivity(qrcode, options.toBundle());
             }
         });
-
-        FloatingActionButton fnfc = (FloatingActionButton) findViewById(R.id.fltNFCQR1);
-        fnfc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent qrcode = new Intent(getApplicationContext(), Home.class);
-                ActivityOptions options =
-                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
-                startActivity(qrcode, options.toBundle());
-            }
-        });
-
     }
 
     @Override
