@@ -7,7 +7,7 @@
     tools:context=".activities.threeDots.aboutUs.AboutUs">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/aus"
         android:layout_width="376dp"
         android:layout_height="549dp"
         android:layout_marginStart="10dp"
