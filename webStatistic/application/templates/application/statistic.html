@@ -51,9 +51,9 @@
     <canvas id="numberE" width="100%" height="30%"></canvas>
   </div>
   <div id="secondo">
-    <h3 class = "error" id = "e">Error: </h3>
-    <h3 id = "r"> Number of response: </h3>
-    <h3 id = "m"> Middle time of response: </h3>
+    <h3 class = "error" id = "e">Errori: </h3>
+    <h3 id = "r"> Risposte: </h3>
+    <h3 id = "m"> Tempo medio di risposta: </h3>
   </div>
   <div id="terzo">
     <canvas id="dataPdf" width="100%" height="30%"></canvas>
@@ -70,6 +70,7 @@
     var pdfs = {{ statistic.pdf }};
     var rooms = {{ statistic.rooms }};
     function updateGraphs() {
+        setTimeout('location.reload()',30000);
         document.getElementById("m").innerHTML += requestTime;
         document.getElementById("e").innerHTML += error;
         document.getElementById("r").innerHTML += response;
@@ -137,7 +138,7 @@
         var myChart = new Chart(ctm, {
             type: "bar",
             data: {
-                labels: ['sistemi elettronici', 'camera anecoica', 'Misure progettazione elettronica'],
+                labels: ['pagina di benvenuto','sistemi elettronici', 'camera anecoica', 'Misure progettazione elettronica'],
                 datasets: [{
                     type: 'bar',
                     label: "pagine dei laboratori",
