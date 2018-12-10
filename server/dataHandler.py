@@ -8,7 +8,7 @@ import json
 class DataHandler:
     time = 0
     # the number of nuumbers in rooms is variable
-    statistic = '{"middleTimeOfResponse":0,"responses":0,"errors":0,"rooms":[0,0,0],"pdf":[0,0,0,0,0,0,0,0]}'
+    statistic = '{"middleTimeOfResponse":0,"responses":0,"errors":0,"rooms":[0,0,0,0],"pdf":[0,0,0,0,0,0,0,0]}'
     dictionary = json.loads(statistic)
 
     datasPath = 'data/'
@@ -24,7 +24,7 @@ class DataHandler:
     # all the files with the JSON datas must be called 'roomContent.txt'
     def getContent(self, room='belOPEN'):
         roomDataDir = self.datasPath + 'room' + self.room[room] + '/roomContent.txt'  # dir : 'data/roomN/roomContent.txt'
-        self.addRoom(int(self.room[room]) - 1)
+        self.addRoom(int(self.room[room]))
         f = open(roomDataDir, 'r')
         s = f.read()
         f.close()

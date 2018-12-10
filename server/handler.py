@@ -60,6 +60,9 @@ class MyHandler(
             end = timer()
             time = float("{0:.8f}".format(end - start))
             print('response in:', time)
+        except FileNotFoundError:
+            print('invalid url')
+            self.send_error(404, 'File Not Found: %s' % self.path)
         except:
             self.datahandler.addError()
 
