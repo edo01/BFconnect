@@ -96,7 +96,7 @@ public class Professionale extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if(ActivityTools.isNetworkAvailable(Professionale.this)) {
-                        startDownload("serialiApparati");
+                        startDownload("seraliApparati");
                     }else doSnackbar("seraliApparati");
                 }
             });
@@ -104,7 +104,7 @@ public class Professionale extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if(ActivityTools.isNetworkAvailable(Professionale.this)) {
-                        startDownload("serialiMezzi");
+                        startDownload("seraliMezzi");
                     }else doSnackbar("seraliMezzi");
                 }
             });

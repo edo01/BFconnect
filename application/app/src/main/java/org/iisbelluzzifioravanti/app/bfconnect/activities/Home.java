@@ -6,22 +6,14 @@ package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
 
 import android.Manifest;
-import android.animation.Animator;
-import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.ActivityOptions;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 
 import android.nfc.Tag;
-import android.os.Build;
 import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -116,7 +108,7 @@ public class Home extends BaseActivity {
                 //the message read by our nfc reader
                 String txtNfc = nfc.displayMsgs(msgs);
                 //cleaning the text inside the nfc
-                txtNfc = txtNfc.substring(0, 5);
+                txtNfc = txtNfc.substring(0, 6);
                 Log.d("nfc read", txtNfc);
                 openRoom(txtNfc);
             }

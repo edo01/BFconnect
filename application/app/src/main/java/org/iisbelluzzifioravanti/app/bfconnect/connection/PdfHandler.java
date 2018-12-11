@@ -60,7 +60,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
                 break;
             case "seraliApparati":
                 pdf = "15_12_2018_serale.pdf";
-                nPdf=9;
+                nPdf=5;
                 break;
             case "seraliMezzi":
                 pdf = "15_12_2018_serale.pdf";
@@ -80,8 +80,11 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
                 break;
             case "mezzi":
                 pdf = "15_12_2018_manutenzioneMezziDiTrasporto.pdf";
-                nPdf=10;
+                nPdf=9;
                 break;
+            default:
+                pdf = "orari_del_tecnico.pdf";
+                nPdf=0;
         }
 
         Log.i("DownloadTask","Constructor done");

@@ -55,7 +55,7 @@
             android:name=".activities.Home"
             android:configChanges="keyboardHidden|orientation"
             android:icon="@drawable/ic_bf_connect_horizontal_white"
-            android:label=""
+            android:label="Home"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.Tecnico"
@@ -89,15 +89,9 @@
             android:label=""
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.threeDots.helpactivity.Help"
-            android:configChanges="keyboardHidden|orientation"
-            android:label=""
-            android:parentActivityName=".activities.Home"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activities.threeDots.myrooms.MyRooms"
             android:configChanges="keyboardHidden|orientation"
-            android:label=""
+            android:label="I miei laboratori"
             android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
         <activity
@@ -121,9 +115,7 @@
             android:label=""
             android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".util.MapsActivity"
-            android:label="mappa"/>
+
     </application>
 
 </manifest>

@@ -47,10 +47,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(getContentViewId());
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
-
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
