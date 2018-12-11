@@ -19,9 +19,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import org.iisbelluzzifioravanti.app.bfconnect.R;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.aboutus.AboutUs;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity.HNFCuno;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
 import org.iisbelluzzifioravanti.app.bfconnect.connection.PdfHandler;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity.Help;
 import org.iisbelluzzifioravanti.app.bfconnect.util.ActivityTools;
 
 /**
@@ -147,10 +148,10 @@ public class Professionale extends AppCompatActivity {
                 startActivity(new Intent(this, MyRooms.class));
                 return true;
             case R.id.about_us:
-                startActivity(new Intent(this, Home.class));
+                startActivity(new Intent(this, AboutUs.class));
                 return true;
             case R.id.help:
-                startActivity(new Intent(this, Help.class));
+                startActivity(new Intent(this, HNFCuno.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

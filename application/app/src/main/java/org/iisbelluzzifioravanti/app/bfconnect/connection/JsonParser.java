@@ -219,7 +219,7 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
                 values.put(DbBaseColumns.KEY_IMAGE, byteArray);
                 dbHandler.insert(values);
 
-                Toast toast = Toast.makeText(c, "aula " + title + " salvata.", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(c,  title + " salvata nelle tue aule.", Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
 

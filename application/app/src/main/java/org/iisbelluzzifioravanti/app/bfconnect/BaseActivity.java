@@ -27,7 +27,6 @@ import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Prenotation;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.School;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
-import org.iisbelluzzifioravanti.app.bfconnect.util.MapsActivity;
 
 /**
  * @// TODO: 15/11/18 : null
@@ -158,7 +157,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
                 startActivity(new Intent(this, AboutUs.class));
                 return true;
             case R.id.help:
-                startActivity(new Intent(this, Help.class));
+                startActivity(new Intent(this, HNFCuno.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

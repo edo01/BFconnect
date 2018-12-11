@@ -175,7 +175,7 @@ public class Home extends BaseActivity {
                 doSnackbar(txtNfc);
             }
         }else{
-            Toast.makeText(Home.this, "Nfc non valido!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Home.this, "Tag Nfc non valido!", Toast.LENGTH_SHORT).show();
         }
     }
 

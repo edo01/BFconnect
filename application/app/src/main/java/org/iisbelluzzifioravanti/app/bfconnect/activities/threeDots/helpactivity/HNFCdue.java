@@ -15,6 +15,7 @@ import android.view.WindowManager;
 
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.aboutus.AboutUs;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
 
 public class HNFCdue extends AppCompatActivity {
@@ -46,7 +47,7 @@ public class HNFCdue extends AppCompatActivity {
         fnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent qrcode = new Intent(getApplicationContext(), Help.class);
+                Intent qrcode = new Intent(getApplicationContext(), HQRuno.class);
                 ActivityOptions options =
                         ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
                 startActivity(qrcode, options.toBundle());
@@ -57,7 +58,7 @@ public class HNFCdue extends AppCompatActivity {
         fhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent qrcode = new Intent(getApplicationContext(), Help.class);
+                Intent qrcode = new Intent(getApplicationContext(), Home.class);
                 ActivityOptions options =
                         ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
                 startActivity(qrcode, options.toBundle());
@@ -80,7 +81,7 @@ public class HNFCdue extends AppCompatActivity {
                 startActivity(new Intent(this, MyRooms.class));
                 return true;
             case R.id.about_us:
-                startActivity(new Intent(this, Home.class));
+                startActivity(new Intent(this, AboutUs.class));
                 return true;
             case R.id.toHome:
                 startActivity(new Intent(this, Home.class));

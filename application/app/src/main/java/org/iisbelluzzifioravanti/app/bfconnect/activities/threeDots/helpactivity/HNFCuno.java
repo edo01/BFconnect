@@ -15,6 +15,7 @@ import android.view.WindowManager;
 
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.aboutus.AboutUs;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
 
 public class HNFCuno extends AppCompatActivity {
@@ -30,16 +31,6 @@ public class HNFCuno extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
 
-        FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltPrevQR1);
-        fprev.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent qrcode=new Intent(getApplicationContext(), HQRdue.class);
-                ActivityOptions options =
-                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
-                startActivity(qrcode, options.toBundle());
-            }
-        });
 
         FloatingActionButton fnext = (FloatingActionButton) findViewById(R.id.fltNextQR1);
         fnext.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +47,7 @@ public class HNFCuno extends AppCompatActivity {
         fhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent qrcode = new Intent(getApplicationContext(), Help.class);
+                Intent qrcode = new Intent(getApplicationContext(), Home.class);
                 ActivityOptions options =
                         ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
                 startActivity(qrcode, options.toBundle());
@@ -91,7 +82,7 @@ public class HNFCuno extends AppCompatActivity {
                 startActivity(new Intent(this, MyRooms.class));
                 return true;
             case R.id.about_us:
-                startActivity(new Intent(this, Home.class));
+                startActivity(new Intent(this, AboutUs.class));
                 return true;
             case R.id.toHome:
                 startActivity(new Intent(this, Home.class));
