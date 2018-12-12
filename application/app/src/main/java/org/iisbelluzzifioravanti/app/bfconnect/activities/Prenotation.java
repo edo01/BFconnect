@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.view.View;
+import android.widget.Button;
 
 import org.iisbelluzzifioravanti.app.bfconnect.BaseActivity;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
@@ -21,7 +22,7 @@ import org.iisbelluzzifioravanti.app.bfconnect.R;
  * @extends BaseActivity
  */
 public class Prenotation extends BaseActivity {
-    private FloatingActionButton f1,f2;
+    private Button f1,f2;
 
     /*
     * the link to the form of the first open day(15/12/18) is: s"https://docs.google.com/forms/d/e/1FAIpQLSc6oP6CHRBADXfERIzI8DDKjcV087KvWHsmSQdrJN3N2wj3GQ/viewform"
@@ -33,8 +34,8 @@ public class Prenotation extends BaseActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
 
-        f1 = (FloatingActionButton) findViewById(R.id.fbtnFirst); // this one is linked to the first open  day
-        f2 = (FloatingActionButton) findViewById(R.id.fbtnSecond); // this to the second
+        f1 = (Button) findViewById(R.id.btnDic); // this one is linked to the first open  day
+        f2 = (Button) findViewById(R.id.btnGen); // this to the second
         f1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
