@@ -17,8 +17,8 @@ import android.view.Gravity;
 import android.widget.Toast;
 
 import org.iisbelluzzifioravanti.app.bfconnect.R;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Rooms;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbBaseColumns;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbTools;
 import org.json.JSONException;
@@ -54,6 +54,9 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
     private Context c;
     private ProgressDialog pDialog;
     private DbTools dbHandler;
+
+    private byte[][] byteArray = new byte[6][];
+    private int nimage;
 
     /*the address must has this form "https://ip/?room=N&image=false" for
      * if you want an image don't put 'false' but the number of your image
@@ -109,7 +112,13 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
         }
         try {
             //download the image
-            bitmap = DownloadImage(address + "/?room="+ room +"&image=1");
+            if (nimage>6) return false;
+            for (int i=1; i<nimage+1; i++){
+                bitmap = DownloadImage(address + "/?room="+ room +"&image="+i);
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                byteArray[i-1] = stream.toByteArray();
+            }
         }catch (Exception ex){
             ex.printStackTrace();
             return false;
@@ -139,6 +148,7 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
         JSONObject jo= new JSONObject(content);
         title= (String) jo.get("title");
         content = (String) jo.get("content");
+        nimage = (int) jo.get("image");
         in.close();
         br.close();
     }
@@ -204,11 +214,8 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
                 //open db
                 dbHandler = new DbTools(c);
 
-                //selection only the row with the title which itt downloaded
-                //compression of the image
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                byte[] byteArray = stream.toByteArray();
+                //selection only the row with the title which it's downloaded
+                //compression the image
 
                 //if we are here the room isn't inside the db so we save it
                 dbHandler.setWriteable();
@@ -216,10 +223,15 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
                 values.put(DbBaseColumns.KEY_ROOMID,room);
                 values.put(DbBaseColumns.KEY_TITLE, title);
                 values.put(DbBaseColumns.KEY_CONTENT, content);
-                values.put(DbBaseColumns.KEY_IMAGE, byteArray);
+                values.put(DbBaseColumns.KEY_IMAGE, byteArray[0]);
+                values.put(DbBaseColumns.KEY_IMAGE2, byteArray[1]);
+                values.put(DbBaseColumns.KEY_IMAGE3, byteArray[2]);
+                values.put(DbBaseColumns.KEY_IMAGE4, byteArray[3]);
+                values.put(DbBaseColumns.KEY_IMAGE5, byteArray[4]);
+                values.put(DbBaseColumns.KEY_IMAGE6, byteArray[5]);
                 dbHandler.insert(values);
 
-                Toast toast = Toast.makeText(c, "aula " + title + " salvata.", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(c,  title + " salvata nelle tue aule.", Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
 
@@ -227,16 +239,12 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
                 dbHandler.close();
 
                 //putting the content inside the intent
-                in.putExtra("content", content);
-                in.putExtra("title", title);
-                //compressing the image to pass, if this is too large the application will crash
-                in.putExtra("image", byteArray);
-
+                in.putExtra("id", room);
+                Log.e("la tua stanza è", room);
                 //starting activity
                 ActivityOptions options =
                         ActivityOptions.makeCustomAnimation(c.getApplicationContext(), R.anim.fadein, R.anim.fadeout);
                 c.startActivity(in , options.toBundle());
-
 
             } catch (Exception ex) {
                 Log.e("ERROR IN LOADING DATA", ex.getMessage());

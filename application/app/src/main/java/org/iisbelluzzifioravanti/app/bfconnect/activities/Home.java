@@ -6,22 +6,14 @@ package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
 
 import android.Manifest;
-import android.animation.Animator;
-import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.ActivityOptions;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 
 import android.nfc.Tag;
-import android.os.Build;
 import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -35,9 +27,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.iisbelluzzifioravanti.app.bfconnect.BaseActivity;
-import org.iisbelluzzifioravanti.app.bfconnect.Tools;
+import org.iisbelluzzifioravanti.app.bfconnect.util.Tools;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
-import org.iisbelluzzifioravanti.app.bfconnect.database.DbBaseColumns;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbTools;
 import org.iisbelluzzifioravanti.app.bfconnect.nfc.NfcAction;
 import org.iisbelluzzifioravanti.app.bfconnect.util.ActivityTools;
@@ -116,7 +107,7 @@ public class Home extends BaseActivity {
                 //the message read by our nfc reader
                 String txtNfc = nfc.displayMsgs(msgs);
                 //cleaning the text inside the nfc
-                txtNfc = txtNfc.substring(0, 5);
+                txtNfc = txtNfc.substring(0, 6);
                 Log.d("nfc read", txtNfc);
                 openRoom(txtNfc);
             }
@@ -137,17 +128,11 @@ public class Home extends BaseActivity {
                 //creating intent
                 Intent in = new Intent(Home.this, Rooms.class);
                 //getting the content of the room
-                String title = cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_TITLE));
-                String content = cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_CONTENT));
-                byte[] byteArray = cursor.getBlob(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_IMAGE));
                 //closing the db
                 dbHandler.close();
 
                 //putting the content inside the intent
-                in.putExtra("content", content);
-                in.putExtra("title", title);
-                //compressing the image to pass, if this is too large the application will crash
-                in.putExtra("image", byteArray);
+                in.putExtra("id", txtNfc);
 
                 //starting activity
                 ActivityOptions options =
@@ -175,7 +160,7 @@ public class Home extends BaseActivity {
                 doSnackbar(txtNfc);
             }
         }else{
-            Toast.makeText(Home.this, "Nfc non valido!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Home.this, "Tag Nfc non valido!", Toast.LENGTH_SHORT).show();
         }
     }
 

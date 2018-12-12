@@ -5,6 +5,7 @@ package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.widget.Button;
 
@@ -23,6 +24,11 @@ public class School extends BaseActivity {
 
     @Override
     public void activityPage() {
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
+
         btnTecnico = findViewById(R.id.btnTecnico);//this button is inked to Tecnico page.
         btnProfessionale = findViewById(R.id.btnProfessionale);//this button is inked to Professionale page.
 

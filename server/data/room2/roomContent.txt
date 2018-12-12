@@ -1,4 +1,5 @@
 {
-"title":"CAMERA ANECOICA",
-"content":"studio dei campi elettromagnetici e misure con particolare riferimento alle normative sulla compatibilità elettromagnetica per la marcatura CE"
+"title":"Camera anecoica",
+"content":"Studio dei campi elettromagnetici e misure con particolare riferimento alle normative sulla compatibilità elettromagnetica per la marcatura CE",
+"image":1
 }

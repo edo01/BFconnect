@@ -5,7 +5,6 @@ package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.database.Cursor;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
@@ -21,11 +20,10 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.iisbelluzzifioravanti.app.bfconnect.Tools;
+import org.iisbelluzzifioravanti.app.bfconnect.util.Tools;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity.Help;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity.HNFCuno;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
-import org.iisbelluzzifioravanti.app.bfconnect.database.DbBaseColumns;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbTools;
 import org.iisbelluzzifioravanti.app.bfconnect.util.ActivityTools;
 
@@ -54,38 +52,26 @@ public class QrCode extends AppCompatActivity {
                     DbTools dbHandler = new DbTools(QrCode.this);
                     if (dbHandler.roomExists(qtxt)) {
                         //room found
-                        Log.d("room found in db","open the room");
+                        Log.d("room found in db","opening the room");
 
-                        //getting the cursor
-                        Cursor cursor = dbHandler.getCursorLineById(qtxt);
-                        //open the intent
                         Intent in = new Intent(QrCode.this, Rooms.class);
-
-                        if(!cursor.move(1)) return;
-
-                        //getting the content of the room
-                        String title = cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_TITLE));
-                        String content = cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_CONTENT));
-                        byte[] byteArray = cursor.getBlob(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_IMAGE));
 
                         //closing the db
                         dbHandler.close();
-
                         //putting the content inside the intent
-                        in.putExtra("content", content);
-                        in.putExtra("title", title);
-                        //compressing the image to pass, if this is too large the application will crash
-                        in.putExtra("image", byteArray);
+                        in.putExtra("id", qtxt);
                         //starting activity
                         ActivityOptions options =
                                 ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
                         startActivity(in , options.toBundle());
 
                     }else if(ActivityTools.isNetworkAvailable(QrCode.this)){ //if there isn't in the db we open the loading page and download the content
-                        Log.d("aula non trovata nel db","creazione dell'aula nel db");
+                        Log.d("room not found in db","creating room in db");
                         //open the page
+
+                        dbHandler.close();
                         Intent in = new Intent(QrCode.this, Loading.class);
-                        in.putExtra("nfc_read", qtxt);
+                        in.putExtra("id", qtxt);
 
                         ActivityOptions options =
                                 ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
@@ -121,7 +107,7 @@ public class QrCode extends AppCompatActivity {
                 startActivity(new Intent(this, Home.class));
                 return true;
             case R.id.help:
-                startActivity(new Intent(this, Help.class));
+                startActivity(new Intent(this, HNFCuno.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

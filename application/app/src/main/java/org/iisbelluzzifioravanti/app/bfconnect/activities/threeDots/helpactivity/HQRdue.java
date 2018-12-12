@@ -15,6 +15,7 @@ import android.view.WindowManager;
 
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.aboutus.AboutUs;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
 
 public class HQRdue extends AppCompatActivity {
@@ -42,22 +43,11 @@ public class HQRdue extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton fnext = (FloatingActionButton) findViewById(R.id.fltNextH2);
-        fnext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent qrcode = new Intent(getApplicationContext(), HNFCuno.class);
-                ActivityOptions options =
-                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
-                startActivity(qrcode, options.toBundle());
-            }
-        });
-
         FloatingActionButton fhome = (FloatingActionButton) findViewById(R.id.fltMenuH2);
         fhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent qrcode = new Intent(getApplicationContext(), Help.class);
+                Intent qrcode = new Intent(getApplicationContext(), Home.class);
                 ActivityOptions options =
                         ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
                 startActivity(qrcode, options.toBundle());
@@ -80,7 +70,7 @@ public class HQRdue extends AppCompatActivity {
                 startActivity(new Intent(this, MyRooms.class));
                 return true;
             case R.id.about_us:
-                startActivity(new Intent(this, Home.class));
+                startActivity(new Intent(this, AboutUs.class));
                 return true;
             case R.id.toHome:
                 startActivity(new Intent(this, Home.class));

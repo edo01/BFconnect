@@ -3,4 +3,6 @@
     <dimen name="fontAll">30dp</dimen>
     <dimen name="sizeOpenDay">40dp</dimen>
     <dimen name="bottomNavSize">55dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>

@@ -27,7 +27,6 @@ import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Prenotation;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.School;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
-import org.iisbelluzzifioravanti.app.bfconnect.util.MapsActivity;
 
 /**
  * @// TODO: 15/11/18 : null
@@ -47,10 +46,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(getContentViewId());
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
 
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
@@ -158,7 +153,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
                 startActivity(new Intent(this, AboutUs.class));
                 return true;
             case R.id.help:
-                startActivity(new Intent(this, Help.class));
+                startActivity(new Intent(this, HNFCuno.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

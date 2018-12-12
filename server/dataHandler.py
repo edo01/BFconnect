@@ -8,17 +8,18 @@ import json
 class DataHandler:
     time = 0
     # the number of nuumbers in rooms is variable
-    statistic = '{"middleTimeOfResponse":0,"responses":0,"errors":0,"rooms":[0,0,0,0],"pdf":[0,0,0,0,0,0,0,0]}'
+    statistic = '{"middleTimeOfResponse":0,"responses":0,"errors":0,"rooms":[0,0,0,0,0,0,0,0],"pdf":[0,0,0,0,0,0,0,0,0]}'
     dictionary = json.loads(statistic)
 
     datasPath = 'data/'
     pdf = {
-        '4': 'elettronica.pdf', '1': 'informatica.pdf', '3': 'chimica.pdf', '2': 'meccanica.pdf', '9': 'serale.pdf',
-        '5': 'serale.pdf', '6': 'qualifiche.pdf','8': 'apparati.pdf', '7': 'manutenzione.pdf', '10': 'mezzi.pdf'
+        '4': 'elettronica.pdf', '1': 'informatica.pdf', '3': 'chimica.pdf', '2': 'meccanica.pdf',
+        '5': 'serale.pdf', '6': 'qualifiche.pdf','8': 'apparati.pdf', '7': 'manutenzione.pdf', '9': 'mezzi.pdf'
     }
-
+# the id must be of 6 chars
     room = {
-        'belOPEN': '0', 'ETC34c': '1', 'ETC620': '2', 'ETC34d': '3'
+        'beOPEN': '0', 'ETC34c': '1', 'ETC620': '2', 'ETC34d': '3', 'CHT32c': '4', 'CHT645': '5', 'CHT3c6': '6',
+        'CHTT00': '7'
     }
 
     # all the files with the JSON datas must be called 'roomContent.txt'
@@ -31,11 +32,11 @@ class DataHandler:
         return s
 
     # it's not necessary to addRoom because if somebody requests the content of a room he requested first the content
-    def getImageName(self, room='belOPEN', image='1'):
+    def getImageName(self, room='beOPEN', image='1'):
         return self.datasPath + 'room' + self.room[room] + '/image' + image
 
     def getPdfName(self, number=0):
-        if number == 0:
+        if int(number) == 0:
             return 'orariTecnico.pdf'
         try:
             self.addPdf(int(number) - 1)

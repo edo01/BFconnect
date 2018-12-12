@@ -1,4 +1,5 @@
 {
-"title":"SISTEMI ELETTRONICI AUTOMATICI",
-"content":"studio di linguaggi di programmazione ad alto e basso livello per microcontrollori, plc, sistemi programmabili. Studio della stabilita` dei sistemi e delle automazioni"
+"title":"Sistemi elettronici automatici",
+"content":"Studio di linguaggi di programmazione ad alto e basso livello per microcontrollori, plc, sistemi programmabili. Studio della stabilita` dei sistemi e delle automazioni",
+"image":1
 }

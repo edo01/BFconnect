@@ -15,7 +15,12 @@ public class DbHandler extends SQLiteOpenHelper {
                     DbBaseColumns.KEY_ROOMID + " TEXT,"+
                     DbBaseColumns.KEY_TITLE + " TEXT," +
                     DbBaseColumns.KEY_CONTENT + " TEXT," +
-                    DbBaseColumns.KEY_IMAGE + " BLOB)";
+                    DbBaseColumns.KEY_IMAGE + " BLOB," +
+                    DbBaseColumns.KEY_IMAGE2+" BLOB," +
+                    DbBaseColumns.KEY_IMAGE3+" BLOB," +
+                    DbBaseColumns.KEY_IMAGE4+" BLOB," +
+                    DbBaseColumns.KEY_IMAGE5+" BLOB," +
+                    DbBaseColumns.KEY_IMAGE6+" BLOB)";
 
     private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + DbBaseColumns.TABLE_NAME;

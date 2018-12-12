@@ -1,54 +1,94 @@
 package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.AppCompatImageView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import org.iisbelluzzifioravanti.app.bfconnect.R;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity.Help;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
 
+import org.iisbelluzzifioravanti.app.bfconnect.R;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.aboutus.AboutUs;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity.HNFCuno;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
+import org.iisbelluzzifioravanti.app.bfconnect.database.DbBaseColumns;
+import org.iisbelluzzifioravanti.app.bfconnect.database.DbTools;
 
 public class Rooms extends AppCompatActivity {
     public static TextView content, title;
-    public static ImageView image;
+    public static ImageView[] images;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_rooms);
+        setContentView(R.layout.activity_scrolling);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        title = (TextView)findViewById(R.id.title);
+        images = new ImageView[6];
+        CollapsingToolbarLayout toolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+
         content = (TextView)findViewById(R.id.txtResponse);
-        image = (ImageView) findViewById(R.id.imageOne);
+        images[0] = (ImageView) findViewById(R.id.imageOne);
+        images[1] = (ImageView) findViewById(R.id.imageTwo);
+        images[2] = (ImageView) findViewById(R.id.imageThree);
+        images[3] = (ImageView) findViewById(R.id.imageFour);
+        images[4] = (ImageView) findViewById(R.id.imageFive);
+        images[5] = (ImageView) findViewById(R.id.imageSix);
 
         try {
             Bundle datapassed = getIntent().getExtras();
-            title.setText(datapassed.getString("title"));
-            content.setText(datapassed.getString("content"));
-            byte[] byteArray = datapassed.getByteArray("image");
-            Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-            image.setImageBitmap(bmp);
+            DbTools dbHandler = new DbTools(getApplicationContext());
+            Cursor cursor = dbHandler.getCursorLineById(datapassed.getString("id"));
+
+            if(!cursor.move(1)) return;
+
+            byte[][] byteArray= new byte[6][];
+            //getting the content of the room
+            String title = cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_TITLE));
+            String content = cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_CONTENT));
+            byteArray[0] = cursor.getBlob(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_IMAGE));
+            byteArray[1] = cursor.getBlob(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_IMAGE2));
+            byteArray[2]= cursor.getBlob(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_IMAGE3));
+            byteArray[3] = cursor.getBlob(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_IMAGE4));
+            byteArray[4] = cursor.getBlob(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_IMAGE5));
+            byteArray[5] = cursor.getBlob(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_IMAGE6));
+            this.content.setText(content);
+            toolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.white));
+            toolbarLayout.setCollapsedTitleTextColor(getResources().getColor(R.color.white));
+            toolbarLayout.setTitle(title);
+            for (int i=0 ;i<images.length;i++) {
+                try{
+                    Bitmap bmp = BitmapFactory.decodeByteArray(byteArray[i], 0, byteArray[i].length);
+                    images[i].setImageBitmap(bmp);
+                }catch (Exception ex){
+                    Log.d("immagine nulla","immagine nulla");
+                    images[i].setVisibility(View.INVISIBLE);
+                    images[i].setImageResource(0);
+                }
+
+            }
         }catch(Exception ex){
-            Log.e("ERROR IN LOADING DATA",ex.getMessage());
+            Log.e("ERROR",ex.getMessage());
         }
-
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
     }
 
     @Override
@@ -67,10 +107,10 @@ public class Rooms extends AppCompatActivity {
                 startActivity(new Intent(this, MyRooms.class));
                 return true;
             case R.id.about_us:
-                startActivity(new Intent(this, Home.class));
+                startActivity(new Intent(this, AboutUs.class));
                 return true;
             case R.id.help:
-                startActivity(new Intent(this, Help.class));
+                startActivity(new Intent(this, HNFCuno.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

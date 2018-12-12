@@ -1,0 +1,6 @@
+{
+"title":"Scienze integrate",
+"content":"Laboratorio del biennio.
+In questo laboratorio si svolgono esperienze per separare materiali (filtrazione, distillazione, cromatografia su carta) e studiarne le caratteristiche fisiche (densità..) e chimiche, facendo avvenire reazioni che permettono di spiegare fenomeni che avvengono nella vita di tutti i giorni.",
+"image":6
+}

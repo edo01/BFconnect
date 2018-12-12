@@ -18,9 +18,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import org.iisbelluzzifioravanti.app.bfconnect.R;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Rooms;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity.Help;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.aboutus.AboutUs;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity.HNFCuno;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbBaseColumns;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbTools;
 import org.iisbelluzzifioravanti.app.bfconnect.util.MyAdapter;
@@ -74,6 +75,7 @@ public class MyRooms extends AppCompatActivity {
             Toast toast = Toast.makeText(this, "NON HAI ANCORA TROVATO DELLE AULE!!" , Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
+
         }
         cursor.close();
         dbHandler.close();
@@ -87,20 +89,14 @@ public class MyRooms extends AppCompatActivity {
             Cursor cursor = dbHandler.getCursorLineByTitle(rooms[position]);
 
             if(!cursor.move(1)) return;
-
+            String id = cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_ROOMID));
             //getting the content of the room
-            String title = cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_TITLE));
-            String content = cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_CONTENT));
-            byte[] byteArray = cursor.getBlob(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_IMAGE));
 
             //closing the db
             dbHandler.close();
             Intent in = new Intent(getApplicationContext(), Rooms.class);
             //putting the content inside the intent
-            in.putExtra("content", content);
-            in.putExtra("title", title);
-            //compressing the image to pass, if this is too large the application will crash
-            in.putExtra("image", byteArray);
+            in.putExtra("id", id );
             //starting activity
             ActivityOptions options =
                     ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
@@ -120,10 +116,10 @@ public class MyRooms extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.help:
-                startActivity(new Intent(this, Help.class));
+                startActivity(new Intent(this, HNFCuno.class));
                 return true;
             case R.id.about_us:
-                startActivity(new Intent(this, Home.class));
+                startActivity(new Intent(this, AboutUs.class));
                 return true;
             case R.id.toHome:
                 startActivity(new Intent(this, Home.class));

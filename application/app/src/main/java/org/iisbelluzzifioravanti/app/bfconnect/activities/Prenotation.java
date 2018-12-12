@@ -6,6 +6,7 @@ package org.iisbelluzzifioravanti.app.bfconnect.activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.ActionBar;
 import android.view.View;
 
 import org.iisbelluzzifioravanti.app.bfconnect.BaseActivity;
@@ -28,6 +29,10 @@ public class Prenotation extends BaseActivity {
     */
     @Override
     public void activityPage() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
+
         f1 = (FloatingActionButton) findViewById(R.id.fbtnFirst); // this one is linked to the first open  day
         f2 = (FloatingActionButton) findViewById(R.id.fbtnSecond); // this to the second
         f1.setOnClickListener(new View.OnClickListener() {
