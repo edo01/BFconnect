@@ -43,7 +43,7 @@ public class HQRuno extends AppCompatActivity {
         });
 
         //FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltPrevH1);
-        FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltMenuH1);
+        FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltPrevQR1);
         fprev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
