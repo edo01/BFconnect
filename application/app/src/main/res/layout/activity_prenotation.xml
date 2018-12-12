@@ -22,35 +22,6 @@
         app:itemTextColor="@drawable/bottom_navigation_style"
         app:menu="@menu/bottom_navigation"/>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fbtnFirst"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignWithParentIfMissing="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="73dp"
-        android:clickable="true"
-        android:visibility="invisible"
-        app:backgroundTint="@color/white"
-        app:showAsAction="ifRoom"
-        app:srcCompat="@drawable/op_primo" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fbtnSecond"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="88dp"
-        android:layout_marginBottom="125dp"
-        android:clickable="true"
-        android:visibility="invisible"
-        app:backgroundTint="@color/white"
-        app:showAsAction="ifRoom"
-        app:srcCompat="@drawable/op_secondo" />
-
     <ImageView
         android:id="@+id/imgPrenotation"
         android:layout_width="match_parent"
@@ -61,6 +32,36 @@
         android:layout_marginStart="0dp"
         android:layout_marginBottom="56dp"
         app:srcCompat="@drawable/prenotation" />
+
+    <Button
+        android:id="@+id/btnGen"
+        android:layout_width="120dp"
+        android:layout_height="37dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="124dp"
+        android:background="@android:color/transparent"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/btnDic"
+        android:layout_width="120dp"
+        android:layout_height="37dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="176dp"
+        android:layout_marginBottom="401dp"
+        android:background="@android:color/transparent"
+        android:visibility="visible" />
 
 
 </RelativeLayout>
