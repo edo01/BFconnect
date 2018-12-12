@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,10 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
-        android:name="com.google.android.geo.API_KEY"
-        android:value="@string/google_maps_key" />
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
 
         <activity
             android:name=".activities.Start"
@@ -47,17 +45,10 @@
             android:label=""
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.Rooms"
-            android:configChanges="keyboardHidden|orientation"
-            android:icon="@drawable/ic_bf_connect_horizontal_white"
-            android:label=""
-            android:parentActivityName=".activities.Home"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activities.Home"
             android:configChanges="keyboardHidden|orientation"
             android:icon="@drawable/ic_bf_connect_horizontal_white"
-            android:label=""
+            android:label="Home"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.Tecnico"
@@ -91,15 +82,9 @@
             android:label=""
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.threeDots.helpactivity.Help"
-            android:configChanges="keyboardHidden|orientation"
-            android:label=""
-            android:parentActivityName=".activities.Home"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activities.threeDots.myrooms.MyRooms"
             android:configChanges="keyboardHidden|orientation"
-            android:label=""
+            android:label="I miei laboratori"
             android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
         <activity
@@ -123,6 +108,13 @@
             android:label=""
             android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Rooms"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="keyboardHidden|orientation"
+            android:parentActivityName=".activities.Home"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

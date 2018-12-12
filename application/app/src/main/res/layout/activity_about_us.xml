@@ -8,20 +8,6 @@
     tools:context=".activities.threeDots.aboutus.AboutUs"
     android:id="@+id/Aaboutus">
 
-        <com.google.android.gms.maps.MapView
-            android:id="@+id/map"
-            android:layout_width="244dp"
-            android:layout_height="167dp"
-            android:layout_x="180dp"
-            android:layout_y="260dp"
-            android:elevation="2dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.314"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.377" />
-
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="376dp"
@@ -34,6 +20,18 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/aus_bfconnect"
             android:contentDescription="TODO" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="235dp"
+        android:layout_height="160dp"
+        android:layout_weight="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.290"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.387" />
 </android.support.constraint.ConstraintLayout>
 
 
