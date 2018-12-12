@@ -9,10 +9,10 @@
     </style>
 
     <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">true</item>
-        <item name="windowNoTitle">false</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
-    
+
     <style name="BottomTheme" parent="Widget.Design.BottomNavigationView">
         <item name="fontFamily">@font/proximanovasoftbold</item>
     </style>

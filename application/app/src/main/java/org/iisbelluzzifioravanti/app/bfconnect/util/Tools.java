@@ -1,9 +1,10 @@
-package org.iisbelluzzifioravanti.app.bfconnect;
+package org.iisbelluzzifioravanti.app.bfconnect.util;
 
 public final class Tools {
 
     //the key
-    private static String[] keys_id = new String[]{ "belOPEN", "ETC34c", "ETC620", "ETC34d"};
+    private static String[] keys_id = new String[]{ "beOPEN", "ETC34c", "ETC620", "ETC34d",
+            "CHT32c", "CHT645", "CHT3c6", "CHTT00"};
 
     //not instantiable
     private Tools(){}
