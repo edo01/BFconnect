@@ -11,4 +11,5 @@
     <string name="scanning">Rileva</string>
     <string name="prenotation">Prenota</string>
     <string name="home">Home</string>
+    <string name="todo">TODO</string>
 </resources>

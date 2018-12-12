@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     package="org.iisbelluzzifioravanti.app.bfconnect">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -121,9 +123,6 @@
             android:label=""
             android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".util.MapsActivity"
-            android:label="mappa"/>
     </application>
 
 </manifest>

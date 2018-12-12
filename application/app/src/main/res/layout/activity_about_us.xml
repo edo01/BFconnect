@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,24 +8,34 @@
     tools:context=".activities.threeDots.aboutus.AboutUs"
     android:id="@+id/Aaboutus">
 
-    <ImageView
-        android:id="@+id/aus"
-        android:layout_width="376dp"
-        android:layout_height="549dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/aus_bfconnect" />
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map"
+            android:layout_width="244dp"
+            android:layout_height="167dp"
+            android:layout_x="180dp"
+            android:layout_y="260dp"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.314"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.377" />
 
-
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/map"
-        android:layout_width="248dp"
-        android:layout_height="176dp"
-        tools:layout_editor_absoluteX="39dp"
-        tools:layout_editor_absoluteY="126dp" />
-
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="376dp"
+            android:layout_height="549dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/aus_bfconnect"
+            android:contentDescription="TODO" />
 </android.support.constraint.ConstraintLayout>
+
+
+
+
