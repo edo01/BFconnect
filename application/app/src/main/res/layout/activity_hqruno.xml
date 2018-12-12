@@ -22,6 +22,41 @@
         app:srcCompat="@drawable/hs_uno" />
 
     <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fltMenuH1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="12dp"
+        android:clickable="true"
+        app:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.906"
+        app:srcCompat="@drawable/ic_logo" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fltPrevQR2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="12dp"
+        android:clickable="true"
+        app:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.907"
+        app:srcCompat="@drawable/freccia_in" />
+
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/fltNextH1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,25 +74,6 @@
         app:layout_constraintVertical_bias="0.907"
         app:srcCompat="@drawable/freccia" />
 
-    <android.support.design.widget.FloatingActionButton
-
-        android:id="@+id/fltMenuH1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="12dp"
-        android:clickable="true"
-        app:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907"
-        app:srcCompat="@drawable/ic_help" />
-
     <ImageView
         android:id="@+id/punti_uno"
         android:layout_width="206dp"
@@ -71,5 +87,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.982"
-        app:srcCompat="@drawable/punti_hr" />
+        app:srcCompat="@drawable/punti_hr_tre" />
 </android.support.constraint.ConstraintLayout>

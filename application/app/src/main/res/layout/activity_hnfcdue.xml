@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.982"
-        app:srcCompat="@drawable/punti_hr_quattro" />
+        app:srcCompat="@drawable/punti_hr_due" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fltHomeQR2"
@@ -36,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.906"
-        app:srcCompat="@drawable/ic_help" />
+        app:srcCompat="@drawable/ic_logo" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fltPrevQR2"

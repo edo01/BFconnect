@@ -21,6 +21,25 @@
         app:srcCompat="@drawable/hs_due" />
 
     <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fltNextQR1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="12dp"
+        android:clickable="true"
+        app:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.917"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.907"
+        app:srcCompat="@drawable/freccia" />
+
+
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/fltPrevH2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +58,7 @@
         app:srcCompat="@drawable/freccia_in" />
 
     <ImageView
-        android:id="@+id/punti_due"
+        android:id="@+id/punti_tre"
         android:layout_width="206dp"
         android:layout_height="27dp"
         android:layout_marginStart="8dp"
@@ -51,24 +70,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.982"
-        app:srcCompat="@drawable/punti_hr_due" />
+        app:srcCompat="@drawable/punti_hr_quattro" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fltMenuH2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="12dp"
         android:clickable="true"
         app:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.906"
-        app:srcCompat="@drawable/ic_help" />
+        app:srcCompat="@drawable/ic_logo"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="417dp" />
 
 
 </android.support.constraint.ConstraintLayout>
