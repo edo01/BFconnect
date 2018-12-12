@@ -1,4 +1,5 @@
 {
-"title":"MISURE E PROGETTAZIONE ELETTRONICA",
-"content":"studio dei circuiti elettronici e della tecnologia dei componenti. Progettazione e realizzazione dei circuiti ed utilizzo della strumentazione per il collaudo"
+"title":"Misure e progettazione elettronica",
+"content":"Studio dei circuiti elettronici e della tecnologia dei componenti. Progettazione e realizzazione dei circuiti ed utilizzo della strumentazione per il collaudo",
+"image":1
 }

@@ -1,4 +1,5 @@
 {
 "title":"ITIS BELLUZZI",
-"content":"Benvenuti all'open day del Belluzzi Fioravanti"
+"content":"Benvenuti all'open day del Belluzzi Fioravanti",
+"image":1
 }
