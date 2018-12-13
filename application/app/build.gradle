@@ -35,4 +35,5 @@ dependencies {
     api 'com.mcxiaoke.volley:library:1.0.19'
     api 'com.android.support:design:28.0.0'
     api "com.google.android.gms:play-services-maps:16.0.0"
+    api "com.google.android.gms:play-services-vision:15.0.0"
 }

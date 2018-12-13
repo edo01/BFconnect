@@ -5,6 +5,9 @@
         android:id="@+id/myrooms"
         android:title="@string/myroom"/>
     <item
+        android:id="@+id/work_school"
+        android:title="@string/workschool"/>
+    <item
         android:id="@+id/about_us"
         android:title="@string/about_us"/>
     <item

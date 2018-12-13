@@ -5,21 +5,25 @@
 package org.iisbelluzzifioravanti.app.bfconnect;
 
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import org.iisbelluzzifioravanti.app.bfconnect.activities.Tecnico;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.aboutus.AboutUs;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity.*;
 
@@ -27,6 +31,8 @@ import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Prenotation;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.School;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
+import org.iisbelluzzifioravanti.app.bfconnect.connection.PdfHandler;
+import org.iisbelluzzifioravanti.app.bfconnect.util.ActivityTools;
 
 /**
  * @// TODO: 15/11/18 : null
@@ -108,7 +114,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
     }
 
     private void showNFCSettings() {
-        Toast.makeText(this, "È necessario abilitare NFC", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "È necessario abilitare NFC", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(Settings.ACTION_NFC_SETTINGS);
         startActivity(intent);
     }
@@ -155,9 +161,28 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
             case R.id.help:
                 startActivity(new Intent(this, HNFCuno.class));
                 return true;
+            case R.id.work_school:
+                if(ActivityTools.isNetworkAvailable(this)) {
+                    new PdfHandler("work_school",this).execute();
+                }else doSnackbar("work_school");
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    //remeber to extract this
+    private void doSnackbar(String pdf){
+        Snackbar snackbar = Snackbar.make(findViewById(getContentViewId()), "NO CONNESSIONE", Snackbar.LENGTH_LONG)
+                .setAction("RIPROVA", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(ActivityTools.isNetworkAvailable(getApplicationContext())) {
+                            new PdfHandler(pdf, getApplicationContext()).execute();
+                        }else doSnackbar(pdf);
+                    }
+                });
+        snackbar.show();
     }
 
     /**
@@ -180,5 +205,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
      * @return the id of the bottom navigation menu.
      */
     public abstract int getNavigationMenuItemId();
+
 
 }

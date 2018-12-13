@@ -7,40 +7,11 @@
     tools:context=".activities.QrCode"
     android:id="@+id/Aqrcode">
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp"
-        android:src="@drawable/ic_qrcode" />
-
-    <EditText
-        android:id="@+id/etxtQR"
-        android:layout_width="289dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="47dp"
-        android:layout_marginEnd="47dp"
-        android:layout_marginBottom="139dp"
-        android:ems="10"
-        android:hint="inserisci qui il codice del qrcode"
-        android:inputType="textPersonName" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fbtnAddRoom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="17dp"
-        android:clickable="true"
-        app:backgroundTint="@color/black"
-        app:srcCompat="@drawable/piu" />
+    <SurfaceView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scanner"
+        />
 
 
 </RelativeLayout>
