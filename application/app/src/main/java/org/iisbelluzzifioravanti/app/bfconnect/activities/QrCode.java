@@ -7,7 +7,6 @@ import android.Manifest;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.ActionBar;
@@ -23,7 +22,6 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.vision.CameraSource;
@@ -45,7 +43,8 @@ public class QrCode extends AppCompatActivity {
     SurfaceView surfaceView;
     CameraSource camera;
     BarcodeDetector detector;
-
+    private String qtxt="null";
+    private boolean pass = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,56 +91,59 @@ public class QrCode extends AppCompatActivity {
         detector.setProcessor(new Detector.Processor<Barcode>() {
             @Override
             public void release() {
-
+                camera.release();
             }
 
             @Override
             public void receiveDetections(Detector.Detections<Barcode> detections) {
                 SparseArray<Barcode> qrcode = detections.getDetectedItems();
-                if (qrcode.size() != 0) {
-                    String qtxt = qrcode.valueAt(0).displayValue;
-                    Log.e("new qrcode found:", qtxt);
-                    //if the text is corrected
-                    if (Tools.CheckId(qtxt)) {
-                        //open the db
-                        DbTools dbHandler = new DbTools(QrCode.this);
-                        if (dbHandler.roomExists(qtxt)) {
-                            //room found
-                            Log.d("room found in db", "opening the room");
-
-                            Intent in = new Intent(QrCode.this, Rooms.class);
-
-                            //closing the db
-                            dbHandler.close();
-                            //putting the content inside the intent
-                            in.putExtra("id", qtxt);
-                            //starting activity
-                            ActivityOptions options =
-                                    ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
-                            startActivity(in, options.toBundle());
-
-                        } else if (ActivityTools.isNetworkAvailable(QrCode.this)) { //if there isn't in the db we open the loading page and download the content
-                            Log.d("room not found in db", "creating room in db");
-                            //open the page
-
-                            dbHandler.close();
-                            Intent in = new Intent(QrCode.this, Loading.class);
-                            in.putExtra("id", qtxt);
-
-                            ActivityOptions options =
-                                    ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
-                            startActivity(in, options.toBundle());
-                        } else {
-                            //showing snackbar
-                            doSnackbar(qtxt);
-                        }
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Codice non valido!", Toast.LENGTH_SHORT).show();
-                    }
+                if (qrcode.size() != 0 && pass) {
+                    pass = false;
+                   qtxt= qrcode.valueAt(0).displayValue;
+                   onQRCodeFound();
                 }
-
             }
         });
+    }
+
+    private void onQRCodeFound(){
+        Log.e("new qrcode found:", qtxt);
+        //if the text is corrected
+        if (Tools.CheckId(qtxt)) {
+            //open the db
+            DbTools dbHandler = new DbTools(QrCode.this);
+            if (dbHandler.roomExists(qtxt)) {
+                //room found
+                Log.d("room found in db", "opening the room");
+
+                Intent in = new Intent(QrCode.this, Rooms.class);
+
+                //closing the db
+                dbHandler.close();
+                //putting the content inside the intent
+                in.putExtra("id", qtxt);
+                //starting activity
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                startActivity(in, options.toBundle());
+            } else if (ActivityTools.isNetworkAvailable(QrCode.this)) { //if there isn't in the db we open the loading page and download the content
+                Log.d("room not found in db", "creating room in db");
+                //open the page
+
+                dbHandler.close();
+                Intent in = new Intent(QrCode.this, Loading.class);
+                in.putExtra("id", qtxt);
+
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                startActivity(in, options.toBundle());
+            } else {
+                //showing snackbar
+                doSnackbar(qtxt);
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "Codice non valido!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

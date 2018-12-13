@@ -31,7 +31,7 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
     private String pdf;
     private int nPdf;
 
-    private final String address = "http://192.168.1.71:8080";
+    private final String address = "http://192.168.43.99:8080";
     //private final String address = "http://taddia.sytes.net:6002";
 
     private Context context;
