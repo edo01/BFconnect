@@ -80,4 +80,9 @@ public class HNFCuno extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        startActivity(new Intent(this, Home.class));
+    }
 }

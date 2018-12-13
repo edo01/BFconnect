@@ -68,9 +68,6 @@ public class HNFCdue extends AppCompatActivity {
 
     }
 
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -94,5 +91,10 @@ public class HNFCdue extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        startActivity(new Intent(this, Home.class));
     }
 }
