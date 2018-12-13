@@ -137,9 +137,6 @@ public class QrCode extends AppCompatActivity {
                 ActivityOptions options =
                         ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
                 startActivity(in, options.toBundle());
-            } else {
-                //showing snackbar
-                doSnackbar(qtxt);
             }
         } else {
             Toast.makeText(getApplicationContext(), "Codice non valido!", Toast.LENGTH_SHORT).show();
@@ -172,23 +169,5 @@ public class QrCode extends AppCompatActivity {
         }
     }
 
-    /**
-     * This method creates the snackbar when the connection isn't available.
-     * @param room
-     */
-    private void doSnackbar(String room){
-        Snackbar snackbar = Snackbar.make(findViewById(R.id.Aqrcode), "NO CONNESSIONE", Snackbar.LENGTH_LONG)
-                .setAction("RIPROVA", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if(ActivityTools.isNetworkAvailable(QrCode.this)) {
-                            Intent intent = new Intent(QrCode.this, Loading.class);
-                            intent.putExtra("nfc_read", room);
-                            startActivity(intent);
-                        }else doSnackbar(room);
-                    }
-                });
-        snackbar.show();
-    }
 
 }
