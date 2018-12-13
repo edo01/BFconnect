@@ -38,7 +38,6 @@ class MyHandler(
                     print('immagine richiesta:', image)
                     end = timer()
                     time = float("{0:.8f}".format(end - start))
-                    self.datahandler.addResponseTime(time)
                 else:
                     self.sendContent(room)
                     print('la room selezionata è :', room)

@@ -8,13 +8,15 @@ import json
 class DataHandler:
     time = 0
     # the number of nuumbers in rooms is variable
-    statistic = '{"middleTimeOfResponse":0,"responses":0,"errors":0,"rooms":[0,0,0,0,0,0,0,0],"pdf":[0,0,0,0,0,0,0,0,0]}'
+    statistic = '{"middleTimeOfResponse":0,"responses":0,"errors":0,"rooms":[0,0,0,0,0,0,0,0],' \
+                '"pdf":[0,0,0,0,0,0,0,0,0,0]}'
     dictionary = json.loads(statistic)
 
     datasPath = 'data/'
     pdf = {
         '4': 'elettronica.pdf', '1': 'informatica.pdf', '3': 'chimica.pdf', '2': 'meccanica.pdf',
-        '5': 'serale.pdf', '6': 'qualifiche.pdf','8': 'apparati.pdf', '7': 'manutenzione.pdf', '9': 'mezzi.pdf'
+        '5': 'serale.pdf', '6': 'qualifiche.pdf','8': 'apparati.pdf', '7': 'manutenzione.pdf', '9': 'mezzi.pdf', '10':
+        'alternanza.pdf'
     }
 # the id must be of 6 chars
     room = {
