@@ -110,11 +110,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.Rooms"
-            android:label="@string/title_activity_scrolling"
-            android:theme="@style/AppTheme.NoActionBar"
             android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_scrolling"
             android:parentActivityName=".activities.Home"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Prova"></activity>
     </application>
 
 </manifest>

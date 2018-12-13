@@ -32,6 +32,7 @@ public class HNFCdue extends AppCompatActivity {
         actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
 
 
+
         FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltPrevQR2);
         fprev.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +65,11 @@ public class HNFCdue extends AppCompatActivity {
                 startActivity(qrcode, options.toBundle());
             }
         });
+
     }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
