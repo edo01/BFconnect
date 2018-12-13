@@ -52,7 +52,7 @@ public class Home extends BaseActivity {
     public void activityPage() {
 
         ActivityCompat.requestPermissions(this,
-                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 0);
 
         nfc = new NfcAction();//create an NfcAction object for maneging the nfc reader
         image = (ImageView) findViewById(R.id.logo);

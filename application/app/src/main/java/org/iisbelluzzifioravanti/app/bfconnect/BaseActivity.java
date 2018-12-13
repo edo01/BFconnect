@@ -5,7 +5,6 @@
 package org.iisbelluzzifioravanti.app.bfconnect;
 
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,7 +21,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import org.iisbelluzzifioravanti.app.bfconnect.activities.Tecnico;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.aboutus.AboutUs;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity.*;
 
