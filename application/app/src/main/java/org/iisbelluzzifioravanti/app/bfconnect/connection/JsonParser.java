@@ -118,7 +118,7 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
             for (int i=1; i<nimage+1; i++){
                 bitmap = DownloadImage(address + "/?room="+ room +"&image="+i);
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                 byteArray[i-1] = stream.toByteArray();
             }
         }catch (Exception ex){

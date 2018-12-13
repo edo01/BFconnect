@@ -128,6 +128,11 @@ public class Tecnico extends AppCompatActivity {
             case R.id.help:
                 startActivity(new Intent(this, HNFCuno.class));
                 return true;
+            case R.id.work_school:
+                if(ActivityTools.isNetworkAvailable(this)) {
+                    new PdfHandler("work_school",this).execute();
+                }else doSnackbar("work_school");
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

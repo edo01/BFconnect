@@ -15,6 +15,7 @@ import android.nfc.NfcAdapter;
 
 import android.nfc.Tag;
 import android.os.Parcelable;
+import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;

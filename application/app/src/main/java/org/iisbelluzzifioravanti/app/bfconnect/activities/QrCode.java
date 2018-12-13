@@ -98,7 +98,6 @@ public class QrCode extends AppCompatActivity {
             public void receiveDetections(Detector.Detections<Barcode> detections) {
                 SparseArray<Barcode> qrcode = detections.getDetectedItems();
                 if (qrcode.size() != 0 && pass) {
-                    pass = false;
                    qtxt= qrcode.valueAt(0).displayValue;
                    onQRCodeFound();
                 }
@@ -111,6 +110,7 @@ public class QrCode extends AppCompatActivity {
         //if the text is corrected
         if (Tools.CheckId(qtxt)) {
             //open the db
+            pass = false;
             DbTools dbHandler = new DbTools(QrCode.this);
             if (dbHandler.roomExists(qtxt)) {
                 //room found
@@ -169,5 +169,9 @@ public class QrCode extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        startActivity(new Intent(this, Home.class));
+    }
 }

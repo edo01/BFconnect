@@ -8,6 +8,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -53,6 +54,12 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+
+
+        //with this we can open the pdf
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+
         /*if (nfcAdapter == null) { //if your device hasn't the NFC the application will advise you with a toast
             Toast.makeText(this, "No NFC", Toast.LENGTH_SHORT).show();
         }*/

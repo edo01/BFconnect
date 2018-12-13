@@ -32,7 +32,6 @@ public class Loading extends AppCompatActivity {
         Bundle datapassed = getIntent().getExtras();
         String room = "";
         room = datapassed.getString("id");//getting the room from what nfc read
-        if(room.isEmpty())startActivity(new Intent(this, Home.class));//if the nfc is empty passing on the Home page
         setContentView(R.layout.activity_loading);
 
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
@@ -47,5 +46,11 @@ public class Loading extends AppCompatActivity {
     void selectBottomNavigationBarItem(int itemId) {
         MenuItem item = navigationView.getMenu().findItem(itemId);
         item.setChecked(true);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        startActivity(new Intent(this, Home.class));
     }
 }

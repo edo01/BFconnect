@@ -42,9 +42,8 @@ public class Rooms extends AppCompatActivity {
         setContentView(R.layout.activity_scrolling);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        title =findViewById(R.id.txtTitle);
         images = new ImageView[6];
-        CollapsingToolbarLayout toolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
 
         content = (TextView)findViewById(R.id.txtResponse);
         images[0] = (ImageView) findViewById(R.id.imageOne);
@@ -72,9 +71,7 @@ public class Rooms extends AppCompatActivity {
             byteArray[4] = cursor.getBlob(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_IMAGE5));
             byteArray[5] = cursor.getBlob(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_IMAGE6));
             this.content.setText(content);
-            toolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.white));
-            toolbarLayout.setCollapsedTitleTextColor(getResources().getColor(R.color.white));
-            toolbarLayout.setTitle(title);
+            this.title.setText(title.toUpperCase());
             for (int i=0 ;i<images.length;i++) {
                 try{
                     Bitmap bmp = BitmapFactory.decodeByteArray(byteArray[i], 0, byteArray[i].length);
@@ -115,5 +112,11 @@ public class Rooms extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        startActivity(new Intent(this, Home.class));
     }
 }

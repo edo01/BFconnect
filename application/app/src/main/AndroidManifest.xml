@@ -83,6 +83,7 @@
             android:name=".activities.threeDots.helpactivity.HQRuno"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
+            android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.threeDots.myrooms.MyRooms"
@@ -94,16 +95,19 @@
             android:name=".activities.threeDots.helpactivity.HQRdue"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
+            android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.threeDots.helpactivity.HNFCuno"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
+            android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.threeDots.helpactivity.HNFCdue"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
+            android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.threeDots.aboutus.AboutUs"
@@ -114,11 +118,10 @@
         <activity
             android:name=".activities.Rooms"
             android:configChanges="keyboardHidden|orientation"
-            android:label="@string/title_activity_scrolling"
+            android:label=""
             android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Prova"></activity>
     </application>
 
     <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES"
