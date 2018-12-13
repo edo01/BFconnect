@@ -108,7 +108,7 @@ public class Home extends BaseActivity {
                 String txtNfc = nfc.displayMsgs(msgs);
                 //cleaning the text inside the nfc
                 txtNfc = txtNfc.substring(0, 6);
-                Log.d("nfc read", txtNfc);
+                Log.d("id", txtNfc);
                 openRoom(txtNfc);
             }
 
@@ -150,7 +150,7 @@ public class Home extends BaseActivity {
                  */
                 if (!txtNfc.equals("")) {
                     Intent in = new Intent(Home.this, Loading.class);
-                    in.putExtra("nfc_read", txtNfc);
+                    in.putExtra("id", txtNfc);
                     ActivityOptions options =
                             ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
                     startActivity(in , options.toBundle());

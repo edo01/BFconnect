@@ -24,63 +24,81 @@ import java.net.URL;
 import static android.content.ContentValues.TAG;
 
 /**
- * this class download the pdf from the server
+ * this class downloads the pdf from the server
  */
 
 public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
     private String pdf;
     private int nPdf;
 
-    private final String address = "http://192.168.43.99:8080";
+    private final String address = "http://192.168.1.71:8080";
     //private final String address = "http://taddia.sytes.net:6002";
 
     private Context context;
     private ProgressDialog pDialog;
     private File outputFile;
 
+    /**
+     * @// TODO: 12/13/18 : replace all with this keys.
+     */
+    public static String elettronica = "elettronica";
+    public static String informatica = "informatica";
+    public static String meccanica = "meccanica";
+    public static String chimica = "elettronica";
+    public static String serale = "serale";
+    public static String qualifiche = "qualifiche";
+    public static String manutenzione = "manutenzione";
+    public static String apparati = "apparati";
+    public static String mezzi = "mezzi";
+    public static String alternanza = "work_school";
+
     //first choosing the name of the pdf( in base of the specialization clicked)
     public PdfHandler(String indirizzo,Context context){
         this.context = context;
         switch(indirizzo){
             case "elettronica":
-                pdf = "15_12_2018_elettronica_elettrotecnica.pdf";
+                pdf = "elettronica_elettrotecnica.pdf";
                 nPdf=4;
                 break;
             case "informatica":
-                pdf = "15_12_2018__informatica_telecomunicazioni.pdf";
+                pdf = "informatica_telecomunicazioni.pdf";
                 nPdf=1;
                 break;
             case "meccanica":
-                pdf = "15_12_2018_meccanica_mecatronicaedenergia.pdf";
+                pdf = "meccanica_mecatronicaedenergia.pdf";
                 nPdf=2;
                 break;
             case "chimica":
-                pdf = "15_12_2018_chimica_materiali_biotecnologie.pdf";
+                pdf = "chimica_materiali_biotecnologie.pdf";
                 nPdf=3;
                 break;
             case "seraliApparati":
-                pdf = "15_12_2018_serale.pdf";
+                pdf = "BF_serale.pdf";
                 nPdf=5;
                 break;
             case "seraliMezzi":
-                pdf = "15_12_2018_serale.pdf";
+                pdf = "BF_serale.pdf";
                 nPdf=5;
                 break;
             case "qualifiche":
-                pdf = "15_12_2018_qualificheRegionali.pdf";
+                pdf = "qualificheRegionali.pdf";
                 nPdf=6;
                 break;
             case "manutenzione":
-                pdf = "15_12_2018_manutenzione_assistenzaTecnica.pdf";
+                pdf = "manutenzione_assistenzaTecnica.pdf";
                 nPdf=7;
                 break;
             case "apparati":
-                pdf = "15_12_2018_apparati_impianti_serviziTecniciIndustriali.pdf";
+                pdf = "apparati_impianti_serviziTecniciIndustriali.pdf";
                 nPdf=8;
                 break;
             case "mezzi":
-                pdf = "15_12_2018_manutenzioneMezziDiTrasporto.pdf";
+                pdf = "manutenzioneMezziDiTrasporto.pdf";
                 nPdf=9;
+                break;
+            case "work_school":
+                pdf = "Alternanza_scuola_Lavoro_BF.pdf";
+                nPdf=10;
                 break;
             default:
                 pdf = "orari_del_tecnico.pdf";
