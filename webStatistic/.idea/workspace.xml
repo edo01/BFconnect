@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11260913-5dc7-4264-9a0f-477e64f4882f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../application/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../application/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../application/app/src/main/java/org/iisbelluzzifioravanti/app/bfconnect/BaseActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../application/app/src/main/java/org/iisbelluzzifioravanti/app/bfconnect/BaseActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../application/app/src/main/java/org/iisbelluzzifioravanti/app/bfconnect/activities/Prenotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../application/app/src/main/java/org/iisbelluzzifioravanti/app/bfconnect/activities/Prenotation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../application/app/src/main/java/org/iisbelluzzifioravanti/app/bfconnect/activities/Professionale.java" beforeDir="false" afterPath="$PROJECT_DIR$/../application/app/src/main/java/org/iisbelluzzifioravanti/app/bfconnect/activities/Professionale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../application/app/src/main/java/org/iisbelluzzifioravanti/app/bfconnect/activities/QrCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../application/app/src/main/java/org/iisbelluzzifioravanti/app/bfconnect/activities/QrCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../application/app/src/main/java/org/iisbelluzzifioravanti/app/bfconnect/activities/School.java" beforeDir="false" afterPath="$PROJECT_DIR$/../application/app/src/main/java/org/iisbelluzzifioravanti/app/bfconnect/activities/School.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../application/app/src/main/java/org/iisbelluzzifioravanti/app/bfconnect/connection/PdfHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../application/app/src/main/java/org/iisbelluzzifioravanti/app/bfconnect/connection/PdfHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../application/app/src/main/res/values/google_maps_api.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../application/app/src/main/res/values/google_maps_api.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../application/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../application/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/data/pdf/mezzi.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../server/data/pdf/mezzi.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/data/pdf/serale.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../server/data/pdf/serale.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/dataHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dataHandler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/templates/application/statistic.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/templates/application/statistic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/updater.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/updater.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,22 +17,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../server/handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="50" column="63" selection-start-line="50" selection-start-column="63" selection-end-line="50" selection-end-column="63" />
+            <state relative-caret-position="480">
+              <caret line="32" column="35" lean-forward="true" selection-start-line="32" selection-start-column="35" selection-end-line="33" selection-end-column="50" />
               <folding>
                 <element signature="e#31#42#0" expanded="true" />
               </folding>
@@ -50,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../server/dataHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+            <state relative-caret-position="76">
+              <caret line="10" column="100" selection-start-line="10" selection-start-column="100" selection-end-line="10" selection-end-column="100" />
             </state>
           </provider>
         </entry>
@@ -68,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/updater.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="189">
+              <caret line="38" column="134" selection-start-line="38" selection-start-column="134" selection-end-line="38" selection-end-column="134" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -124,9 +102,9 @@
         <option value="$PROJECT_DIR$/../BFconnect/server/handler.py" />
         <option value="$PROJECT_DIR$/../BFconnect/server/dataHandler.py" />
         <option value="$PROJECT_DIR$/application/views.py" />
-        <option value="$PROJECT_DIR$/application/updater.py" />
         <option value="$PROJECT_DIR$/../server/handler.py" />
         <option value="$PROJECT_DIR$/../server/dataHandler.py" />
+        <option value="$PROJECT_DIR$/application/updater.py" />
       </list>
     </option>
   </component>
@@ -210,8 +188,8 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.24727838" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.24592833" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32899022" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3281493" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -262,28 +240,8 @@
     <entry file="file://$PROJECT_DIR$/../BFconnect/server/dataHandler.py" />
     <entry file="file://$PROJECT_DIR$/application/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../server/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/updater.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="28" selection-start-column="28" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -304,10 +262,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../server/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../server/handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="50" column="63" selection-start-line="50" selection-start-column="63" selection-end-line="50" selection-end-column="63" />
+        <state relative-caret-position="480">
+          <caret line="32" column="35" lean-forward="true" selection-start-line="32" selection-start-column="35" selection-end-line="33" selection-end-column="50" />
           <folding>
             <element signature="e#31#42#0" expanded="true" />
           </folding>
@@ -316,8 +281,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../server/dataHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+        <state relative-caret-position="76">
+          <caret line="10" column="100" selection-start-line="10" selection-start-column="100" selection-end-line="10" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/updater.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="38" column="134" selection-start-line="38" selection-start-column="134" selection-end-line="38" selection-end-column="134" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
