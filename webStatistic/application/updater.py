@@ -31,12 +31,12 @@ class Updater (Thread):
 
    def upload(self):
        try:
-            r = requests.get('http://localhost:8080/?check=true')
+            r = requests.get('http://taddia.sytes.net:6002/?check=true')
             print(r.status_code)
             print(r.text)
             dic = json.loads(r.text)
        except:
-           dic = json.loads('{"middleTimeOfResponse": 0.000, "responses": 0, "errors": 0, "rooms": [0, 0, 0, 0], "pdf": [0, 0, 0, 0, 0, 0, 0, 0]}')
+           dic = json.loads('{"middleTimeOfResponse": 0.000, "responses": 0, "errors": 0, "rooms": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "pdf": [0, 0, 0, 0, 0, 0, 0, 0]}')
 
        if len(self.label)==60:
            self.responses.remove(self.responses[0])
