@@ -8,7 +8,7 @@ import json
 class DataHandler:
     time = 0
     # the number of nuumbers in rooms is variable
-    statistic = '{"middleTimeOfResponse":0,"responses":0,"errors":0,"rooms":[0,0,0,0,0,0,0,0,0,0],' \
+    statistic = '{"middleTimeOfResponse":0,"responses":0,"errors":0,"rooms":[0,0,0,0,0,0,0,0,0,0,0,0],' \
                 '"pdf":[0,0,0,0,0,0,0,0,0,0]}'
     dictionary = json.loads(statistic)
 
@@ -21,7 +21,7 @@ class DataHandler:
 # the id must be of 6 chars
     room = {
         'beOPEN': '0', 'ETC34c': '1', 'ETC620': '2', 'ETC34d': '3', 'CHT32c': '4', 'CHT645': '5', 'CHT3c6': '6',
-        'CHTT00': '7', 'EXt6po': '8', 'EXt400': '9'
+        'CHTT00': '7', 'EXt6po': '8', 'EXt400': '9' , 'EXt120': '10', 'EXt600': '11'
     }
 
     # all the files with the JSON datas must be called 'roomContent.txt'

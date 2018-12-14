@@ -1,5 +1,5 @@
 {
 "title":"MAPPA DEL BLOCCO B2",
 "content":"",
-"image":1
+"image":2
 }
