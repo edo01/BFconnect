@@ -14,6 +14,10 @@
 
     <uses-feature android:name="android.hardware.camera" />
 
+    <meta-data
+        android:name="com.google.android.gms.vision.DEPENDENCIES"
+        android:value="barcode"></meta-data>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -122,10 +126,7 @@
             android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".provaroom"></activity>
     </application>
-
-    <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES"
-        android:value="barcode">
-    </meta-data>
 
 </manifest>

@@ -163,7 +163,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
                 startActivity(new Intent(this, AboutUs.class));
                 return true;
             case R.id.help:
-                startActivity(new Intent(this, HNFCuno.class));
+                startActivity(new Intent(this, provaroom.class));
                 return true;
             case R.id.work_school:
                 if(ActivityTools.isNetworkAvailable(this)) {
