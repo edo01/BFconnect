@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:cardview="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+<ScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:cardview="http://schemas.android.com/apk/res-auto"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:layout_alignParentBottom="true"
+android:layout_centerHorizontal="true">
+
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="5dp">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cv"
         android:layout_width="match_parent"
         android:layout_height="74dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="9dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="9dp"
-        android:layout_marginBottom="422dp"
         app:strokeColor="@color/black"
         app:strokeWidth="2dp"
         cardview:cardCornerRadius="15dp"
@@ -27,9 +27,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            >
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/person_photo"
@@ -65,14 +63,9 @@
         android:id="@+id/cv1"
         android:layout_width="match_parent"
         android:layout_height="74dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="9dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="45dp"
         android:layout_marginEnd="9dp"
-        android:layout_marginBottom="311dp"
         app:strokeColor="@color/black"
         app:strokeWidth="2dp"
         cardview:cardCornerRadius="15dp"
@@ -80,13 +73,11 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/cv1"
-            android:padding="16dp">
-
+            android:layout_height="match_parent"
+            android:paddingBottom="10dp">
             <ImageView
-                android:id="@+id/person_photo1"
-                android:layout_width="67dp"
+                android:id="@+id/person"
+                android:layout_width="64dp"
                 android:layout_height="47dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
@@ -95,22 +86,25 @@
                 cardview:srcCompat="@drawable/chimica" />
 
             <TextView
-                android:id="@+id/person_name1"
+                android:id="@+id/person2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/person_photo1"
+                android:layout_toRightOf="@+id/person"
                 android:text="Chimica"
                 android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/person_age1"
+                android:id="@+id/person3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/person_name1"
-                android:layout_toRightOf="@+id/person_photo1"
+                android:layout_below="@+id/person2"
+                android:layout_toRightOf="@+id/person"
                 android:text="LABORATORI" />
-
         </RelativeLayout>
+
+
+
     </android.support.v7.widget.CardView>
-</RelativeLayout>
+</LinearLayout>
+</ScrollView>
