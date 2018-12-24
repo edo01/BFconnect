@@ -16,7 +16,7 @@
 
     <meta-data
         android:name="com.google.android.gms.vision.DEPENDENCIES"
-        android:value="barcode"></meta-data>
+        android:value="barcode" />
 
     <application
         android:allowBackup="true"
@@ -126,7 +126,6 @@
             android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".provaroom"></activity>
     </application>
 
 </manifest>

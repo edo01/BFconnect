@@ -16,4 +16,9 @@
     <string name="large_text"></string>
     <string name="action_settings">Settings</string>
     <string name="workschool">Alternanza Scuola-Lavoro</string>
+    <string name="titleCardView">Title</string>
+    <string name="undertitleCardView">Under Title</string>
+    <string name="cdCV">three dots</string>
+    <string name="share">Invia per email</string>
+    <string name="open">Apri</string>
 </resources>
