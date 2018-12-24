@@ -5,7 +5,9 @@ package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.graphics.Point;
 import android.support.v7.app.ActionBar;
+import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
@@ -32,9 +34,13 @@ public class School extends BaseActivity {
         actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
         //for center the image
         ScrollView scr = (ScrollView)findViewById(R.id.scrolling);
+
+        Display display = getWindowManager().getDefaultDisplay();
+        Point p = new Point();
+        display.getSize(p);
         scr.post(new Runnable() {
             public void run() {
-                scr.scrollTo(0,scr.getHeight()/2);
+                scr.scrollTo(0,findViewById(R.id.bfBel).getHeight()-(p.y/2)+findViewById(R.id.navigation).getHeight());
             }
         });
         btnTecnico = null;//findViewById(R.id.btnTecnico);//this button is inked to Tecnico page.

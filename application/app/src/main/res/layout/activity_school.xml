@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".activities.School">
 
+
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
@@ -23,10 +25,12 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_above="@+id/navigation"
         android:id="@+id/scrolling">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
             <android.support.v7.widget.CardView
                 android:id="@+id/cardView1"
                 android:layout_width="match_parent"
@@ -47,9 +51,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <android.support.v7.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/mast" />
                     <TextView
                         android:id="@+id/titleCV1"
-                        android:layout_width="75dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="36dp"
 
                         android:layout_alignParentStart="true"
@@ -57,7 +68,7 @@
                         android:layout_marginStart="17dp"
                         android:layout_marginBottom="36dp"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="@string/titleCardView"
+                        android:text="Mast"
                         android:textColor="@color/black"
                         android:textSize="35sp" />
 
@@ -70,7 +81,7 @@
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="-36dp"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="@string/undertitleCardView" />
+                        android:text="fondazione Mast" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
@@ -250,18 +261,128 @@
                         android:text="@string/undertitleCardView" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
+
             <ImageView
                 android:id="@+id/bfBel"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp"
                 android:background="@android:color/transparent"
                 android:backgroundTint="@android:color/transparent"
                 android:visibility="visible"
                 app:srcCompat="@drawable/belluzzi" />
+
+            <ImageView
+                android:id="@+id/bfFio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bfBel"
+                android:background="@android:color/transparent"
+                android:backgroundTint="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:visibility="visible"
+                app:srcCompat="@drawable/fioravanti" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardView6"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="20dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:strokeColor="@color/black"
+                app:strokeWidth="2dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+                <!-- Inserire detro CardView anche lo sfondo -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/titleCV6"
+                        android:layout_width="75dp"
+                        android:layout_height="36dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginBottom="36dp"
+                        android:fontFamily="@font/proximanovasoftbold"
+                        android:text="@string/titleCardView"
+                        android:textColor="@color/black"
+                        android:textSize="35sp" />
+
+                    <TextView
+                        android:id="@+id/subTitleCV6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/titleCV6"
+                        android:layout_alignStart="@+id/titleCV6"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="-36dp"
+                        android:fontFamily="@font/proximanovasoftbold"
+                        android:text="@string/undertitleCardView" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardView7"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_above="@+id/cardView6"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="14dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="2dp">
+                <!-- Inserire detro CardView anche lo sfondo -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/mast" />
+
+                    <TextView
+                        android:id="@+id/titleCV7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginBottom="36dp"
+                        android:fontFamily="@font/proximanovasoftbold"
+                        android:text="Mast"
+                        android:textColor="@color/black"
+                        android:textSize="35sp" />
+
+                    <TextView
+                        android:id="@+id/subTitleCV7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/titleCV7"
+                        android:layout_alignStart="@+id/titleCV7"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="-36dp"
+                        android:fontFamily="@font/proximanovasoftbold"
+                        android:text="fondazione Mast" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>
