@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ScrollView;
 
 import org.iisbelluzzifioravanti.app.bfconnect.BaseActivity;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
@@ -27,12 +28,19 @@ public class School extends BaseActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
+
         actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
+        //for center the image
+        ScrollView scr = (ScrollView)findViewById(R.id.scrolling);
+        scr.post(new Runnable() {
+            public void run() {
+                scr.scrollTo(0,scr.getHeight()/2);
+            }
+        });
+        btnTecnico = null;//findViewById(R.id.btnTecnico);//this button is inked to Tecnico page.
+        btnProfessionale = null;//findViewById(R.id.btnProfessionale);//this button is inked to Professionale page.
 
-        btnTecnico = findViewById(R.id.btnTecnico);//this button is inked to Tecnico page.
-        btnProfessionale = findViewById(R.id.btnProfessionale);//this button is inked to Professionale page.
-
-        btnTecnico.setOnClickListener(new View.OnClickListener() {
+        /*btnTecnico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(School.this, Tecnico.class);
@@ -49,7 +57,7 @@ public class School extends BaseActivity {
                         ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
                 startActivity(intent, options.toBundle());
             }
-        });
+        });*/
     }
 
     @Override

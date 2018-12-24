@@ -7,6 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".activities.School">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
@@ -19,15 +29,15 @@
         app:itemIconTint="@drawable/bottom_navigation_style"
         app:itemTextColor="@drawable/bottom_navigation_style"
         app:menu="@menu/bottom_navigation" />
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/scrolling">
     <ImageView
         android:id="@+id/bfScel"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/navigation"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="0dp"
@@ -40,46 +50,7 @@
         app:showAsAction="ifRoom"
         app:srcCompat="@drawable/school" />
 
-    <Button
-        android:id="@+id/btnProfessionale"
-        android:layout_width="wrap_content"
-        android:layout_height="9dp"
-        android:layout_alignWithParentIfMissing="true"
-        android:layout_alignBottom="@+id/bfScel"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="88dp"
-        android:layout_marginLeft="88dp"
-        android:layout_marginTop="373dp"
-        android:layout_marginEnd="134dp"
-        android:layout_marginRight="134dp"
-        android:layout_marginBottom="129dp"
-        android:background="@android:color/transparent"
-        android:visibility="visible" />
+</ScrollView>
 
-    <Button
-        android:id="@+id/btnTecnico"
-        android:layout_width="wrap_content"
-        android:layout_height="11dp"
-        android:layout_alignBottom="@+id/bfScel"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="142dp"
-        android:layout_marginRight="142dp"
-        android:layout_marginBottom="430dp"
-        android:background="@android:color/transparent"
-        android:visibility="visible" />
+
 </RelativeLayout>

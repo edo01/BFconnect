@@ -1,110 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:cardview="http://schemas.android.com/apk/res-auto"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:layout_alignParentBottom="true"
-android:layout_centerHorizontal="true">
-
-<LinearLayout
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cv"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="74dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="9dp"
-        app:strokeColor="@color/black"
-        app:strokeWidth="2dp"
-        cardview:cardCornerRadius="15dp"
-        cardview:cardElevation="6dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <RelativeLayout
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="74dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="9dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="2dp"
+            cardview:cardCornerRadius="15dp"
+            cardview:cardElevation="6dp">
 
-            <ImageView
-                android:id="@+id/person_photo"
-                android:layout_width="64dp"
-                android:layout_height="47dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                cardview:srcCompat="@drawable/computer" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/person_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/person_photo"
-                android:text="Informatica"
-                android:textSize="30sp" />
+                <ImageView
+                    android:id="@+id/person_photo"
+                    android:layout_width="64dp"
+                    android:layout_height="47dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    cardview:srcCompat="@drawable/computer" />
 
-            <TextView
-                android:id="@+id/person_age"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/person_name"
-                android:layout_toRightOf="@+id/person_photo"
-                android:text="LABORATORI" />
+                <TextView
+                    android:id="@+id/person_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/person_photo"
+                    android:text="Informatica"
+                    android:textSize="30sp" />
 
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+                <TextView
+                    android:id="@+id/person_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/person_name"
+                    android:layout_toRightOf="@+id/person_photo"
+                    android:text="LABORATORI" />
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cv1"
-        android:layout_width="match_parent"
-        android:layout_height="74dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="9dp"
-        app:strokeColor="@color/black"
-        app:strokeWidth="2dp"
-        cardview:cardCornerRadius="15dp"
-        cardview:cardElevation="6dp">
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
 
-        <RelativeLayout
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingBottom="10dp">
-            <ImageView
-                android:id="@+id/person"
-                android:layout_width="64dp"
-                android:layout_height="47dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                cardview:srcCompat="@drawable/chimica" />
+            android:layout_height="74dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginEnd="9dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="2dp"
+            cardview:cardCornerRadius="15dp"
+            cardview:cardElevation="6dp">
 
-            <TextView
-                android:id="@+id/person2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/person"
-                android:text="Chimica"
-                android:textSize="30sp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="10dp">
 
-            <TextView
-                android:id="@+id/person3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/person2"
-                android:layout_toRightOf="@+id/person"
-                android:text="LABORATORI" />
-        </RelativeLayout>
+                <ImageView
+                    android:id="@+id/person"
+                    android:layout_width="64dp"
+                    android:layout_height="47dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    cardview:srcCompat="@drawable/chimica" />
+
+                <TextView
+                    android:id="@+id/person2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/person"
+                    android:text="Chimica"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/person3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/person2"
+                    android:layout_toRightOf="@+id/person"
+                    android:text="LABORATORI" />
+            </RelativeLayout>
 
 
-
-    </android.support.v7.widget.CardView>
-</LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
 </ScrollView>
