@@ -8,6 +8,9 @@
     android:orientation="vertical"
     tools:context=".activities.Prenotation">
 
+    <include layout="@layout/toolbar"
+        android:id="@+id/mytoolbar"/>
+
     <android.support.design.widget.BottomNavigationView
         android:theme="@style/BottomTheme"
         android:id="@+id/navigation"

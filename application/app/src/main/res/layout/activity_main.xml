@@ -8,6 +8,9 @@
     android:layout_height="match_parent"
     tools:context=".activities.Home">
 
+    <include layout="@layout/toolbar"
+        android:id="@+id/mytoolbar"/>
+
     <ImageView
         android:id="@+id/logo"
         android:layout_width="166dp"

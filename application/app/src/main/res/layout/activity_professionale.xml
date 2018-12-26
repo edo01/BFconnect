@@ -7,6 +7,9 @@
     android:id="@+id/Aprofessionale"
     tools:context=".activities.Professionale">
 
+    <include layout="@layout/toolbar"
+        android:id="@+id/mytoolbar"/>
+
     <ImageView
         android:id="@+id/fAdd"
         android:layout_width="wrap_content"

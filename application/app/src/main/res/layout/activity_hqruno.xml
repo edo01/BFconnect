@@ -7,6 +7,9 @@
     tools:context=".activities.threeDots.helpactivity.HQRuno"
     android:id="@+id/Hrileva">
 
+    <include layout="@layout/toolbar"
+        android:id="@+id/mytoolbar"/>
+
     <ImageView
         android:id="@+id/rileva_qruno"
         android:layout_width="310dp"

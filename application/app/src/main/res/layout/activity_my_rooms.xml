@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".activities.threeDots.myrooms.MyRooms">
 
+    <include layout="@layout/toolbar"
+        android:id="@+id/mytoolbar"/>
+
     <ListView
         android:id="@+id/listView"
         android:layout_width="wrap_content"

@@ -8,6 +8,9 @@
     android:id="@+id/Atecnico"
     tools:context=".activities.Tecnico">
 
+    <include layout="@layout/toolbar"
+        android:id="@+id/mytoolbar"/>
+
     <ImageView
         android:id="@+id/bAdd"
         android:layout_width="wrap_content"
