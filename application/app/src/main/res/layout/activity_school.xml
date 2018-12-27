@@ -262,27 +262,39 @@
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
-            <ImageView
-                android:id="@+id/bfBel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:background="@android:color/transparent"
-                android:backgroundTint="@android:color/transparent"
-                android:visibility="visible"
-                app:srcCompat="@drawable/belluzzi" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/bfFio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/bfBel"
-                android:background="@android:color/transparent"
-                android:backgroundTint="@android:color/transparent"
-                android:scaleType="fitXY"
-                android:visibility="visible"
-                app:srcCompat="@drawable/fioravanti" />
+                <ImageView
+                    android:id="@+id/bfBel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="top"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@android:color/transparent"
+                    android:backgroundTint="@android:color/transparent"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/belluzzi" />
+
+                <ImageView
+                    android:id="@+id/bfFio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/bfBel"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="-56dp"
+                    android:background="@android:color/transparent"
+                    android:backgroundTint="@android:color/transparent"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/fioravanti" />
+
+            </LinearLayout>
+
 
             <android.support.v7.widget.CardView
                 android:id="@+id/cardView6"
@@ -291,13 +303,14 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="20dp"
-                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_marginBottom="189dp"
                 android:clickable="true"
                 android:focusable="true"
-                app:strokeColor="@color/black"
-                app:strokeWidth="2dp"
+                android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="15dp"
-                app:cardElevation="6dp">
+                app:cardElevation="6dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="2dp">
                 <!-- Inserire detro CardView anche lo sfondo -->
                 <RelativeLayout
                     android:layout_width="match_parent"
