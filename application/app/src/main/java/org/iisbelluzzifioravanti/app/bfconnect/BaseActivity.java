@@ -14,6 +14,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -48,9 +49,11 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(getContentViewId());
-
+        //setting mytoolbar as toolbar of the activity
+        Toolbar t1 = findViewById(R.id.mytoolbar);
+        setSupportActionBar(t1);
+        //t1.inflateMenu(R.menu.three_dots);
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
@@ -141,8 +144,11 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.three_dots,menu);
+        //MenuInflater
+        /*
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.three_dots,menu);*/
+        getMenuInflater().inflate(R.menu.three_dots,menu);
         return true;
 
     }

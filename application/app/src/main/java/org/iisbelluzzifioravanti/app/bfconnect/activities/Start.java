@@ -25,10 +25,9 @@ public class Start extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_start);
         NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+
         if (nfcAdapter == null) { //if your device hasn't the NFC the application will advise you with a toast
             Toast.makeText(this, "SEMBRA CHE TU NON ABBIA L'NFC SUL TELEFONO, USA IL QR CODE", Toast.LENGTH_LONG).show();
         }

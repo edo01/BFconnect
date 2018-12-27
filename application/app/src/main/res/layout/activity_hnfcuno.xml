@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".activities.threeDots.helpactivity.HNFCuno">
 
+    <include layout="@layout/toolbar"
+        android:id="@+id/mytoolbar"/>
+
     <ImageView
         android:id="@+id/punti_uno"
         android:layout_width="206dp"

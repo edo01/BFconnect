@@ -7,8 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".activities.School">
 
-
-
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
@@ -26,21 +24,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
+        android:isScrollContainer="true"
         android:layout_above="@+id/navigation"
         android:id="@+id/scrolling">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <include layout="@layout/toolbar"
+                android:id="@+id/mytoolbar"/>
+
             <android.support.v7.widget.CardView
-                android:id="@+id/cardView1"
+                android:id="@+id/cardViewProgettiTecnico"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
+                android:layout_below="@+id/mytoolbar"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="10dp"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 app:strokeColor="@color/black"
                 app:strokeWidth="2dp"
@@ -52,23 +56,21 @@
                     android:layout_height="match_parent">
 
                     <android.support.v7.widget.AppCompatImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:src="@drawable/mast" />
                     <TextView
                         android:id="@+id/titleCV1"
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-
+                        android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentBottom="true"
                         android:layout_marginStart="17dp"
                         android:layout_marginBottom="36dp"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Mast"
+                        android:text="Progetti"
                         android:textColor="@color/black"
                         android:textSize="35sp" />
 
@@ -81,20 +83,23 @@
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="-36dp"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="fondazione Mast" />
+                        android:text="Progetti del Tecnico" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
+
+
             <android.support.v7.widget.CardView
-                android:id="@+id/cardView2"
+                android:id="@+id/cardViewIndirizziTecnico"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:layout_below="@+id/cardView1"
+                android:layout_height="30dp"
+                android:layout_below="@+id/cardViewProgettiTecnico"
+                android:layout_alignParentStart="true"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="40dp"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
+                android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 app:strokeColor="@color/black"
                 app:strokeWidth="2dp"
@@ -106,250 +111,23 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/titleCV2"
-                        android:layout_width="75dp"
-                        android:layout_height="36dp"
-
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="17dp"
-                        android:layout_marginBottom="36dp"
-                        android:fontFamily="@font/proximanovasoftbold"
-                        android:text="@string/titleCardView"
-                        android:textColor="@color/black"
-                        android:textSize="35sp" />
-
-                    <TextView
-                        android:id="@+id/subTitleCV2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/titleCV2"
-                        android:layout_alignStart="@+id/titleCV2"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="-36dp"
-                        android:fontFamily="@font/proximanovasoftbold"
-                        android:text="@string/undertitleCardView" />
+                        android:text="indirizzi del tecnico"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"/>
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/cardView3"
+                android:id="@+id/cardViewIisBF"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:layout_below="@+id/cardView2"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="40dp"
+                android:layout_below="@+id/cardViewIndirizziTecnico"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:strokeColor="@color/black"
-                app:strokeWidth="2dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="6dp">
-                <!-- Inserire detro CardView anche lo sfondo -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/titleCV3"
-                        android:layout_width="75dp"
-                        android:layout_height="36dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="17dp"
-                        android:layout_marginBottom="36dp"
-                        android:fontFamily="@font/proximanovasoftbold"
-                        android:text="@string/titleCardView"
-                        android:textColor="@color/black"
-                        android:textSize="35sp" />
-                    <TextView
-                        android:id="@+id/subTitleCV3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/titleCV3"
-                        android:layout_alignStart="@+id/titleCV3"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="-36dp"
-                        android:fontFamily="@font/proximanovasoftbold"
-                        android:text="@string/undertitleCardView" />
-                </RelativeLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardView4"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:layout_below="@+id/cardView3"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="20dp"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:strokeColor="@color/black"
-                app:strokeWidth="2dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="6dp">
-                <!-- Inserire detro CardView anche lo sfondo -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/titleCV4"
-                        android:layout_width="75dp"
-                        android:layout_height="36dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="17dp"
-                        android:layout_marginBottom="36dp"
-                        android:fontFamily="@font/proximanovasoftbold"
-                        android:text="@string/titleCardView"
-                        android:textColor="@color/black"
-                        android:textSize="35sp" />
-                    <TextView
-                        android:id="@+id/subTitleCV4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/titleCV4"
-                        android:layout_alignStart="@+id/titleCV4"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="-36dp"
-                        android:fontFamily="@font/proximanovasoftbold"
-                        android:text="@string/undertitleCardView" />
-                </RelativeLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardView5"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:layout_below="@+id/cardView4"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="20dp"
-                app:strokeColor="@color/black"
-                app:strokeWidth="2dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="6dp"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true">
-                <!-- Inserire detro CardView anche lo sfondo -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/titleCV5"
-                        android:layout_width="75dp"
-                        android:layout_height="36dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="17dp"
-                        android:layout_marginBottom="36dp"
-                        android:fontFamily="@font/proximanovasoftbold"
-                        android:text="@string/titleCardView"
-                        android:textColor="@color/black"
-                        android:textSize="35sp" />
-                    <TextView
-                        android:id="@+id/subTitleCV5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/titleCV5"
-                        android:layout_alignStart="@+id/titleCV5"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="-36dp"
-                        android:fontFamily="@font/proximanovasoftbold"
-                        android:text="@string/undertitleCardView" />
-                </RelativeLayout>
-            </android.support.v7.widget.CardView>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/bfBel"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_gravity="top"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp"
-                    android:background="@android:color/transparent"
-                    android:backgroundTint="@android:color/transparent"
-                    android:visibility="visible"
-                    app:srcCompat="@drawable/belluzzi" />
-
-                <ImageView
-                    android:id="@+id/bfFio"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/bfBel"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginTop="-56dp"
-                    android:background="@android:color/transparent"
-                    android:backgroundTint="@android:color/transparent"
-                    android:visibility="visible"
-                    app:srcCompat="@drawable/fioravanti" />
-
-            </LinearLayout>
-
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardView6"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="189dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="6dp"
-                app:strokeColor="@color/black"
-                app:strokeWidth="2dp">
-                <!-- Inserire detro CardView anche lo sfondo -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/titleCV6"
-                        android:layout_width="75dp"
-                        android:layout_height="36dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="17dp"
-                        android:layout_marginBottom="36dp"
-                        android:fontFamily="@font/proximanovasoftbold"
-                        android:text="@string/titleCardView"
-                        android:textColor="@color/black"
-                        android:textSize="35sp" />
-
-                    <TextView
-                        android:id="@+id/subTitleCV6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/titleCV6"
-                        android:layout_alignStart="@+id/titleCV6"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="-36dp"
-                        android:fontFamily="@font/proximanovasoftbold"
-                        android:text="@string/undertitleCardView" />
-                </RelativeLayout>
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardView7"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:layout_above="@+id/cardView6"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="14dp"
+                android:layout_marginBottom="10dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
@@ -365,22 +143,81 @@
                     <android.support.v7.widget.AppCompatImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/iis_belluzzi_horizzontal" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
 
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardViewIndirizziProfessionale"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/cardViewIisBF"
+                android:layout_alignParentStart="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="2dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+                <!-- Inserire detro CardView anche lo sfondo -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="indirizzi del professionale"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardViewProgettiProfessionale"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/cardViewIndirizziProfessionale"
+                android:layout_height="180dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="2dp">
+                <!-- Inserire detro CardView anche lo sfondo -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
-                        android:src="@drawable/mast" />
+                        android:src="@drawable/ducati" />
 
                     <TextView
                         android:id="@+id/titleCV7"
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentBottom="true"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="17dp"
                         android:layout_marginBottom="36dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentStart="true"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Mast"
+                        android:text="Progetti"
                         android:textColor="@color/black"
                         android:textSize="35sp" />
 
@@ -393,7 +230,7 @@
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="-36dp"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="fondazione Mast" />
+                        android:text="Progetti del professionale" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
         </RelativeLayout>

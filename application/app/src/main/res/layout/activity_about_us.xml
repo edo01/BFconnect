@@ -7,6 +7,10 @@
     tools:context=".activities.threeDots.aboutus.AboutUs"
     android:id="@+id/Aaboutus">
 
+
+    <include layout="@layout/toolbar"
+        android:id="@+id/mytoolbar"/>
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="361dp"

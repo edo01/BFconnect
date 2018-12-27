@@ -30,9 +30,6 @@ public class Prenotation extends BaseActivity {
     */
     @Override
     public void activityPage() {
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setIcon(R.drawable.ic_bf_connect_horizontal_white);
 
         f1 = (Button) findViewById(R.id.btnDic); // this one is linked to the first open  day
         f2 = (Button) findViewById(R.id.btnGen); // this to the second

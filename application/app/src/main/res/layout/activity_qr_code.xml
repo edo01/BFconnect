@@ -7,10 +7,13 @@
     tools:context=".activities.QrCode"
     android:id="@+id/Aqrcode">
 
+    <include layout="@layout/toolbar"
+        android:id="@+id/mytoolbar"/>
+
     <SurfaceView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/mytoolbar"
         android:id="@+id/scanner"/>
-
 
 </RelativeLayout>
