@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.ScrollView;
 
 import org.iisbelluzzifioravanti.app.bfconnect.BaseActivity;
+import org.iisbelluzzifioravanti.app.bfconnect.ProgettiProfessionale;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 
 /**
@@ -57,13 +58,20 @@ public class School extends BaseActivity {
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(School.this, ProgettiProfessionale.class);
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                startActivity(intent , options.toBundle());
             }
         });
 
         CVprogettiTecnico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(School.this, ProgettiTecnico.class);
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                startActivity(intent , options.toBundle());
             }
         });
 
