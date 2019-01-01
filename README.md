@@ -3,6 +3,7 @@
 <br>
 <h3 align="center">BFconnect is an innovative app that will allow schools to better manage their Open Day.</h3><br>
 <h3 align="center">Powered by Edoardo Carrà, Francesco Taddia and Riccardo Bovinelli.</h3>
+<h2 align="center">App in Play Store: https://play.google.com/store/apps/details?id=org.iisbelluzzifioravanti.app.bfconnect&showAllReviews=true</h2>
 <div>
 <h2>RUN SERVER</h2>
   <h3>server directory: "BFconnect/server/".</h3>
@@ -47,7 +48,7 @@ Here you can set the port and the ip_address of your server.
 <ol type="1">
   <li>Change directory into webStatistic;</li>
   <li>Activate the virtual enviroment: source ".venv/bin/activate";</li>
-  <li>Run the server with the command: "python manage.py localhost:8000" if you want you can change the ip and the port.</li>
+  <li>Run the server with the command: "python manage.py localhost:8000" if you want you can change the ip and the port(like ip:port).</li>
 </ol>
 </h4>
 </div>
