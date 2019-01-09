@@ -7,6 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".activities.School">
 
+    <include layout="@layout/toolbar"
+        android:id="@+id/mytoolbar"/>
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
@@ -31,8 +34,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <include layout="@layout/toolbar"
-                android:id="@+id/mytoolbar"/>
 
             <android.support.v7.widget.CardView
                 android:id="@+id/cardViewProgettiTecnico"
