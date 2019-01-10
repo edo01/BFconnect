@@ -7,7 +7,7 @@
         android:checked="false"
         android:icon="@drawable/ic_prenotation"
         android:fontFamily="@font/proximanovasoftbold"
-        android:title="@string/prenota"
+        android:title="@string/lab"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/reading"
