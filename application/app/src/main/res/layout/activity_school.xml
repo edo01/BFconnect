@@ -77,8 +77,10 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/titleCV1"
                         android:layout_alignStart="@+id/titleCV1"
+                        android:layout_alignParentBottom="true"
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="-36dp"
+                        android:layout_marginBottom="18dp"
                         android:fontFamily="@font/proximanovasoftbold"
                         android:text="Progetti del Tecnico" />
                 </RelativeLayout>
@@ -207,11 +209,13 @@
                     <TextView
                         android:id="@+id/titleCV7"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="17dp"
-                        android:layout_marginBottom="36dp"
-                        android:layout_alignParentBottom="true"
+                        android:layout_height="36dp"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginBottom="120dp"
                         android:fontFamily="@font/proximanovasoftbold"
                         android:text="Progetti"
                         android:textColor="@color/black"
@@ -223,8 +227,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/titleCV7"
                         android:layout_alignStart="@+id/titleCV7"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="-36dp"
+                        android:layout_marginTop="-120dp"
                         android:fontFamily="@font/proximanovasoftbold"
                         android:text="Progetti del professionale" />
                 </RelativeLayout>
