@@ -11,19 +11,7 @@
     <include layout="@layout/toolbar"
         android:id="@+id/mytoolbar"/>
 
-    <android.support.design.widget.BottomNavigationView
-        android:theme="@style/BottomTheme"
-        android:id="@+id/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:background="?android:attr/windowBackground"
-        android:foreground="?attr/selectableItemBackground"
-        app:itemIconTint="@drawable/bottom_navigation_style"
-        app:itemTextColor="@drawable/bottom_navigation_style"
-        app:menu="@menu/bottom_navigation"/>
+
 
     <ImageView
         android:id="@+id/imgPrenotation"

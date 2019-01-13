@@ -59,6 +59,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
 
+
         //with this we can open the pdf
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
@@ -106,7 +107,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
                     //starting activity
                     startActivity(in);
                 } else if (itemId == R.id.prenotation) {
-                    Intent in = new Intent(this, Prenotation.class);
+                    Intent in = new Intent(this, MyRooms.class);
                     //starting activity
                     startActivity(in);
                 } else if (itemId == R.id.school) {

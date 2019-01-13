@@ -46,7 +46,7 @@ public class Tecnico extends AppCompatActivity {
 
 
         //getting the specialization button
-        btnElettronica = findViewById(R.id.btnElettronica);
+        /*btnElettronica = findViewById(R.id.btnElettronica);
         btnInformatica = findViewById(R.id.btnInfo);
         btnChimica = findViewById(R.id.btnChimica);
         btnMeccanica = findViewById(R.id.btnMeccanica);
@@ -88,7 +88,7 @@ public class Tecnico extends AppCompatActivity {
         });
         }catch(Exception ex){
             Toast.makeText(this, "Please give your permission.", Toast.LENGTH_LONG).show();
-        }
+        }*/
     }
 
     private void doSnackbar(String pdf){

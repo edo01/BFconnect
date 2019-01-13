@@ -8,4 +8,6 @@
     android:background="@color/white"
     android:elevation="4dp"
     app:navigationIcon="@drawable/ic_bfconnect_toolbar"
-    android:theme="@android:style/ThemeOverlay.Material.ActionBar" />
+    android:theme="@android:style/ThemeOverlay.Material.ActionBar" >
+
+</android.support.v7.widget.Toolbar>

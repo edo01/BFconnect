@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.iisbelluzzifioravanti.app.bfconnect.BaseActivity;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Rooms;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
@@ -29,18 +30,12 @@ import org.iisbelluzzifioravanti.app.bfconnect.util.MyAdapter;
 
 import java.util.Vector;
 
-public class MyRooms extends AppCompatActivity {
+public class MyRooms extends BaseActivity {
 
     private String[] rooms;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_my_rooms);
-        //setting mytoolbar as toolbar of the activity
-        Toolbar t1 = findViewById(R.id.mytoolbar);
-        setSupportActionBar(t1);
+    public void activityPage() {
 
         DbTools dbHandler = new DbTools(this);
         dbHandler.setReadable();
@@ -65,12 +60,7 @@ public class MyRooms extends AppCompatActivity {
                     Log.i("ELEMENT at  :", i + " " + vector.elementAt(i));
                 }
             }else rooms = new String[]{"NON HAI ANCORA TROVATO DELLE AULE!!"}; //if the db hasn't anything
-            //creating listView
-            //the class my adapter customize the row of the list view
-            MyAdapter myAdapter = new MyAdapter(this, rooms);
-            ListView listView = (ListView) findViewById(R.id.listView);
-            listView.setAdapter(myAdapter);
-            listView.setOnItemClickListener(listener);
+
 
         }catch (Exception ex){
             Log.e("problem whit the db", ex.getMessage());
@@ -82,6 +72,7 @@ public class MyRooms extends AppCompatActivity {
         cursor.close();
         dbHandler.close();
     }
+
 
     private AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {
         @Override
@@ -106,30 +97,17 @@ public class MyRooms extends AppCompatActivity {
         }
     };
 
+
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.myrooms_three_dots,menu);
-        return true;
+    public int getContentViewId() {
+        return R.layout.activity_my_rooms;
     }
+
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.help:
-                startActivity(new Intent(this, HNFCuno.class));
-                return true;
-            case R.id.about_us:
-                startActivity(new Intent(this, AboutUs.class));
-                return true;
-            case R.id.toHome:
-                startActivity(new Intent(this, Home.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+    public int getNavigationMenuItemId() {
+        return R.id.prenotation;
     }
+
 }
 
 
