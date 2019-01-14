@@ -42,24 +42,6 @@ public class AboutUs extends AppCompatActivity {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.add(R.id.map, new MapsActivity() , "map");
         transaction.commit();
-        Button btnHome = (Button) findViewById(R.id.btnHomeAu);//this button is inked to Tecnico page.
-        Button btnSchool =(Button) findViewById(R.id.btnSchoolSite);//this button is inked to Professionale page.
-
-        btnHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AboutUs.this, Home.class);
-                startActivity(intent);
-            }
-        });
-        btnSchool.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW",
-                        Uri.parse("http://www.iisbelluzzifioravanti.gov.it/"));
-                startActivity(viewIntent);
-            }
-        });
     }
 
 
