@@ -9,4 +9,5 @@
     <color name="colorOpen">#012360</color>
     <color name="red">#FF0000</color>
     <color name="white">#ffffff</color>
+    <color name="cardColor">#bfbfbf</color>
 </resources>
