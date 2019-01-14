@@ -45,7 +45,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.907"
-        app:srcCompat="@drawable/freccia" />
+        app:srcCompat="@drawable/freccia"
+        android:focusable="true" />
 
     <TextView
         android:id="@+id/lblTagNFC"
@@ -62,7 +63,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/proximanovasoftbold"
-        android:text="Tag NFC"
+        android:text="@string/tag_nfc"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="40sp"
@@ -121,7 +122,7 @@
                 android:layout_marginEnd="28dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/proximanovasoftbold"
-                android:text="Questo è un TAG NFC li riconoscerai perchè sono sparsi in tutta la scuola"
+                android:text="@string/nfc1"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -142,7 +143,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="299dp"
         android:fontFamily="@font/proximanovasoftbold"
-        android:text="A cosa servono?"
+        android:text="@string/nf3"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="26sp"/>
@@ -208,6 +209,7 @@
         android:layout_marginTop="505dp"
         android:clickable="true"
         app:backgroundTint="@color/white"
-        app:srcCompat="@drawable/ic_logo" />
+        app:srcCompat="@drawable/ic_logo"
+        android:focusable="true" />
 
 </RelativeLayout>

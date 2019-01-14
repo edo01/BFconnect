@@ -27,4 +27,7 @@
     <string name="cdCV">three dots</string>
     <string name="share">Invia per email</string>
     <string name="open">Apri</string>
+    <string name="tag_nfc">Tag NFC</string>
+    <string name="nfc1">Questo è un TAG NFC li riconoscerai perchè sono sparsi in tutta la scuola</string>
+    <string name="nf3">A cosa servono?</string>
 </resources>
