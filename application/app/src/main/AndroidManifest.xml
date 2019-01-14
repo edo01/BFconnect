@@ -126,7 +126,8 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.ProgettiTecnico" />
-        <activity android:name=".ProgettiProfessionale"></activity>
+        <activity android:name=".ProgettiProfessionale" />
+        <activity android:name=".activities.threeDots.helpactivity.Home_Help"></activity>
     </application>
 
 </manifest>

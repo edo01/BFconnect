@@ -17,6 +17,7 @@
     <string name="aus_3"> - </string>
     <string name="aus_4">FIORAVANTI</string>
     <string name="aus_des">sede\nVia G. D. Cassini, 3 - 40133 BOLOGNA\nTel. 051 3519711 - Fax 051 563656\nwww.iisbelluzzifioravanti.gov.it\nbois02300@istruzione.it</string>
+    <string name="nfc2">Questi TAG NFC servono per ottenere informazioni su qualsiasi laboratorio del Belluzzi Fioravanti semplicemente avvicinando il telefono al TAG</string>
     <string name="about_us_mapinfo">Come trovarci</string>
     <string name="about_us_contacts">Info e Contatti</string>
     <string name="action_settings">Settings</string>
