@@ -5,11 +5,15 @@ package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.graphics.Point;
 import android.net.Uri;
 import android.support.v7.widget.CardView;
+import android.view.Display;
 import android.view.View;
 import android.widget.Button;
+import android.widget.MediaController;
 import android.widget.ScrollView;
+import android.widget.VideoView;
 
 import org.iisbelluzzifioravanti.app.bfconnect.BaseActivity;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
@@ -23,7 +27,7 @@ import org.iisbelluzzifioravanti.app.bfconnect.R;
 public class School extends BaseActivity {
 
     private Button btnTecnico, btnProfessionale;
-
+    private VideoView video;
     @Override
     public void activityPage() {
         //for center the image
@@ -37,9 +41,16 @@ public class School extends BaseActivity {
         display.getSize(p);
         scr.post(new Runnable() {
             public void run() {
-                scr.scrollTo(0,findViewById(R.id.bfBel).getHeight()-(p.y/2)+findViewById(R.id.navigation).getHeight());
+                scr.scrollTo(0,scr.getHeight()/2);
             }
-        });*/
+        });
+*/
+        video = findViewById(R.id.videoView);
+        //MediaController media = new MediaController(this);
+        video.setVideoPath("android.resource://"+getPackageName()+"/"+ R.raw.school);
+        //media.setAnchorView(video);
+        //video.setMediaController(media);
+        video.start();
 
         CardView CVTecnico = findViewById(R.id.cardViewIndirizziTecnico);//this button is inked to Tecnico page.
         CardView CVProfessionale = findViewById(R.id.cardViewIndirizziProfessionale);//this button is inked to Professionale page.
@@ -67,15 +78,6 @@ public class School extends BaseActivity {
                 startActivity(intent , options.toBundle());
             }
         });
-
-        CVIisBelluzzi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW",
-                        Uri.parse("http://www.iisbelluzzifioravanti.gov.it/"));
-                startActivity(viewIntent);
-            }
-        });
         CVTecnico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +96,12 @@ public class School extends BaseActivity {
                 startActivity(intent, options.toBundle());
             }
         });
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        video.start();
     }
 
     @Override
