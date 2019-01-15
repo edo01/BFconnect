@@ -54,6 +54,23 @@ public class DbTools {
         return cursor.move(1);
     }
 
+    public Cursor getCursorLineByType(String type){
+        String selection = DbBaseColumns.KEY_TYPE + " = ?";
+        String[] selectionArgs = { type };
+        setReadable();
+
+        return db.query(
+                DbBaseColumns.TABLE_NAME,   // The table to query
+                null,             // The array of columns to return (pass null to get all)
+                selection,              // The columns for the WHERE clause
+                selectionArgs,          // The values for the WHERE clause
+                null,                   // don't group the rows
+                null,                   // don't filter by row groups
+                null               // The sort order
+        );
+
+    }
+
     public Cursor getCursorLineByTitle(String title){
         String selection = DbBaseColumns.KEY_TITLE + " = ?";
         String[] selectionArgs = { title };

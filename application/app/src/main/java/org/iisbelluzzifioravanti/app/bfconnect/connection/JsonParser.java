@@ -47,8 +47,7 @@ import java.net.URLConnection;
 
 public class JsonParser extends AsyncTask<Void, Void, Boolean> {
 
-    private String content = "";
-    private String title = "";
+    private String title = "", content = "", type = "";
     private Bitmap bitmap;
     private String room;
     private Context c;
@@ -62,8 +61,8 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
      * if you want an image don't put 'false' but the number of your image
      */
 
-    //private final String address = "http://192.168.1.71:8080";
-    private final String address = "http://taddia.sytes.net:6002"; //put here the server address
+    private final String address = "http://192.168.43.99:8080";
+    //private final String address = "http://taddia.sytes.net:6002"; //put here the server address
 
     InputStream in;
 
@@ -150,6 +149,7 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
         JSONObject jo= new JSONObject(content);
         title= (String) jo.get("title");
         content = (String) jo.get("content");
+        type = (String) jo.get("type");
         nimage = (int) jo.get("image");
         in.close();
         br.close();
@@ -224,6 +224,7 @@ public class JsonParser extends AsyncTask<Void, Void, Boolean> {
                 ContentValues values = new ContentValues();
                 values.put(DbBaseColumns.KEY_ROOMID,room);
                 values.put(DbBaseColumns.KEY_TITLE, title);
+                values.put(DbBaseColumns.KEY_TYPE, type);
                 values.put(DbBaseColumns.KEY_CONTENT, content);
                 values.put(DbBaseColumns.KEY_IMAGE, byteArray[0]);
                 values.put(DbBaseColumns.KEY_IMAGE2, byteArray[1]);

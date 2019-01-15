@@ -2,6 +2,7 @@ package org.iisbelluzzifioravanti.app.bfconnect.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,6 @@ public class MyAdapter extends BaseExpandableListAdapter {
         this._context = context;
         this._listDataHeader = listImageHeader;
         this._listDataChild = listChildData;
-
     }
 
     @Override

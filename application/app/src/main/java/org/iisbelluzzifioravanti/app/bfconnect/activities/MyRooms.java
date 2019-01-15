@@ -5,16 +5,12 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Picture;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.iisbelluzzifioravanti.app.bfconnect.BaseActivity;
@@ -30,7 +26,8 @@ import java.util.Vector;
 
 public class MyRooms extends BaseActivity {
 
-    private String[] rooms, info, chimica, meccanica, elettronica, mappe;
+    private String[] rooms;
+    private final String[] types = {"informatica", "chimica","meccanica","elettronica","mappe"};
     private CardView informatica;
     MyAdapter listAdapter;
     ExpandableListView expListView;
@@ -40,9 +37,7 @@ public class MyRooms extends BaseActivity {
     @Override
     public void activityPage() {
 
-        DbTools dbHandler = new DbTools(this);
-        dbHandler.setReadable();
-        Cursor cursor = dbHandler.getCursor();
+
 //STARTTTTT
         // get the listview
         expListView = (ExpandableListView) findViewById(R.id.expandableListView);
@@ -55,18 +50,27 @@ public class MyRooms extends BaseActivity {
         // setting list adapter
         expListView.setAdapter(listAdapter);
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-
             @Override
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
-                Toast.makeText(
-                        getApplicationContext(),
-                        listDataHeader.get(groupPosition)
-                                + " : "
-                                + listDataChild.get(
-                                listDataHeader.get(groupPosition)).get(
-                                childPosition), Toast.LENGTH_SHORT)
-                        .show();
+                DbTools dbHandler = new DbTools(getApplicationContext());
+                Cursor cursor = dbHandler.getCursorLineByTitle(listDataChild.get(
+                        listDataHeader.get(groupPosition)).get(
+                        childPosition));
+
+                if(!cursor.move(1)) return false;
+                String ID = cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_ROOMID));
+                //getting the content of the room
+
+                //closing the db
+                dbHandler.close();
+                Intent in = new Intent(getApplicationContext(), Rooms.class);
+                //putting the content inside the intent
+                in.putExtra("id", ID );
+                //starting activity
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                startActivity(in , options.toBundle());
                 return false;
             }
         });
@@ -147,36 +151,49 @@ public class MyRooms extends BaseActivity {
         listDataHeader.add(BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.elettronica_banner));
         listDataHeader.add(BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.mappe_banner));
 
+        DbTools dbHandler = new DbTools(this);
+        dbHandler.setReadable();
         // Adding child data
-        List<String> top250 = new ArrayList<String>();
-        top250.add("The Shawshank Redemption");
-        top250.add("The Godfather");
-        top250.add("The Godfather: Part II");
-        top250.add("Pulp Fiction");
-        top250.add("The Good, the Bad and the Ugly");
-        top250.add("The Dark Knight");
-        top250.add("12 Angry Men");
+        List<String> informatica = new ArrayList<String>();
+        List<String> chimica = new ArrayList<String>();
+        List<String> meccanica = new ArrayList<String>();
+        List<String> elettronica = new ArrayList<String>();
+        List<String> mappe = new ArrayList<String>();
 
-        List<String> nowShowing = new ArrayList<String>();
-        nowShowing.add("The Conjuring");
-        nowShowing.add("Despicable Me 2");
-        nowShowing.add("Turbo");
-        nowShowing.add("Grown Ups 2");
-        nowShowing.add("Red 2");
-        nowShowing.add("The Wolverine");
+        List<String>[] list = new List[5];
+        list[0] = informatica;
+        list[1] = chimica;
+        list[2] = meccanica;
+        list[3] = elettronica;
+        list[4] = mappe;
+        for (int i = 0; i < 5; i++) {
+            Cursor cursor = dbHandler.getCursorLineByType(types[i]);
+            try {
+                while (cursor.moveToNext()) {
+                    Log.e("ciao", cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_TITLE)));
+                    list[i].add(cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_TITLE)));
+                }
+                Log.e("ciao 1","sono qui");
+            } catch (Exception ex) {
+                Log.e("problem whit the db", ex.getMessage());
+                Toast toast = Toast.makeText(this, "NON HAI ANCORA TROVATO DELLE AULE!!", Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+            }
 
-        List<String> comingSoon = new ArrayList<String>();
-        comingSoon.add("2 Guns");
-        comingSoon.add("The Smurfs 2");
-        comingSoon.add("The Spectacular Now");
-        comingSoon.add("The Canyons");
-        comingSoon.add("Europa Report");
-
-        listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), nowShowing);
-        listDataChild.put(listDataHeader.get(2), comingSoon);
-        listDataChild.put(listDataHeader.get(3), comingSoon);
-        listDataChild.put(listDataHeader.get(4), comingSoon);
+            cursor.close();
+        }
+        if (list[0].isEmpty() && list[1].isEmpty() && list[2].isEmpty() && list[3].isEmpty() && list[4].isEmpty()){
+            Toast toast = Toast.makeText(this, "NON HAI ANCORA TROVATO DELLE AULE!!", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+        }
+        dbHandler.close();
+        listDataChild.put(listDataHeader.get(0), informatica); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), chimica );
+        listDataChild.put(listDataHeader.get(2), meccanica);
+        listDataChild.put(listDataHeader.get(3), elettronica);
+        listDataChild.put(listDataHeader.get(4), mappe);
     }
 
 
