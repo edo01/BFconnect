@@ -3,16 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+    <include layout="@layout/toolbar"
+        android:id="@+id/mytoolbar"/>
+
     <TextView
         android:id="@+id/titleRoom"
+        android:layout_below="@+id/mytoolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:text="Title"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/proximanovasoftbold"
-        android:textSize="50sp"
+        android:textSize="35sp"
         android:textColor="@color/black"
         />
 
@@ -31,7 +35,57 @@
         app:cardElevation="6dp"
         app:strokeColor="@color/black"
         app:strokeWidth="2dp">
-        </android.support.v7.widget.CardView>
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/imageOne"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/imageTwo"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/imageThree"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/imageFour"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/imageFive"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/imageSix"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </android.support.v7.widget.CardView>
     <TextView
         android:id="@+id/contentTitle"
         android:layout_marginTop="10dp"
@@ -39,11 +93,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/photos"
         android:fontFamily="@font/proximanovasoftbold"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:layout_centerHorizontal="true"
         android:text="Descrizione"/>
     <TextView
         android:layout_below="@+id/contentTitle"
+        android:id="@+id/content"
         android:layout_margin="30dp"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"

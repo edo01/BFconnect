@@ -26,7 +26,7 @@ import java.util.List;
 public class MyRooms extends BaseActivity {
 
     private String[] rooms;
-    private final String[] types = {"informatica", "chimica","meccanica","elettronica","mappe"};
+    private final String[] types = {"informatica", "chimica","meccanica","elettronica","fisica","mappe"};
     private CardView informatica;
     MyAdapter listAdapter;
     ExpandableListView expListView;
@@ -142,6 +142,7 @@ public class MyRooms extends BaseActivity {
         listDataHeader.add(BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.chimica_banner));
         listDataHeader.add(BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.meccanica_banner));
         listDataHeader.add(BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.elettronica_banner));
+        listDataHeader.add(BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.fisica_banner));
         listDataHeader.add(BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.mappe_banner));
 
         DbTools dbHandler = new DbTools(this);
@@ -152,14 +153,17 @@ public class MyRooms extends BaseActivity {
         List<String> meccanica = new ArrayList<String>();
         List<String> elettronica = new ArrayList<String>();
         List<String> mappe = new ArrayList<String>();
+        List<String> fisica = new ArrayList<String>();
 
-        List<String>[] list = new List[5];
+
+        List<String>[] list = new List[6];
         list[0] = informatica;
         list[1] = chimica;
         list[2] = meccanica;
         list[3] = elettronica;
-        list[4] = mappe;
-        for (int i = 0; i < 5; i++) {
+        list[5] = mappe;
+        list[4] = fisica;
+        for (int i = 0; i < 6; i++) {
             Cursor cursor = dbHandler.getCursorLineByType(types[i]);
             try {
                 while (cursor.moveToNext()) {
@@ -186,7 +190,8 @@ public class MyRooms extends BaseActivity {
         listDataChild.put(listDataHeader.get(1), chimica );
         listDataChild.put(listDataHeader.get(2), meccanica);
         listDataChild.put(listDataHeader.get(3), elettronica);
-        listDataChild.put(listDataHeader.get(4), mappe);
+        listDataChild.put(listDataHeader.get(5), mappe);
+        listDataChild.put(listDataHeader.get(4), fisica);
     }
 
 
