@@ -39,7 +39,6 @@
                 app:strokeWidth="2dp"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="6dp">
-                <!-- Inserire detro CardView anche lo sfondo -->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -69,6 +68,17 @@
                         android:fontFamily="@font/proximanovasoftbold"
                         android:textColor="@color/black"
                         android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/txtInfoSub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="30dp"
+                        android:fontFamily="@font/proximanovasoftbold"
+                        android:text="Clicca per scaricare il piano formativo"
+                        android:textSize="13sp" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
@@ -78,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
                 android:clickable="true"
@@ -88,36 +98,48 @@
                 app:cardElevation="6dp"
                 app:strokeColor="@color/black"
                 app:strokeWidth="2dp">
-                <!-- Inserire detro CardView anche lo sfondo -->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/sfumatura_blu">
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/chimica"
+                        android:layout_width="66dp"
+                        android:layout_height="74dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginBottom="0dp"
+                        app:srcCompat="@drawable/chimica" />
 
                     <TextView
-                        android:id="@+id/titleCV2"
+                        android:id="@+id/txtChimica"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="17dp"
-                        android:layout_marginBottom="36dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="0dp"
+                        android:text="Chimica"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Progetti"
                         android:textColor="@color/black"
-                        android:textSize="35sp" />
+                        android:textSize="25sp" />
 
                     <TextView
-                        android:id="@+id/subTitleCV2"
+                        android:id="@+id/txtChimicaSub"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/titleCV2"
-                        android:layout_alignStart="@+id/titleCV2"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="-36dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="30dp"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Progetti del professionale" />
+                        android:text="Clicca per scaricare il piano formativo"
+                        android:textSize="13sp" />
                 </RelativeLayout>
+
             </android.support.v7.widget.CardView>
 
 
@@ -137,40 +159,51 @@
                 app:cardElevation="6dp"
                 app:strokeColor="@color/black"
                 app:strokeWidth="2dp">
-                <!-- Inserire detro CardView anche lo sfondo -->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/sfumatura_blu">
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/mecc"
+                        android:layout_width="66dp"
+                        android:layout_height="74dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginBottom="0dp"
+                        app:srcCompat="@drawable/meccanica" />
 
                     <TextView
-                        android:id="@+id/titleCV3"
+                        android:id="@+id/txtMecc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="17dp"
-                        android:layout_marginBottom="36dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="0dp"
+                        android:text="Meccanica"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Progetti"
                         android:textColor="@color/black"
-                        android:textSize="35sp" />
+                        android:textSize="25sp" />
 
                     <TextView
-                        android:id="@+id/subTitleCV3"
+                        android:id="@+id/txtMeccSub"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/titleCV3"
-                        android:layout_alignStart="@+id/titleCV3"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="-36dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="30dp"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Progetti del professionale" />
+                        android:text="Clicca per scaricare il piano formativo"
+                        android:textSize="13sp" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/cardView4"
+                android:id="@+id/cardViewEl"
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
                 android:layout_below="@+id/cardViewMeccanica"
@@ -185,35 +218,46 @@
                 app:cardElevation="6dp"
                 app:strokeColor="@color/black"
                 app:strokeWidth="2dp">
-                <!-- Inserire detro CardView anche lo sfondo -->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/sfumatura_blu">
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/el"
+                        android:layout_width="66dp"
+                        android:layout_height="74dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginBottom="0dp"
+                        app:srcCompat="@drawable/elettronica" />
 
                     <TextView
-                        android:id="@+id/titleCV4"
+                        android:id="@+id/txtEl"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="17dp"
-                        android:layout_marginBottom="36dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="0dp"
+                        android:text="Elettronica"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Progetti"
                         android:textColor="@color/black"
-                        android:textSize="35sp" />
+                        android:textSize="25sp" />
 
                     <TextView
-                        android:id="@+id/subTitleCV4"
+                        android:id="@+id/txtElSub"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/titleCV4"
-                        android:layout_alignStart="@+id/titleCV4"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="-36dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="30dp"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Progetti del professionale" />
+                        android:text="Clicca per scaricare il piano formativo"
+                        android:textSize="13sp" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
