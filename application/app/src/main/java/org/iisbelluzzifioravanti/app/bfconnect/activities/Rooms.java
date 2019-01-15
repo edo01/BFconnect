@@ -33,6 +33,7 @@ public class Rooms extends AppCompatActivity {
         setContentView(R.layout.activity_rooms);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        /*
         title =findViewById(R.id.txtTitle);
         images = new ImageView[6];
 
@@ -76,7 +77,8 @@ public class Rooms extends AppCompatActivity {
             }
         }catch(Exception ex){
             Log.e("ERROR",ex.getMessage());
-        }
+        }*/
+
     }
 
     @Override

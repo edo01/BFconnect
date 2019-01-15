@@ -1,32 +1,113 @@
 package org.iisbelluzzifioravanti.app.bfconnect.util;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 
-public class MyAdapter extends ArrayAdapter {
+import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 
-    private String[] titles;
+import java.util.HashMap;
+import java.util.List;
 
-    public MyAdapter(Context context, String[] titles) {
-        super(context, R.layout.row, R.id.textList, titles);
-        this.titles = titles;
+public class MyAdapter extends BaseExpandableListAdapter {
+    private Context _context;
+    private List<Bitmap> _listDataHeader; // header titles
+    // child data in format of header title, child title
+    private HashMap<Bitmap, List<String>> _listDataChild;
+
+    public MyAdapter(Context context, List<Bitmap> listImageHeader,
+                                 HashMap<Bitmap, List<String>> listChildData) {
+        this._context = context;
+        this._listDataHeader = listImageHeader;
+        this._listDataChild = listChildData;
+
     }
-
-    @NonNull
 
     @Override
-    public View getView(int position, View convertView,ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View row = inflater.inflate(R.layout.row, parent, false);
-        TextView txt = row.findViewById(R.id.textList);
-        txt.setText(titles[position]);
-        return row;
+    public Object getChild(int groupPosition, int childPosititon) {
+        return this._listDataChild.get(this._listDataHeader.get(groupPosition))
+                .get(childPosititon);
     }
+
+    @Override
+    public long getChildId(int groupPosition, int childPosition) {
+        return childPosition;
+    }
+
+    @Override
+    public View getChildView(int groupPosition, final int childPosition,
+                             boolean isLastChild, View convertView, ViewGroup parent) {
+
+        final String childText = (String) getChild(groupPosition, childPosition);
+
+        if (convertView == null) {
+            LayoutInflater infalInflater = (LayoutInflater) this._context
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = infalInflater.inflate(R.layout.cardview_template_son, null);
+        }
+
+        TextView txtListChild = (TextView) convertView
+                .findViewById(R.id.cardViewText);
+
+        txtListChild.setText(childText);
+        return convertView;
+    }
+
+    @Override
+    public int getChildrenCount(int groupPosition) {
+        return this._listDataChild.get(this._listDataHeader.get(groupPosition))
+                .size();
+    }
+
+    @Override
+    public Object getGroup(int groupPosition) {
+        return this._listDataHeader.get(groupPosition);
+    }
+
+    @Override
+    public int getGroupCount() {
+        return this._listDataHeader.size();
+    }
+
+    @Override
+    public long getGroupId(int groupPosition) {
+        return groupPosition;
+    }
+
+    //GET TEAM ROW
+    @Override
+    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+
+        Bitmap bm = (Bitmap) getGroup(groupPosition);
+
+        //ONLY INFLATE XML TEAM ROW MODEL IF ITS NOT PRESENT,OTHERWISE REUSE IT
+        if(convertView == null)
+        {
+            LayoutInflater infalInflater = (LayoutInflater) this._context
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = infalInflater.inflate(R.layout.cardview_template, null);        }
+
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.cardViewImage);
+        imageView.setImageBitmap(bm);
+        return convertView;
+    }
+
+    @Override
+    public boolean hasStableIds() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isChildSelectable(int arg0, int arg1) {
+        // TODO Auto-generated method stub
+        return true;
+    }
+
 }

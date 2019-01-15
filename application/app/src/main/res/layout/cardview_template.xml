@@ -1,0 +1,34 @@
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<android.support.v7.widget.CardView
+    android:id="@+id/cardViewProgettiTecnico"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_alignParentStart="true"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginEnd="20dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="6dp"
+    app:strokeColor="@color/black"
+    app:strokeWidth="2dp">
+    <!-- Inserire detro CardView anche lo sfondo -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/cardViewImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
+</RelativeLayout>
