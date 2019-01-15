@@ -78,8 +78,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
                         android:layout_marginStart="85dp"
-                        android:layout_marginTop="25dp"
+                        android:layout_marginTop="30dp"
                         android:fontFamily="@font/proximanovasoftbold"
                         android:text="Clicca per scaricare il piano formativo"
                         android:textSize="13sp" />
@@ -130,15 +131,16 @@
                         android:text="Apparati,Impianti e Servizi tecnici industriali e civili"
                         android:fontFamily="@font/proximanovasoftbold"
                         android:textColor="@color/black"
-                        android:textSize="17sp" />
+                        android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/txtAppSub"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
                         android:layout_marginStart="85dp"
-                        android:layout_marginTop="40dp"
+                        android:layout_marginTop="33dp"
                         android:fontFamily="@font/proximanovasoftbold"
                         android:text="Clicca per scaricare il piano formativo"
                         android:textSize="13sp" />
@@ -189,15 +191,16 @@
                         android:text="Manutenzione ed Assistenza\ntecnica"
                         android:fontFamily="@font/proximanovasoftbold"
                         android:textColor="@color/black"
-                        android:textSize="17sp" />
+                        android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/txtManuSub"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
                         android:layout_marginStart="85dp"
-                        android:layout_marginTop="40dp"
+                        android:layout_marginTop="33dp"
                         android:fontFamily="@font/proximanovasoftbold"
                         android:text="Clicca per scaricare il piano formativo"
                         android:textSize="13sp" />
@@ -248,15 +251,16 @@
                         android:text="Manutenzione Mezzi di Trasporto"
                         android:fontFamily="@font/proximanovasoftbold"
                         android:textColor="@color/black"
-                        android:textSize="17sp" />
+                        android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/txtTraspSub"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
                         android:layout_marginStart="85dp"
-                        android:layout_marginTop="40dp"
+                        android:layout_marginTop="33dp"
                         android:fontFamily="@font/proximanovasoftbold"
                         android:text="Clicca per scaricare il piano formativo"
                         android:textSize="13sp" />
@@ -339,15 +343,16 @@
                         android:text="Apparati,Impianti e Servizi tecnici industriali e civili"
                         android:fontFamily="@font/proximanovasoftbold"
                         android:textColor="@color/black"
-                        android:textSize="17sp" />
+                        android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/txtSAppSub"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
                         android:layout_marginStart="85dp"
-                        android:layout_marginTop="40dp"
+                        android:layout_marginTop="33dp"
                         android:fontFamily="@font/proximanovasoftbold"
                         android:text="Clicca per scaricare il piano formativo"
                         android:textSize="13sp" />
@@ -399,15 +404,16 @@
                         android:text="Manutenzione Mezzi di Trasporto"
                         android:fontFamily="@font/proximanovasoftbold"
                         android:textColor="@color/black"
-                        android:textSize="17sp" />
+                        android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/txtSTraspSub"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
                         android:layout_marginStart="85dp"
-                        android:layout_marginTop="40dp"
+                        android:layout_marginTop="33dp"
                         android:fontFamily="@font/proximanovasoftbold"
                         android:text="Clicca per scaricare il piano formativo"
                         android:textSize="13sp" />
