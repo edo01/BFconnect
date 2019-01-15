@@ -79,7 +79,6 @@ public class MyRooms extends BaseActivity {
         informatica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
             }
         });
         try{
@@ -87,13 +86,11 @@ public class MyRooms extends BaseActivity {
             while(cursor.moveToNext()) {
                     vector.add(cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_TITLE)));
             }
-
             //commenta
             String content = cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_CONTENT));
             byte[] byteArray = cursor.getBlob(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_IMAGE));
             Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
             //commenta
-
             if(!vector.isEmpty()) {
                 rooms = new String[vector.size()];
                 for (int i = 0; i < vector.size(); i++) {
@@ -101,14 +98,11 @@ public class MyRooms extends BaseActivity {
                     Log.i("ELEMENT at  :", i + " " + vector.elementAt(i));
                 }
             }else rooms = new String[]{"NON HAI ANCORA TROVATO DELLE AULE!!"}; //if the db hasn't anything
-
-
         }catch (Exception ex){
             Log.e("problem whit the db", ex.getMessage());
             Toast toast = Toast.makeText(this, "NON HAI ANCORA TROVATO DELLE AULE!!" , Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
-
         }
         cursor.close();
         dbHandler.close();
@@ -206,7 +200,4 @@ public class MyRooms extends BaseActivity {
     public int getNavigationMenuItemId() {
         return R.id.prenotation;
     }
-
 }
-
-

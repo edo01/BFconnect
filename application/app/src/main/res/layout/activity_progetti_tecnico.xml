@@ -54,7 +54,7 @@
                         android:layout_marginStart="17dp"
                         android:layout_marginBottom="36dp"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Progetti"
+                        android:text="MAST."
                         android:textColor="@color/black"
                         android:textSize="35sp" />
 
@@ -67,7 +67,7 @@
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="-36dp"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Progetti del Tecnico" />
+                        android:text="Expeditions - COESIA" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
