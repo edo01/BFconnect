@@ -42,6 +42,17 @@ public class HNFCuno extends AppCompatActivity {
             }
         });
 
+        FloatingActionButton fhome = (FloatingActionButton) findViewById(R.id.fltMenuH1);
+        fnext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent qrcode = new Intent(getApplicationContext(), Home.class);
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                startActivity(qrcode, options.toBundle());
+            }
+        });
+
     }
 
     @Override
