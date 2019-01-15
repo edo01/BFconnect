@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 
+
 public class MyAdapter extends ArrayAdapter {
 
     private String[] titles;
