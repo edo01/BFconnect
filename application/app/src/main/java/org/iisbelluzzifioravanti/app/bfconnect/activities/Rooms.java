@@ -31,13 +31,13 @@ public class Rooms extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_rooms);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.mytoolbar);
         setSupportActionBar(toolbar);
-        /*
-        title =findViewById(R.id.txtTitle);
+        title =findViewById(R.id.titleRoom);
+        content = (TextView)findViewById(R.id.content);
+
         images = new ImageView[6];
 
-        content = (TextView)findViewById(R.id.txtResponse);
         images[0] = (ImageView) findViewById(R.id.imageOne);
         images[1] = (ImageView) findViewById(R.id.imageTwo);
         images[2] = (ImageView) findViewById(R.id.imageThree);
@@ -64,6 +64,7 @@ public class Rooms extends AppCompatActivity {
             byteArray[5] = cursor.getBlob(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_IMAGE6));
             this.content.setText(content);
             this.title.setText(title.toUpperCase());
+
             for (int i=0 ;i<images.length;i++) {
                 try{
                     Bitmap bmp = BitmapFactory.decodeByteArray(byteArray[i], 0, byteArray[i].length);
@@ -77,7 +78,7 @@ public class Rooms extends AppCompatActivity {
             }
         }catch(Exception ex){
             Log.e("ERROR",ex.getMessage());
-        }*/
+        }
 
     }
 
