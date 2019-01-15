@@ -40,12 +40,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.Prenotation"
-            android:configChanges="keyboardHidden|orientation"
-            android:label=""
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".activities.School"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
@@ -89,7 +83,7 @@
             android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.threeDots.myrooms.MyRooms"
+            android:name=".activities.MyRooms"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:parentActivityName=".activities.Home"
@@ -126,7 +120,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.ProgettiTecnico" />
-        <activity android:name=".ProgettiProfessionale"></activity>
+        <activity android:name=".activities.ProgettiProfessionale"></activity>
     </application>
 
 </manifest>

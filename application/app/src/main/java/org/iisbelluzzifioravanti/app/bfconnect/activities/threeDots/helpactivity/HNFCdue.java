@@ -3,7 +3,6 @@ package org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivit
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,12 +11,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.aboutus.AboutUs;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.MyRooms;
 
 public class HNFCdue extends AppCompatActivity {
 
@@ -77,9 +75,6 @@ public class HNFCdue extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.myrooms:
-                startActivity(new Intent(this, MyRooms.class));
-                return true;
             case R.id.about_us:
                 startActivity(new Intent(this, AboutUs.class));
                 return true;

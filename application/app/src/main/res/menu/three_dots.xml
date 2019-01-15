@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/myrooms"
-        android:title="@string/myroom"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/work_school"
         android:title="@string/workschool"/>
@@ -11,5 +9,6 @@
         android:title="@string/about_us"/>
     <item
         android:id="@+id/help"
+        app:showAsAction="ifRoom"
         android:title="@string/help"/>
 </menu>

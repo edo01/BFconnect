@@ -4,7 +4,6 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -12,12 +11,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.aboutus.AboutUs;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.MyRooms;
 
 public class HQRuno extends AppCompatActivity {
 
@@ -26,7 +24,7 @@ public class HQRuno extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_hqruno);
-//setting mytoolbar as toolbar of the activity
+        //setting mytoolbar as toolbar of the activity
         Toolbar t1 = findViewById(R.id.mytoolbar);
         setSupportActionBar(t1);
 
@@ -72,13 +70,11 @@ public class HQRuno extends AppCompatActivity {
         inflater.inflate(R.menu.help_three_dots,menu);
         return true;
     }
+    
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.myrooms:
-                startActivity(new Intent(this, MyRooms.class));
-                return true;
             case R.id.about_us:
                 startActivity(new Intent(this, AboutUs.class));
                 return true;

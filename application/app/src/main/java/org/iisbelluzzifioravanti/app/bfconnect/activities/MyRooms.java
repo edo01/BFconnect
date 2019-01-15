@@ -1,38 +1,26 @@
-package org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms;
+package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.database.Cursor;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import org.iisbelluzzifioravanti.app.bfconnect.BaseActivity;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.Rooms;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.aboutus.AboutUs;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity.HNFCuno;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbBaseColumns;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbTools;
-import org.iisbelluzzifioravanti.app.bfconnect.util.MyAdapter;
 
 import java.util.Vector;
 
 public class MyRooms extends BaseActivity {
 
     private String[] rooms;
+    private CardView informatica;
 
     @Override
     public void activityPage() {
@@ -40,7 +28,13 @@ public class MyRooms extends BaseActivity {
         DbTools dbHandler = new DbTools(this);
         dbHandler.setReadable();
         Cursor cursor = dbHandler.getCursor();
+        informatica = findViewById(R.id.cardViewProgettiTecnico);
+        informatica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
         try{
             Vector<String> vector = new Vector<>();
             while(cursor.moveToNext()) {
@@ -96,6 +90,7 @@ public class MyRooms extends BaseActivity {
             startActivity(in , options.toBundle());
         }
     };
+
 
 
     @Override
