@@ -10,6 +10,8 @@
         android:id="@+id/mytoolbar"
         layout="@layout/toolbar" />
 
+    <include layout="@layout/toolbar"
+        android:id="@+id/mytoolbar"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fltPrevH2"

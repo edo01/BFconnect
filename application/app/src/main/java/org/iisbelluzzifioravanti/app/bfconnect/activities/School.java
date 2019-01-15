@@ -28,6 +28,8 @@ public class School extends BaseActivity {
 
     private Button btnTecnico, btnProfessionale;
     private VideoView video;
+    private boolean isPlaying = false;
+
     @Override
     public void activityPage() {
         //for center the image
@@ -51,7 +53,7 @@ public class School extends BaseActivity {
         //media.setAnchorView(video);
         //video.setMediaController(media);
         video.start();
-
+        isPlaying = true;
         CardView CVTecnico = findViewById(R.id.cardViewIndirizziTecnico);//this button is inked to Tecnico page.
         CardView CVProfessionale = findViewById(R.id.cardViewIndirizziProfessionale);//this button is inked to Professionale page.
         CardView CVIisBelluzzi = findViewById(R.id.cardViewIisBF);
@@ -78,6 +80,15 @@ public class School extends BaseActivity {
                 startActivity(intent , options.toBundle());
             }
         });
+
+        CVIisBelluzzi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isPlaying){video.pause();isPlaying=false;}
+                else{video.start();isPlaying=true;}
+            }
+        });
+
         CVTecnico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,6 +113,7 @@ public class School extends BaseActivity {
     protected void onRestart() {
         super.onRestart();
         video.start();
+        isPlaying = true;
     }
 
     @Override
