@@ -16,20 +16,17 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.aboutus.AboutUs;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity.*;
 
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.Prenotation;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.School;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
+import org.iisbelluzzifioravanti.app.bfconnect.activities.MyRooms;
 import org.iisbelluzzifioravanti.app.bfconnect.connection.PdfHandler;
 import org.iisbelluzzifioravanti.app.bfconnect.util.ActivityTools;
 
@@ -37,7 +34,7 @@ import org.iisbelluzzifioravanti.app.bfconnect.util.ActivityTools;
  * @// TODO: 15/11/18 : null
  *
  * This is the base activity for a correct navigation bottom menu. The class is implemented by
- * School.java, Prenotation.java and Home.java.
+ * School.java, MyRooms.java and Home.java.
  */
 public abstract class BaseActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -163,9 +160,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.myrooms:
-                startActivity(new Intent(this, MyRooms.class));
-                return true;
             case R.id.about_us:
                 startActivity(new Intent(this, AboutUs.class));
                 return true;

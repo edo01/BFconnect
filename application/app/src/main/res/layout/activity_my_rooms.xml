@@ -5,7 +5,7 @@
     android:id="@+id/Aschool"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.threeDots.myrooms.MyRooms">
+    tools:context=".activities.MyRooms">
 
     <include layout="@layout/toolbar"
         android:id="@+id/mytoolbar"/>

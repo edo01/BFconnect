@@ -1,12 +1,9 @@
 package org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.aboutus;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,19 +12,18 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
+
+import com.google.android.gms.maps.model.LatLng;
 
 import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.Home;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.Professionale;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.School;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.Tecnico;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity.HNFCuno;
-import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.myrooms.MyRooms;
 import org.iisbelluzzifioravanti.app.bfconnect.util.MapsActivity;
 
 public class AboutUs extends AppCompatActivity {
+
+    private final LatLng CENTER_POINT=new LatLng(41.91, 12.40);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,13 +48,11 @@ public class AboutUs extends AppCompatActivity {
         inflater.inflate(R.menu.aboutus_three_dots,menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.myrooms:
-                startActivity(new Intent(this, MyRooms.class));
-                return true;
             case R.id.help:
                 startActivity(new Intent(this, HNFCuno.class));
                 return true;
