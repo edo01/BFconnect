@@ -23,7 +23,7 @@ public class MyAdapter extends BaseExpandableListAdapter {
     private HashMap<Bitmap, List<String>> _listDataChild;
 
     public MyAdapter(Context context, List<Bitmap> listImageHeader,
-                                 HashMap<Bitmap, List<String>> listChildData) {
+                     HashMap<Bitmap, List<String>> listChildData) {
         this._context = context;
         this._listDataHeader = listImageHeader;
         this._listDataChild = listChildData;

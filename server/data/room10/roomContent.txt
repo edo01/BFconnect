@@ -1,5 +1,6 @@
 {
 "title":"MAPPA DEL BLOCCO B1 n2",
 "content":"",
-"image":2
+"image":2,
+"type":"mappe"
 }

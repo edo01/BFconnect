@@ -38,17 +38,6 @@ public class HQRdue extends AppCompatActivity {
                 startActivity(qrcode, options.toBundle());
             }
         });
-
-        FloatingActionButton fhome = (FloatingActionButton) findViewById(R.id.fltMenuH2);
-        fhome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent qrcode = new Intent(getApplicationContext(), Home.class);
-                ActivityOptions options =
-                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
-                startActivity(qrcode, options.toBundle());
-            }
-        });
     }
 
     @Override

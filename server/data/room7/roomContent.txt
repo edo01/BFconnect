@@ -2,5 +2,6 @@
 "title":"Chimica analitica e strumentale",
 "content":"classi triennio Tecnico indirizzo: Chimica, materiali e biotecnologie.
 In questi laboratori si eseguono prove per riconoscere e determinare le quantità di sostanze presenti in campioni dapprima semplici e via via più complessi (fertilizzanti, acque, vino, olio...) attraverso metodi classici o tecniche strumentali. Inoltre si eseguono prove sui materiali, bilanci di materia ed energia e studi sui processi che avvengono negli impianti industriali.",
-"image":6
+"image":6,
+"type":"chimica"
 }

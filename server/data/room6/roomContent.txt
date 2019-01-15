@@ -2,5 +2,6 @@
 "title":"Chimica organica e biochimica",
 "content":"Classi triennio, Tecnico indirizzo: “Chimica, materiali e biotecnologie”.
 La chimica organica è la chimica dei composti del carbonio (idrocarburi, alcoli...) e della vita (grassi, carboidrati, proteine, DNA ...). In questo laboratorio si eseguono separazioni, purificazioni, prove di riconoscimento, reazioni di sintesi di composti organici ed esperienze di microbiologia (microscopia, colorazione e coltivazione di microrganismi...)",
-"image":4
+"image":4,
+"type":"chimica"
 }
