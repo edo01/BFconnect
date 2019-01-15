@@ -125,33 +125,28 @@
                 android:id="@+id/cardViewIisBF"
                 android:layout_width="match_parent"
                 android:layout_below="@+id/cardViewIndirizziTecnico"
-                android:layout_height="100dp"
+                android:layout_height="190dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
-                android:clickable="true"
-                android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                app:cardCornerRadius="15dp"
                 app:cardElevation="6dp"
                 app:strokeColor="@color/black"
                 app:strokeWidth="2dp">
                 <!-- Inserire detro CardView anche lo sfondo -->
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-
-                    <android.support.v7.widget.AppCompatImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginLeft="4dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_marginRight="4dp"
-                        android:src="@drawable/iis_belluzzi_horizzontal" />
-                </RelativeLayout>
+                    <VideoView
+                        android:id="@+id/videoView"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop
+                            ="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
