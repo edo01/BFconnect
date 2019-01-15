@@ -2,13 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Hrileva"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.threeDots.helpactivity.HQRuno"
-    android:id="@+id/Hrileva">
+    tools:context=".activities.threeDots.helpactivity.HQRuno">
 
-    <include layout="@layout/toolbar"
-        android:id="@+id/mytoolbar"/>
+    <include
+        android:id="@+id/mytoolbar"
+        layout="@layout/toolbar" />
 
 
     <android.support.design.widget.FloatingActionButton
@@ -51,11 +52,5 @@
         android:clickable="true"
         android:focusable="true"
         app:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.917"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907"
         app:srcCompat="@drawable/freccia" />
 </RelativeLayout>

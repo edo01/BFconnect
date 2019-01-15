@@ -50,27 +50,24 @@
 
 
     <pl.droidsonroids.gif.GifImageView
-        android:layout_width="match_parent"
-        android:layout_height="513dp"
-        android:src="@drawable/nfc_gif"/>
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="181dp"
+        android:layout_marginEnd="179dp"
+        android:src="@drawable/nfc_gif" />
 
     <TextView
         android:id="@+id/txtNfc"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_below="@id/mytoolbar"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
         android:fontFamily="@font/proximanovasoftbold"
-        android:text="Esempio"
+        android:text="Come leggere i TAG"
         android:textColor="@color/black"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.016" />
+        android:textSize="40sp" />
 
 </RelativeLayout>

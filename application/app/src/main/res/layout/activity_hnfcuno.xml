@@ -36,12 +36,6 @@
         android:clickable="true"
         android:focusable="true"
         app:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.917"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907"
         app:srcCompat="@drawable/freccia" />
 
     <TextView
@@ -62,13 +56,7 @@
         android:text="@string/tag_nfc"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.016" />
+        android:textSize="40sp"/>
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardViewNFC"
@@ -100,13 +88,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="25dp"
-                android:src="@drawable/tagnfc"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.126"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.152" />
+                android:src="@drawable/tagnfc" />
 
             <TextView
                 android:id="@+id/txtSpiegTAG"
@@ -120,13 +102,7 @@
                 android:fontFamily="@font/proximanovasoftbold"
                 android:text="@string/nfc1"
                 android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.852"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.182" />
+                android:textSize="20sp" />
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>
