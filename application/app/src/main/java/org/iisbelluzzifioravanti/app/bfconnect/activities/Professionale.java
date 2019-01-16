@@ -47,7 +47,7 @@ public class Professionale extends AppCompatActivity {
 
 
         //getting the button of the specialization
-        /*
+
         btnQuaReg = findViewById(R.id.btnQuaReg);
         btnMezzi = findViewById(R.id.btnMezzi);
         btnApparati = findViewById(R.id.btnApparati);
@@ -109,7 +109,7 @@ public class Professionale extends AppCompatActivity {
 
         }catch(Exception ex){
             Toast.makeText(this, "Please give your permission.", Toast.LENGTH_LONG).show();
-        }*/
+        }
     }
 
     private void doSnackbar(String pdf){

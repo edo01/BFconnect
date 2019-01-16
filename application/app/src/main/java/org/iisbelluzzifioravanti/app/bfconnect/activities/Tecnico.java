@@ -8,6 +8,7 @@ import android.os.StrictMode;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.Toast;
 
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.aboutus.AboutUs;
 import org.iisbelluzzifioravanti.app.bfconnect.activities.threeDots.helpactivity.HNFCuno;
@@ -24,7 +26,7 @@ import org.iisbelluzzifioravanti.app.bfconnect.util.ActivityTools;
 
 public class Tecnico extends AppCompatActivity {
 
-    private Button btnElettronica, btnChimica, btnInformatica, btnMeccanica;
+    private CardView btnElettronica, btnChimica, btnInformatica, btnMeccanica;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +44,8 @@ public class Tecnico extends AppCompatActivity {
 
 
         //getting the specialization button
-        /*btnElettronica = findViewById(R.id.btnElettronica);
-        btnInformatica = findViewById(R.id.btnInfo);
+        btnElettronica = findViewById(R.id.btnElettronica);
+        btnInformatica = findViewById(R.id.btnInformatica);
         btnChimica = findViewById(R.id.btnChimica);
         btnMeccanica = findViewById(R.id.btnMeccanica);
 
@@ -84,7 +86,7 @@ public class Tecnico extends AppCompatActivity {
         });
         }catch(Exception ex){
             Toast.makeText(this, "Please give your permission.", Toast.LENGTH_LONG).show();
-        }*/
+        }
     }
 
     private void doSnackbar(String pdf){
