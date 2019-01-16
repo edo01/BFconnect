@@ -21,18 +21,17 @@
         android:layout_marginTop="50dp"
         android:src="@drawable/ic_logo" />
 
-    <ImageView
-        android:id="@+id/bf_connect_"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="69dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="48dp"
-        app:srcCompat="@drawable/ic_bf_connect_horizontal" />
+    <TextView
+        android:id="@+id/NFCtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mytoolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/proximanovasoftbold"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:text="Avvicina il tuo telefono ad un tag NFC"/>
 
     <android.support.design.widget.BottomNavigationView
         android:theme="@style/BottomTheme"
@@ -59,5 +58,19 @@
         android:clickable="true"
         app:backgroundTint="@color/white"
         app:srcCompat="@drawable/qrcodeicon" />
+
+    <TextView
+        android:id="@+id/qrcodeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/navigation"
+        android:layout_alignBaseline="@+id/floatQR"
+        android:layout_marginBottom="35dp"
+        android:layout_marginLeft="40dp"
+        android:visibility="invisible"
+        android:fontFamily="@font/proximanovasoftbold"
+        android:text="scannerizza il qrcode"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
 </RelativeLayout>

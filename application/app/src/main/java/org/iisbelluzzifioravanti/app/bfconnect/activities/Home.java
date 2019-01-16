@@ -25,6 +25,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.iisbelluzzifioravanti.app.bfconnect.BaseActivity;
@@ -54,6 +55,14 @@ public class Home extends BaseActivity {
 
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 0);
+
+        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+        if (nfcAdapter == null) { //if your device hasn't the NFC the application will advise you with a toast
+            TextView textqr = findViewById(R.id.qrcodeText);
+            textqr.setVisibility(View.VISIBLE);
+            TextView textnfc = findViewById(R.id.NFCtext);
+            textqr.setVisibility(View.INVISIBLE);
+        }
 
         nfc = new NfcAction();//create an NfcAction object for maneging the nfc reader
         image = (ImageView) findViewById(R.id.logo);
