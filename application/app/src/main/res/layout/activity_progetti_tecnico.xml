@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/Aschool"
+    android:id="@+id/AprogettiTecnico"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.School">
@@ -15,7 +15,6 @@
         android:layout_height="match_parent"
         android:fillViewport="true"
         android:isScrollContainer="true"
-        android:layout_above="@+id/navigation"
         android:layout_below="@+id/mytoolbar"
         android:id="@+id/scrolling">
         <RelativeLayout
@@ -43,7 +42,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/sfumatura_blu">
+                    >
 
                     <TextView
                         android:id="@+id/titleCV1"
@@ -91,7 +90,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/sfumatura_blu">
+                    >
 
                     <TextView
                         android:id="@+id/titleCV2"
@@ -140,7 +139,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/sfumatura_blu">
+                    >
 
                     <TextView
                         android:id="@+id/titleCV3"
@@ -188,7 +187,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/sfumatura_blu">
+                    >
 
                     <TextView
                         android:id="@+id/titleCV4"
@@ -236,7 +235,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/sfumatura_blu">
+                    >
 
                     <TextView
                         android:id="@+id/titleCV5"
