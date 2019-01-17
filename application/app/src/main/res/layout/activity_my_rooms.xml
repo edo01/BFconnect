@@ -30,6 +30,7 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:groupIndicator="@null"
+        android:scrollbars="none"
         android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
         android:divider="@android:color/darker_gray"
         android:descendantFocusability="blocksDescendants" />
