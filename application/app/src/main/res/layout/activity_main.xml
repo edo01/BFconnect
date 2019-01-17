@@ -31,7 +31,7 @@
         android:fontFamily="@font/proximanovasoftbold"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:text="Avvicina il tuo telefono ad un tag NFC"/>
+        android:text="Avvicinati ad un tag NFC"/>
 
     <android.support.design.widget.BottomNavigationView
         android:theme="@style/BottomTheme"
