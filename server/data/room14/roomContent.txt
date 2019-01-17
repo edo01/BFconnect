@@ -1,0 +1,6 @@
+{
+"title":"LABORATORIO SISTEMI E RETI",
+"content":" Laboratorio all'avanguardia adatto ad una didattica innovativa. In questo laboratorio si utilizzano schede elettroniche, si effettua studio di macchine virtuali e si simulano reti di calcolatori.",
+"image":6,
+"type":"informatica"
+}

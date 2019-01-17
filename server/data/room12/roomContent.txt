@@ -1,0 +1,6 @@
+{
+"title":"LABORATORIO TPS",
+"content":" Laboratorio pensato per una didattica progettuale, in questo laboratorio si studia programmazione web e gestione di progetti.",
+"image":6,
+"type":"informatica"
+}

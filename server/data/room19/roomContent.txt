@@ -1,0 +1,6 @@
+{
+"title":"robotica",
+"content":"",
+"image":6,
+"type":"meccanica"
+}

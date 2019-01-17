@@ -1,0 +1,9 @@
+{
+"title":"LABORATORIO DI FISICA",
+"content":"Se ascolto dimentico;\n \tse vedo ricordo;\n \t\t se faccio capisco.\n\t\t\t[Confucio]\n
+Nei Laboratori di Fisica, l’attività didattica viene svolta facendo lavorare le ragazze e i ragazzi a gruppi, dando loro la possibilità di mettere le mani in pasta.\n
+Ogni ragazza e ogni ragazzo che si iscrive al Belluzzi-Fioravanti, fa Fisica in Laboratorio, ogni settimana, con la compresenza di due docenti e il supporto di un assistente tecnico. Questo accade sia che scelga di iscriversi all’istituto Professionale, sia che scelga di iscriversi all’istituto Tecnico.\n
+Fare Fisica in Laboratorio, per noi è il modo migliore per capire la Fisica, che poi significa capire come funziona il mondo ;-)",
+"image":6,
+"type":"fisica"
+}

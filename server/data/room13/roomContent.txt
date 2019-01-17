@@ -1,0 +1,6 @@
+{
+"title":"LABORATORIO INFORMATICA",
+"content":"Laboratorio adatto ad applicazioni pratiche e sviluppo software mediante svariati linguaggi di programmazione.",
+"image":4,
+"type":"informatica"
+}
