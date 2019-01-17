@@ -28,7 +28,7 @@ public class HQRdue extends AppCompatActivity {
         Toolbar t1 = findViewById(R.id.mytoolbar);
         setSupportActionBar(t1);
 
-        FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltPrevH2);
+        FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltPrevQR1);
         fprev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

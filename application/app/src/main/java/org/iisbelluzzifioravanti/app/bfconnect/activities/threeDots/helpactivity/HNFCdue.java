@@ -29,7 +29,7 @@ public class HNFCdue extends AppCompatActivity {
         setSupportActionBar(t1);
 
 
-        FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltPrevQR2);
+        FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltPrevH1);
         fprev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +40,7 @@ public class HNFCdue extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton fnext = (FloatingActionButton) findViewById(R.id.fltNextQR2);
+        FloatingActionButton fnext = (FloatingActionButton) findViewById(R.id.fltNextQR1);
         fnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

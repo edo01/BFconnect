@@ -28,19 +28,8 @@ public class HQRuno extends AppCompatActivity {
         Toolbar t1 = findViewById(R.id.mytoolbar);
         setSupportActionBar(t1);
 
-        FloatingActionButton fhome = (FloatingActionButton) findViewById(R.id.fltMenuH1);
-        fhome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent qrcode=new Intent(getApplicationContext(), Home.class);
-                ActivityOptions options =
-                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
-                startActivity(qrcode, options.toBundle());
-            }
-        });
-
         //FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltPrevH1);
-        FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltPrevQR1);
+        FloatingActionButton fprev = (FloatingActionButton) findViewById(R.id.fltPrevH2);
         fprev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +40,7 @@ public class HQRuno extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton fnext = (FloatingActionButton) findViewById(R.id.fltNextH1);
+        FloatingActionButton fnext = (FloatingActionButton) findViewById(R.id.fltNextQR2);
         fnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
