@@ -24,7 +24,7 @@
 
 
             <android.support.v7.widget.CardView
-                android:id="@+id/cardView1"
+                android:id="@+id/cwDesi"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:layout_alignParentStart="true"
@@ -42,7 +42,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    >
+                    android:background="@drawable/desi_banner">
 
                     <TextView
                         android:id="@+id/titleCV1"
@@ -53,8 +53,8 @@
                         android:layout_marginStart="17dp"
                         android:layout_marginBottom="36dp"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="MAST."
-                        android:textColor="@color/black"
+                        android:text="DESI"
+                        android:textColor="@color/white"
                         android:textSize="35sp" />
 
                     <TextView
@@ -66,14 +66,15 @@
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="-36dp"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Expeditions - COESIA" />
+                        android:textColor="@color/white"
+                        android:text="Progetto DESI - DUCATI" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/cardView2"
+                android:id="@+id/cwMast"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/cardView1"
+                android:layout_below="@+id/cwDesi"
                 android:layout_height="180dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
@@ -86,11 +87,10 @@
                 app:cardElevation="6dp"
                 app:strokeColor="@color/black"
                 app:strokeWidth="2dp">
-                <!-- Inserire detro CardView anche lo sfondo -->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    >
+                    android:background="@drawable/mast_banner">
 
                     <TextView
                         android:id="@+id/titleCV2"
@@ -101,8 +101,8 @@
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentStart="true"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Progetti"
-                        android:textColor="@color/black"
+                        android:text="MAST."
+                        android:textColor="@color/white"
                         android:textSize="35sp" />
 
                     <TextView
@@ -114,7 +114,8 @@
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="-36dp"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Progetti del professionale" />
+                        android:textColor="@color/white"
+                        android:text="Expeditions" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
@@ -139,7 +140,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    >
+                    android:background="@drawable/carp_banner">
 
                     <TextView
                         android:id="@+id/titleCV3"
@@ -150,8 +151,8 @@
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentStart="true"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Progetti"
-                        android:textColor="@color/black"
+                        android:text="Carpigiani"
+                        android:textColor="@color/white"
                         android:textSize="35sp" />
 
                     <TextView
@@ -161,9 +162,10 @@
                         android:layout_below="@+id/titleCV3"
                         android:layout_alignStart="@+id/titleCV3"
                         android:layout_marginStart="0dp"
+                        android:textColor="@color/white"
                         android:layout_marginTop="-36dp"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Progetti del professionale" />
+                        android:text="Progetto Frigotronica - Carpigiani Group" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
@@ -187,19 +189,19 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    >
+                    android:background="@drawable/of_banner">
 
                     <TextView
                         android:id="@+id/titleCV4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
                         android:layout_marginStart="17dp"
                         android:layout_marginBottom="36dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentStart="true"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Progetti"
-                        android:textColor="@color/black"
+                        android:text="Opus Facere"
+                        android:textColor="@color/white"
                         android:textSize="35sp" />
 
                     <TextView
@@ -211,7 +213,8 @@
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="-36dp"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Progetti del professionale" />
+                        android:text="Fare per capire"
+                        android:textColor="@color/white"/>
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
@@ -235,7 +238,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    >
+                    android:background="@drawable/filo_banner">
 
                     <TextView
                         android:id="@+id/titleCV5"
@@ -246,7 +249,7 @@
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentStart="true"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Progetti"
+                        android:text="Filosofia"
                         android:textColor="@color/black"
                         android:textSize="35sp" />
 
@@ -259,9 +262,107 @@
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="-36dp"
                         android:fontFamily="@font/proximanovasoftbold"
-                        android:text="Progetti del professionale" />
+                        android:text="Biennio - Filosofia" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardView6"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/cardView5"
+                android:layout_height="180dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="2dp">
+                <!-- Inserire detro CardView anche lo sfondo -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/texa_banner">
+
+                    <TextView
+                        android:id="@+id/titleCV6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginBottom="36dp"
+                        android:fontFamily="@font/proximanovasoftbold"
+                        android:text="TEXA"
+                        android:textColor="@color/black"
+                        android:textSize="35sp" />
+
+                    <TextView
+                        android:id="@+id/subTitleCV6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/titleCV6"
+                        android:layout_alignStart="@+id/titleCV6"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="-36dp"
+                        android:fontFamily="@font/proximanovasoftbold"
+                        android:text="Automotive Diagnostic Training" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardView7"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/cardView6"
+                android:layout_height="180dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="2dp">
+                <!-- Inserire detro CardView anche lo sfondo -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/stem_banner">
+
+                    <TextView
+                        android:id="@+id/titleCV7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginBottom="36dp"
+                        android:fontFamily="@font/proximanovasoftbold"
+                        android:textColor="@color/black"
+                        android:textSize="35sp" />
+
+                    <TextView
+                        android:id="@+id/subTitleCV7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/titleCV7"
+                        android:layout_alignStart="@+id/titleCV7"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="-36dp"
+                        android:fontFamily="@font/proximanovasoftbold">
+
+                    </TextView>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>
