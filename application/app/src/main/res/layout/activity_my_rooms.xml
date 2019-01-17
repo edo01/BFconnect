@@ -32,7 +32,6 @@
         android:groupIndicator="@null"
         android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
         android:divider="@android:color/darker_gray"
-        android:descendantFocusability="blocksDescendants"
-        android:dividerHeight="0.5dp" />
+        android:descendantFocusability="blocksDescendants" />
 
 </RelativeLayout>

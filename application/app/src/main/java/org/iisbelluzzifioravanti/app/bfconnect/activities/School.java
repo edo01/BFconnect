@@ -5,13 +5,17 @@ package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
 import android.graphics.Point;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.MediaController;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.VideoView;
 
@@ -34,6 +38,36 @@ public class School extends BaseActivity {
     public void activityPage() {
         //for center the image
         ScrollView scr = (ScrollView)findViewById(R.id.scrolling);
+        RelativeLayout tecnico = findViewById(R.id.cwcontainerTecnico);
+
+        Thread giroImmagine = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                do{
+                    try {
+                        Thread.sleep(5000);
+                        tecnico.setBackground(getDrawable(R.drawable.mast_banner));
+                        Thread.sleep(5000);
+                        tecnico.setBackground(getDrawable(R.drawable.carp_banner));
+                        Thread.sleep(5000);
+                        tecnico.setBackground(getDrawable(R.drawable.of_banner));
+                        Thread.sleep(5000);
+                        tecnico.setBackground(getDrawable(R.drawable.filo_banner));
+                        Thread.sleep(5000);
+                        tecnico.setBackground(getDrawable(R.drawable.texa_banner));
+                        Thread.sleep(5000);
+                        tecnico.setBackground(getDrawable(R.drawable.stem_banner));
+                        Thread.sleep(5000);
+                        tecnico.setBackground(getDrawable(R.drawable.desi_banner));
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }while(true);
+            }
+
+        });
+        giroImmagine.start();
 
         //scr.setBackgroundResource(R.drawable.school);
 
@@ -54,6 +88,7 @@ public class School extends BaseActivity {
         //video.setMediaController(media);
         video.start();
         isPlaying = true;
+
         CardView CVTecnico = findViewById(R.id.cardViewIndirizziTecnico);//this button is inked to Tecnico page.
         CardView CVProfessionale = findViewById(R.id.cardViewIndirizziProfessionale);//this button is inked to Professionale page.
         CardView CVIisBelluzzi = findViewById(R.id.cardViewIisBF);

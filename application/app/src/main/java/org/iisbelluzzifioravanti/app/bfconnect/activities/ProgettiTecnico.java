@@ -22,8 +22,8 @@ import org.iisbelluzzifioravanti.app.bfconnect.util.ActivityTools;
 
 public class ProgettiTecnico extends AppCompatActivity {
 
-    private CardView btnQuaReg, btnApparati, btnMezzi, btnManutenzione,
-            btnSeraliMezzi, btnSeraleApparati;
+    private CardView mast, desi, carpigiani, opus,
+            filosofia, texa, stem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,62 +41,73 @@ public class ProgettiTecnico extends AppCompatActivity {
 
         //getting the button of the specialization
 
-        btnQuaReg = findViewById(R.id.btnQuaReg);
-        btnMezzi = findViewById(R.id.btnMezzi);
-        btnApparati = findViewById(R.id.btnApparati);
-        btnManutenzione = findViewById(R.id.btnManutenzione);
-        btnSeraleApparati = findViewById(R.id.btnSeraleApparati);
-        btnSeraliMezzi = findViewById(R.id.btnSeraliMezzi);
+        mast = findViewById(R.id.cwMast);
+        carpigiani = findViewById(R.id.cwCarpigiani);
+        desi = findViewById(R.id.cwDesi);
+        opus = findViewById(R.id.cwOpus);
+        texa = findViewById(R.id.cwTexa);
+        filosofia = findViewById(R.id.cwFilosofia);
+        stem = findViewById(R.id.cwStem);
 
         //setting the onClickListener of the button, if the network isn't available it shows the snackbar
         try{
 
-            btnQuaReg.setOnClickListener(new View.OnClickListener() {
+            mast.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(ActivityTools.isNetworkAvailable(ProgettiTecnico.this)) {
-                        startDownload("qualifiche");
-                    }else doSnackbar("qualifiche");
+                        startDownload("mast");
+                    }else doSnackbar("mast");
                 }
             });
-            btnMezzi.setOnClickListener(new View.OnClickListener() {
+
+            stem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(ActivityTools.isNetworkAvailable(ProgettiTecnico.this)) {
-                        startDownload("mezzi");
-                    }else doSnackbar("mezzi");
+                        startDownload("stem");
+                    }else doSnackbar("stem");
                 }
             });
-            btnManutenzione.setOnClickListener(new View.OnClickListener() {
+
+            carpigiani.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(ActivityTools.isNetworkAvailable(ProgettiTecnico.this)) {
-                        startDownload("manutenzione");
-                    }else doSnackbar("manutenzione");
+                        startDownload("carpigiani");
+                    }else doSnackbar("carpigiani");
                 }
             });
-            btnApparati.setOnClickListener(new View.OnClickListener() {
+            opus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(ActivityTools.isNetworkAvailable(ProgettiTecnico.this)) {
+                        startDownload("opus");
+                    }else doSnackbar("opus");
+                }
+            });
+            desi.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(ActivityTools.isNetworkAvailable(ProgettiTecnico.this)){
-                        startDownload("apparati");
-                    }else doSnackbar("apparati");
+                        startDownload("ducati");
+                    }else doSnackbar("ducati");
                 }
             });
-            btnSeraleApparati.setOnClickListener(new View.OnClickListener() {
+            texa.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(ActivityTools.isNetworkAvailable(ProgettiTecnico.this)) {
-                        startDownload("seraliApparati");
-                    }else doSnackbar("seraliApparati");
+                        startDownload("texa");
+                    }else doSnackbar("texa");
                 }
             });
-            btnSeraliMezzi.setOnClickListener(new View.OnClickListener() {
+            filosofia.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(ActivityTools.isNetworkAvailable(ProgettiTecnico.this)) {
-                        startDownload("seraliMezzi");
-                    }else doSnackbar("seraliMezzi");
+                        startDownload("filosofia");
+                    }else doSnackbar("filosofia");
                 }
             });
 
