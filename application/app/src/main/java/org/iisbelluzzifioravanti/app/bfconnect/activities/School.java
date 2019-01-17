@@ -10,6 +10,7 @@ import android.graphics.ColorFilter;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.view.Display;
 import android.view.View;
@@ -39,7 +40,6 @@ public class School extends BaseActivity {
         //for center the image
         ScrollView scr = (ScrollView)findViewById(R.id.scrolling);
         RelativeLayout tecnico = findViewById(R.id.cwcontainerTecnico);
-
         Thread giroImmagine = new Thread(new Runnable() {
 
             @Override
@@ -47,19 +47,54 @@ public class School extends BaseActivity {
                 do{
                     try {
                         Thread.sleep(5000);
-                        tecnico.setBackground(getDrawable(R.drawable.mast_banner));
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tecnico.setBackground(ContextCompat.getDrawable(School.this, R.drawable.mast_banner));
+                            }
+                        });
                         Thread.sleep(5000);
-                        tecnico.setBackground(getDrawable(R.drawable.carp_banner));
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tecnico.setBackground(ContextCompat.getDrawable(School.this, R.drawable.carp_banner));
+                            }
+                        });
                         Thread.sleep(5000);
-                        tecnico.setBackground(getDrawable(R.drawable.of_banner));
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tecnico.setBackground(ContextCompat.getDrawable(School.this,R.drawable.of_banner));
+                            }
+                        });
                         Thread.sleep(5000);
-                        tecnico.setBackground(getDrawable(R.drawable.filo_banner));
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tecnico.setBackground(ContextCompat.getDrawable(School.this,R.drawable.filo_banner));
+                            }
+                        });
                         Thread.sleep(5000);
-                        tecnico.setBackground(getDrawable(R.drawable.texa_banner));
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tecnico.setBackground(ContextCompat.getDrawable(School.this,R.drawable.texa_banner));
+                            }
+                        });
                         Thread.sleep(5000);
-                        tecnico.setBackground(getDrawable(R.drawable.stem_banner));
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tecnico.setBackground(ContextCompat.getDrawable(School.this, R.drawable.stem_banner));
+                            }
+                        });
                         Thread.sleep(5000);
-                        tecnico.setBackground(getDrawable(R.drawable.desi_banner));
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tecnico.setBackground(ContextCompat.getDrawable(School.this,R.drawable.desi_banner));
+                            }
+                        });
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -98,7 +133,6 @@ public class School extends BaseActivity {
         CVprogettiProfessionale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(School.this, ProgettiProfessionale.class);
                 ActivityOptions options =
                         ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
@@ -119,6 +153,7 @@ public class School extends BaseActivity {
         CVIisBelluzzi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(isPlaying){video.pause();isPlaying=false;}
                 else{video.start();isPlaying=true;}
             }
