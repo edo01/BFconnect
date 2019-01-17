@@ -121,9 +121,9 @@
 
 
             <android.support.v7.widget.CardView
-                android:id="@+id/cardView3"
+                android:id="@+id/cwCarpigiani"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/cardView2"
+                android:layout_below="@+id/cwMast"
                 android:layout_height="180dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
@@ -170,9 +170,9 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/cardView4"
+                android:id="@+id/cwOpus"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/cardView3"
+                android:layout_below="@+id/cwCarpigiani"
                 android:layout_height="180dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
@@ -219,9 +219,9 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/cardView5"
+                android:id="@+id/cwFilosofia"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/cardView4"
+                android:layout_below="@+id/cwOpus"
                 android:layout_height="180dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
@@ -267,9 +267,9 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/cardView6"
+                android:id="@+id/cwTexa"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/cardView5"
+                android:layout_below="@+id/cwFilosofia"
                 android:layout_height="180dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
@@ -316,9 +316,9 @@
 
 
             <android.support.v7.widget.CardView
-                android:id="@+id/cardView7"
+                android:id="@+id/cwStem"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/cardView6"
+                android:layout_below="@+id/cwTexa"
                 android:layout_height="180dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
