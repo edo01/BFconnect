@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.MediaController;
@@ -53,7 +54,14 @@ public class Fisica extends AppCompatActivity {
         video2.setVideoPath("android.resource://"+getPackageName()+"/"+ R.raw.pallone);
         media2.setAnchorView(video2);
         video2.setMediaController(media2);
-
+        scr.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+            @Override
+            public void onScrollChanged() {
+                media.hide();
+                media2.hide();
+                // DO SOMETHING WITH THE SCROLL COORDINATES
+            }
+        });
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -81,6 +89,7 @@ public class Fisica extends AppCompatActivity {
         CardView c1 = findViewById(R.id.cardvideoLink1);
         CardView c2 = findViewById(R.id.cardvideoLink2);
         CardView c3 = findViewById(R.id.cardvideoLink3);
+        CardView c4 = findViewById(R.id.cardvideoLink4);
 
         c1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +112,14 @@ public class Fisica extends AppCompatActivity {
             public void onClick(View v) {
                 Intent viewIntent = new Intent("android.intent.action.VIEW",
                         Uri.parse("https://www.youtube.com/watch?v=UojV7fzQ5qc&list=PLmKUwJ0KJQnXuHJMYU08kXwh8BMKiBqMg"));
+                startActivity(viewIntent);
+            }
+        });
+        c4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewIntent = new Intent("android.intent.action.VIEW",
+                        Uri.parse("https://ocw.mit.edu/courses/audio-video-courses/#physics"));
                 startActivity(viewIntent);
             }
         });
