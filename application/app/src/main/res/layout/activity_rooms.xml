@@ -54,8 +54,8 @@
 
                         <android.support.v7.widget.AppCompatImageView
                             android:id="@+id/imageOne"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
+                            android:scaleType="centerCrop"
+                            android:maxWidth="350dp"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent" />
 
@@ -76,8 +76,6 @@
 
                         <android.support.v7.widget.AppCompatImageView
                             android:id="@+id/imageTwo"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent" />
 
@@ -98,12 +96,11 @@
 
                         <android.support.v7.widget.AppCompatImageView
                             android:id="@+id/imageThree"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
                             android:layout_width="wrap_content"
+                            android:scaleType="centerCrop"
                             android:layout_height="match_parent" />
 
-                </android.support.v7.widget.CardView>
+                    </android.support.v7.widget.CardView>
                     <android.support.v7.widget.CardView
                         android:id="@+id/cvp4"
                         android:layout_width="wrap_content"
@@ -119,8 +116,7 @@
 
                         <android.support.v7.widget.AppCompatImageView
                             android:id="@+id/imageFour"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
+                            android:scaleType="centerCrop"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent" />
 
@@ -140,8 +136,7 @@
 
                         <android.support.v7.widget.AppCompatImageView
                             android:id="@+id/imageFive"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
+                            android:scaleType="centerCrop"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent" />
 
@@ -161,8 +156,7 @@
 
                         <android.support.v7.widget.AppCompatImageView
                             android:id="@+id/imageSix"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
+                            android:scaleType="centerCrop"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent" />
                     </android.support.v7.widget.CardView>

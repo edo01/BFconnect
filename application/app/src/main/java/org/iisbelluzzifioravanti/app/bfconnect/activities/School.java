@@ -18,7 +18,10 @@ import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.VideoView;
+
+import com.google.android.gms.vision.text.Text;
 
 import org.iisbelluzzifioravanti.app.bfconnect.BaseActivity;
 import org.iisbelluzzifioravanti.app.bfconnect.R;
@@ -31,7 +34,6 @@ import org.iisbelluzzifioravanti.app.bfconnect.R;
  */
 public class School extends BaseActivity {
 
-    private Button btnTecnico, btnProfessionale;
     private VideoView video;
     private boolean isPlaying = false;
 
@@ -40,9 +42,15 @@ public class School extends BaseActivity {
         //for center the image
         ScrollView scr = (ScrollView)findViewById(R.id.scrolling);
         RelativeLayout tecnico = findViewById(R.id.cwcontainerTecnico);
-        Thread giroImmagine = new Thread(new Runnable() {
+        RelativeLayout professionale = findViewById(R.id.cwcontainerProfessionale);
 
-            @Override
+        TextView subtitleCV1 = findViewById(R.id.subTitleCV1School);
+        TextView titleCV1 = findViewById(R.id.titleCV1School);
+        TextView titleCV2 = findViewById(R.id.titleCV2School);
+        TextView subtitleCV2 = findViewById(R.id.subTitleCV2School);
+
+        Thread giroImmagine = new Thread(new Runnable() {
+        @Override
             public void run() {
                 do{
                     try {
@@ -72,6 +80,8 @@ public class School extends BaseActivity {
                             @Override
                             public void run() {
                                 tecnico.setBackground(ContextCompat.getDrawable(School.this,R.drawable.filo_banner));
+                                subtitleCV1.setTextColor(getResources().getColor(R.color.black));
+                                titleCV1.setTextColor(getResources().getColor(R.color.black));
                             }
                         });
                         Thread.sleep(5000);
@@ -86,6 +96,8 @@ public class School extends BaseActivity {
                             @Override
                             public void run() {
                                 tecnico.setBackground(ContextCompat.getDrawable(School.this, R.drawable.stem_banner));
+                                subtitleCV1.setVisibility(View.INVISIBLE);
+                                titleCV1.setVisibility(View.INVISIBLE);
                             }
                         });
                         Thread.sleep(5000);
@@ -93,6 +105,10 @@ public class School extends BaseActivity {
                             @Override
                             public void run() {
                                 tecnico.setBackground(ContextCompat.getDrawable(School.this,R.drawable.desi_banner));
+                                subtitleCV1.setVisibility(View.VISIBLE);
+                                titleCV1.setVisibility(View.VISIBLE);
+                                subtitleCV1.setTextColor(getResources().getColor(R.color.white));
+                                titleCV1.setTextColor(getResources().getColor(R.color.white));
                             }
                         });
                     } catch (InterruptedException e) {
@@ -103,7 +119,55 @@ public class School extends BaseActivity {
 
         });
         giroImmagine.start();
+        Thread giroImmaginePr = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                do{
+                    try {
+                        Thread.sleep(5000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                professionale.setBackground(ContextCompat.getDrawable(School.this, R.drawable.of_banner));
+                            }
+                        });
+                        Thread.sleep(5000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                professionale.setBackground(ContextCompat.getDrawable(School.this, R.drawable.magneti_banner));
+                                subtitleCV2.setVisibility(View.INVISIBLE);
+                                titleCV2.setVisibility(View.INVISIBLE);
+                            }
+                        });
+                        Thread.sleep(5000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                professionale.setBackground(ContextCompat.getDrawable(School.this, R.drawable.texa_banner));
+                                subtitleCV2.setVisibility(View.VISIBLE);
+                                titleCV2.setVisibility(View.VISIBLE);
+                                subtitleCV2.setTextColor(getResources().getColor(R.color.black));
+                                titleCV2.setTextColor(getResources().getColor(R.color.black));
+                            }
+                        });
+                        Thread.sleep(5000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                professionale.setBackground(ContextCompat.getDrawable(School.this, R.drawable.toyota_banner));
+                                subtitleCV2.setTextColor(getResources().getColor(R.color.white));
+                                titleCV2.setTextColor(getResources().getColor(R.color.white));
+                            }
+                        });
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }while(true);
+            }
 
+        });
+        giroImmaginePr.start();
         //scr.setBackgroundResource(R.drawable.school);
 
         //to set scrolling start

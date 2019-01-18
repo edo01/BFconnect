@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -42,11 +43,17 @@ public class Rooms extends AppCompatActivity {
         images = new ImageView[6];
 
         images[0] = (ImageView) findViewById(R.id.imageOne);
+        images[0].setDrawingCacheEnabled(true);
         images[1] = (ImageView) findViewById(R.id.imageTwo);
+        images[1].setDrawingCacheEnabled(true);
         images[2] = (ImageView) findViewById(R.id.imageThree);
+        images[2].setDrawingCacheEnabled(true);
         images[3] = (ImageView) findViewById(R.id.imageFour);
+        images[3].setDrawingCacheEnabled(true);
         images[4] = (ImageView) findViewById(R.id.imageFive);
+        images[4].setDrawingCacheEnabled(true);
         images[5] = (ImageView) findViewById(R.id.imageSix);
+        images[5].setDrawingCacheEnabled(true);
         cards[0] = findViewById(R.id.cvp1);
         cards[1] = findViewById(R.id.cvp2);
         cards[2] = findViewById(R.id.cvp3);
