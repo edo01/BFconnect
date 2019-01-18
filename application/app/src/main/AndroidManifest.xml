@@ -25,6 +25,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Fisica"></activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -119,16 +121,18 @@
             android:parentActivityName=".activities.Home"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.ProgettiTecnico"
+        <activity
+            android:name=".activities.ProgettiTecnico"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:parentActivityName=".activities.School"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.ProgettiProfessionale"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ProgettiProfessionale"
             android:configChanges="keyboardHidden|orientation"
             android:label=""
             android:parentActivityName=".activities.Home"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/Aschool"
+    android:id="@+id/AprogettiProfessionale"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.School">
@@ -25,7 +25,7 @@
 
 
             <android.support.v7.widget.CardView
-                android:id="@+id/cardViewToyota"
+                android:id="@+id/cwToyota"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:layout_alignParentStart="true"
@@ -74,9 +74,9 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/cardViewMagneti"
+                android:id="@+id/cwMagneti"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/cardViewToyota"
+                android:layout_below="@+id/cwToyota"
                 android:layout_height="180dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="15dp"
@@ -98,10 +98,11 @@
 
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
-                android:id="@+id/cwOpus"
+                android:id="@+id/cwOpusProf"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/cardViewMagneti"
+                android:layout_below="@+id/cwMagneti"
                 android:layout_height="180dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
@@ -148,9 +149,9 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/cwTexa"
+                android:id="@+id/cwTexaProf"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/cwOpus"
+                android:layout_below="@+id/cwOpusProf"
                 android:layout_height="180dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
