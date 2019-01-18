@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.MediaController;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -33,22 +34,14 @@ public class Fisica extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_fisica);
-        images = new ImageView[6];
-
-        images[0] = (ImageView) findViewById(R.id.imageOne);
-        images[0].setDrawingCacheEnabled(true);
-        images[2] = (ImageView) findViewById(R.id.imageThree);
-        images[2].setDrawingCacheEnabled(true);
-        images[3] = (ImageView) findViewById(R.id.imageFour);
-        images[3].setDrawingCacheEnabled(true);
-        images[4] = (ImageView) findViewById(R.id.imageFive);
-        images[4].setDrawingCacheEnabled(true);
-        images[5] = (ImageView) findViewById(R.id.imageSix);
-        images[5].setDrawingCacheEnabled(true);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.mytoolbar);
         setSupportActionBar(toolbar);
-
+        ScrollView scr = findViewById(R.id.scrollFisica);
+        scr.post(new Runnable() {
+            public void run() {
+                scr.scrollTo(0,0);
+            }
+        });
         VideoView video1 = findViewById(R.id.videoView1);
         MediaController media = new MediaController(this);
         video1.setVideoPath("android.resource://"+getPackageName()+"/"+ R.raw.carrello);
@@ -58,8 +51,8 @@ public class Fisica extends AppCompatActivity {
         VideoView video2 = findViewById(R.id.videoView2);
         MediaController media2 = new MediaController(this);
         video2.setVideoPath("android.resource://"+getPackageName()+"/"+ R.raw.pallone);
-        media.setAnchorView(video2);
-        video1.setMediaController(media2);
+        media2.setAnchorView(video2);
+        video2.setMediaController(media2);
 
         new Thread(new Runnable() {
             @Override

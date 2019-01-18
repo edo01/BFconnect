@@ -8,6 +8,7 @@
         android:id="@+id/mytoolbar"/>
 
     <ScrollView
+        android:id="@+id/scrollFisica"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:overScrollMode="never"
@@ -29,6 +30,7 @@
                 android:textColor="@color/black"
                 />
 
+<<<<<<< HEAD
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="260dp"
@@ -160,12 +162,14 @@
                     </android.support.v7.widget.CardView>
                 </LinearLayout>
             </HorizontalScrollView>
+=======
+>>>>>>> 24fc153a93e89a0fbfbdc9e6611f6bf828bf7ee7
             <TextView
                 android:id="@+id/contentTitle"
                 android:layout_marginTop="30dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/viewPhotos"
+                android:layout_below="@+id/titleRoom"
                 android:fontFamily="@font/proximanovasoftbold"
                 android:textSize="30sp"
                 android:layout_centerHorizontal="true"
