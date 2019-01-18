@@ -9,8 +9,9 @@
     android:elevation="4dp"
     app:titleTextColor="@color/black"
     android:theme="@android:style/ThemeOverlay.Material.ActionBar" >
-<android.support.v7.widget.AppCompatImageView
-    android:layout_width="100dp"
-    android:layout_height="50dp"
-    android:src="@drawable/ic_bf_connect_horizontal"/>
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_bf_connect_horizontal" />
 </android.support.v7.widget.Toolbar>
