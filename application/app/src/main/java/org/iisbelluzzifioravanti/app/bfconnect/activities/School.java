@@ -5,13 +5,18 @@ package org.iisbelluzzifioravanti.app.bfconnect.activities;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
 import android.graphics.Point;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.MediaController;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.VideoView;
 
@@ -34,6 +39,70 @@ public class School extends BaseActivity {
     public void activityPage() {
         //for center the image
         ScrollView scr = (ScrollView)findViewById(R.id.scrolling);
+        RelativeLayout tecnico = findViewById(R.id.cwcontainerTecnico);
+        Thread giroImmagine = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                do{
+                    try {
+                        Thread.sleep(5000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tecnico.setBackground(ContextCompat.getDrawable(School.this, R.drawable.mast_banner));
+                            }
+                        });
+                        Thread.sleep(5000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tecnico.setBackground(ContextCompat.getDrawable(School.this, R.drawable.carp_banner));
+                            }
+                        });
+                        Thread.sleep(5000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tecnico.setBackground(ContextCompat.getDrawable(School.this,R.drawable.of_banner));
+                            }
+                        });
+                        Thread.sleep(5000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tecnico.setBackground(ContextCompat.getDrawable(School.this,R.drawable.filo_banner));
+                            }
+                        });
+                        Thread.sleep(5000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tecnico.setBackground(ContextCompat.getDrawable(School.this,R.drawable.texa_banner));
+                            }
+                        });
+                        Thread.sleep(5000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tecnico.setBackground(ContextCompat.getDrawable(School.this, R.drawable.stem_banner));
+                            }
+                        });
+                        Thread.sleep(5000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tecnico.setBackground(ContextCompat.getDrawable(School.this,R.drawable.desi_banner));
+                            }
+                        });
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }while(true);
+            }
+
+        });
+        giroImmagine.start();
 
         //scr.setBackgroundResource(R.drawable.school);
 
@@ -54,6 +123,7 @@ public class School extends BaseActivity {
         //video.setMediaController(media);
         video.start();
         isPlaying = true;
+
         CardView CVTecnico = findViewById(R.id.cardViewIndirizziTecnico);//this button is inked to Tecnico page.
         CardView CVProfessionale = findViewById(R.id.cardViewIndirizziProfessionale);//this button is inked to Professionale page.
         CardView CVIisBelluzzi = findViewById(R.id.cardViewIisBF);
@@ -63,7 +133,6 @@ public class School extends BaseActivity {
         CVprogettiProfessionale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(School.this, ProgettiProfessionale.class);
                 ActivityOptions options =
                         ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
@@ -84,6 +153,7 @@ public class School extends BaseActivity {
         CVIisBelluzzi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(isPlaying){video.pause();isPlaying=false;}
                 else{video.start();isPlaying=true;}
             }

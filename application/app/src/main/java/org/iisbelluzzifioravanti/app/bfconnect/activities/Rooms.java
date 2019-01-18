@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -26,6 +27,7 @@ import org.iisbelluzzifioravanti.app.bfconnect.database.DbTools;
 public class Rooms extends AppCompatActivity {
     public static TextView content, title;
     public static ImageView[] images;
+    private static CardView[] cards;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,7 @@ public class Rooms extends AppCompatActivity {
         setSupportActionBar(toolbar);
         title =findViewById(R.id.titleRoom);
         content = (TextView)findViewById(R.id.content);
-
+        cards = new CardView[6];
         images = new ImageView[6];
 
         images[0] = (ImageView) findViewById(R.id.imageOne);
@@ -45,6 +47,12 @@ public class Rooms extends AppCompatActivity {
         images[3] = (ImageView) findViewById(R.id.imageFour);
         images[4] = (ImageView) findViewById(R.id.imageFive);
         images[5] = (ImageView) findViewById(R.id.imageSix);
+        cards[0] = findViewById(R.id.cvp1);
+        cards[1] = findViewById(R.id.cvp2);
+        cards[2] = findViewById(R.id.cvp3);
+        cards[3] = findViewById(R.id.cvp4);
+        cards[4] = findViewById(R.id.cvp5);
+        cards[5] = findViewById(R.id.cvp6);
 
         try {
             Bundle datapassed = getIntent().getExtras();
@@ -74,6 +82,7 @@ public class Rooms extends AppCompatActivity {
                     Log.d("immagine nulla","immagine nulla");
                     images[i].setVisibility(View.INVISIBLE);
                     images[i].setImageResource(0);
+                    cards[i].setVisibility(View.INVISIBLE);
                 }
 
             }

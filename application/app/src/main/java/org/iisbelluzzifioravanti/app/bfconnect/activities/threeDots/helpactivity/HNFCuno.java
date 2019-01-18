@@ -41,7 +41,7 @@ public class HNFCuno extends AppCompatActivity {
         });
 
         FloatingActionButton fhome = (FloatingActionButton) findViewById(R.id.fltMenuH1);
-        fnext.setOnClickListener(new View.OnClickListener() {
+        fhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent qrcode = new Intent(getApplicationContext(), Home.class);

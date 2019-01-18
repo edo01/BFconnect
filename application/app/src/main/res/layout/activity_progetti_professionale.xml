@@ -15,6 +15,7 @@
         android:layout_height="match_parent"
         android:fillViewport="true"
         android:isScrollContainer="true"
+        android:scrollbars="none"
         android:layout_below="@id/mytoolbar"
         android:id="@+id/scrolling">
         <RelativeLayout

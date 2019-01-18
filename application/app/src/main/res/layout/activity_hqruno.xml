@@ -13,7 +13,7 @@
 
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fltPrevQR1"
+        android:id="@+id/fltPrevH2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -40,7 +40,7 @@
         app:srcCompat="@drawable/punti_hr_tre" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fltNextH1"
+        android:id="@+id/fltNextQR2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/mytoolbar"

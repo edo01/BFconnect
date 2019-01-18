@@ -31,8 +31,8 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
     private String pdf;
     private int nPdf;
 
-    //private final String address = "http://192.168.1.71:8080";
-    private final String address = "http://taddia.sytes.net:6002";
+    private final String address = "http://192.168.43.99:8080";
+    //private final String address = "http://taddia.sytes.net:6002";
 
     private Context context;
     private ProgressDialog pDialog;
@@ -99,6 +99,42 @@ public class PdfHandler extends AsyncTask<Void, Void, Boolean> {
             case "work_school":
                 pdf = "Alternanza_scuola_Lavoro_BF.pdf";
                 nPdf=10;
+                break;
+            case "mast":
+                pdf = "Mast_BF.pdf";
+                nPdf=11;
+                break;
+            case "ducati":
+                pdf = "Ducati_BF.pdf";
+                nPdf=12;
+                break;
+            case "opus":
+                pdf = "Opus_facere_BF.pdf";
+                nPdf=13;
+                break;
+            case "magneti":
+                pdf = "Magneti_Marelli_BF.pdf";
+                nPdf=14;
+                break;
+            case "filosofia":
+                pdf = "Filosofia_BF.pdf";
+                nPdf=15;
+                break;
+            case "carpigiani":
+                pdf = "Carpigiani_BF.pdf";
+                nPdf=16;
+                break;
+            case "stem":
+                pdf = "stem_BF.pdf";
+                nPdf=17;
+                break;
+            case "texa":
+                pdf = "texa_BF.pdf";
+                nPdf=18;
+                break;
+            case "toyota":
+                pdf = "toyota_BF.pdf";
+                nPdf=19;
                 break;
             default:
                 pdf = "orari_del_tecnico.pdf";
