@@ -4,7 +4,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">#d82014</item>
+        <item name="colorPrimaryDark">#DF2228</item>
         <item name="colorAccent">@color/white</item>
         <item name="android:homeAsUpIndicator">@color/black</item>
     </style>

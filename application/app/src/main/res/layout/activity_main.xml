@@ -65,12 +65,13 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/navigation"
         android:layout_alignBaseline="@+id/floatQR"
-        android:layout_marginBottom="35dp"
         android:layout_marginLeft="40dp"
-        android:visibility="invisible"
+        android:layout_marginBottom="163dp"
         android:fontFamily="@font/proximanovasoftbold"
         android:text="scannerizza il qrcode"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:visibility="invisible" />
+
 
 </RelativeLayout>
