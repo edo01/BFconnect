@@ -9,6 +9,14 @@ public final class Tools {
             "FFPP12"
     };
 
+    public static String[] suggerimenti = { "Clicca il qr code in basso a destra e scannerizza le aule!",
+            "Cerca i tag NFC e avvicina il telefono per scoprire nuovi laboratori!",
+            "Scopri i nostri piani formativi cliccando in basso su scuola!",
+            "Hai nostalgia dei nostri laboratori? Riguardali nella pagina apposita in basso!",
+            "Chi siamo? Scoprilo cliccando sui 3 puntini in alto a destra!",
+            "Hai bisogno di aiuto? Clicca in alto la \"i\" per avere una spiegazione più dettagliata!"
+    };
+
     //not instantiable
     private Tools(){}
 

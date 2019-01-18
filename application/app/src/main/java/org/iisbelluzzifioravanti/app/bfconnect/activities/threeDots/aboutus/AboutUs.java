@@ -103,7 +103,7 @@ public class AboutUs extends AppCompatActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         gmap = googleMap;
-        gmap.setMinZoomPreference(13);
+        gmap.setMinZoomPreference(12);
         gmap.setMaxZoomPreference(16);
         LatLng bel = new LatLng(44.489236, 11.284999599999992);
         gmap.addMarker(new MarkerOptions().position(bel).title("IIS Belluzzi Fioravanti").snippet("Via G. D. Cassini, 3"));

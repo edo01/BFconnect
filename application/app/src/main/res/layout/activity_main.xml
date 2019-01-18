@@ -57,20 +57,41 @@
         android:layout_marginBottom="75dp"
         android:clickable="true"
         app:backgroundTint="@color/white"
-        app:srcCompat="@drawable/qrcodeicon" />
+        app:srcCompat="@drawable/qrcodeicon"/>
 
-    <TextView
-        android:id="@+id/qrcodeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/navigation"
-        android:layout_alignBaseline="@+id/floatQR"
-        android:layout_marginBottom="35dp"
-        android:layout_marginLeft="40dp"
-        android:visibility="invisible"
-        android:fontFamily="@font/proximanovasoftbold"
-        android:text="scannerizza il qrcode"
-        android:textColor="@color/black"
-        android:textSize="20sp" />
+    <android.support.v7.widget.CardView
+        android:id="@+id/cwSuggerimenti"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:layout_alignTop="@+id/floatQR"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_above="@+id/navigation"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="-10dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="6dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/qrcodeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:fontFamily="@font/proximanovasoftbold"
+                android:text="@string/sugg1"
+                android:textColor="@color/black" />
 
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
 </RelativeLayout>

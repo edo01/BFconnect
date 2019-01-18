@@ -20,6 +20,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.ActionBar;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -34,9 +35,11 @@ import org.iisbelluzzifioravanti.app.bfconnect.R;
 import org.iisbelluzzifioravanti.app.bfconnect.database.DbTools;
 import org.iisbelluzzifioravanti.app.bfconnect.nfc.NfcAction;
 import org.iisbelluzzifioravanti.app.bfconnect.util.ActivityTools;
+import org.w3c.dom.Text;
+
+import static com.google.common.collect.ComparisonChain.start;
 
 /**
- * toDO: 26/11/18 stopping animation when bottom menu is clicked
  *
  * This is the main class linked to the "activity_main.xml" in "res/layout/activity_main.xml".
  * @extends BaseActivity
@@ -50,19 +53,84 @@ public class Home extends BaseActivity {
     private ImageView image;
     private FloatingActionButton f1;
 
+    public static CardView Cardsuggerimento;
+    public static TextView suggerimento;
+
     @Override
     public void activityPage() {
 
+        Cardsuggerimento = findViewById(R.id.cwSuggerimenti);
+        suggerimento = findViewById(R.id.qrcodeText);
+
+        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+        if (nfcAdapter == null) {
+            TextView textnfc = findViewById(R.id.NFCtext);
+            textnfc.setVisibility(View.INVISIBLE);
+        }
+//edo puoi fare un lavoro molto più pulito con sti Thread
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                long counter = 0;
+                do {
+                    Animation animation = AnimationUtils.loadAnimation(Home.this, R.anim.moveout);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Home.Cardsuggerimento.startAnimation(animation);
+                        }
+                    });
+                    try {
+                        Thread.sleep(6500);
+                        Animation animation2 = AnimationUtils.loadAnimation(Home.this, R.anim.movein);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Home.Cardsuggerimento.startAnimation(animation2);
+                            }
+                        });
+                        counter++;
+                        String sugg;
+                        switch ((int) (counter%5)){
+                            case 0 :
+                                if(nfcAdapter==null) {
+                                    sugg = Tools.suggerimenti[0];
+                                }else sugg = Tools.suggerimenti[1];
+                                break;
+                            case 1 :
+                                sugg = Tools.suggerimenti[2];
+                                break;
+                            case 2 :
+                                sugg = Tools.suggerimenti[3];
+                                break;
+                            case 3 :
+                                sugg = Tools.suggerimenti[4];
+                                break;
+                            case 4 :
+                                sugg = Tools.suggerimenti[5];
+                                break;
+                            default:
+                                sugg = getString(R.string.sugg1);
+                        }
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Home.suggerimento.setText(sugg);
+                            }
+                        });
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }while(true);
+            }
+        });
+        t.start();
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 0);
 
-        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
-        if (nfcAdapter == null) { //if your device hasn't the NFC the application will advise you with a toast
-            TextView textqr = findViewById(R.id.qrcodeText);
-            textqr.setVisibility(View.VISIBLE);
-            TextView textnfc = findViewById(R.id.NFCtext);
-            textqr.setVisibility(View.INVISIBLE);
-        }
+
 
         nfc = new NfcAction();//create an NfcAction object for maneging the nfc reader
         image = (ImageView) findViewById(R.id.logo);
