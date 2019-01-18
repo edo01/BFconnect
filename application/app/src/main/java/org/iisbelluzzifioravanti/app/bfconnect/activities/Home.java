@@ -48,6 +48,8 @@ import static com.google.common.collect.ComparisonChain.start;
  */
 public class Home extends BaseActivity {
 
+    static boolean ThreadIsRunning=false;
+
     private NfcAction nfc;
     private ActionBar toolbar;
     private ImageView image;
@@ -67,7 +69,8 @@ public class Home extends BaseActivity {
             TextView textnfc = findViewById(R.id.NFCtext);
             textnfc.setVisibility(View.INVISIBLE);
         }
-//edo puoi fare un lavoro molto più pulito con sti Thread
+        //edo puoi fare un lavoro molto più pulito con sti Thread
+
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -126,7 +129,9 @@ public class Home extends BaseActivity {
                 }while(true);
             }
         });
-        t.start();
+        if (!ThreadIsRunning)t.start();
+        if (!ThreadIsRunning)ThreadIsRunning= true;
+
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 0);
 
