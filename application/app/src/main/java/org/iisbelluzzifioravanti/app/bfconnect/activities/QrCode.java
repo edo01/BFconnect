@@ -109,6 +109,16 @@ public class QrCode extends AppCompatActivity {
             //open the db
             pass = false;
             DbTools dbHandler = new DbTools(QrCode.this);
+
+            if(qtxt.equals("FFPP12")){
+                //creating intent
+                Intent in = new Intent(QrCode.this, Fisica.class);
+                //starting activity
+                ActivityOptions options =
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                startActivity(in , options.toBundle());
+            }
+
             if (dbHandler.roomExists(qtxt)) {
                 //room found
                 Log.d("room found in db", "opening the room");

@@ -198,6 +198,16 @@ public class Home extends BaseActivity {
     }
 
     private void openRoom(String txtNfc) {
+
+        if(txtNfc.equals("FFPP12")){
+            //creating intent
+            Intent in = new Intent(Home.this, Fisica.class);
+            //starting activity
+            ActivityOptions options =
+                    ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+            startActivity(in , options.toBundle());
+        }
+
         //checking the id of the nfc
         if (Tools.CheckId(txtNfc)) {
             //opening the db
