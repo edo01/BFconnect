@@ -54,8 +54,6 @@
 
                         <android.support.v7.widget.AppCompatImageView
                             android:id="@+id/imageOne"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
                             android:scaleType="centerCrop"
                             android:maxWidth="350dp"
                             android:layout_width="wrap_content"
