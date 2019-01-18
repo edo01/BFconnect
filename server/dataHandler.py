@@ -8,7 +8,7 @@ import json
 class DataHandler:
     time = 0
     # the number of nuumbers in rooms is variable
-    statistic = '{"middleTimeOfResponse":0,"responses":0,"errors":0,"rooms":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],' \
+    statistic = '{"middleTimeOfResponse":0,"responses":0,"errors":0,"rooms":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],' \
                 '"pdf":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}'
     dictionary = json.loads(statistic)
 
@@ -22,7 +22,7 @@ class DataHandler:
 # the id must be of 6 chars
     room = {
         'beOPEN': '0', 'ETC34c': '1', 'ETC620': '2', 'ETC34d': '3', 'CHT32c': '4', 'CHT645': '5','CHTT00': '7',
-        'EXt6po': '8', 'EXt400': '9', 'EXt120': '10', 'EXt600': '11', 'IIc1tf':'12','IIc64x':'13',
+        'EXt6po': '8', 'EXt400': '9', 'EXt120': '10', 'EXt600': '11', 'IIc1tf': '12', 'IIc64x':'13',
         'IIcpo0': '14','FFPP12': '15','TTm65h': '16', 'TTms10': '17', 'TTmqw0': '18', 'TTm111': '19'
     }
 
