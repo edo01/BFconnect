@@ -27,11 +27,12 @@ public class MyRooms extends BaseActivity {
 
     private String[] rooms;
     private final String[] types = {"informatica", "chimica","meccanica","elettronica","fisica","mappe"};
-    private CardView informatica;
     MyAdapter listAdapter;
     ExpandableListView expListView;
     List<Bitmap> listDataHeader;
     HashMap<Bitmap, List<String>> listDataChild;
+
+    private static String labFisica = "LABORATORIO DI FISICA";
 
     @Override
     public void activityPage() {
@@ -52,6 +53,18 @@ public class MyRooms extends BaseActivity {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
+
+                if(listDataChild.get(
+                        listDataHeader.get(groupPosition)).get(
+                        childPosition).equals(labFisica)){
+                    //creating intent
+                    Intent in = new Intent(MyRooms.this, Fisica.class);
+                    //starting activity
+                    ActivityOptions options =
+                            ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.fadein, R.anim.fadeout);
+                    startActivity(in , options.toBundle());
+                }
+
                 DbTools dbHandler = new DbTools(getApplicationContext());
                 Cursor cursor = dbHandler.getCursorLineByTitle(listDataChild.get(
                         listDataHeader.get(groupPosition)).get(
@@ -115,7 +128,6 @@ public class MyRooms extends BaseActivity {
                                 long arg3) {
             DbTools dbHandler = new DbTools(getApplicationContext());
             Cursor cursor = dbHandler.getCursorLineByTitle(rooms[position]);
-
             if(!cursor.move(1)) return;
             String id = cursor.getString(cursor.getColumnIndexOrThrow(DbBaseColumns.KEY_ROOMID));
             //getting the content of the room
@@ -163,7 +175,9 @@ public class MyRooms extends BaseActivity {
         list[3] = elettronica;
         list[5] = mappe;
         list[4] = fisica;
+        fisica.add(labFisica);
         for (int i = 0; i < 6; i++) {
+            if(i==4)continue;
             Cursor cursor = dbHandler.getCursorLineByType(types[i]);
             try {
                 while (cursor.moveToNext()) {
@@ -177,10 +191,9 @@ public class MyRooms extends BaseActivity {
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
             }
-
-            cursor.close();
+                cursor.close();
         }
-        if (list[0].isEmpty() && list[1].isEmpty() && list[2].isEmpty() && list[3].isEmpty() && list[4].isEmpty()){
+        if (list[0].isEmpty() && list[1].isEmpty() && list[2].isEmpty() && list[3].isEmpty()){
             Toast toast = Toast.makeText(this, "NON HAI ANCORA TROVATO DELLE AULE!!", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();

@@ -56,32 +56,11 @@
                             android:id="@+id/imageOne"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
+                            android:scaleType="centerCrop"
+                            android:maxWidth="350dp"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:src="@drawable/fisica1"/>
-
-                    </android.support.v7.widget.CardView>
-
-                    <android.support.v7.widget.CardView
-                        android:id="@+id/cvp2"
-                        android:layout_width="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_height="250dp"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginBottom="1dp"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        app:cardElevation="6dp"
-                        app:strokeColor="@color/black"
-                        app:strokeWidth="2dp">
-
-                        <android.support.v7.widget.AppCompatImageView
-                            android:id="@+id/imageTwo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:src="@drawable/fisica2" />
 
                     </android.support.v7.widget.CardView>
 
@@ -102,9 +81,11 @@
                             android:id="@+id/imageThree"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
+                            android:scaleType="centerCrop"
+                            android:maxWidth="350dp"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:src="@drawable/fisica3"/>
+                            android:src="@drawable/fisica2"/>
 
                     </android.support.v7.widget.CardView>
                     <android.support.v7.widget.CardView
@@ -124,9 +105,11 @@
                             android:id="@+id/imageFour"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
+                            android:scaleType="centerCrop"
+                            android:maxWidth="350dp"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:src="@drawable/fisica4"/>
+                            android:src="@drawable/fisica3"/>
 
                     </android.support.v7.widget.CardView>
                     <android.support.v7.widget.CardView
@@ -146,11 +129,14 @@
                             android:id="@+id/imageFive"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
+                            android:scaleType="centerCrop"
+                            android:maxWidth="350dp"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:src="@drawable/fisica5"/>
+                            android:src="@drawable/fisica4"/>
 
                     </android.support.v7.widget.CardView>
+
                     <android.support.v7.widget.CardView
                         android:id="@+id/cvp6"
                         android:layout_width="wrap_content"
@@ -168,9 +154,11 @@
                             android:id="@+id/imageSix"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
+                            android:scaleType="centerCrop"
+                            android:maxWidth="150dp"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:src="@drawable/fisica6"/>
+                            android:src="@drawable/fisica5"/>
                     </android.support.v7.widget.CardView>
                 </LinearLayout>
             </HorizontalScrollView>
@@ -194,13 +182,25 @@
                 android:layout_height="wrap_content"
                 />
 
+            <TextView
+                android:id="@+id/videoTitle"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/content"
+                android:fontFamily="@font/proximanovasoftbold"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:text="Lo studio del moto: il carrello a trazione umana"/>
+
             <android.support.v7.widget.CardView
                 android:id="@+id/cardvideo1"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/content"
-                android:layout_height="190dp"
+                android:layout_below="@+id/videoTitle"
+                android:layout_height="400dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
                 android:foreground="?android:attr/selectableItemBackground"
@@ -208,46 +208,170 @@
                 app:strokeColor="@color/black"
                 app:strokeWidth="2dp">
                 <!-- Inserire detro CardView anche lo sfondo -->
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <VideoView
                         android:id="@+id/videoView1"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop
-                            ="10dp"
+                        android:layout_centerHorizontal="true"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
-                </LinearLayout>
+                </RelativeLayout>
             </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/videoTitle2"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cardvideo1"
+                android:fontFamily="@font/proximanovasoftbold"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:text="Lo studio del moto: pallarrampicata, pallaruzzolata"/>
+
+
             <android.support.v7.widget.CardView
             android:id="@+id/cardvideo2"
             android:layout_width="match_parent"
-            android:layout_below="@+id/cardvideo1"
-            android:layout_height="190dp"
+            android:layout_below="@+id/videoTitle2"
+            android:layout_height="400dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="30dp"
             android:foreground="?android:attr/selectableItemBackground"
             app:cardElevation="6dp"
             app:strokeColor="@color/black"
             app:strokeWidth="2dp">
             <!-- Inserire detro CardView anche lo sfondo -->
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
                 <VideoView
-                    android:id="@+id/video1"
+                    android:id="@+id/videoView2"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginTop
-                        ="10dp"
+                    android:layout_centerHorizontal="true"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
-            </LinearLayout>
+            </RelativeLayout>
         </android.support.v7.widget.CardView>
+        <TextView
+            android:layout_below="@+id/cardvideo2"
+            android:id="@+id/passarelli"
+            android:text="video del Professor Passarelli."
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+            <TextView
+                android:id="@+id/vuoisaperneTitle"
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/passarelli"
+                android:fontFamily="@font/proximanovasoftbold"
+                android:textSize="30sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:text="Vuoi saperne di più sulla fisica?
+Clicca e guarda!"/>
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardvideoLink1"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/vuoisaperneTitle"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardElevation="6dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="2dp">
+                <!-- Inserire detro CardView anche lo sfondo -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:fontFamily="@font/proximanovasoftbold"
+                        android:textColor="@color/black"
+                        android:text="La conservazione dell’energia:quando la vita è appesa a un filo (Walter Lewin)"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardvideoLink2"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/cardvideoLink1"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardElevation="6dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="2dp">
+                <!-- Inserire detro CardView anche lo sfondo -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:fontFamily="@font/proximanovasoftbold"
+                        android:textColor="@color/black"
+                        android:text="Come si scopre una nuova legge fisica. (Richard Feynman)"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardvideoLink3"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/cardvideoLink2"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardElevation="6dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="2dp">
+                <!-- Inserire detro CardView anche lo sfondo -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:fontFamily="@font/proximanovasoftbold"
+                        android:textColor="@color/black"
+                        android:text="Cosa studia la Fisica (Politecnico di Milano)"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>
