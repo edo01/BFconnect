@@ -10,7 +10,7 @@
         android:id="@+id/mytoolbar"/>
 
     <ImageView
-        android:id="@+id/punti_tre"
+        android:id="@+id/punti_due"
         android:layout_width="206dp"
         android:layout_height="27dp"
         android:layout_alignParentStart="true"
@@ -35,32 +35,47 @@
         app:backgroundTint="@color/white"
         app:srcCompat="@drawable/freccia_in" />
 
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fltNextQR1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_alignEnd="@+id/mytoolbar"
+        android:layout_alignParentTop="false"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="30dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="15dp"
         android:clickable="true"
+        android:focusable="true"
         app:backgroundTint="@color/white"
         app:srcCompat="@drawable/freccia" />
 
     <android.support.constraint.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/fltNextQR1"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_below="@+id/mytoolbar">
 
         <pl.droidsonroids.gif.GifImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="828dp"
+            android:layout_height="661dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="15dp"
             android:src="@drawable/nfc_gif"
-            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.26" />
 
     </android.support.constraint.ConstraintLayout>
+
 
 
     <TextView
@@ -69,6 +84,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/mytoolbar"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:textAlignment="center"
         android:fontFamily="@font/proximanovasoftbold"
         android:text="Come leggere i TAG"
