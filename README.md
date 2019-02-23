@@ -1,11 +1,11 @@
 <div align="center"><img src="application/app/src/main/res/drawable/ic_bf_connect_horizontal.png" alt="BFconnect Logo"><br>
-<h2>THE FIRST APP OF THE BELLUZZI FIORAVANTI</h2></div>
+<h2>THE FIRST APP OF I.I.S. BELLUZZI FIORAVANTI</h2></div>
 <br>
-<h3 align="center">BFconnect is an innovative app that will allow schools to better manage their Open Day.</h3><br>
+<h3 align="center">BFconnect is an innovative app that will allow schools to manage their Open Day in a better way.</h3><br>
 <h3 align="center">Powered by Edoardo Carrà and Francesco Taddia</h3>
 <center><a href="https://play.google.com/store/apps/details?id=org.iisbelluzzifioravanti.app.bfconnect" target="_blank"><img src="application/app/src/main/res/drawable/badge-playstore.png" width="170" height="50"></a></center>
 <div>
-<h2>RUN SERVER</h2>
+<h2>TO RUN APP SERVER:</h2>
   <h3>server directory: "BFconnect/server/".</h3>
   <h4>The structure of the server must be like this: </h4>
 <h4>
@@ -23,7 +23,7 @@
 </ul>
 </h4>
 <br><br>
-<h4>In file "roomContent.txt" there is a JSON data which contains all the informations about the room. Instead in pdf directory there are the time tables of school's specializations. The dictionary is like this:<br>
+<h4>Inside "roomContent.txt" file you can find JSON data which contain all the informations about the room. Inside "pdf" directory are contained chool'school's specializations' time tables. The dictionary look like this:<br>
 pdf = {
         '4': 'elettronica.pdf', '1': 'informatica.pdf', '3': 'chimica.pdf', '2': 'meccanica.pdf', '9': 'serale.pdf',
         '5': 'serale.pdf', '6': 'qualifiche.pdf','8': 'apparati.pdf', '7': 'manutenzione.pdf', '10': 'mezzi.pdf'
@@ -33,13 +33,13 @@ pdf = {
 <ol>
 <li>Create a setting file in your server dirctory named "local_settings.py" and follow the template in "local_settings.template" .<br>
 Here you can set the port and the ip_address of your server.
-<br>Attention! Your settings must be sync with the application server host url.</li>
+<br>Attention! Your settings must be synced with the application server host url.</li>
 <li>in your server directory run : <br>		python server.py</li>
 </ol>
 </h4>
 </div>
 <div>
-<h2>RUN STATISTIC SERVER</h2>
+<h2>TO RUN STATISTIC SERVER:</h2>
   <h3>Server directory: "BFconnect/webStatistic/".</h3>
   <h4>using framework django ver = 1.8 .</h4>
   <h4>Django reference online:https://docs.djangoproject.com/en/1.8/ref/ .</h4>
