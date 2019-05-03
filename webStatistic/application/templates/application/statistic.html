@@ -1,19 +1,33 @@
 {% load staticfiles %}
 <html>
 <head>
-  <title>DASHBOARD</title>
+  <title>BFconnect - Dashboard</title>
+  <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}"/>
+  <link href="//db.onlinewebfonts.com/c/f1448054f14757d284c064b271c00cc6?family=ProximaNovaSoftW03-Regular" rel="stylesheet" type="text/css"/>
   <style>
+
     h3.error{
       color:red;
+      font-family: ProximaNovaSoftW03-Regular;
+      font-size: 30px;
+    }
+    h3.received{
+      color:black;
+      font-family: ProximaNovaSoftW03-Regular;
+      font-size: 30px;
     }
     h3{
-      color: blue;
+      color:blue;
+      font-family: ProximaNovaSoftW03-Regular;
+      font-size: 30px;
     }
     h1{
       font-weight: bold;
+      font-family: ProximaNovaSoftW03-Regular;
     }
     #primo{
       position: absolute;
+      top:18%;
       width: 50%;
       height: 50%;
       left: 0%;
@@ -27,13 +41,15 @@
     }
     #secondo{
       position: absolute;
+      top: 21%;
       width: 40%;
       height: 50%;
       right: 0%;
     }
     #quarto{
+      
       position: absolute;
-      width: 40%;
+      width: 50%;
       height: 50%;
       top:50%;
       right: 0%;
@@ -44,19 +60,21 @@
   </style>
  <script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
  <script src="{% static 'js/chart.js/dist/Chart.js' %}"></script>
+ 
 </head>
 <body onload="updateGraphs()">
   <div id="title"><h1>SERVER DASHBOARD</h1></div>
+  <img src={% static 'image/bfconnect.png' %} width="400px" height="120px" hspace="725" vspace="15">
   <div id="primo">
     <canvas id="numberE" width="100%" height="30%"></canvas>
   </div>
   <div id="secondo">
-    <h3 class = "error" id = "e">Errori: </h3>
-    <h3 id = "r"> Risposte: </h3>
-    <h3 id = "m"> Tempo medio di risposta: </h3>
+    <h3 class = "error" id = "e">Errors: </h3>
+    <h3 class = "received" id = "r">Received: </h3>
+    <h3 id = "m"> Average response time: </h3>
   </div>
   <div id="terzo">
-    <canvas id="dataPdf" width="100%" height="30%"></canvas>
+    <canvas id="dataPdf" width="100%" height="45%"></canvas>
   </div>
   <div id="quarto">
     <canvas id="dataRoom" width="100%" height="45%"></canvas>
@@ -81,16 +99,16 @@
                 labels: {{ label }} ,
                 datasets: [{
                     type: 'bar',
-                    label: "Error responses",
+                    label: "Error",
                     data: errors,
                     borderColor:'rgba(255, 0, 0, 1)',
-                    borderWidth: 3
+                    borderWidth: 1
                 },{
                   type: 'line',
-                  label: 'OK Responses',
+                  label: 'Received',
                   data: responses,
-                  borderColor:'rgba(0, 0, 255, 1)',
-                  borderWidth: 3
+                  borderColor:'rgba(0, 0, 0, 0.9)',
+                  borderWidth: 1
                 }]
             },options: {
                 scales: {
@@ -111,13 +129,13 @@
         var myChart = new Chart(ctr, {
             type: "bar",
             data: {
-                labels: ["informatica","meccanica","chimica","elettronica","serale", "qualifiche", "manutenzione","apparati","mezzi", "alternanza",1,2,3,4,5,6,7,8,9],
+                labels: ["informatica","meccanica","chimica","elettronica","serale", "qualifiche", "manu","apparati","mezzi", "asl","mast","ducati","opus","magneti","filosofia","frigo","stem","texa","toyota"],
                 datasets: [{
                     type: 'bar',
-                    label: "pdf",
+                    label: "PDF - Training plans",
                     data: pdfs,
-                    borderColor:'rgba(0, 0, 255, 1)',
-                    borderWidth: 3
+                    borderColor:'rgba(18,179,0,0.9)',
+                    borderWidth: 4
                 }]
             },options: {
                 scales: {
@@ -138,13 +156,13 @@
         var myChart = new Chart(ctm, {
             type: "bar",
             data: {
-                labels: ['pagina di benvenuto','elettronica1', 'elettronica2', 'elettronica3','chimica1', 'chimica2','chimica3','chimica4','mappa1','mappa2','mappa1 n2', 'mappa2 n2','tps', 'informatica', 'sistemi', 'fisica', 'meccanica1', 'meccanica2', 'meccanica3', 'meccanica4'],
+                labels: ['beOPEN','elettronica1', 'elettronica2', 'elettronica3','chimica1', 'chimica2','chimica3','chimica4','mappa1','mappa2','mappa1 n2', 'mappa2 n2','tps', 'informatica', 'sistemi', 'fisica', 'meccanica1', 'meccanica2', 'meccanica3', 'meccanica4'],
                 datasets: [{
                     type: 'bar',
-                    label: "pagine dei laboratori",
+                    label: "LAB - Laboratories pages",
                     data: rooms,
-                    borderColor:'rgba(0, 0, 255, 1)',
-                    borderWidth: 3
+                    borderColor:'rgba(255,136,0,0.9)',
+                    borderWidth: 4
                 }]
             },options: {
                 scales: {
