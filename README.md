@@ -3,7 +3,7 @@
 <br>
 <h3 align="center">BFconnect is an innovative app that will allow schools to manage their Open Day in a better way.</h3><br>
 <h3 align="center">Powered by Edoardo Carrà and Francesco Taddia</h3>
-<a align="center" href="https://play.google.com/store/apps/details?id=org.iisbelluzzifioravanti.app.bfconnect" target="_blank"><img src="application/app/src/main/res/drawable/badge_playstore.png" width="170" height="50"></a>
+<a align="center" href="https://play.google.com/store/apps/details?id=org.iisbelluzzifioravanti.app.bfconnect" target="_blank"><img src="application/app/src/main/res/drawable/badge-playstore.png" width="170" height="50"></a>
 <div>
 <h2>TO RUN APP SERVER:</h2>
   <h3>server directory: "BFconnect/server/".</h3>
