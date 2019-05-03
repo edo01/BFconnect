@@ -63,6 +63,7 @@
  
 </head>
 <body onload="updateGraphs()">
+  <div id="title"><h1>SERVER DASHBOARD</h1></div>
   <img src={% static 'image/bfconnect.png' %} width="400px" height="120px" hspace="725" vspace="15">
   <div id="primo">
     <canvas id="numberE" width="100%" height="30%"></canvas>
@@ -128,7 +129,7 @@
         var myChart = new Chart(ctr, {
             type: "bar",
             data: {
-                labels: ["informatica","meccanica","chimica","elettronica","serale", "qualifiche", "manu","apparati","mezzi", "asl",1,2,3,4,5,6,7,8,9],
+                labels: ["informatica","meccanica","chimica","elettronica","serale", "qualifiche", "manu","apparati","mezzi", "asl","mast","ducati","opus","magneti","filosofia","frigo","stem","texa","toyota"],
                 datasets: [{
                     type: 'bar',
                     label: "PDF - Training plans",
