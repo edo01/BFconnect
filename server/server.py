@@ -6,10 +6,10 @@ XXX To do:
 """
 
 # BFCONNECT Working Group
-# - E. Carrà, F. Taddia, R. Bovinelli
+# - E. Carrà, F. Taddia
 from socketserver import ThreadingMixIn
 
-__version__ = "0.1c"
+__version__ = "1.1.0"
 
 
 from http.server import HTTPServer
