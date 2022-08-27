@@ -25,7 +25,7 @@
 </ul>
 </h4>
 <br><br>
-<h4>Inside "roomContent.txt" file you can find JSON data which contain all the informations about the room. Inside "pdf" directory are contained chool'school's specializations' time tables. The dictionary look like this:<br>
+<h4>Inside "roomContent.txt" file you can find JSON data which contain all the informations about the room. Inside "pdf" directory are contained chool'school's specializations' time tables. The dictionary looks like this:<br>
 pdf = {
         '4': 'elettronica.pdf', '1': 'informatica.pdf', '3': 'chimica.pdf', '2': 'meccanica.pdf', '9': 'serale.pdf',
         '5': 'serale.pdf', '6': 'qualifiche.pdf','8': 'apparati.pdf', '7': 'manutenzione.pdf', '10': 'mezzi.pdf'
@@ -41,7 +41,7 @@ Here you can set the port and the ip_address of your server.
 </h4>
 </div>
 <div>
-<h2>TO RUN STATISTIC SERVER:</h2>
+<h2>RUN STATISTIC SERVER:</h2>
   <h3>Server directory: "BFconnect/webStatistic/".</h3>
   <h4>using framework django ver = 1.8.1</h4>
   <h4>Django reference online:https://docs.djangoproject.com/en/1.8/ref/ .</h4>
